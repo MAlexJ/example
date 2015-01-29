@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
  * Created by admin on 29.01.2015.
  */
 public class App_3 {
-    private final static Logger LOG = Logger.getLogger(App.class);
+    private final static Logger LOG = Logger.getLogger(App_3.class);
 
     public static void main(String[] args) {
         int a = 1_500_000_000;
