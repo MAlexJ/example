@@ -8,6 +8,7 @@ public class App_04_Generic {
 
     public static void main(String[] args) {
         WithVersion<String> strV = new WithVersion<>("Mike", 10);
+
         WithVersion<int[]> intArraV = new WithVersion<>(new int[]{1, 5, 3}, 10);
 
         //???????????????
@@ -51,5 +52,13 @@ class WithVersion<T> {
 
     public void setVersion(int version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "WithVersion{" +
+                "value=" + value +
+                ", version=" + version +
+                '}';
     }
 }
