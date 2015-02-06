@@ -5,13 +5,22 @@ public class App_primitive {
 
     public static void main(String[] args) {
 
-        byte b = 5;
-        short s = 10;
-        int i = 20;
-        long l = 10L;
-        char c = 68;
-        float f = 10.0f;
-        double d = 10.2;
+        // Integer primitive data types
+        byte b = 5; // 8bit   / -128 to 128 / -2e7 to 2e7-1
+        short s = 10; // 16bit / -2e15 to 2e15-1
+        int i = 20; // 32bit  / -2e31 to 2e31-1
+        long l = 10L; // 64bit / -2e63 to 2e63-1
+
+        //character primitive data types
+        char c = 68; // 32bit
+
+        //fractional primitive data types
+        float f = 10.0f; // 32bit
+        double d = 10.2; // 64bit
+
+        //Boolean primitive data types
+        boolean flag = true;
+        boolean stopFlag = false;
 
         //------------------------------->
         //short
