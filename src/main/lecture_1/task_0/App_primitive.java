@@ -1,6 +1,10 @@
 package task_0;
 
-
+/**
+ * Лекция 2 (Java SE)
+ * Страница 21
+ *
+ * */
 public class App_primitive {
 
     public static void main(String[] args) {
