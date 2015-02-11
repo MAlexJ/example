@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58031f38-73e8-406c-b375-79a4fe75eff4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_02.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_03.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="example.iws" />
@@ -73,15 +73,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test_02.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Test_02.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_02.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9463722" vertical-offset="250" max-vertical-offset="969">
+            <state vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="969">
               <caret line="50" column="2" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
               <folding>
                 <element signature="e#729#730#0" expanded="true" />
                 <element signature="e#775#776#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test_03.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_03.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.28902626" vertical-offset="0" max-vertical-offset="647">
+              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,6 +125,7 @@
         <option value="$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_00.java" />
         <option value="$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_01.java" />
         <option value="$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_02.java" />
+        <option value="$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_03.java" />
       </list>
     </option>
   </component>
@@ -779,7 +790,7 @@
       <workItem from="1423203670598" duration="13003000" />
       <workItem from="1423506537302" duration="1695000" />
       <workItem from="1423672866400" duration="460000" />
-      <workItem from="1423681613389" duration="1280000" />
+      <workItem from="1423681613389" duration="1464000" />
     </task>
     <task id="LOCAL-00001" summary="Обмен значениями без дополнительной переменной&#10;Иногда на собеседованиях спрашивают, можно ли обменять две переменных типа int значениями без использования дополнительной переменной. Это элемент “программистского фольклора” и собеседующий ожидает примерно такое решения:&#10;Оно работает даже в случае переполнения int">
       <created>1422566081191</created>
@@ -925,11 +936,17 @@
       <option name="project" value="LOCAL" />
       <updated>1423682521641</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="task_1_test_02">
+      <created>1423682943643</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1423682943643</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36776000" />
+    <option name="totallyTimeSpent" value="36960000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1019,7 +1036,8 @@
     <MESSAGE value="Lecture_0&#10;psvm(S[] args)" />
     <MESSAGE value="task_1_test_00" />
     <MESSAGE value="task_1_test_01" />
-    <option name="LAST_COMMIT_MESSAGE" value="task_1_test_01" />
+    <MESSAGE value="task_1_test_02" />
+    <option name="LAST_COMMIT_MESSAGE" value="task_1_test_02" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1030,14 +1048,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_00.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/lecture_1/task_0/App_primitive.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1173">
@@ -1400,12 +1410,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_02.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9463722" vertical-offset="250" max-vertical-offset="969">
+        <state vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="969">
           <caret line="50" column="2" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
           <folding>
             <element signature="e#729#730#0" expanded="true" />
             <element signature="e#775#776#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/lecture_1/task_0/test/Test_03.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28902626" vertical-offset="0" max-vertical-offset="647">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
