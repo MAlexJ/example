@@ -1,3 +1,5 @@
+package task_Generic;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -56,7 +58,7 @@ class WithVersion<T> {
 
     @Override
     public String toString() {
-        return "WithVersion{" +
+        return "task_Generic.WithVersion{" +
                 "value=" + value +
                 ", version=" + version +
                 '}';

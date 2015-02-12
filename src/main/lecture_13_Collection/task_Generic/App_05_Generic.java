@@ -1,6 +1,6 @@
-import org.apache.log4j.Logger;
+package task_Generic;
 
-import java.util.ArrayList;
+import org.apache.log4j.Logger;
 
 /**
  * Created by Alex on 04.02.2015.
