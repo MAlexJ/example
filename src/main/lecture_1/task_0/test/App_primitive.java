@@ -1,12 +1,9 @@
-package task_0;
+package task_0.test;
 
 /**
- * Лекция 2 (Java SE)
- * Страница 21
- *
- * */
+ * Created by Alex on 13.02.2015.
+ */
 public class App_primitive {
-
     public static void main(String[] args) {
 
         // Integer primitive data types
