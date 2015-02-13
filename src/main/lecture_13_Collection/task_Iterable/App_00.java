@@ -2,41 +2,44 @@ package task_Iterable;
 
 import org.apache.log4j.Logger;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 
-import static java.util.Arrays.*;
 
-/**
- * Created by Alex on 12.02.2015.
- */
 public class App_00 {
-    private final static Logger LOG = Logger.getLogger(App_00.class);
+    private static final Logger LOG = Logger.getLogger(App_00.class);
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>(asList("B", "A", "C", "F", "D"));
+        LOG.debug("start main");
 
-        for (int i = 0; i < list.size(); i++) {
-            LOG.debug(list.get(i));
+        Student student_1 = new Student(21, "Mike");
+        Student student_2 = new Student(20, "Anna");
+        Student student_3 = new Student(23, "Alex");
+        Student student_4 = new Student(24, "Olga");
+        Student student_5 = new Student(20, "Misha");
+        Student student_6 = new Student();
+        student_6.setAge(30);
+        student_6.setName("Root");
+
+        Group group = new Group();
+        group.setList(new ArrayList<>(Arrays.asList(student_1, student_2, student_3, student_4, student_5)));
+        group.addStudent(student_6);
+
+        for (Student iter : group) {
+            LOG.debug(iter);
         }
 
-        // ArrayList<> implements RandomAccess
-        // interface RandomAccess -> Marker interface used by List implementations to indicate that they support fast (generally constant time) random access.
-        /*
-        * public static <T>
-            int binarySearch(List<? extends Comparable<? super T>> list, T key) {
-                if (list instanceof RandomAccess || list.size()<BINARYSEARCH_THRESHOLD)
-                    return Collections.indexedBinarySearch(list, key);
-                 else
-                    return Collections.iteratorBinarySearch(list, key);
-            }
-        */
+        System.out.println();
 
-        Iterator<String> iter = list.iterator();
-        while (iter.hasNext()){
-            System.out.println(iter.next());
+        Group group_2 = new Group();
+        group_2.setList(new LinkedList<>(Arrays.asList(student_1, student_2, student_3, student_4, student_5)));
+        group_2.addStudent(student_6);
+        group_2.removeStudent(student_3);
+
+
+        for (Student iter : group_2) {
+            LOG.debug(iter);
         }
-
     }
-
 }
