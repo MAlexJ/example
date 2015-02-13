@@ -1,4 +1,4 @@
-package task_0.test;
+package task_0;
 
 /**
  * Created by Alex on 13.02.2015.
