@@ -1,0 +1,20 @@
+            List()
+         .contains()
+            *   *
+           *     *
+   ArrayList()    LinkedList()
+      O(N)          O(N)
+
+               Hash()
+            .contains()
+               *   *
+              *     *
+      HashSet()     HashMap()
+         O(1)          O(1)
+
+            Tree()
+         .contains()
+            *   *
+           *     *
+   TreeSet()    TreeMap()
+      O(lgN)      O(lgN)
