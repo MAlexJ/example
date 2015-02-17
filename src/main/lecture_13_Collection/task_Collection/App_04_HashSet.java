@@ -8,6 +8,8 @@ public class App_04_HashSet {
 
     public static void main(String[] args) {
         Set<Point2D> set = new HashSet<>();
+        // add null to HashSet
+        set.add(null);
         set.add(new Point2D(0,0));
         set.add(new Point2D(0,0));
         System.out.println(set);
