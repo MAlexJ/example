@@ -15,11 +15,11 @@ public class App_03_Set {
     public static void main(String[] args) {
         LOG.debug("main");
         Set<String> listSet = new HashSet<>();
-        LOG.debug("listSet.add(\"b\") -> " + listSet.add("b"));
+        LOG.debug("listSet.add(\"bb\") -> " + listSet.add("bb"));
         LOG.debug("listSet.add(\"e\") -> " + listSet.add("e"));
         LOG.debug("listSet.add(\"d\") -> " + listSet.add("d"));
         LOG.debug("listSet.add(\"c\") -> " + listSet.add("c"));
-        LOG.debug("listSet.add(\"c\") -> " + listSet.add("c"));
+        LOG.debug("listSet.add(\"b\") -> " + listSet.add("b"));
         LOG.debug("listSet.add(\"c\") -> " + listSet.add("c"));
         LOG.debug("listSet.add(\"a\") -> " + listSet.add("a"));
 
@@ -32,7 +32,7 @@ public class App_03_Set {
         LOG.debug("listSet.add(\"b\") -> " + listSet1.add("b"));
         LOG.debug("listSet.add(\"a\") -> " + listSet1.add("a"));
         LOG.debug("listSet.add(\"c\") -> " + listSet1.add("c"));
-        LOG.debug("listSet.add(\"c\") -> " + listSet1.add("c"));
+        LOG.debug("listSet.add(\"bb\") -> " + listSet1.add("bb"));
 
         LOG.debug(listSet1);
 
