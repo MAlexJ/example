@@ -49,7 +49,8 @@ public class App_primitive {
         double doubleNum3 = d + f; // double + float
 
         //*********************************>
-        //(type)type
+
+        // Up cast(type)type
         float floatNum2 = (float) d + f; // double + float
         // float floatNum2 = d + f -> error
 
