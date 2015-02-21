@@ -7,7 +7,9 @@ public class App_10 {
 
     public static void main(String[] args) {
 
+        // Thread.isDemon(true)
 
+        //Thread -> setDemon()
 
     }
 }
