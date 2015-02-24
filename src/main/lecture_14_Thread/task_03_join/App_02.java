@@ -30,8 +30,9 @@ public class App_02 {
             System.out.println("Bye -> " + Thread.currentThread().getName());
         }
 
-        // join();
+        // **************  join(); *****************
         thread_1.join();
+
         System.out.println("Thats ALL -> " + Thread.currentThread().getName());
 
     }
