@@ -1,16 +1,23 @@
-package task_01;
+package task_01_length;
 
-public class App_01 {
-
-    public static final int N = 1_000_000_000;
+/**
+ * Created by Alex on 19.02.2015.
+ */
+public class App_04 {
+    public static final int N = 10_000_000;
     public static int counter = 0;
+
+    //add -> synchronized
+    public synchronized static void inc() {
+        counter++;
+    }
 
     public static void main(String[] args) throws InterruptedException {
         Thread thread_0 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < N; i++) {
-                    counter++;
+                    inc();
                 }
             }
         });
@@ -21,7 +28,7 @@ public class App_01 {
             @Override
             public void run() {
                 for (int i = 0; i < N; i++) {
-                    counter++;
+                    inc();
                 }
             }
         });

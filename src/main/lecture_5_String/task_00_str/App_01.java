@@ -1,8 +1,5 @@
-package task_01_str;
+package task_00_str;
 
-/**
- * Created by Alex on 3/4/2015.
- */
 public class App_01 {
 
     public  static  String str = new String();

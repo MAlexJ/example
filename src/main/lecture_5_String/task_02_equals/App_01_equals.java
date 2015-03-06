@@ -3,7 +3,7 @@ package task_02_equals;
 /**
  * Created by Alex on 3/4/2015.
  */
-public class App_01 {
+public class App_01_equals {
 
     public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package task_01;
+package task_01_length;
 
 /**
  * Created by Alex on 06.03.2015.

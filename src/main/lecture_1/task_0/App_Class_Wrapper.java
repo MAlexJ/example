@@ -3,6 +3,7 @@ package task_0;
 public class App_Class_Wrapper {
     public static void main(String[] args) {
 
+
         /**8x primitive type*/
         byte numbByte = 10;
         short numShort = 15;

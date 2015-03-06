@@ -1,16 +1,23 @@
-package task_01;
+package task_01_length;
 
-public class App_02 {
+
+// https://ru.wikipedia.org/wiki/%D0%90%D1%82%D0%BE%D0%BC%D0%B0%D1%80%D0%BD%D0%B0%D1%8F_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F
+
+public class App_03 {
+
     public static final int N = 10_000_000;
-    // !!! volatile
-    public static volatile int counter = 0;
+    public static int counter = 0;
+
+    public static void inc() {
+        counter++;
+    }
 
     public static void main(String[] args) throws InterruptedException {
         Thread thread_0 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < N; i++) {
-                    counter++;
+                    inc();
                 }
             }
         });
@@ -21,7 +28,7 @@ public class App_02 {
             @Override
             public void run() {
                 for (int i = 0; i < N; i++) {
-                    counter++;
+                    inc();
                 }
             }
         });
@@ -34,5 +41,4 @@ public class App_02 {
         System.out.println(counter);
 
     }
-
 }
