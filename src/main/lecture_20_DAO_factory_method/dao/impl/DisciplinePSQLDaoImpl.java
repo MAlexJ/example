@@ -31,6 +31,7 @@ public class DisciplinePSQLDaoImpl implements DisciplineDAO {
 
     @Override
     public boolean deleteeDiscipline(int id) {
+        System.out.print("PSQL" + id + "  ");
         return false;
     }
 }

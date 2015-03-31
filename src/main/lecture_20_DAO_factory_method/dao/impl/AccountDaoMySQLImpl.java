@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.AccountDao;
+import database.DBConnection;
 import entity.Account;
 
 import java.util.List;
@@ -10,6 +11,9 @@ import java.util.List;
  */
 
 public class AccountDaoMySQLImpl implements AccountDao {
+
+    // JDBC dependency -> pom.xml
+    //DBConnection dbConnection = new DBConnection();
 
     @Override
     public List<Account> getAccounts() {
@@ -33,6 +37,8 @@ public class AccountDaoMySQLImpl implements AccountDao {
 
     @Override
     public boolean deleteeAccount(int id) {
+        //DataSource
+        //  dbConnection.deleteDicsepline(id);
         return true;
     }
 }

@@ -32,6 +32,7 @@ public class DisciplineMySQLDaoImpl implements DisciplineDAO {
 
     @Override
     public boolean deleteeDiscipline(int id) {
+        System.out.print("MySQL" + id + "  ");
         return true;
     }
 }

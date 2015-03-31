@@ -31,6 +31,7 @@ public class AccountDaoPSQLImpl implements AccountDao {
 
     @Override
     public boolean deleteeAccount(int id) {
+        System.out.print("PSQL" + id + "  ");
         return false;
     }
 }
