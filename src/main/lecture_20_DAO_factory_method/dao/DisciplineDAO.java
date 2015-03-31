@@ -5,6 +5,7 @@ import entity.Discipline;
 import java.util.List;
 
 /**
+ * Product
  * interface  DAO2
  */
 

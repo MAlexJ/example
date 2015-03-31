@@ -5,6 +5,7 @@ import entity.Account;
 import java.util.List;
 
 /**
+ * Product
  * interface  DAO1
  */
 
