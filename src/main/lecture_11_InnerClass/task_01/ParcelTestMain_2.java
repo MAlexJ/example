@@ -1,7 +1,7 @@
 package task_01;
 
 
-public class ParcelTestMain_1 {
+public class ParcelTestMain_2 {
 
     class ParcelInt {
         private int i = 11;
@@ -27,13 +27,25 @@ public class ParcelTestMain_1 {
         }
     }
 
+    public ParcelInt toParcelInt() {
+        return new ParcelInt();
+    }
+
+    public ParcelString toParcelString(String str) {
+        return new ParcelString(str);
+    }
+
 
     public static void main(String[] args) {
-        // Error ->  ParcelInt parcelInt = new ParcelInt();
-        ParcelTestMain parcelTestMain = new ParcelTestMain();
-        // Error ->  ParcelTestMain.ParcelInt parcelInt = new ParcelTestMain.ParcelInt();
-//        ParcelTestMain.ParcelInt parcelInt = new ParcelTestMain.ParcelInt();
-//        parcelInt.value("34");
+        ParcelTestMain_2 parcelTestMain = new ParcelTestMain_2();
+
+        ParcelInt parcelInt = parcelTestMain.toParcelInt();
+        System.out.println(parcelInt.value("234"));
+
+        ParcelString parcelString = parcelTestMain.toParcelString("asdfg");
+        System.out.println(parcelString.readLabel());
+
     }
+
 
 }
