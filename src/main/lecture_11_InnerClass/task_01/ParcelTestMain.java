@@ -28,12 +28,15 @@ public class ParcelTestMain {
     }
 
     public int goParselInt(String str) {
-        ParcelInt parcelInt = new ParcelInt();
-        return parcelInt.value(str);
+       // ParcelInt parcelInt = new ParcelInt();
+       // return parcelInt.value(str);
+        return new ParcelInt().value(str);
     }
 
     public String goParselString(String str) {
         ParcelString parcelString = new ParcelString(str);
+
+        class JHjhkf{}
         return parcelString.readLabel();
     }
 
@@ -44,6 +47,15 @@ public class ParcelTestMain {
         System.out.println(parcelTestMain.goParselInt("1234"));
 
         System.out.println(parcelTestMain.goParselString("String"));
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("DFGHJKL");
+            }
+        };
+
+        runnable.run();
 
 
     }

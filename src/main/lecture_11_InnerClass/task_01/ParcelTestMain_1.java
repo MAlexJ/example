@@ -1,8 +1,6 @@
 package task_01;
 
-/**
- * Created by Alex on 4/9/2015.
- */
+
 public class ParcelTestMain_1 {
 
     class ParcelInt {

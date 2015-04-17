@@ -10,8 +10,7 @@ of individually specified types and combinations, it is called ad hoc polymorphi
 Ad hoc polymorphism is supported in many languages using function overloading.
 
 - (Parametric polymorphism) If the code is written without mention of any specific type and thus can be used transparently with any number of new types,
-it is called parametric polymorphism. In the object-oriented programming community,
-this is often known as generics or generic programming.
+it is called parametric polymorphism. In the object-oriented programming community,                                                      this is often known as generics or generic programming.
  In the functional programming community, this is often simply called polymorphism.
 
  - (Subtyping) Subtyping (or inclusion polymorphism) is a concept wherein a name may denote instances of many different classes as
