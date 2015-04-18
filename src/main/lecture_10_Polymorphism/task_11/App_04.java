@@ -1,30 +1,31 @@
-package task_1;
+package task_11;
 
 /**
  * Created by Alex on 24.02.2015.
  */
-public class App_03 {
+public class App_04 {
 
     public static void main(String[] args) {
-        A3 a = new B3();
+
+        A4 a = new B4();
         System.out.println("a.i -> "+a.i);
         System.out.println("a.getI()-> "+ a.getI());
     }
-
 }
 
-class A3 {
+
+class A4 {
     static int i = 3;
 
-    int getI() {
+   int getI() {
         return i;
     }
 }
 
-class B3 extends A3 {
-    static int i = 5;
+class B4 extends A4 {
+     int i = 5;
 
-    int getI() {
+     int getI() {
         return i;
     }
 }

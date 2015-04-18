@@ -28,7 +28,7 @@ public class SerializationExample_1 {
         System.out.println(listProfile.size());
 
         // Serialization of an object
-        serData("profile", listProfile);
+       // serData("profile", listProfile);
 
     }
 

@@ -1,4 +1,4 @@
-package task_1;
+package task_11;
 
 /**
  * Итак, в java все нестатические неприватные (то есть, protected, package и public) методы являются виртуальными.
@@ -16,8 +16,9 @@ public class App_01 {
 
 
 class A {
+    //field
     int i = 3;
-
+    //method
     int getI() {
         return i;
     }
@@ -31,6 +32,16 @@ class B extends A {
         return i;
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 /**Ответ:
  1. Так как поля класса не наследуются, то у класса A своё поле i и у класса B тоже своё поле i.

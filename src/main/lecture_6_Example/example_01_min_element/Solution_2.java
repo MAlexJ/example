@@ -9,6 +9,7 @@ public class Solution_2 {
         System.out.println(minNumber(0, 0, 0, 0));
         System.out.println(minNumber(1, -2, 10, 2));
         System.out.println(minNumber(-5, 2, -1, 5));
+        System.out.println(minNumber(-5, 2, -1, -5));
         System.out.println(minNumber(5, 2, 10, 5));
     }
 

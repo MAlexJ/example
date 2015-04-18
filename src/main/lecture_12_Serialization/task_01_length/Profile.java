@@ -1,8 +1,6 @@
 package task_01_length;
 
-/**
- * Created by Alex on 06.03.2015.
- */
+
 public class Profile {
     public String getName() {
         return name;
