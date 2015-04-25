@@ -2,13 +2,19 @@ package task_02;
 
 import java.io.Serializable;
 
-/**
- * Created by Alex on 06.03.2015.
- */
 public class ProfileSerializ implements Serializable {
     private String firstName;
     private String midlName;
     private String lastName;
+
+    public ProfileSerializ() {
+    }
+
+    public ProfileSerializ(String firstName, String midlName, String lastName) {
+        this.firstName = firstName;
+        this.midlName = midlName;
+        this.lastName = lastName;
+    }
 
     public String getFirstName() {
         return firstName;
