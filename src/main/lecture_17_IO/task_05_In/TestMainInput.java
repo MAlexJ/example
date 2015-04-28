@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * Created by admin on 26.04.2015.
- */
+
 public class TestMainInput {
 
     public static void main(String[] args) {
@@ -15,7 +13,14 @@ public class TestMainInput {
         try {
             reader = new BufferedReader(new InputStreamReader(System.in));
             String str = reader.readLine();
-            System.out.print(str);
+            int i = 0;
+            try {
+                i = Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                System.out.print("Не строка");
+            }
+
+            System.out.print(i);
 
 
         } catch (IOException e) {

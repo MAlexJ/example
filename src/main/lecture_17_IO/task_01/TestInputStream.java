@@ -28,7 +28,10 @@ public class TestInputStream {
         try {
             output = new FileOutputStream(file);
             dataOutputStream = new DataOutputStream(output);
-            dataOutputStream.writeChars("a");
+
+
+
+            dataOutputStream.writeChars("c");
             dataOutputStream.writeChars("b");
         } catch (FileNotFoundException e) {
             e.printStackTrace();

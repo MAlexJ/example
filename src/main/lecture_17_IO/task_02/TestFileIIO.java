@@ -14,7 +14,7 @@ public class TestFileIIO {
         System.out.println(file.isDirectory());
         System.out.println(file.getName());
         System.out.println(file.exists());
-        //file.delete();
+       // file.delete();
 
 
     }
