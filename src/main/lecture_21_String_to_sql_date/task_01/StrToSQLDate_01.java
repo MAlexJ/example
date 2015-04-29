@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 public class StrToSQLDate_01 {
 
     public static void main(String[] args) throws ParseException {
+
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         java.util.Date parsed = format.parse("20110210");
         java.sql.Date sql = new java.sql.Date(parsed.getTime());
@@ -21,7 +22,6 @@ public class StrToSQLDate_01 {
         java.util.Date parsed_02 = format_02.parse("15/09/2014");
         java.sql.Date sql_02 = new java.sql.Date(parsed_02.getTime());
         System.out.println(sql_02);
-
 
     }
 }
