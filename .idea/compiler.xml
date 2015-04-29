@@ -26,5 +26,8 @@
         <module name="example" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.7">
+      <module name="example" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

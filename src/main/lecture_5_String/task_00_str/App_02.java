@@ -5,7 +5,7 @@ package task_00_str;
  */
 public class App_02 {
 
-    public  static String str;
+    public static String str;
 
     public static void main(String[] args) {
         System.out.println(str);

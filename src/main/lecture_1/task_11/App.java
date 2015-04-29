@@ -2,11 +2,7 @@ package task_11;
 
 import org.apache.log4j.Logger;
 
-/**
- * Created by admin on 29.01.2015.
- * <p>
- * Exchange values through an additional variable
- */
+
 public class App {
     private final static Logger LOG = Logger.getLogger(App.class);
 
