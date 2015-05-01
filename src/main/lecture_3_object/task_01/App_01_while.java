@@ -1,4 +1,4 @@
-package task_3;
+package task_01;
 
 /**
  * Created by Alex on 06.02.2015.

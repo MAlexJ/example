@@ -1,4 +1,4 @@
-package task_2;
+package task_1;
 
 import org.apache.log4j.Logger;
 
