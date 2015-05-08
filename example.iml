@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="gwt" name="GWT">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_1_primitive" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_0" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_20_DAO_factory_method" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_equals_Int_String" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_String" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_6_Example" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_10_Polymorphism" isTestSource="false" />
@@ -23,9 +28,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_17_IO" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_String_format" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_21_String_to_sql_date" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_4_array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_wrapper_class" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_object" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.11" level="project" />

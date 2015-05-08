@@ -5,33 +5,35 @@ import java.util.List;
 
 
 public class ExampleTestMain {
-    private static List<ProfileSerializ> listProfile = new ArrayList<>();
+
+    private static List<BulletinBoard> listBoard = new ArrayList<>();
+    private static SerializClass serializClass = new SerializClass();
 
     public static void main(String[] args) {
         /** Deserialize object */
-        /** You must have the file "profile.ser" */
-        //listProfile = (List<ProfileSerializ>) SerializClass.deserData("profile.ser");
-        System.out.println("listProfile.size() -> " + listProfile.size());
+        /** You must have the file "dao_file.ser" */
+//        listBoard = (List<BulletinBoard>) serializClass.deserData("dao_file.ser");
+        System.out.println(">>> listProfile.size() -> " + listBoard.size());
 
-        for (ProfileSerializ iter : listProfile) {
-            System.out.println(iter);
-        }
+//        for (BulletinBoard iter : listBoard) {
+//            System.out.println(iter);
+//        }
 
-        // Check the size of the list -> List<ProfileSerializ>
-//        ProfileSerializ profile_01 = new ProfileSerializ("A21", "A22", "A33");
-//        ProfileSerializ profile_02 = new ProfileSerializ("A21", "A22", "A33");
-//        ProfileSerializ profile_03 = new ProfileSerializ("A21", "A22", "A33");
-//        ProfileSerializ profile_04 = new ProfileSerializ("A21", "A22", "A33");
-//        listProfile.add(profile_01);
-//        listProfile.add(profile_02);
-//        listProfile.add(profile_03);
-//        listProfile.add(profile_04);
-
-        // Check the size of the list -> List<ProfileSerializ>
-        System.out.println(listProfile.size());
+        /** Create Entity */
+//        BulletinBoard board_01 = new BulletinBoard(1, "User", new Date(), "AUTO", "Shop auto", "Профессиональное диагностическое оборудование");
+//        BulletinBoard board_02 = new BulletinBoard(1, "User", new Date(), "AUTO", "Shop auto", "Профессиональное диагностическое оборудование");
+//        BulletinBoard board_03 = new BulletinBoard(1, "User", new Date(), "AUTO", "Shop auto", "Профессиональное диагностическое оборудование");
+//        BulletinBoard board_04 = new BulletinBoard(1, "User", new Date(), "AUTO", "Shop auto", "Профессиональное диагностическое оборудование");
+//        BulletinBoard board_05 = new BulletinBoard(1, "User", new Date(), "AUTO", "Shop auto", "Профессиональное диагностическое оборудование");
+//        listBoard.add(board_01);
+//        listBoard.add(board_02);
+//        listBoard.add(board_03);
+//        listBoard.add(board_04);
+//        listBoard.add(board_05);
+//        System.out.println(">>> listProfile.size() -> " + listBoard.size());
 
         /** Serialization of an object */
-       // SerializClass.serData("profile", listProfile);
+       // serializClass.serData("dao_file", listBoard);
 
     }
 

@@ -5,14 +5,13 @@ import java.io.*;
 public class SerializClass {
 
     // This method is intended for serialization of the object
-    public static void serData(String file_name, Object obj) {
+    public void serData(String file_name, Object obj) {
 
         FileOutputStream fileOut = null;
         ObjectOutputStream out = null;
         try {
             fileOut = new FileOutputStream(file_name + ".ser");
             out = new ObjectOutputStream(fileOut);
-//          out = new ObjectOutputStream(new FileOutputStream(file_name + ".ser"));
             out.writeObject(obj);
         } catch (FileNotFoundException e) {
             System.err.println("Файл не найден ");
@@ -32,7 +31,7 @@ public class SerializClass {
     }
 
     // This method is intended for deserialization of an object
-    public static Object deserData(String file_name) {
+    public Object deserData(String file_name) {
         FileInputStream fileInput = null;
         ObjectInput in = null;
         Object retObject = null;
