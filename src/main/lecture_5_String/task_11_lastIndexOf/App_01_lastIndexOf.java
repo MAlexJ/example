@@ -32,7 +32,7 @@ public class App_01_lastIndexOf {
         // Returns the index of the "last" occurrence of the character in the character
         // sequence represented by this object that is less than or equal to fromIndex
         System.out.print("Found Last Index :");
-        System.out.println(Str.lastIndexOf('o', 5));
+        System.out.println(Str.lastIndexOf('o', 6));
 
     }
 }

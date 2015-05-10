@@ -7,16 +7,19 @@ public class App_00 {
 
     public static void main(String[] args) {
 
-        Integer i1 = 100;
-        Integer i2 = 100;
+        Integer i1 = 128;
+        Integer i2 = 128;
 
 
-        //А теперь что быдет ?????????????
-        //Integer i1 = 200;
-        // Integer i2 = 200;
-
-        System.out.println(i1 == i2);
+        System.out.println(i1);
         System.out.println(i1.equals(i2));
+
+
+
+
+
+
+
 
         //Integer in = Integer.valueOf(100);
         //static final int low = -128;
@@ -27,8 +30,6 @@ public class App_00 {
         //        return IntegerCache.cache[i + (-IntegerCache.low)];
         //   return new Integer(i);
         // }
-
-
 
 
     }

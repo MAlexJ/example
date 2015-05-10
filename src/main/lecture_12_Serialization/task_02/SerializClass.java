@@ -9,21 +9,28 @@ public class SerializClass {
 
         FileOutputStream fileOut = null;
         ObjectOutputStream out = null;
+
         try {
-            fileOut = new FileOutputStream(file_name + ".ser");
+            fileOut = new FileOutputStream(file_name + ".txt");
             out = new ObjectOutputStream(fileOut);
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             out.writeObject(obj);
         } catch (FileNotFoundException e) {
             System.err.println("Файл не найден ");
         } catch (IOException e) {
             System.err.println("Ошибка ввода вывода ");
         }
+
         // Closing resources FileOutputStream, ObjectOutputStream
         finally {
             try {
-                fileOut.close();
-                out.flush();
-                out.close();
+                if (fileOut != null) {
+                    fileOut.close();
+                }
+                if (out != null) {
+                    out.flush();
+                    out.close();
+                }
             } catch (IOException e) {
                 System.err.println("Ошибка закрытия ресурсов " + e);
             }
@@ -39,6 +46,7 @@ public class SerializClass {
         try {
             fileInput = new FileInputStream(file_name);
             in = new ObjectInputStream(fileInput);
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             retObject = in.readObject();
         } catch (FileNotFoundException e) {
             System.err.println("Файл не найден ");

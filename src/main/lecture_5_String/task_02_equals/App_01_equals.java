@@ -7,6 +7,8 @@ public class App_01_equals {
 
     public static void main(String[] args) {
 
+
+
         String str1 = new String ("Dog");
 
         String str2 = "Dog";
@@ -23,3 +25,4 @@ public class App_01_equals {
 
     }
 }
+

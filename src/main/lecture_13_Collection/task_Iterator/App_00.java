@@ -36,6 +36,10 @@ public class App_00 {
             System.out.println(iter.next());
         }
 
+        for(String iter1:list){
+            System.out.println(iter1);
+        }
+
     }
 
 }

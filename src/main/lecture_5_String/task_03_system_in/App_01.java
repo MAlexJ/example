@@ -20,7 +20,10 @@ public class App_01 {
             System.err.println(e);
         }
 
-        System.out.println("Output " + str);
+        int i = Integer.valueOf(str);
+
+        int result = i*5;
+        System.out.println(">>>>>>>>>> Output " + result);
     }
 
 }

@@ -1,60 +1,49 @@
 package task_02;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class BulletinBoard implements Serializable {
 
-    private int id;
-    private String account;
-    private Date date;
-    private String category;
+    private Integer id;
+    private String name;
+    private String context;
     private String title;
     private String text;
 
     public BulletinBoard() {
     }
 
-    public BulletinBoard(int id, String account, Date date, String category, String title, String text) {
+
+    public BulletinBoard(Integer id, String name, String context, String title, String text) {
         this.id = id;
-        this.account = account;
-        this.date = date;
-        this.category = category;
+        this.name = name;
+        this.context = context;
         this.title = title;
         this.text = text;
     }
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getAccount() {
-        return account;
+    public String getName() {
+        return name;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getDate() {
-        return date;
+    public String getContext() {
+        return context;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public void setContext(String context) {
+        this.context = context;
     }
 
     public String getTitle() {
@@ -77,9 +66,8 @@ public class BulletinBoard implements Serializable {
     public String toString() {
         return "BulletinBoard{" +
                 "id=" + id +
-                ", account='" + account + '\'' +
-                ", date=" + date +
-                ", category='" + category + '\'' +
+                ", name='" + name + '\'' +
+                ", context='" + context + '\'' +
                 ", title='" + title + '\'' +
                 ", text='" + text + '\'' +
                 '}';
