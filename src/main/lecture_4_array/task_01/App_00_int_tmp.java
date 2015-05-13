@@ -1,12 +1,12 @@
-package task_1;
+package task_01;
 
 import org.apache.log4j.Logger;
 
 import java.util.Arrays;
 
-public class App_00 {
+public class App_00_int_tmp {
 
-    private static final Logger LOG = Logger.getLogger(App_00.class);
+    private static final Logger LOG = Logger.getLogger(App_00_int_tmp.class);
 
     public static void main(String[] args) {
 
