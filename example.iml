@@ -32,6 +32,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_object" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_1_priorities _performing _operators" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/task_board" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
