@@ -20,12 +20,10 @@ public class TestMap_05 {
 
        //null -> key
         mapLinkedHash.put(null,"A");
-
         mapLHash.put(null,"A");
 
     //  >>>>   NullPointerException
 //        mapTree.put(null,"A");
-
 
         System.out.println(mapLinkedHash);
         System.out.println(mapLHash);
@@ -34,11 +32,8 @@ public class TestMap_05 {
 
         // null -> value
         mapLinkedHash.put("A", null);
-
         mapLHash.put("S", null);
-
         mapTree.put("D", null);
-
 
         System.out.println(mapLinkedHash);
         System.out.println(mapLHash);
