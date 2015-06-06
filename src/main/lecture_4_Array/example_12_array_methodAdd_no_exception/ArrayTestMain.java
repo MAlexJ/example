@@ -1,4 +1,4 @@
-package task_4_array_methodAdd_no_exception;
+package example_12_array_methodAdd_no_exception;
 
 import java.util.Arrays;
 

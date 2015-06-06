@@ -1,4 +1,4 @@
-package task_01;
+package example_10_Inverter_Array;
 
 import org.apache.log4j.Logger;
 

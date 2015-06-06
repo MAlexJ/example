@@ -1,4 +1,4 @@
-package task_02_min_elem;
+package example_11_min_elem_Array;
 
 public class FindMinElemArray_01 {
 

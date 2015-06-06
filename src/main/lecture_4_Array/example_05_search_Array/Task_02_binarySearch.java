@@ -1,4 +1,4 @@
-package example_04_search_Array;
+package example_05_search_Array;
 
 import java.util.Arrays;
 
