@@ -27,13 +27,15 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_17_IO" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_String_format" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_21_String_to_sql_date" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_4_array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_4_Array" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_wrapper_class" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_object" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_1_priorities _performing _operators" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/task_board" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection_Map" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_construction_branch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_cyclic_structure" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
