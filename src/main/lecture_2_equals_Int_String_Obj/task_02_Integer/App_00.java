@@ -1,4 +1,4 @@
-package task_Integer;
+package task_02_Integer;
 
 /**
  * Вывод: нельзя стравнивать ссылочные переменные ==, только equals()

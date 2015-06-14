@@ -1,4 +1,4 @@
-package task_String;
+package task_01_String;
 
 /**
  * Created by Alex on 13.02.2015.

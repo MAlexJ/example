@@ -1,4 +1,4 @@
-package task_String;
+package task_01_String;
 
 public class App_00 {
 
