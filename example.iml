@@ -13,7 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_0" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_20_DAO_factory_method" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_equals_Int_String" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_equals_Int_String_Obj" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_String" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_6_Example" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_10_Polymorphism" isTestSource="false" />
@@ -36,6 +36,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection_Map" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_construction_branch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_cyclic_structure" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_4_Recursion" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_String_example" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_StringTokenizer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_14_Stream_Properties" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
