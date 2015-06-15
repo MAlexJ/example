@@ -1,10 +1,9 @@
 package example_03;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class Task_01_string_by_delimiter {
     // Краткая подсказка  CRUD File ->  http://devcolibri.com/1141
@@ -58,6 +57,38 @@ public class Task_01_string_by_delimiter {
         if (!file.exists()) {
             System.out.println("Прайс лист не обнаружен");
             return;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+
+            String line = null;
+
+            while ((line = br.readLine()) != null) {
+
+                System.out.println(line);
+
+
+                StringTokenizer st = new StringTokenizer(line,"|");
+
+                while(st.hasMoreTokens()){
+
+                    Integer id = Integer.parseInt(st.nextElement().toString());
+                    Double price = Double.parseDouble(st.nextElement().toString());
+                    String username = st.nextElement().toString();
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("\nId : " + id);
+                    sb.append("\nPrice : " + price);
+                    sb.append("\nUsername : " + username);
+                    sb.append("\n*******************\n");
+
+                    System.out.println(sb.toString());
+
+                }
+            }
+
+        } catch (IOException e) {
+            System.err.println(">>>>  IOException() -> BufferedReader br = new BufferedReader(new FileReader(file))");
         }
 
     }
