@@ -16,6 +16,7 @@ public class Task_01_string_by_delimiter {
         createPrice(file);
 
         //2. Читаем файл и выводим в заданном формате на экран
+        // http://www.mkyong.com/java/java-stringtokenizer-example/
         readAndViewFile(file);
 
     }
