@@ -14,6 +14,8 @@ public class ExResource implements AutoCloseable {
     @Override
     public void close() {
         //Не удалось закрыть правильно ресурс
+
+        //1
         throw new RuntimeException(str);
     }
 }

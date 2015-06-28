@@ -7,7 +7,8 @@ public class TestResEx {
 
     public static void main(String[] args) {
 
-        try (ResourseEx resourseEx_01 = new ResourseEx(); ResourseEx resourseEx_02 = new ResourseEx()) {
+        try (ResourseEx resourseEx_01 = new ResourseEx();
+             ResourseEx resourseEx_02 = new ResourseEx()) {
             System.out.println("body");
         }
     }

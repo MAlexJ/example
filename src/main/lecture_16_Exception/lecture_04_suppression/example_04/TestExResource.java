@@ -3,6 +3,10 @@ package lecture_04_suppression.example_04;
 
 import lecture_04_suppression.example_00.ExResource;
 
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 public class TestExResource {
 
     public static void main(String[] args) {
@@ -14,7 +18,21 @@ public class TestExResource {
              ExResource ex3 = new ExResource("3"))
         {
             //  ex.calc(10, 0);
+
             throw new RuntimeException("try");
+
+        } catch (Throwable e){
+
+            System.out.println(e);
+
+            Throwable[] suppressed = e.getSuppressed();
+            for (Throwable iter:suppressed) {
+                System.out.println(iter);
+
+                Set<String> set = new TreeSet<>();
+
+            }
+
         }
 
 

@@ -8,17 +8,33 @@ import java.io.IOException;
 public class TestMain_00 {
 
     public static void main(String[] args) {
-        BufferedReader br=null;
+        BufferedReader br = null;
+        FileReader fileReader = null;
+
         try {
-            br = new BufferedReader(new FileReader("price_product.txt"));
+
+            fileReader = new FileReader("price_product.txt");
+
+            br = new BufferedReader(fileReader);
             while (br.read() > 0)
                 System.out.println(br.readLine());
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if(br!=null)
+
+
+        } finally {
+
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (br != null)
                 try {
                     br.close();
                 } catch (IOException e) {

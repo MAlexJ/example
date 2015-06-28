@@ -4,11 +4,9 @@ public class TestResourceInet {
 
     public static void main(String[] args) {
         ResourceInternet resourceInternet = new ResourceInternet();
-        try {
-            resourceInternet.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+
+
     }
 
 }
