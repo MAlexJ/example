@@ -40,6 +40,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_String_example" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_StringTokenizer" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_14_Stream_Properties" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_18_Tree_Traversal" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_18_Stack" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_RegEx" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
