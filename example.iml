@@ -43,6 +43,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_18_Tree_Traversal" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_18_Stack" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_RegEx" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection_Map_for_Array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_22_Pattern" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_23_SOLID_design_principle" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
