@@ -9,6 +9,7 @@ public class StrToSQLDate_01 {
 
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         java.util.Date parsed = format.parse("20110210");
+        System.out.println(parsed.getTime());
         java.sql.Date sql = new java.sql.Date(parsed.getTime());
         System.out.println(sql);
 
