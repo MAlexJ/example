@@ -5,7 +5,7 @@
       <configuration />
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -46,6 +46,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection_Map_for_Array" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_22_Pattern" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_23_SOLID_design_principle" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_continium_break_return" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_Comand_Line_Argument" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_4_VarArg" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_10_interface" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
