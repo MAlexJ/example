@@ -18,23 +18,23 @@ public class TestMap_02 {
         mapStr.put(3, "ewq");
         mapStr.put(4, "ewq");
 
-        //Вывод Map на экран  System.out.println()
+        //пїЅпїЅпїЅпїЅпїЅ Map пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ  System.out.println()
         System.out.println(mapStr);
 
 
-        //Интерфейс Map предоставляет три способа для доступа к данным:
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Map пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:
 
-        //Set из ключей (метод keySet)
+        //Set пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅ keySet)
         Set<Integer> integerSet = mapStr.keySet();
         System.out.println(" Set<Integer> integerSet = mapStr.keySet(); -> " + integerSet);
         System.out.println();
 
-        //коллекция из значений (метод values);
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅ values);
         Collection<String> stringCollection = mapStr.values();
         System.out.println("Collection<String> stringCollection = mapStr.values(); -> "+stringCollection);
         System.out.println();
 
-        // Set из пары ключ-значение (метод entrySet).
+        // Set пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅ entrySet).
         Set<Map.Entry<Integer, String>> entries = mapStr.entrySet();
         System.out.println(entries );
         System.out.println();
