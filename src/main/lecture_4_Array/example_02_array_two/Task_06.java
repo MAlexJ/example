@@ -16,7 +16,7 @@ public class Task_06 {
             for (int j = 0; j < da[i].length; j++) {
                 System.out.print(da[i][j] + "\t");
             }
-            System.out.println(); // Переходим на следующую строку
+            System.out.println(); //
         }
 
 

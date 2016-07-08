@@ -10,7 +10,7 @@ public class Task_04 {
 		
 		int  k = 0;
 		
-		//Заполнение массива
+		//
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 3; j++) {
 				arrays[i][j]=k;
