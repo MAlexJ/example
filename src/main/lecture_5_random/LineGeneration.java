@@ -1,10 +1,33 @@
+import java.math.BigInteger;
 import java.util.Random;
 
 public class LineGeneration {
+    private static final int MAXIMUM_NUMBER_APARTMENTS = 4;
 
     public static void main(String[] args) {
-        LineGeneration generation = new LineGeneration();
-        System.out.println(generation.stringGeneration(10));
+//        LineGeneration generation = new LineGeneration();
+//        System.out.println(generation.stringGeneration(10));
+
+
+//        BigInteger number = new BigInteger(String.valueOf(Integer.MAX_VALUE));
+//        System.out.println(number);
+//        BigInteger multiply = number.multiply(new BigInteger(String.valueOf(4)));
+//        System.out.println(multiply);
+        // 8_589_934_588
+        // 8_589_934_588
+        // 23_000_000_000
+
+        long maxLimit = Integer.MAX_VALUE;
+        long apartment = maxLimit * MAXIMUM_NUMBER_APARTMENTS;
+
+        System.out.println(apartment);
+
+        long num1 =Integer.MAX_VALUE;
+        long num2= Integer.MAX_VALUE;
+        System.out.println("Максимальный предел этажей (Integer.MAX_VALUE ) : "+num2);
+        System.out.println("Максимальный предел квартир в доме (Integer.MAX_VALUE * 4) : "+num2*4);
+        System.out.println(Long.MAX_VALUE);
+
     }
 
     public String stringGeneration(int numberOfCharacters) {

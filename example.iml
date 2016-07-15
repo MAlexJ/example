@@ -52,6 +52,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_10_interface" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_4_fibbonachi" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_5_random" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_2_min_element" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
