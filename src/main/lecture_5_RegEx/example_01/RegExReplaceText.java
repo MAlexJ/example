@@ -9,9 +9,15 @@ public class RegExReplaceText {
 
     public static void main(String[] args) {
 
-        System.out.println(text.replaceAll("[Тт]а[ий]ланд", "Украина"));
+//        System.out.println(text.replaceAll("[Тт]а[ий]ланд", "Украина"));
+//
+//        System.out.println(test("rrrr"));
 
-        System.out.println(test("rrrr"));
+        // Pattern p = Pattern.compile("^[a-z]{0,}");
+        Pattern p = Pattern.compile("^0.[0]+");
+        Matcher m = p.matcher("0.0000");
+        System.out.println(m.matches());
+
 
     }
 
@@ -25,7 +31,7 @@ public class RegExReplaceText {
 
     public static boolean test(String testString) {
         //"^[a-z]+" = начало строки + любой символ в пределах a-z (abcdef...z) любое количество раз (от одного).
-       // Pattern p = Pattern.compile("^[a-z]{0,}");
+        // Pattern p = Pattern.compile("^[a-z]{0,}");
         Pattern p = Pattern.compile("^[a-z]+");
         Matcher m = p.matcher(testString);
         return m.matches();
