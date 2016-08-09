@@ -81,8 +81,8 @@ public class Example_01 {
 //        Pattern pt = Pattern.compile("[a-zA-Z]{1,2}");
 
         // ****  5  ******
-//        String string = "Kd80";
-//        Pattern pt = Pattern.compile("[a-zA-Z0-9]{0,4}");
+        String string = "123123535123.5";
+        Pattern pt = Pattern.compile("[0-9|.]+");
 
         // ****  6  ******
 //        String string = "AvKd81";
@@ -97,8 +97,8 @@ public class Example_01 {
 //        Pattern pt = Pattern.compile("\\w*");
 
         // ****  9  ******
-        String string = "AvKd81_";
-        Pattern pt = Pattern.compile("^A.*\\w$");
+//        String string = "AvKd81_";
+//        Pattern pt = Pattern.compile("^A.*\\w$");
 
 
         Matcher mt = pt.matcher(string);

@@ -36,11 +36,11 @@ public class MainBigDecimalArithmeticOperation {
 //        //Div
 //        result = calculate(new BigDecimal("1.1"), new BigDecimal("0"), "/"); //TODO ArithmeticException: / by zero
 //        System.out.println(result);
-//
-        result = calculate(new BigDecimal("1"), new BigDecimal("3"), "/");
-        System.out.println(result.stripTrailingZeros()); //
-        result = calculate(new BigDecimal("1"), new BigDecimal("4"), "/");
-        System.out.println(result.stripTrailingZeros()); // TODO ->  http://pr0java.blogspot.com/2015/05/biginteger-bigdecimal_70.html
+////
+//        result = calculate(new BigDecimal("1"), new BigDecimal("3"), "/");
+//        System.out.println(result.stripTrailingZeros()); //
+//        result = calculate(new BigDecimal("1"), new BigDecimal("4"), "/");
+//        System.out.println(result.stripTrailingZeros()); // TODO ->  http://pr0java.blogspot.com/2015/05/biginteger-bigdecimal_70.html
 
 //        BigDecimal num = new BigDecimal("1");
 //        BigDecimal den = new BigDecimal("4");
