@@ -1,1 +1,0 @@
-Input/output Stream is pattern -> template method.
