@@ -1,4 +1,4 @@
-package lecture_01_stream;
+package lecture_01_exeption_syntax;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
