@@ -81,5 +81,28 @@ System.out.println(Arrays.toString(Season.values()));
 Вместо этого они автоматически добавляются компилятором на этапе компиляции enum-класса.
 
 ```````````````````````````````````````````````````````````````````````````````````````````````````````
+#6 Добавляем свои методы в enum-класс
 
-#6
+У Вас есть возможность добавлять собственные методы как в enum-класс, так и в его элементы:
+
+enum Direction {
+   UP, DOWN;
+
+   public Direction opposite() { return this == UP ? DOWN : UP; }
+}
+
+То же, но с полиморфизмом:
+
+enum Direction {
+   UP {
+        public Direction opposite() { return DOWN; }
+   },
+   DOWN {
+        public Direction opposite() { return UP; }
+   };
+
+   public abstract Direction opposite();
+}
+
+Последний пример демонстрирует использование наследования в enum
+
