@@ -1,4 +1,4 @@
-package example_04;
+package example_01;
 
 /**
  * Simple example lambda and local variable.
@@ -6,7 +6,7 @@ package example_04;
  *
  * @author maelx
  */
-public class Lambda_Main_04 {
+class Lambda_Main_04 {
 
    //use class-level variables:
    private static int x = 10;
@@ -16,7 +16,7 @@ public class Lambda_Main_04 {
 
       // use class-level variables:
       System.out.println("Before, x= " + x); // 30 - значение x изменилось
-      Operation op = () -> {
+      Operation_02 op = () -> {
          x = 30;
          return x + y;
       };
@@ -37,7 +37,7 @@ public class Lambda_Main_04 {
       System.out.println("After, a= " + a);
 
       //Blocks of code in lambda expressions
-      Lambda labmda = (x, y) -> {
+      Lambda_02 labmda = (x, y) -> {
          if (x == 0)
             return 0;
          else {
@@ -52,10 +52,10 @@ public class Lambda_Main_04 {
 /**
  * Functional interface
  */
-interface Operation {
+interface Operation_02 {
    int calculate();
 }
 
-interface Lambda {
+interface Lambda_02 {
    int calculate(int x, int y);
 }

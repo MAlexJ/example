@@ -1,4 +1,4 @@
-package example_02;
+package example_01;
 
 /**
  * Simple example of using lambda expression.

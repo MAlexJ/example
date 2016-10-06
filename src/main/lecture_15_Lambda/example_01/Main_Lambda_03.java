@@ -1,4 +1,4 @@
-package example_03;
+package example_01;
 
 /**
  * Simple example of using terminal lambda expression
