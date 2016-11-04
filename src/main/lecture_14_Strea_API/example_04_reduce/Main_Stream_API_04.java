@@ -3,6 +3,8 @@ package example_04_reduce;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static util.StreamAPIUtil.print;
+
 /**
  * Information operations.
  * A simple example of using the method 'reduce' of Stream API.
@@ -21,8 +23,13 @@ public class Main_Stream_API_04 {
       use_reduce_02();
 
       //example_03
-      use_reduce_03("a","b","r","t");
+      use_reduce_03("a", "b", "r", "t");
 
+      //example_04
+      use_reduce_04(new Phone("iPhone 6 S", 54000),
+              new Phone("Lumia 950", 45000),
+              new Phone("Samsung Galaxy S 6", 40000),
+              new Phone("LG G 4", 32000));
    }
 
    /**
@@ -80,26 +87,49 @@ public class Main_Stream_API_04 {
       print();
    }
 
+   private static void use_reduce_04(Phone... phones) {
+      print("EXAMPLE 04");
+
+      Stream<Phone> phoneStream = Stream.of(phones);
+
+      int sum = phoneStream.reduce(
+              // :1
+              0,
+              // :2
+              (x, y) -> {
+                 if (y.getPrice() < 50000)
+                    return x + y.getPrice();
+                 else
+                    return x;
+              },
+              // :3
+              (x, y) -> x + y);
+
+      System.out.println(sum);
+
+      print();
+   }
 
    /**
-    * Print log
+    * The class describes an entity.
     */
-   private static void print(String... srts) {
+   private static class Phone {
 
-      StringBuilder sb = new StringBuilder();
-      sb.append("<<<<<<<<<<<< ");
+      private String name;
+      private int price;
 
-      if (srts.length > 0) {
-         sb.append(srts[0]);
+      Phone(String name, int price) {
+         this.name = name;
+         this.price = price;
       }
 
-      sb.append(" >>>>>>>>>>>> ");
-
-      if (srts.length == 0) {
-         sb.append("\n");
+      String getName() {
+         return name;
       }
 
-      System.out.println(sb.toString());
+      int getPrice() {
+         return price;
+      }
    }
 
 }

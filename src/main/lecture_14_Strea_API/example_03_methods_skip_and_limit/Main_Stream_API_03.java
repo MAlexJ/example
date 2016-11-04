@@ -2,6 +2,8 @@ package example_03_methods_skip_and_limit;
 
 import java.util.stream.Stream;
 
+import static util.StreamAPIUtil.print;
+
 /**
  * @author malex
  */
@@ -43,28 +45,6 @@ public class Main_Stream_API_03 {
         stringStream.limit(3).forEach(System.out::println);
 
         print();
-    }
-
-    /**
-     * Print message in console
-     *
-     * @param args the message
-     */
-    private static void print(String... args) {
-        String str = "";
-        boolean end = false;
-
-        if (args.length > 0) {
-            str = args[0];
-        } else {
-            end = true;
-        }
-
-        System.out.println(">>>>>>>>>>>>> " + str + " <<<<<<<<<<<<<<< ");
-
-        if (end) {
-            System.out.println();
-        }
     }
 
 }
