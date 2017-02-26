@@ -1,10 +1,10 @@
-package lecture_01_stream;
+package lecture_01_map_example;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Alex on 20.05.2015.
+ * @author malex
  */
 public class TestMap_03 {
 

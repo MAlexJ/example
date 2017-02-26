@@ -1,4 +1,4 @@
-package lecture_01_stream;
+package lecture_01_map_example;
 
 import java.util.HashMap;
 import java.util.Map;
