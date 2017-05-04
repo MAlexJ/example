@@ -3,11 +3,11 @@ package global_free;
 /**
  * @author malex
  */
-public class Test_CF_03 {
+public class Test_GF_03 {
 
     public static void main(String[] args) {
 
-        Test_CF_03 t = new Test_CF_03();
+        Test_GF_03 t = new Test_GF_03();
         t.start();
 
     }
