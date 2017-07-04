@@ -43,13 +43,12 @@ public class StackMainApp {
 
 		// #6 push() and peek();
 		System.out.println(" \n method: push() and peek() ");
-		System.out.println("push: "+ stack.push(46) + "; peek: "+ stack.peek());
-		System.out.println("push: "+ stack.push(9999) + "; peek: "+ stack.peek());
+		System.out.println("push: " + stack.push(46) + "; peek: " + stack.peek());
+		System.out.println("push: " + stack.push(9999) + "; peek: " + stack.peek());
 
 		// #7 search(element el)
 		System.out.println(" \n   search(element el)    ");
-		System.out.println("search: "+ stack.search(46));
-
+		System.out.println("search: " + stack.search(46) + "; capacity: " + stack.capacity());
 
 	}
 
