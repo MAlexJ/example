@@ -2,23 +2,21 @@ package example_01;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("10 - нечетное число odd: " + isOdd(1));
-        System.out.println("10 - четное число even:   " + isEven(1));
+        System.out.println("10 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ odd: " + isOdd(1));
+        System.out.println("10 - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ even:   " + isEven(1));
     }
 
-    // проверка на четность
     public static boolean isEven(int k) {
         if (k == 0) {
-            return true; // 0 - четное число
+            return true;
         } else {
             return isOdd(k - 1);
         }
     }
 
-    // проверка на НЕчетность
     public static boolean isOdd(int k) {
         if (k == 0) {
-            return false; // 0 - НЕ НЕчетное число
+            return false;
         } else {
             return isEven(k - 1);
         }

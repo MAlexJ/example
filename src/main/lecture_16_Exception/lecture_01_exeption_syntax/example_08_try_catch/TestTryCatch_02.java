@@ -12,7 +12,7 @@ public class TestTryCatch_02 {
                 RuntimeException re = (RuntimeException) e;
                 System.err.print("This is RuntimeException " +re.toString());
             } else {
-                System.err.print("В каком смысле не RuntimeException???");
+                System.err.print("No RuntimeException???");
             }
         }
     }

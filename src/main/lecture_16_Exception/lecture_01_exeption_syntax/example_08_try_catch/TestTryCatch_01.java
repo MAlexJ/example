@@ -10,9 +10,9 @@ public class TestTryCatch_01 {
             }
             System.err.print(" 1");
 
-            // catch по Exception перехватывает И RuntimeException
+
         } catch (Exception e) {
-            System.err.print(" 2"); // сюда заходим
+            System.err.print(" 2");
         }
         System.err.println(" 3");
     }

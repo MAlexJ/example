@@ -6,8 +6,8 @@ public class TestSQRT {
         System.out.println(sqr(2));
     }
 
-    public static double sqr(double arg) { // надо double
-        return arg * arg;           // double * double - это double
+    public static double sqr(double arg) { // double
+        return arg * arg;           // double * double - пїЅпїЅпїЅ double
     }
 
 }
