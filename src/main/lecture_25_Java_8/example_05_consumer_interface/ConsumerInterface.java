@@ -1,4 +1,4 @@
-package exmple_04_consumer_interface;
+package example_05_consumer_interface;
 
 import java.util.ArrayList;
 import java.util.List;
