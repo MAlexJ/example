@@ -8,7 +8,6 @@ import work_flow.update_region.region.tile.parameters.Attribute;
 import work_flow.update_region.region.tile.parameters.Link;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -16,6 +15,14 @@ public class TestAPI {
 
 	private UpdateRegion region;
 	private static final String SPEED_LIMIT = "SPEED_LIMIT";
+
+	/**
+	 * Map for all link
+	 */
+	private Map<Integer, List<Integer>> failedList = new TreeMap<>(); //TODO >>>> HashMap
+	private Map<Integer, List<Integer>> failedListGeo = new TreeMap<>(); //TODO >>>> HashMap
+
+	private List<String> sout = new ArrayList<>();
 
 	@Before
 	public void before() {
@@ -35,9 +42,7 @@ public class TestAPI {
 				linkMap.put(x, link);
 
 				link.setTestID(x);
-
 				List<Attribute> attributes = new ArrayList<>();
-				link.setAttributes(attributes);
 
 				if (x % 2 == 0) {
 					link.setBaseLink(true);
@@ -62,7 +67,7 @@ public class TestAPI {
 
 				}
 
-
+				link.setAttributes(attributes);
 			}
 
 		}
@@ -91,53 +96,70 @@ public class TestAPI {
 				  ));
 	}
 
-	private Map<Integer, List<Integer>> failedList = new TreeMap<>(); //TODO >>>> HashMap
 
 	@Test
 	public void test() {
 
-		int spedLimitForTest = 50;
+		int spedLimitForTest = 30;
 
 		System.out.println(region.getRegion());
+
 		List<Tile> tiles = region.getTiles();
 
 		tiles.forEach(t -> {
+
 			List<Integer> failedLink = new ArrayList<>();
+			List<Integer> failedLinkGeo = new ArrayList<>();
 
 			t.getMap()
 					  .forEach(
-					  (k, v) -> {
-						  boolean hasSpeedLimit = v.getAttributes()
-									 .stream()
-									 .filter(attribute -> attribute.getType().equals(SPEED_LIMIT))
-									 .anyMatch(attribute -> attribute.getSpeedLimit() >= spedLimitForTest);
+								 (k, v) -> {
 
-						  if (hasSpeedLimit) {
-							  System.out.println("TILE: " + t.getTileId() + " LINK_ID: " + k + " :check id: " + v.getTestID());
-							  failedLink.add(k);
-						  }
-					  }
-			);
+//									 v.getAttributes().forEach(attribute -> {
+//									 	if(attribute.getType().equals(SPEED_LIMIT))
+//										 sout.add(" >>>> " + t.getTileId() + " LINK_ID: " + k + " testID: "+ v.getTestID()+  " : " + attribute);
+//									 });
 
-//			List<Integer> collect = t.getMap().entrySet()
-//					  .stream()
-//					  .flatMap(m -> {
-//						  m.getValue().getAttributes()
-//									 .stream()
-//									 .filter(attribute -> attribute.getType().equals(SPEED_LIMIT))
-//									 .filter(attribute -> attribute.getSpeedLimit() >= spedLimitForTest)
-//						  .
-//					  }).collect(Collectors.toList());
+									 boolean hasSpeedLimit = v.getAttributes()
+												.stream()
+												.filter(attribute -> attribute.getType().equals(SPEED_LIMIT))
+												.anyMatch(attribute -> attribute.getSpeedLimit() >= spedLimitForTest);
+
+									 if (hasSpeedLimit) {
+										 System.out.println("TILE: " + t.getTileId() + " LINK_ID: " + k + " :check id: " + v.getTestID());
+										 failedLink.add(k);
+									 }
+
+									 if (hasSpeedLimit && !v.isBaseLink()) {
+										 System.out.println(" > GEO: " + v.getRoadGeoLines());
+									 }
+								 }
+					  );
+
+			int[] collect = t.getMap().entrySet()
+					  .stream()
+					  .flatMapToInt(m -> m.getValue().getAttributes()
+								 .stream()
+								 .filter(attribute -> attribute.getType().equals(SPEED_LIMIT))
+								 .filter(attribute -> attribute.getSpeedLimit() >= spedLimitForTest)
+								 .mapToInt(attribute -> m.getKey())).toArray();
+
+			if (collect.length > 0)
+				System.out.println("<<< List: " + Arrays.toString(collect));
 
 
-			if(!failedLink.isEmpty()){
+			if (!failedLink.isEmpty()) {
 				failedList.put(t.getTileId(), failedLink);
 			}
 
 		});
 
 		System.out.println("\n Result test:");
-		System.out.println(failedList);
+		failedList.forEach((k, v) -> System.out.println(k + " " + v));
+
+		System.out.println();
+		System.out.println("Verify: \n");
+		sout.forEach(System.out::println);
 
 	}
 
