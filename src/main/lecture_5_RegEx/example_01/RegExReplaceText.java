@@ -11,7 +11,7 @@ public class RegExReplaceText {
 
 //        System.out.println(text.replaceAll("[Тт]а[ий]ланд", "Украина"));
 //
-//        System.out.println(test("rrrr"));
+//        System.out.println(test_queue("rrrr"));
 
         // Pattern p = Pattern.compile("^[a-z]{0,}");
         Pattern p = Pattern.compile("^0.[0]+");

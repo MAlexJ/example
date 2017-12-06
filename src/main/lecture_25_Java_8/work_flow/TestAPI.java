@@ -154,7 +154,7 @@ public class TestAPI {
 
 		});
 
-		System.out.println("\n Result test:");
+		System.out.println("\n Result test_queue:");
 		failedList.forEach((k, v) -> System.out.println(k + " " + v));
 
 		System.out.println();

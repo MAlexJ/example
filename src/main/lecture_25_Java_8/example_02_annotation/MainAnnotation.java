@@ -10,15 +10,15 @@ import java.util.function.Supplier;
 
 public class MainAnnotation {
 
-	@NewValue("test value")
+	@NewValue("test_queue value")
 	private String value;
 
-	@NewValue("test value")
+	@NewValue("test_queue value")
 	public String getValue() {
 		return value;
 	}
 
-	@NewValue("test value")
+	@NewValue("test_queue value")
 	public void setValue(String value) {
 		this.value = value;
 	}

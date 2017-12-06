@@ -29,7 +29,7 @@ import java.util.function.Function;
 public class FunctionInterface {
 
 	/**
-	 * test method #1
+	 * test_queue method #1
 	 */
 	@Test
 	public void composeMethod() {
@@ -48,7 +48,7 @@ public class FunctionInterface {
 	}
 
 	/**
-	 * test method #2
+	 * test_queue method #2
 	 */
 	@Test
 	public void andThenMethod() {

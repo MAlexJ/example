@@ -45,7 +45,7 @@ public class Main_Lambda_09 {
      * <p>
      * <pre>
      * public interface Predicate<T> {
-     * boolean test(T t);
+     * boolean test_queue(T t);
      * }
      * </pre>
      */
