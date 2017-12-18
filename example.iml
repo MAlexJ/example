@@ -57,6 +57,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_logic_operators" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_3_bitwise_shift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_26_SDL" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_6_Base64_encode_decode_String" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection_Sort" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_generic" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
