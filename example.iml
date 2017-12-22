@@ -60,6 +60,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_6_Base64_encode_decode_String" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_Collection_Sort" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_13_generic" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/lecture_15_Threads_and_Exacutors" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
