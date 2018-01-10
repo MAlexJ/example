@@ -1,5 +1,3 @@
-package lecture_13_Collection;
-
 import com.google.common.collect.LinkedHashMultiset;
 import org.junit.Test;
 

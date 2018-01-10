@@ -1,5 +1,3 @@
-package lecture_13_Collection;
-
 import org.junit.Test;
 
 import java.util.*;
