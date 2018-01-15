@@ -1,4 +1,4 @@
-package lecture_04_Reusing_Streams;
+package example_10_Reusing_Streams;
 
 import java.util.stream.Stream;
 
@@ -10,7 +10,11 @@ public class Main_Stream_04_Reusing_Streams {
                         .filter(s -> s.startsWith("a"));
 
         stream.anyMatch(s -> true);    // операция выполнится успешно
-        stream.noneMatch(s -> true);   // Вылетит Exception
 
+        try {
+            stream.noneMatch(s -> true);   // Вылетит Exception
+        } catch (IllegalStateException ex) {
+            // ignore
+        }
     }
 }

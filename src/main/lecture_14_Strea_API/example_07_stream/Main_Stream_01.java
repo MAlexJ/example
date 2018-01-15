@@ -1,5 +1,4 @@
-package lecture_01_stream;
-
+package example_07_stream;
 
 import java.util.Arrays;
 import java.util.List;

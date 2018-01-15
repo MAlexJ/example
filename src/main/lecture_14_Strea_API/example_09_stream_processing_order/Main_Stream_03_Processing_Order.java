@@ -1,4 +1,4 @@
-package lecture_03_stream_processing_order;
+package example_09_stream_processing_order;
 
 import java.util.stream.Stream;
 

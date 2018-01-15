@@ -1,4 +1,4 @@
-package lecture_02_stream_primitive;
+package example_08_stream_primitive;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;

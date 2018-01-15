@@ -29,8 +29,7 @@ public class Main_Stream_API_01 {
      */
     private static void create_simple_stream() {
 
-        List<String> list = new ArrayList<>();
-        list.addAll(Arrays.asList("Париж", "Лондон", "Мадрид"));
+        List<String> list = new ArrayList<>(Arrays.asList("Париж", "Лондон", "Мадрид"));
 
         // Get stream
         Stream<String> citiesStream = list.stream();
@@ -39,7 +38,7 @@ public class Main_Stream_API_01 {
         citiesStream = citiesStream.filter(s -> s.length() == 6);
 
         // Print result
-        citiesStream.forEach(s -> System.out.println(s));
+        citiesStream.forEach(System.out::println);
     }
 
     /**
