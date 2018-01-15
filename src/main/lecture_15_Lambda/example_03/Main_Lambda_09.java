@@ -35,7 +35,6 @@ public class Main_Lambda_09 {
 
         //Supplier<T>
         use_supplier();
-
     }
 
     /**
@@ -69,7 +68,6 @@ public class Main_Lambda_09 {
 
         System.out.println(multiply.apply(3, 5)); // 15
         System.out.println(multiply.apply(10, -2) + "\n"); // -20
-
     }
 
     /**
@@ -124,7 +122,6 @@ public class Main_Lambda_09 {
 
         System.out.println("Name user1: " + user1.getName());
         System.out.println("Name user2: " + user2.getName());
-
     }
 
     /**
