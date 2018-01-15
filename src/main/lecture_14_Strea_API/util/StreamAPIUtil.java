@@ -5,24 +5,22 @@ package util;
  */
 public class StreamAPIUtil {
 
-   /**
-    * Print log
-    */
-   public static void print(String... srts) {
+    /**
+     * Print log
+     */
+    public static void print(String... srt) {
 
-      StringBuilder sb = new StringBuilder();
-      sb.append("<<<<<<<<<<<< ");
+        StringBuilder sb = new StringBuilder("<<<<<<<<<<<< ");
+        if (srt.length > 0) {
+            sb.append(srt[0]);
+        }
 
-      if (srts.length > 0) {
-         sb.append(srts[0]);
-      }
+        sb.append(" >>>>>>>>>>>> ");
 
-      sb.append(" >>>>>>>>>>>> ");
+        if (srt.length == 0) {
+            sb.append("\n");
+        }
 
-      if (srts.length == 0) {
-         sb.append("\n");
-      }
-
-      System.out.println(sb.toString());
-   }
+        System.out.println(new String(sb));
+    }
 }
