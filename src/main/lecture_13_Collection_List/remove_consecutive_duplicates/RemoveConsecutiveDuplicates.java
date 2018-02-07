@@ -16,11 +16,11 @@ public class RemoveConsecutiveDuplicates {
     /**
      * CASE: 1
      */
-    public static List<Integer> noConsecutiveDuplicates(List<Integer> input) {
+    private static List<Integer> noConsecutiveDuplicates(List<Integer> input) {
         ArrayList<Integer> newList = new ArrayList<>();
         // Always add first value
         if (input.isEmpty()) {
-            return null;
+            throw new RuntimeException("Error!");
         }
         newList.add(input.get(0));
         // Iterate the remaining values
