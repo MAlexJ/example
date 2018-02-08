@@ -16,7 +16,7 @@ public class RemoveConsecutiveDuplicates {
     /**
      * CASE: 1
      */
-    private static List<Integer> noConsecutiveDuplicates(List<Integer> input) {
+    public static List<Integer> noConsecutiveDuplicates(List<Integer> input) {
         ArrayList<Integer> newList = new ArrayList<>();
         // Always add first value
         if (input.isEmpty()) {
