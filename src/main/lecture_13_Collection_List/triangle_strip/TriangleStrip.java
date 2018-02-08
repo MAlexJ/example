@@ -2,6 +2,10 @@ package triangle_strip;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.Geometry;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.Polygon;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import remove_consecutive_duplicates.RemoveConsecutiveDuplicates;
@@ -21,7 +25,6 @@ public class TriangleStrip {
         List<Integer> positionVertexBottom = Lists.newArrayList(16, 17, 18, 19, 20, 21);
 
         //*********************** CASE :1 ********************************
-
         List<TriangleVertex> triangleList = new ArrayList<>();
         for (int position = 0; position < positionVertexList.size(); position++) {
             if (position < positionVertexList.size() - 2) {
@@ -34,35 +37,37 @@ public class TriangleStrip {
         }
 
         LinkedList<TriangleVertex> triangleStripping = new LinkedList<>();
-        TriangleVertex triangleVertex = triangleList.get(0);
-        triangleVertex.isAddedToList = true;
-        triangleStripping.add(triangleVertex);
+        if (!triangleList.isEmpty()) {
+            for (TriangleVertex tVertex : triangleList) {
+                if (!tVertex.isAddedToList) {
+                    tVertex.isAddedToList = true;
+                    triangleStripping.add(tVertex);
+                }
+            }
 
-        for (int i = 0; i < NUM; i++) {
-            for (TriangleVertex triangle : triangleList) {
-                TriangleVertex triangleLast = triangleStripping.getLast();
-                if (!triangle.isAddedToList && triangleLast.isIntersect(triangle)) {
-                    triangle.isAddedToList = true;
-                    triangleStripping.addLast(triangle);
+            if (!triangleStripping.isEmpty()) {
+                for (int i = 0; i < NUM; i++) {
+                    for (TriangleVertex triangle : triangleList) {
+                        TriangleVertex triangleLast = triangleStripping.getLast();
+                        if (!triangle.isAddedToList && triangleLast.isIntersect(triangle)) {
+                            triangle.isAddedToList = true;
+                            triangleStripping.addLast(triangle);
+                        }
+                    }
+                }
+                for (int i = 0; i < NUM; i++) {
+                    for (TriangleVertex triangle : triangleList) {
+                        TriangleVertex triangleLast = triangleStripping.getFirst();
+                        if (!triangle.isAddedToList && triangleLast.isIntersect(triangle)) {
+                            triangle.isAddedToList = true;
+                            triangleStripping.addFirst(triangle);
+                        }
+                    }
                 }
             }
         }
-
-        for (int i = 0; i < NUM; i++) {
-            for (TriangleVertex triangle : triangleList) {
-                TriangleVertex triangleLast = triangleStripping.getFirst();
-                if (!triangle.isAddedToList && triangleLast.isIntersect(triangle)) {
-                    triangle.isAddedToList = true;
-                    triangleStripping.addFirst(triangle);
-                }
-            }
-        }
-
-        System.out.println(triangleStripping);
-
 
         // ************************ CASE : 2 ***************************************
-
         List<Integer> realPositionBottom = new ArrayList<>();
         for (TriangleVertex triangleV : triangleStripping) {
             if (positionVertexBottom.contains(triangleV.p1)) {
@@ -76,7 +81,34 @@ public class TriangleStrip {
 
         System.out.println(realPositionBottom);
         realPositionBottom = RemoveConsecutiveDuplicates.noConsecutiveDuplicates(realPositionBottom);
+
         System.out.println(realPositionBottom);
+        findPolygon();
+    }
+
+    private static void findPolygon() {
+        Coordinate[] coordinates = new Coordinate[]{
+                new CoordinateDetail(16, 4453, 195),
+                new CoordinateDetail(17, 2186, 911),
+                new CoordinateDetail(21, 4095, 3416),
+                new CoordinateDetail(19, 6600, 2462),
+                new CoordinateDetail(18, 6242, 1984),
+                new CoordinateDetail(20, 6003, 2104),
+                new CoordinateDetail(16, 4453, 195)};
+
+        Polygon polygon = new GeometryFactory().createPolygon(coordinates);
+        Geometry boundary = polygon.getBoundary();
+        System.out.println(boundary);
+    }
+
+    @Getter
+    private static class CoordinateDetail extends Coordinate {
+        private int position;
+
+        CoordinateDetail(int position, double x, double y) {
+            super(x, y);
+            this.position = position;
+        }
     }
 
     @Getter
@@ -98,11 +130,6 @@ public class TriangleStrip {
                 return true;
             }
             return false;
-        }
-
-        @Override
-        public String toString() {
-            return "[p1=" + p1 + ", p2=" + p2 + ", p3=" + p3 + "]";
         }
     }
 }
