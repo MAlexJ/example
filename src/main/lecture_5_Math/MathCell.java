@@ -1,7 +1,7 @@
 /**
  * @author malex
  */
-public class Main_Math_00 {
+public class MathCell {
 
     public static void main(String[] args) {
 
