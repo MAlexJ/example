@@ -1,5 +1,7 @@
 *.idea
+*.idea/
 .idea
 target
+target/
 *.iml
 example.iml
