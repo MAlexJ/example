@@ -1,4 +1,4 @@
-package example_05;
+package com.malex.lecture_7_Date.example_05;
 
 import java.text.DateFormat;
 import java.text.ParseException;

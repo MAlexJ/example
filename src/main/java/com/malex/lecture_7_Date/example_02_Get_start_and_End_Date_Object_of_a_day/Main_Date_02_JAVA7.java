@@ -1,4 +1,4 @@
-package example_02_Get_start_and_End_Date_Object_of_a_day;
+package com.malex.lecture_7_Date.example_02_Get_start_and_End_Date_Object_of_a_day;
 
 import java.util.Calendar;
 import java.util.Date;

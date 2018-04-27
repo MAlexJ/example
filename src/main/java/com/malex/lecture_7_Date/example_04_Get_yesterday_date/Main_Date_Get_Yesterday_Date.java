@@ -1,4 +1,4 @@
-package example_04_Get_yesterday_date;
+package com.malex.lecture_7_Date.example_04_Get_yesterday_date;
 
 import java.util.Calendar;
 import java.util.Date;

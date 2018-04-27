@@ -1,4 +1,4 @@
-package example_03_Find_difference_between_dates;
+package com.malex.lecture_7_Date.example_03_Find_difference_between_dates;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
