@@ -3,10 +3,11 @@ package com.malex.lecture_7_Date.example_02_Get_start_and_End_Date_Object_of_a_d
 import java.util.Calendar;
 import java.util.Date;
 
-public class Main_Date_02_JAVA7 {
+public class Main_Date_02_JAVA7
+{
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         Calendar calendar = Calendar.getInstance();
         Date currentDay = calendar.getTime();
         System.out.println("Current Date: " + currentDay);
@@ -16,7 +17,6 @@ public class Main_Date_02_JAVA7 {
 
         System.out.println("Start day: " + startDay);
         System.out.println("End day: " + endDay);
-
     }
 
     /**
@@ -28,7 +28,8 @@ public class Main_Date_02_JAVA7 {
      * @param date current date
      * @return start date of day
      */
-    private static Date getStartOfDay(Date date) {
+    private static Date getStartOfDay(Date date)
+    {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -47,7 +48,8 @@ public class Main_Date_02_JAVA7 {
      * @param date current day
      * @return end date of day
      */
-    private static Date getEndOfDay(Date date) {
+    private static Date getEndOfDay(Date date)
+    {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.HOUR_OF_DAY, 23);
@@ -56,5 +58,4 @@ public class Main_Date_02_JAVA7 {
         calendar.set(Calendar.MILLISECOND, 999);
         return calendar.getTime();
     }
-
 }

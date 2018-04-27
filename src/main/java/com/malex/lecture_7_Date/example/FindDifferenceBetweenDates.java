@@ -1,4 +1,4 @@
-package com.malex.lecture_7_Date.example_03_Find_difference_between_dates;
+package com.malex.lecture_7_Date.example;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,16 +14,20 @@ import java.util.Date;
  * 3600 seconds = 60 minutes = 1 hour
  * 24 hours = 1440 minutes = 1 day
  */
-public class Main_Date_03 {
-    public static void main(String[] args) {
-        try {
+public class FindDifferenceBetweenDates
+{
+    public static void main(String[] args)
+    {
+        try
+        {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
             Date date1 = dateFormat.parse("15.05.2018");
             Date date2 = dateFormat.parse("17.05.2018");
 
             findDifferenceDates(date1, date2);
 
-        } catch (ParseException e) {
+        } catch (ParseException e)
+        {
             throw new IllegalArgumentException("Incorrect date!");
         }
     }
@@ -34,7 +38,8 @@ public class Main_Date_03 {
      * @param date1 first date.
      * @param date2 second date.
      */
-    private static void findDifferenceDates(Date date1, Date date2) {
+    private static void findDifferenceDates(Date date1, Date date2)
+    {
 
         System.out.println("First date: " + date1);
         System.out.println("Second date: " + date2);
