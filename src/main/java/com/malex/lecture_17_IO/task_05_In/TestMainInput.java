@@ -1,4 +1,4 @@
-package task_05_In;
+package com.malex.lecture_17_IO.task_05_In;
 
 import java.io.BufferedReader;
 import java.io.IOException;

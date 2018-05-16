@@ -1,4 +1,4 @@
-package task_06_Scaner;
+package com.malex.lecture_17_IO.task_06_Scaner;
 
 import java.util.Scanner;
 

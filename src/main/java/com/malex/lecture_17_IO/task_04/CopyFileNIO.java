@@ -1,4 +1,4 @@
-package task_04;
+package com.malex.lecture_17_IO.task_04;
 
 import java.io.File;
 import java.io.FileNotFoundException;

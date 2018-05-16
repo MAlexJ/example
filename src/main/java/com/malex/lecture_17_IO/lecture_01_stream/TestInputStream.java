@@ -1,4 +1,4 @@
-package lecture_01_stream;
+package com.malex.lecture_17_IO.lecture_01_stream;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package task_07_read_file_to_console;
+package com.malex.lecture_17_IO.task_07_read_file_to_console;
 
 import java.io.*;
 
