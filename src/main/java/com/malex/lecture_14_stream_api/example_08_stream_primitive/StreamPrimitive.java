@@ -8,9 +8,9 @@ public class StreamPrimitive {
 
     public static void main(String[] args) {
 
-        // Кроме регулярных объектов потоков Java 8, еще предоставляются особые виды потоков
-        // для работы с примитивными типами данных int, long и double.
-        // IntStream , LongStream и DoubleStream .
+        // In addition to the regular objects of the Java 8 streams, special types of streams
+        // to work with primitive data types int, long and double.
+        // IntStream , LongStream and DoubleStream .
         IntStream.range(5, 8).forEach(System.out::println);
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
@@ -19,7 +19,7 @@ public class StreamPrimitive {
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
 
-        // примитивные потоки поддерживают дополнительные терминальные операции sum() и average():
+        // primitive flows support additional terminal operations sum() и average():
         Arrays.stream(new int[]{1, 2, 3})
                 .map(n -> 2 * n + 1)
                 .average()
@@ -27,8 +27,8 @@ public class StreamPrimitive {
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
 
-        // Иногда это полезно преобразовать поток объекта к примитивному потоку или наоборот.
-        // Для этой цели потоки объектов поддерживают специальные операций картирования mapToInt(), mapToLong() и mapToDouble() :
+        // Sometimes it is useful to convert a stream of objects into a primitive stream or vice versa
+        // For this purpose, object stream support special operations mapToInt(), mapToLong() и mapToDouble() :
         Stream.of("c1", "c2", "c3")
                 .map(s -> s.substring(1))
                 .mapToInt(Integer::parseInt)
@@ -37,14 +37,14 @@ public class StreamPrimitive {
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
 
-        // Примитивные потоки могут быть преобразованы в объектные потоки с помощью метода mapToObj()
+        // Primitive streams can be converted to object flows using the method mapToObj()
         IntStream.range(1, 4)
                 .mapToObj(i -> "с" + i)
                 .forEach(System.out::println);
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
 
-        // Вот комбинированный пример: поток с double сначала преобразуется в int’овый поток и затем в объектный поток строк:
+        // Here's a combined example: a thread with a double is first converted to an int stream and then to an object stream of strings:
         Stream.of(1.0, 2.0, 3.0)
                 .mapToInt(Double::intValue)
                 .mapToObj(i -> "с" + i)
