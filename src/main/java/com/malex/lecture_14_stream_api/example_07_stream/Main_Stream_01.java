@@ -17,14 +17,14 @@ public class Main_Stream_01 {
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
 
-        Arrays.asList("сс1", "сс2", "сс3")
+        Arrays.asList("cc1", "cc2", "cc3")
                 .stream()
                 .findFirst()
                 .ifPresent(System.out::println);
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
 
-        Stream.of("сс1", "сс2", "сс3")
+        Stream.of("cc1", "cc2", "cc3")
                 .findFirst()
                 .ifPresent(System.out::println);
 

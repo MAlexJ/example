@@ -20,7 +20,7 @@ public class StreamProcessingOrder {
                     System.out.println("Фильтр: " + s);
                     return true;
                 })
-                .forEach(s -> System.out.println("Печать с использованием forEach: " + s));
+                .forEach(s -> System.out.println("Printing using forEach: " + s));
 
         System.out.println("\n~~~~~~~~~~~~~~\n");
 
@@ -66,7 +66,7 @@ public class StreamProcessingOrder {
 
         System.out.println("\n~~~~~~~~~~~~~~\n");
 
-        // Сортировка является особым видом промежуточных операций. Это так называемые операции состояния.
+        // Sorting is a special kind of intermediate operations. These are the so-called state operations.
         Stream.of("dd2", "aa2", "bb1", "bb3", "cc4")
                 .sorted((s1, s2) -> {
                     System.out.printf("sort: %s; %s\n", s1, s2);

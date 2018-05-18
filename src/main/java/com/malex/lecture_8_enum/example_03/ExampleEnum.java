@@ -8,9 +8,11 @@ import java.util.Set;
 /**
  * @author malex
  */
-public class ExampleEnum {
+public class ExampleEnum
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         ThreadStatesEnum running = ThreadStatesEnum.RUNNING;
         System.out.println(running);
 
@@ -22,65 +24,75 @@ public class ExampleEnum {
     }
 
     /**
-     * Метод usingEnumMap() показывает использование java.util.EnumMap,
-     * который ввелся в Java 1.5 Collections Framework.
-     * EnumMap является реализацией Map.
-     * Все ключи в EnumMap должны быть одного типа, указанного явно или неявно,
-     * когда карта будет создана.
-     * Мы не можем использовать null в качестве ключа для EnumMap.
+     * The usingEnumMap () method shows the use of java.util.EnumMap,
+     *  which was introduced in the Java 1.5 Collections Framework.
+     *  EnumMap is an implementation of Map.
+     *  ll keys in EnumMap must be of the same type, either explicitly or implicitly,
+     *  When the card is created.
+     * We can not use null as the key for EnumMap.
      */
-    private static void usingEnumMap() {
+    private static void usingEnumMap()
+    {
         EnumMap<ThreadStatesEnum, String> enumMap = new EnumMap<>(ThreadStatesEnum.class);
-        enumMap.put(ThreadStatesEnum.START, "Поток начал работу");
-        enumMap.put(ThreadStatesEnum.RUNNING, "Поток ждет");
-        enumMap.put(ThreadStatesEnum.WAITING, "Поток работает");
-        enumMap.put(ThreadStatesEnum.CLOSE, "Поток умер");
+        enumMap.put(ThreadStatesEnum.START, "The thread started work");
+        enumMap.put(ThreadStatesEnum.RUNNING, "The thread is waiting");
+        enumMap.put(ThreadStatesEnum.WAITING, "The thread works");
+        enumMap.put(ThreadStatesEnum.CLOSE, "The thread is dead");
 
         Set<ThreadStatesEnum> keySet = enumMap.keySet();
-        for (ThreadStatesEnum key : keySet) {
-            System.out.println("ключ = " + key.toString() + " :: значение = " + enumMap.get(key));
+        for (ThreadStatesEnum key : keySet)
+        {
+            System.out.println("key = " + key.toString() + " :: value = " + enumMap.get(key));
         }
     }
 
 
-    private enum ThreadStatesEnum implements Closeable {
-        START(1) {
-            @Override
-            public String toString() {
-                return "  @Override -> START";
-            }
-        },
+    private enum ThreadStatesEnum implements Closeable
+    {
+        START(1)
+                {
+                    @Override
+                    public String toString()
+                    {
+                        return "  @Override -> START";
+                    }
+                },
         RUNNING(2),
         WAITING(3),
         CLOSE(4);
 
-        // Enum константы неявно static и final
+        // Enum's constants  implicitly static and final
         private int priority;
 
-        //Enum конструкторы должны всегда быть private.
-        private ThreadStatesEnum(int priority) {
+        //Enum's constructor should always be private.
+        private ThreadStatesEnum(int priority)
+        {
             priority = priority;
         }
 
-        // У Enum могут быть методы
-        public int getPriority() {
+        // The Enum may be methods
+        public int getPriority()
+        {
             return this.priority;
         }
 
-        // Enum константы являются final, но ее можно изменять.
-        public void setPriority(int p) {
+        // Enum's constants are final, but you can change it.
+        public void setPriority(int p)
+        {
             this.priority = p;
         }
 
 
         @Override
-        public void close() throws IOException {
+        public void close() throws IOException
+        {
             System.out.println("Close stream!");
         }
 
         @Override
-        public String toString() {
-            return "Стандартная реализация ThreadStatesConstructors. Приоритет : " + getPriority();
+        public String toString()
+        {
+            return "Standard implementation ThreadStatesConstructors. Priority : " + getPriority();
         }
     }
 }

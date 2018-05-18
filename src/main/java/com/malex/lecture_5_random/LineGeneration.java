@@ -25,8 +25,8 @@ public class LineGeneration {
 
         long num1 = Integer.MAX_VALUE;
         long num2 = Integer.MAX_VALUE;
-        System.out.println("Максимальный предел этажей (Integer.MAX_VALUE ) : " + num2);
-        System.out.println("Максимальный предел квартир в доме (Integer.MAX_VALUE * 4) : " + num2 * 4);
+        System.out.println("Maximum floor limit (Integer.MAX_VALUE ) : " + num2);
+        System.out.println("The maximum limit of apartments in the house (Integer.MAX_VALUE * 4) : " + num2 * 4);
         System.out.println(Long.MAX_VALUE);
 
     }
