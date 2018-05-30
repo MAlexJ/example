@@ -20,7 +20,7 @@ public class CopyFileIO {
     private static final String PATH_TO_SRS = "source/file.txt";
     private static final String PATH_TO_DESTINATION = "destination/file.txt";
 
-    public static void main(String[] args) throws URISyntaxException, IOException {
+    public static void main(String[] args) throws URISyntaxException {
         URL resourceSrs = CopyFileIO.class.getClassLoader().getResource(PATH_TO_SRS);
         if (Objects.isNull(resourceSrs)) {
             return;
