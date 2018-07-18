@@ -55,19 +55,19 @@ public class Example_06 {
         if (numberFinish < 7) {
             System.out.println("numberFinish < 7 :" + numberFinish);
             int currentNumberFinish = 8 - numberFinish;
-            System.out.println("Начало отчета следующей позиции: " + currentNumberFinish);
+            System.out.println("Start of the next position report: " + currentNumberFinish);
         }
 
         if (numberFinish > 7) {
             System.out.println("numberFinish > 7 :" + numberFinish);
             int currentNumberFinish = 8 - (numberFinish - 7);
-            System.out.println("Начало отчета следующей позиции: " + currentNumberFinish);
+            System.out.println("Start of the next position report: " + currentNumberFinish);
         }
 
         if (numberFinish == 7) {
             System.out.println("numberFinish = 7 :" + numberFinish);
             int currentNumberFinish = 1;
-            System.out.println("Начало отчета следующей позиции: " + currentNumberFinish);
+            System.out.println("Start of the next position report:  " + currentNumberFinish);
         }
         return arr;
 

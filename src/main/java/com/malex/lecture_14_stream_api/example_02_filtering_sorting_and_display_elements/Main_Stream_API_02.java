@@ -23,14 +23,13 @@ public class Main_Stream_API_02 {
         // flatMap
         use_flatMap();
     }
-
     /**
      *
      */
     private static void use_forEach() {
         init("FOREACH");
 
-        Stream<String> cities = Stream.of("Париж", "Лондон", "Мадрид", "Берлин", "Брюссель");
+        Stream<String> cities = Stream.of("Paris", "London", "Madrid", "Berlin", "Brussels");
         cities.forEach(System.out::println);
 
         init();
@@ -42,7 +41,7 @@ public class Main_Stream_API_02 {
     private static void use_simple_filter() {
         init("SIMPLE FILTER");
 
-        Stream<String> citiesStream = Stream.of("Париж", "Лондон", "Мадрид", "Берлин", "Брюссель");
+        Stream<String> citiesStream = Stream.of("Paris", "London", "Madrid", "Berlin", "Brussels");
         citiesStream.filter(city -> city.length() > 6).forEach(System.out::println);
 
         init();

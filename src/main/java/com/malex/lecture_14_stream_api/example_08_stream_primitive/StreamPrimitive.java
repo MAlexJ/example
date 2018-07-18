@@ -39,7 +39,7 @@ public class StreamPrimitive {
 
         // Primitive streams can be converted to object flows using the method mapToObj()
         IntStream.range(1, 4)
-                .mapToObj(i -> "с" + i)
+                .mapToObj(i -> "c" + i)
                 .forEach(System.out::println);
 
         System.out.println("\n~~~~~~~~~~~~~~~~~\n");
@@ -47,8 +47,7 @@ public class StreamPrimitive {
         // Here's a combined example: a thread with a double is first converted to an int stream and then to an object stream of strings:
         Stream.of(1.0, 2.0, 3.0)
                 .mapToInt(Double::intValue)
-                .mapToObj(i -> "с" + i)
+                .mapToObj(i -> "c" + i)
                 .forEach(System.out::println);
-
     }
 }

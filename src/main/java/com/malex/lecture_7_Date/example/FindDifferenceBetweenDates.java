@@ -40,33 +40,31 @@ public class FindDifferenceBetweenDates
      */
     private static void findDifferenceDates(Date date1, Date date2)
     {
-
         System.out.println("First date: " + date1);
         System.out.println("Second date: " + date2);
 
         long milliseconds = date2.getTime() - date1.getTime();
-        System.out.println("\nРазница между датами в миллисекундах: " + milliseconds);
+        System.out.println("\nThe difference between the dates in milliseconds: " + milliseconds);
 
-        // 1000 миллисекунд = 1 секунда
+        // 1000 milliseconds = 1 second
         int seconds = (int) (milliseconds / (1000));
-        System.out.println("Разница между датами в секундах: " + seconds);
+        System.out.println("The difference between the dates in seconds: " + seconds);
 
-        // 60 000 миллисекунд = 60 секунд = 1 минута
+        // 60,000 milliseconds = 60 seconds = 1 minute
         int minutes = (int) (milliseconds / (60 * 1000));
-        System.out.println("Разница между датами в минутах: " + minutes);
+        System.out.println("The difference between the dates in minutes: " + minutes);
 
-        // 3 600 секунд = 60 минут = 1 час
+        // 3 600 seconds = 60 minutes = 1 hour
         int hours = (int) (milliseconds / (60 * 60 * 1000));
-        System.out.println("Разница между датами в часах: " + hours);
+        System.out.println("Difference between dates in hours: " + hours);
 
-        // 24 часа = 1 440 минут = 1 день
+        // 24 hours = 1 440 minutes = 1 day
         int days = (int) (milliseconds / (24 * 60 * 60 * 1000));
-        System.out.println("Разница между датами в днях: " + days);
+        System.out.println("Difference between dates in days: " + days);
 
         //Note that in the listing, we obviously take less from the date of the most.
         // If on the contrary to take away from
         // the big date less the result we obtain the same result,
         // but with a minus sign.
     }
-
 }

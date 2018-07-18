@@ -9,10 +9,10 @@ public class ReusingStreams {
                 Stream.of("dd2", "aa2", "bb1", "bb3", "cc")
                         .filter(s -> s.startsWith("a"));
 
-        stream.anyMatch(s -> true);    // операция выполнится успешно
+        stream.anyMatch(s -> true);    // the operation will succeed
 
         try {
-            stream.noneMatch(s -> true);   // Вылетит Exception
+            stream.noneMatch(s -> true);   // throws  Exception
         } catch (IllegalStateException ex) {
             // ignore
         }
