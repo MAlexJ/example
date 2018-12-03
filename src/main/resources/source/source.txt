@@ -1,1 +1,2 @@
 Source file
+new line in a file

@@ -1,22 +1,26 @@
 package com.malex.lecture_17_IO.task_06_Scaner;
 
 import java.util.Scanner;
+import org.apache.log4j.Logger;
 
-public class ScannerApp
-{
+public class ScannerApp {
+  private static final Logger LOG = Logger.getLogger(ScannerApp.class);
 
-    public static void main(String[] args)
-    {
-        Scanner scanner = new Scanner(System.in, "UTF-8");
-        int i = 2;
-        System.out.print("Enter an integer: ");
-        if (scanner.hasNextInt())
-        { // returns true if an integer can be read from the input stream
-            i = scanner.nextInt(); // reads an integer from the input stream and stores it in a variable
-            System.out.println(i * 2);
-        } else
-        {
-            System.out.println("You did not enter an integer!");
-        }
+  private static final String ENCODING_TYPE = "UTF-8";
+
+  public static void main(String[] args) {
+
+    LOG.debug("Enter an integer: ");
+    Scanner scanner = new Scanner(System.in, ENCODING_TYPE);
+    int i;
+
+    // returns true if an integer can be read from the input stream
+    if (scanner.hasNextInt()) {
+      // reads an integer from the input stream and stores it in a variable
+      i = scanner.nextInt();
+      LOG.debug(i * 2);
+    } else {
+      LOG.debug("You did not enter an integer!");
     }
+  }
 }

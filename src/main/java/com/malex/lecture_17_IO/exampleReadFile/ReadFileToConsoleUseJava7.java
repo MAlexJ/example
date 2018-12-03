@@ -1,4 +1,4 @@
-package com.malex.lecture_17_IO.task_07_read_file_to_console;
+package com.malex.lecture_17_IO.exampleReadFile;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.Objects;
 import org.apache.log4j.Logger;
 
-/** java7 closing resources automatically */
+/** JAVA 7 closing resources automatically */
 public class ReadFileToConsoleUseJava7 {
   private static final Logger LOG = Logger.getLogger(ReadFileToConsoleUseJava7.class);
 
