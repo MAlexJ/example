@@ -10,36 +10,39 @@ import java.net.URL;
 import java.util.Objects;
 import lombok.extern.log4j.Log4j;
 
-/** Created by admin on 26.04.2015. */
 @Log4j
 public class CopyFileIO {
 
   private static final String PATH_TO_SRS = "source/file.txt";
   private static final String PATH_TO_DESTINATION = "destination/file.txt";
 
+  private static final String ERROR_COPY_FILE = "An error occurred while copy the file '%s'";
   private static final String ERROR_MESSAGE = "File not found: %s";
 
   public static void main(String[] args) throws URISyntaxException {
-    URL resourceSrs = getUrl();
-    URI uriSrs = resourceSrs.toURI();
-    File srcFile = new File(uriSrs);
 
-    String destPath = srcFile.getParent().replace(PATH_TO_SRS, PATH_TO_DESTINATION);
-    File destFile = new File(destPath);
+    URI fileUri = getUrl().toURI();
+    File source = new File(fileUri);
 
-    try (FileInputStream fileInputStream = new FileInputStream(srcFile);
-        FileOutputStream fileOutputStream = new FileOutputStream(destFile)) {
+    String destPath = source.getAbsolutePath().replace(PATH_TO_SRS, PATH_TO_DESTINATION);
+    File destination = new File(destPath);
+
+    try (FileInputStream fileInputStream = new FileInputStream(source);
+        FileOutputStream fileOutputStream = new FileOutputStream(destination)) {
+
       int temp;
       while (true) {
         temp = fileInputStream.read();
         if (temp != -1) {
           fileOutputStream.write(temp);
         } else {
+          log.debug("File '" + source.getName() + "' copied successfully!");
           break;
         }
       }
     } catch (IOException e) {
-      log.error("The error message: " + e.getMessage());
+      String errorMessage = String.format(ERROR_COPY_FILE, source.getName());
+      throw new IllegalArgumentException(errorMessage);
     }
   }
 

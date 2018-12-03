@@ -1,12 +1,15 @@
-package com.malex.lecture_17_IO.task_06_Scaner;
+package com.malex.lecture_17_IO.exampleScaner;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import org.apache.log4j.Logger;
 
 public class ScannerApp {
+
   private static final Logger LOG = Logger.getLogger(ScannerApp.class);
 
-  private static final String ENCODING_TYPE = "UTF-8";
+  /** encoding type for scanner */
+  private static final String ENCODING_TYPE = StandardCharsets.UTF_8.name();
 
   public static void main(String[] args) {
 
