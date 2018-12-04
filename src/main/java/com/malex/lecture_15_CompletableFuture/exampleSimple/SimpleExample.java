@@ -32,13 +32,16 @@ public class SimpleExample {
     SOURCE_FILE = sourceRes.getFile();
   }
 
-  public static void main(String[] args) {
-    CompletableFuture.supplyAsync(SimpleExample::readFile)
+  public static void main(String[] args) throws InterruptedException {
+    /*
+     * Returns a new CompletableFuture that is asynchronously completed
+     * by a task running in the {@link ForkJoinPool#commonPool()} with
+     * the value obtained by calling the given Supplier.
+     */
+    CompletableFuture.supplyAsync(SimpleExample::readFile).thenAcceptAsync(LOG::debug);
 
-
-    ;
+    Thread.sleep(1000);
   }
-
 
   private static String readFile() {
     StringBuilder contentBuilder = new StringBuilder();
