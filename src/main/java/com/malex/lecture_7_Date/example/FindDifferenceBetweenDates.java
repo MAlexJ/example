@@ -3,6 +3,7 @@ package com.malex.lecture_7_Date.example;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import lombok.extern.log4j.Log4j;
 
 /**
  * Find the difference between dates
@@ -14,6 +15,7 @@ import java.util.Date;
  * 3600 seconds = 60 minutes = 1 hour
  * 24 hours = 1440 minutes = 1 day
  */
+@Log4j
 public class FindDifferenceBetweenDates
 {
     public static void main(String[] args)
@@ -40,27 +42,27 @@ public class FindDifferenceBetweenDates
      */
     private static void findDifferenceDates(Date date1, Date date2)
     {
-        System.out.println("First date: " + date1);
-        System.out.println("Second date: " + date2);
+        log.debug("First date: " + date1);
+        log.debug("Second date: " + date2);
 
         long milliseconds = date2.getTime() - date1.getTime();
-        System.out.println("\nThe difference between the dates in milliseconds: " + milliseconds);
+        log.debug("\nThe difference between the dates in milliseconds: " + milliseconds);
 
         // 1000 milliseconds = 1 second
         int seconds = (int) (milliseconds / (1000));
-        System.out.println("The difference between the dates in seconds: " + seconds);
+        log.debug("The difference between the dates in seconds: " + seconds);
 
         // 60,000 milliseconds = 60 seconds = 1 minute
         int minutes = (int) (milliseconds / (60 * 1000));
-        System.out.println("The difference between the dates in minutes: " + minutes);
+        log.debug("The difference between the dates in minutes: " + minutes);
 
         // 3 600 seconds = 60 minutes = 1 hour
         int hours = (int) (milliseconds / (60 * 60 * 1000));
-        System.out.println("Difference between dates in hours: " + hours);
+        log.debug("Difference between dates in hours: " + hours);
 
         // 24 hours = 1 440 minutes = 1 day
         int days = (int) (milliseconds / (24 * 60 * 60 * 1000));
-        System.out.println("Difference between dates in days: " + days);
+        log.debug("Difference between dates in days: " + days);
 
         //Note that in the listing, we obviously take less from the date of the most.
         // If on the contrary to take away from
