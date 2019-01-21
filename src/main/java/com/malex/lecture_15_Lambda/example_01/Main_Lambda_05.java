@@ -1,4 +1,4 @@
-package example_01;
+package com.malex.lecture_15_Lambda.example_01;
 
 /**
  * Simple example generalized functional interface.

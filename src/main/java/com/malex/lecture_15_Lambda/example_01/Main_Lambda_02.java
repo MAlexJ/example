@@ -1,4 +1,4 @@
-package example_01;
+package com.malex.lecture_15_Lambda.example_01;
 
 /**
  * Simple example of using lambda expression.
@@ -46,7 +46,4 @@ interface Exampleable {
     * @return result calculation.
     */
    int method(int x);
-
 }
-
-

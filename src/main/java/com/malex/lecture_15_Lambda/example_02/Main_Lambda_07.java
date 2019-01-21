@@ -1,4 +1,4 @@
-package example_02;
+package com.malex.lecture_15_Lambda.example_02;
 
 /**
  * References to the method as the method parameters
