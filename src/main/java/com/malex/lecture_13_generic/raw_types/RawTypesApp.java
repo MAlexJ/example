@@ -2,11 +2,13 @@ package com.malex.lecture_13_generic.raw_types;
 
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.log4j.Log4j;
 
 /**
  * * A raw type is the name of a generic class or interface without any type arguments.
  * For example, given the generic Box class: Box rawBox = new Box();
  */
+@Log4j
 public class RawTypesApp
 {
     /**
@@ -21,12 +23,12 @@ public class RawTypesApp
     {
         Box<Integer> boxInt = new Box<>();
         boxInt.setOb(123);
-        System.out.println("Box<Integer> boxInt: "+ boxInt);
+        log.debug("Box<Integer> boxInt: "+ boxInt);
 
         // this is Raw type
         Box box = new Box();
         box.setOb("Hello box");
-        System.out.println("Box box: "+ boxInt);
+        log.debug("Box box: "+ boxInt);
     }
 
     @Setter
