@@ -5,36 +5,32 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j;
 
 /**
- * * A raw type is the name of a generic class or interface without any type arguments.
- * For example, given the generic Box class: Box rawBox = new Box();
+ * * A raw type is the name of a generic class or interface without any type arguments. For example,
+ * given the generic Box class: Box rawBox = new Box();
  */
 @Log4j
-public class RawTypesApp
-{
-    /**
-     * To create a parameterized type of Box<T>, you supply an actual type argument for the formal type parameter T:
-     * Box<Integer> intBox = new Box<>();
-     * If the actual type argument is omitted, you create a raw type of Box<T>:
-     * Box rawBox = new Box();
-     * Therefore, Box is the raw type of the generic type Box<T>.
-     * However, a non-generic class or interface type is not a raw type.
-     */
-    public static void main(String[] args)
-    {
-        Box<Integer> boxInt = new Box<>();
-        boxInt.setOb(123);
-        log.debug("Box<Integer> boxInt: "+ boxInt);
+public class RawTypesApp {
 
-        // this is Raw type
-        Box box = new Box();
-        box.setOb("Hello box");
-        log.debug("Box box: "+ boxInt);
-    }
+  /**
+   * To create a parameterized type of Box<T>, you supply an actual type argument for the formal
+   * type parameter T: Box<Integer> intBox = new Box<>(); If the actual type argument is omitted,
+   * you create a raw type of Box<T>: Box rawBox = new Box(); Therefore, Box is the raw type of the
+   * generic type Box<T>. However, a non-generic class or interface type is not a raw type.
+   */
+  public static void main(String[] args) {
+    Box<Integer> boxInt = new Box<>();
+    boxInt.setOb(123);
+    log.debug("Box<Integer> boxInt: " + boxInt);
 
-    @Setter
-    @ToString
-    private static class Box<T>
-    {
-        private T ob;
-    }
+    // this is Raw type
+    Box box = new Box();
+    box.setOb("Hello box");
+    log.debug("Box box: " + boxInt);
+  }
+
+  @Setter
+  @ToString
+  private static class Box<T> {
+    private T ob;
+  }
 }

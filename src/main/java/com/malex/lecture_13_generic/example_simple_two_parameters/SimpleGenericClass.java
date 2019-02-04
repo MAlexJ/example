@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j;
 /** The example of using a simple generic class with two parameters */
 @Log4j
 public class SimpleGenericClass {
+
   public static void main(String[] args) {
     // example #1
     // use of Integer and String types
@@ -23,6 +24,7 @@ public class SimpleGenericClass {
   /** A simple class with two generics types */
   @Getter
   private static class TwoGen<T, V> {
+
     private T firstParameter;
     private V secondParameter;
 
