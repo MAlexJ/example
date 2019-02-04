@@ -1,5 +1,6 @@
-package com.malex.lecture_7_Date.bestPractices.threadLocalDateFormat;
+package com.malex.lecture_7_Date.bestPractices;
 
+import com.malex.lecture_7_Date.bestPractices.threadLocalDateFormat.ConcurrentDateFormatAccess;
 import java.util.Date;
 import lombok.extern.log4j.Log4j;
 
