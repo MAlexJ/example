@@ -1,13 +1,12 @@
-package dao.impl;
+package com.malex.lecture_20_DAOfactoryMethod.dao.impl;
 
-import dao.AccountDao;
-import entity.Account;
+import com.malex.lecture_20_DAOfactoryMethod.dao.AccountDao;
+import com.malex.lecture_20_DAOfactoryMethod.entity.Account;
 
 import java.util.List;
+import lombok.extern.log4j.Log4j;
 
-/**
- * Created by admin on 31.03.2015.
- */
+@Log4j
 public class AccountDaoPSQLImpl implements AccountDao {
     @Override
     public List<Account> getAccounts() {
@@ -30,8 +29,8 @@ public class AccountDaoPSQLImpl implements AccountDao {
     }
 
     @Override
-    public boolean deleteeAccount(int id) {
-        System.out.print("PSQL" + id + "  ");
+    public boolean deleteAccount(int id) {
+        log.debug("PSQL" + id + "  ");
         return false;
     }
 }
