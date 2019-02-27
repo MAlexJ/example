@@ -2,6 +2,16 @@ package com.malex.lecture_13_generic.example_generic_methods;
 
 import lombok.extern.log4j.Log4j;
 
+/**
+ * Generic methods are methods that introduce their own type parameters. This is similar to
+ * declaring a generic type, but the type parameter's scope is limited to the method where it is
+ * declared. Static and non-static generic methods are allowed, as well as generic class
+ * constructors.
+ *
+ * <p>The syntax for a generic method includes a list of type parameters, inside angle brackets,
+ * which appears before the method's return type. For static generic methods, the type parameter
+ * section must appear before the method's return type.
+ */
 @Log4j
 public class SimpleGenericMethods {
 
