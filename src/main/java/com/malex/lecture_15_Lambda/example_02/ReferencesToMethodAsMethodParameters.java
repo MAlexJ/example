@@ -1,31 +1,32 @@
 package com.malex.lecture_15_Lambda.example_02;
 
+import lombok.extern.log4j.Log4j;
+
 /**
  * References to the method as the method parameters
- *
- * @author malex
  */
-public class Main_Lambda_07 {
+@Log4j
+public class ReferencesToMethodAsMethodParameters {
 
     public static void main(String[] args) {
         int[] nums = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
 
-        Expression_01 expr = ExpressionHelper::isEven;
-        System.out.println(sum(nums, expr));
+        Expression expr = ExpressionHelper::isEven;
+        log.debug(sum(nums, expr));
 
         // Link to the method passed in the form class_name :: name_static_method
         // or object_class :: method_name (if the method is non-static)
         expr = ExpressionHelper::isPositive;
         // Example: References to the method as the method parameters
 
-        System.out.println(sum(nums, expr) + "\n");
+        log.debug(sum(nums, expr) + "\n");
 
         //object_class :: method_name (if the method is non-static)
         expr = new ExpressionNewHelper()::isEquals;
-        System.out.println(sum(nums, expr));
+        log.debug(sum(nums, expr));
     }
 
-    private static int sum(int[] numbers, Expression_01 func) {
+    private static int sum(int[] numbers, Expression func) {
         int result = 0;
         for (int i : numbers) {
             if (func.isEqual(i))
@@ -36,16 +37,13 @@ public class Main_Lambda_07 {
 }
 
 /**
- * Functional interface.
- */
-interface Expression_01 {
-    boolean isEqual(int n);
-}
-
-/**
  * Class with static method
  */
 class ExpressionHelper {
+
+    private ExpressionHelper() {
+        //non use
+    }
 
     static boolean isEven(int n) {
         return n % 2 == 0;

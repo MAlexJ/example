@@ -1,20 +1,23 @@
 package com.malex.lecture_15_Lambda.example_02;
 
+import lombok.extern.log4j.Log4j;
+
 /**
  * Links to the constructor
  *
  * @author malex
  */
-public class Main_Lambda_08 {
+@Log4j
+public class LinksToConstructor {
 
     public static void main(String[] args) {
         UserBuilder builder = User::new;
 
         User alex = builder.createUser(21, "Alex");
-        System.out.println(alex + "\n");
+        log.debug(alex + "\n");
 
         User max = builder.createUser(20, "Max");
-        System.out.println(max);
+        log.debug(max);
 
     }
 }
