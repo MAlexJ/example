@@ -1,7 +1,7 @@
-package example_01_Strategy;
+package com.malex.lecture_22_Pattern.example_01_Strategy.pattern;
 
-// Класс контекста использующий интерфейс стратегии
 public class Context {
+
     private Strategy strategy;
 
     // Constructor
