@@ -1,4 +1,4 @@
-package chapter_4_dequeue;
+package com.malex.lecture_26_SDL.chapter_4_dequeue;
 
 public interface MyDequeueInterface
 {

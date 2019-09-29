@@ -1,9 +1,8 @@
-package chapter_4_queue.impl;
+package com.malex.lecture_26_SDL.chapter_4_queue.impl;
 
-import chapter_4_queue.QueueInterface;
+import com.malex.lecture_26_SDL.chapter_4_queue.IQueue;
 
-public class MyQueueShift implements QueueInterface
-{
+public class MyQueueShift implements IQueue {
     private int maxSize;
     private int[] queArray;
     private int nItems;
@@ -12,8 +11,7 @@ public class MyQueueShift implements QueueInterface
     private int shift;
 
 
-    public MyQueueShift(int size)
-    {
+    public MyQueueShift(int size) {
         this.maxSize = size;
         this.queArray = new int[size];
         this.nItems = 0;
@@ -23,16 +21,14 @@ public class MyQueueShift implements QueueInterface
     }
 
     @Override
-    public void insert(int item)
-    {
+    public void insert(int item) {
         if (nItems == maxSize) throw new IllegalArgumentException("Queue is full!");
         queArray[++rear] = item;
         nItems++;
     }
 
     @Override
-    public int remove()
-    {
+    public int remove() {
         if (nItems == 0) throw new IllegalArgumentException("Queue is empty!");
         nItems--;
         rear--;
@@ -42,35 +38,30 @@ public class MyQueueShift implements QueueInterface
     }
 
     // shift queue
-    private int[] shiftQueue()
-    {
+    private int[] shiftQueue() {
         int[] result = new int[maxSize];
         System.arraycopy(queArray, shift, result, 0, maxSize - shift);
         return result;
     }
 
     @Override
-    public int peekFront()
-    {
+    public int peekFront() {
         if (nItems == 0) throw new IllegalArgumentException("Queue hasn't items!");
         return queArray[front];
     }
 
     @Override
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return nItems == 0;
     }
 
     @Override
-    public boolean isFull()
-    {
+    public boolean isFull() {
         return nItems == maxSize;
     }
 
     @Override
-    public int size()
-    {
+    public int size() {
         return nItems;
     }
 }

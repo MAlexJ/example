@@ -1,14 +1,12 @@
-package chapter_4_prority_queue;
+package com.malex.lecture_26_SDL.chapter_4_prority_queue;
 
-public abstract class AbstractPriorityQueue
-{
-    protected final static int DEFAULT_VALUE = 0;
+public abstract class AbstractPriorityQueue {
+    protected static final int DEFAULT_VALUE = 0;
     protected int maxSize;
     protected int[] arr;
     protected int nItems;
 
-    public AbstractPriorityQueue(int size)
-    {
+    public AbstractPriorityQueue(int size) {
         nItems = DEFAULT_VALUE;
         maxSize = size;
         arr = new int[size];
@@ -18,14 +16,11 @@ public abstract class AbstractPriorityQueue
 
     protected abstract boolean isEmpty();
 
-    protected void isEmptyQueue()
-    {
+    protected void isEmptyQueue() {
         if (isEmpty()) throw new IllegalArgumentException("PriorityQueue is empty!");
     }
 
-    protected void isFullQueue()
-    {
+    protected void isFullQueue() {
         if (isFull()) throw new IllegalArgumentException("PriorityQueue is full!");
     }
-
 }

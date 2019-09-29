@@ -1,7 +1,6 @@
-package chapter_4_stack;
+package com.malex.lecture_26_SDL.chapter_4_stack;
 
-public interface StackInterface
-{
+public interface IStack {
     // insert a new element
     void push(int num);
 
