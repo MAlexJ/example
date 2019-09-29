@@ -1,4 +1,5 @@
 package com.malex.lecture_26_SDL.chapter_4_queue.impl;
+
 import com.malex.lecture_26_SDL.chapter_4_queue.IQueue;
 
 /**
@@ -21,26 +22,38 @@ public class LoopQueue implements IQueue {
 
     @Override
     public void insert(int item) {
-        if (nItems == maxSize) throw new IllegalArgumentException("Queue is full!");
-        if (rear == maxSize - 1) rear = -1;  // TODO <<<
+        if (nItems == maxSize) {
+            throwException("Queue is full!");
+        }
+        if (rear == maxSize - 1) {
+            rear = -1;
+        }
         queArray[++rear] = item;
         nItems++;
     }
 
     @Override
     public int remove() {
-        if (nItems == 0) throw new IllegalArgumentException("Queue is empty!");
-        if (front == maxSize) front = 0; // TODO <<<
-        int temp = queArray[front++];
+        if (nItems == 0) {
+            throwException("Queue is empty!");
+        }
+        if (front == maxSize) {
+            front = 0;
+        }
+        front = front + 1;
+        int temp = queArray[front];
         nItems--;
         return temp;
     }
 
     @Override
     public int peekFront() {
-        if (nItems == 0) throw new IllegalArgumentException("Queue hasn't items!");
-        return queArray[front - 1];
+        if (nItems == 0) {
+            throwException("Queue hasn't items!");
+        }
+        return queArray[front];
     }
+
 
     @Override
     public boolean isEmpty() {
@@ -55,5 +68,9 @@ public class LoopQueue implements IQueue {
     @Override
     public int size() {
         return nItems;
+    }
+
+    private void throwException(String errMsg) {
+        throw new IllegalArgumentException(errMsg);
     }
 }

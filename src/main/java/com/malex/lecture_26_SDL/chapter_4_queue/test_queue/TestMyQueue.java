@@ -12,41 +12,41 @@ public class TestMyQueue {
 
     @Test
     public void test() {
-        // MyQueue
+        // test > MyQueue
         checkSimpleInsertDelete(new MyQueue(10));
         checkForOverflow(new MyQueue(2));
-        test_3(new MyQueue(3));
-        test_4(new MyQueue(5));
+        checkOverflowRemove(new MyQueue(3));
+        checkOverflowPeek(new MyQueue(5));
         try {
-            test_5_add_after_delete_simple(new MyQueue(3));
+            checkSimpleAddAfterDelete(new MyQueue(3));
             fail();
         } catch (ArrayIndexOutOfBoundsException ex) {
             //ignore
         }
         try {
-            test_6_add_after_delete(new MyQueue(3));
+            checkAddAfterDelete(new MyQueue(3));
         } catch (ArrayIndexOutOfBoundsException ex) {
             // ignore
         }
 
-        // MyQueueShift
+        // test > MyQueueShift
         checkSimpleInsertDelete(new MyQueueShift(10));
         checkForOverflow(new MyQueueShift(2));
-        test_3(new MyQueueShift(3));
-        test_4(new MyQueueShift(5));
-        test_5_add_after_delete_simple(new MyQueueShift(3));
-        test_6_add_after_delete(new MyQueueShift(3));
+        checkOverflowRemove(new MyQueueShift(3));
+        checkOverflowPeek(new MyQueueShift(5));
+        checkSimpleAddAfterDelete(new MyQueueShift(3));
+        checkAddAfterDelete(new MyQueueShift(3));
 
-        // LoopQueue
+        // test >  LoopQueue
         checkSimpleInsertDelete(new LoopQueue(10));
         checkForOverflow(new LoopQueue(2));
-        test_3(new LoopQueue(3));
-        test_4(new LoopQueue(5));                         // TODO >> java.lang.ArrayIndexOutOfBoundsException: -1
-        test_5_add_after_delete_simple(new LoopQueue(3));
-        test_6_add_after_delete(new LoopQueue(3));
+        checkOverflowRemove(new LoopQueue(3));
+        checkOverflowPeek(new LoopQueue(5));
+        checkSimpleAddAfterDelete(new LoopQueue(3));
+        checkAddAfterDelete(new LoopQueue(3));
     }
 
-    private void test_6_add_after_delete(IQueue iQueue) {
+    private void checkAddAfterDelete(IQueue iQueue) {
         iQueue.insert(1);
         iQueue.insert(2);
         iQueue.insert(3);
@@ -63,7 +63,7 @@ public class TestMyQueue {
         assertEquals(6, iQueue.peekFront());  //  == 6
     }
 
-    private void test_5_add_after_delete_simple(IQueue myQueue) {
+    private void checkSimpleAddAfterDelete(IQueue myQueue) {
         myQueue.insert(1);
         myQueue.insert(2);
         myQueue.insert(3);
@@ -96,7 +96,7 @@ public class TestMyQueue {
         }
     }
 
-    private void test_4(IQueue queue) {
+    private void checkOverflowPeek(IQueue queue) {
         queue.insert(1);
         queue.insert(2);
         queue.insert(3);
@@ -127,8 +127,7 @@ public class TestMyQueue {
         }
     }
 
-    // limit remove
-    private void test_3(IQueue queue) {
+    private void checkOverflowRemove(IQueue queue) {
         queue.insert(1);
         queue.insert(2);
         queue.insert(3);
