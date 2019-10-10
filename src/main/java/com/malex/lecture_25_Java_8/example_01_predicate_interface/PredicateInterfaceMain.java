@@ -1,10 +1,15 @@
 package com.malex.lecture_25_Java_8.example_01_predicate_interface;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.log4j.Log4j;
+
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Log4j
 public class PredicateInterfaceMain {
 
     private static final String FILTER_OLD = "Older";
@@ -33,35 +38,21 @@ public class PredicateInterfaceMain {
     private static void displayPeople(List<Person> people, Predicate<Person> predicate, String nameOfPredicate) {
         people.forEach(p -> {
             if (predicate.test(p)) {
-                System.out.printf("Predicate %s : Person %s ; \n", nameOfPredicate, p);
+                log.debug(String.format("Predicate %s : Person %s; %n", nameOfPredicate, p));
             }
         });
     }
 }
 
+@Getter
+@Setter
 class Person {
 
     private String name;
     private int age;
 
-    public Person(String name, int age) {
+    Person(String name, int age) {
         this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
         this.age = age;
     }
 
