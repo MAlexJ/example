@@ -1,14 +1,14 @@
 package com.malex.lecture_15_CompletableFuture.differenceBetween;
 
+import lombok.*;
+import lombok.extern.log4j.Log4j;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.extern.log4j.Log4j;
+
+import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
 
 /**
  * Difference Between thenApply() and thenCompose()
@@ -31,79 +31,88 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class DifferenceApplyAndCompose {
 
-  private static Supplier<Response> supplyResponse = Response::new;
+    private static Supplier<Response> supplyResponse = Response::new;
 
-  public static void main(String[] args) throws ExecutionException, InterruptedException {
-    DifferenceApplyAndCompose clazz = new DifferenceApplyAndCompose();
-    clazz.exampleThenApply();
-  }
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        DifferenceApplyAndCompose clazz = new DifferenceApplyAndCompose();
+        clazz.exampleThenApply();
+    }
 
-  /**
-   * However, a key point to remember is that the return type will be combined of all calls. This
-   * method is useful when we want to transform the result of a CompletableFuture cal
-   */
-  private void exampleThenApply() throws ExecutionException, InterruptedException {
+    /**
+     * However, a key point to remember is that the return type will be combined of all calls. This
+     * method is useful when we want to transform the result of a CompletableFuture call
+     */
+    private void exampleThenApply() throws ExecutionException, InterruptedException {
 
-    // get User
-    CompletableFuture<User> userCompletableFuture =
-        CompletableFuture.completedFuture(new User("Max", "555"));
+        // get User
+        CompletableFuture<User> userCompletableFuture =
+                CompletableFuture.completedFuture(new User("Max", "555"));
 
-    // get Credential
-    CompletableFuture<Credential> credentialCompletableFuture =
-        CompletableFuture.completedFuture(new Credential("12345"));
+        // get Credential
+        CompletableFuture<Credential> credentialCompletableFuture =
+                CompletableFuture.completedFuture(new Credential("12345"));
 
-    // main future
-    CompletableFuture<Response> future =
-        CompletableFuture.supplyAsync(supplyResponse)
-            .thenCombine(userCompletableFuture, this::addUser)
-            .thenCombine(credentialCompletableFuture, this::addCredential);
+        // main future
+        CompletableFuture<Response> future =
+                CompletableFuture.supplyAsync(supplyResponse)
+                        .thenCombine(userCompletableFuture, this::addUser)
+                        .thenCombine(credentialCompletableFuture, this::addCredential)
+                        .thenApply(this::printResult);
 
-    log.debug(future.get());
+        future.get();
+    }
+
+  private Response printResult(Response r) {
+    log.debug(r);
+    assertNotNull(r);
+    assertNotNull(r.user);
+    assertNotNull(r.credential);
+    return r;
   }
 
   private Response addCredential(Response response, Credential credential) {
-    response.setCredential(credential);
-    return response;
-  }
-
-  private Response addUser(Response response, User user) {
-    response.setUser(user);
-    return response;
-  }
-
-  @Getter
-  @Setter
-  @NoArgsConstructor
-  @ToString
-  private static class Response {
-    private User user;
-    private Credential credential;
-  }
-
-  @Getter
-  @Setter
-  @NoArgsConstructor
-  @AllArgsConstructor
-  private static class User {
-    private String name;
-    private String phone;
-
-    @Override
-    public String toString() {
-      return "[name=" + name + ", phone=" + phone + "]";
+        response.setCredential(credential);
+        return response;
     }
-  }
 
-  @Getter
-  @Setter
-  @NoArgsConstructor
-  @AllArgsConstructor
-  private static class Credential {
-    private String password;
-
-    @Override
-    public String toString() {
-      return "[pwd=" + password + "]";
+    private Response addUser(Response response, User user) {
+        response.setUser(user);
+        return response;
     }
-  }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @ToString
+    private static class Response {
+        private User user;
+        private Credential credential;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    private static class User {
+        private String name;
+        private String phone;
+
+        @Override
+        public String toString() {
+            return "[name=" + name + ", phone=" + phone + "]";
+        }
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    private static class Credential {
+        private String password;
+
+        @Override
+        public String toString() {
+            return "[pwd=" + password + "]";
+        }
+    }
 }
