@@ -1,67 +1,57 @@
 package com.malex.lecture_25_Java_8.example_00_lambda;
 
-import org.junit.Test;
-
 import java.util.Comparator;
 import java.util.stream.Stream;
 
+import org.junit.Test;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+@ToString
 public class MainLambda {
 
-	private String field = "field";
+    @Setter
+    @Getter
+    private String field = "field";
 
-	private String getField() {
-		return field;
-	}
+    private static MainLambda create(Functional<MainLambda> functional, String name) {
+        MainLambda lambda = functional.get();
+        if (name != null) {
+            lambda.setField(name);
+        }
+        return lambda;
+    }
 
-	private void setField(String field) {
-		this.field = field;
-	}
 
-	private static MainLambda create(Functional<MainLambda> functional, String name) {
-		MainLambda lambda = functional.get();
-		if (name != null) {
-			lambda.setField(name);
-		}
-		return lambda;
-	}
+    @Test
+    public void testStreamPeekMethod() {
+        String separator = "\n";
+        Stream.of("a", "b")
+                .peek(e -> log.debug("Intermediate operation: " + separator))
+                .forEach(log::debug);
+    }
 
-	@Override
-	public String toString() {
-		return "MainLambda{" +
-				  "field='" + field + '\'' +
-				  '}';
-	}
+    @Test
+    public void testStreamSortedMethod() {
+        Stream.of("w", "c", "a", "b")
+                .sorted()
+                .forEach(log::debug);
+    }
 
-	@Test
-	public void test() {
+    @Test
+    public void testCustomFunctionalInterface() {
+        MainLambda l1 = MainLambda.create(MainLambda::new, "new name");
+        MainLambda l2 = MainLambda.create(MainLambda::new, "old name");
+        MainLambda l3 = MainLambda.create(MainLambda::new, null);
 
-		String separator = "\n";
-		Stream
-				  .of("a", "b")
-				  .peek(e -> System.out.print(separator))
-				  .forEach(System.out::print);
-	}
-
-	@Test
-	public void test2() {
-		Stream
-				  .of("w", "c", "a", "b")
-				  .sorted()
-				  .forEach(System.out::print);
-
-	}
-
-	@Test
-	public void test3() {
-		MainLambda l1 = MainLambda.create(MainLambda::new, "new name");
-		MainLambda l2 = MainLambda.create(MainLambda::new, "old name");
-		MainLambda l3 = MainLambda.create(MainLambda::new, null);
-
-		Stream
-				  .of(l1, l2, l3)
-				  .sorted(Comparator.comparing(MainLambda::getField))
-				  .forEach(System.out::println);
-	}
+        Stream.of(l1, l2, l3)
+                .sorted(Comparator.comparing(MainLambda::getField))
+                .forEach(System.out::println);
+    }
 
 }
 
@@ -73,5 +63,5 @@ public class MainLambda {
 @FunctionalInterface
 interface Functional<T> {
 
-	T get();
+    T get();
 }
