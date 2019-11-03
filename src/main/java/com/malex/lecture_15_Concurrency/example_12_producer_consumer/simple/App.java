@@ -1,4 +1,4 @@
-package com.malex.lecture_15_Concurrency.example_12_producer_consumer.newImpl;
+package com.malex.lecture_15_Concurrency.example_12_producer_consumer.simple;
 
 import lombok.Builder;
 import lombok.ToString;
