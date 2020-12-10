@@ -4,8 +4,6 @@ import lombok.extern.log4j.Log4j;
 
 /**
  * Simple example generalized functional interface.
- *
- * @author malex
  */
 @Log4j
 public class SimpleExampleGeneralizedFunctionalInterface {

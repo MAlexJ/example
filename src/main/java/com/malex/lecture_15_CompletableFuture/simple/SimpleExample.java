@@ -1,4 +1,4 @@
-package com.malex.lecture_25_Java_8_Futures.example_01_CompletableFuture;
+package com.malex.lecture_15_CompletableFuture.simple;
 
 import lombok.extern.log4j.Log4j;
 
@@ -7,9 +7,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 @Log4j
-public class SimpleExample {
+public class SimpleExample
+{
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception
+    {
 
         /*
          * Returns a new CompletableFuture that is asynchronously completed
@@ -35,7 +37,8 @@ public class SimpleExample {
                 .runAsync(() -> log.debug("Bye!"), Executors.newCachedThreadPool());
         log.debug(futureAsync.get(1, TimeUnit.SECONDS));
 
-        if (futureAsync.isDone()) {
+        if (futureAsync.isDone())
+        {
             System.exit(0);
         }
     }
