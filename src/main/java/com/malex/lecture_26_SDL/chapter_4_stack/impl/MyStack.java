@@ -1,13 +1,12 @@
 package com.malex.lecture_26_SDL.chapter_4_stack.impl;
 
-
 import com.malex.lecture_26_SDL.chapter_4_stack.IStack;
 
 public class MyStack implements IStack {
     private static final int START_POSITION = -1;
 
-    private int maxSize;
-    private int[] arr;
+    private final int maxSize;
+    private final int[] arr;
     private int top;
 
     public MyStack(int size) {

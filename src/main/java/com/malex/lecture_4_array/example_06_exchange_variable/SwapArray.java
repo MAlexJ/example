@@ -1,18 +1,21 @@
 package com.malex.lecture_4_array.example_06_exchange_variable;
 
+import lombok.extern.java.Log;
+
 import java.util.Arrays;
 
+@Log
 public class SwapArray {
 
-    public static int[] array = new int[2];
+    private static final int[] ARRAY = new int[2];
 
     public static void main(String[] args) {
-        array[0] = 34;
-        array[1] = 56;
-        System.out.println(Arrays.toString(array));
+        ARRAY[0] = 34;
+        ARRAY[1] = 56;
+        log.info("before - " + Arrays.toString(ARRAY));
 
-        swap(array);
-        System.out.println(Arrays.toString(array));
+        swap(ARRAY);
+        log.info("after - " + Arrays.toString(ARRAY));
     }
 
     private static void swap(int[] array) {

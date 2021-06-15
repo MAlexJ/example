@@ -1,10 +1,13 @@
 package com.malex.lecture_4_array.example_05_search_Array;
 
+import lombok.extern.java.Log;
+
 import java.util.Arrays;
 
 /**
  * Created by Alex on 05.06.2015.
  */
+@Log
 public class SimpleBinarySearch {
 
     public static void main(String[] args) {
@@ -12,7 +15,6 @@ public class SimpleBinarySearch {
         int x = 3;
 
         int binarySearch = Arrays.binarySearch(array, x);
-
-        System.out.println("index of the search key -> " + binarySearch);
+        log.info("index of the search key -> " + binarySearch);
     }
 }
