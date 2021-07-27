@@ -9,6 +9,19 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
+/**
+ * The Java programming language guarantees that the operands of operators appear to be evaluated
+ * in a specific evaluation order, namely, from left to right.
+ *
+ * boolean bool = isTrue1() | isFalse1() & isFalse2() ;
+ *
+ *  Becomes equivalent to
+ *
+ * boolean bool = isTrue1() | ( isFalse1() & isFalse2() ) ;
+ *
+ * Link https://stackoverflow.com/questions/21557124/logical-operator-precedence-in-java
+ *
+ */
 public class LogicalOperatorPrecedence {
 
     @Getter
