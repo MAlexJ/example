@@ -1,5 +1,13 @@
 package com.malex.lecture_14_stream_api.example_11_optional;
 
+import org.junit.Test;
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertNull;
+
 /**
  * Java 8 has introduced a new class Optional in java.util package. It is used to represent a value is present or absent.
  * <p>
@@ -11,16 +19,28 @@ package com.malex.lecture_14_stream_api.example_11_optional;
  */
 public class StreamOptionalInDepth {
 
-    public static void main(String[] args) {
-
+    @Test
+    public void testOfNullable(){
+        Optional<String> opt = Optional.ofNullable(null);
+        assertFalse(opt.isPresent());
     }
 
-    /**
-     * Optional.ofNullable() method returns a Non-empty Optional if a value present in the given object. Otherwise returns empty Optional.
-     * Optionaal.empty() method is useful to create an empty Optional object.
-     */
-    private static void ofNullableMethod() {
+    @Test(expected = NoSuchElementException.class)
+    public void testOfNullableGetElement(){
+        Optional<String> opt = Optional.ofNullable(null);
+        opt.get();
+    }
 
+    @Test(expected = NullPointerException.class)
+    public void testOfIfValueIsNull(){
+        Optional<String> opt = Optional.of(null);
+        opt.isPresent();
+    }
+
+    @Test
+    public void testOfNullableIfPresent(){
+        Optional<String> opt = Optional.ofNullable(null);
+        opt.ifPresent(e -> System.out.println(e + "sdgg"));
     }
 
 }

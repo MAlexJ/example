@@ -15,26 +15,22 @@ import static junit.framework.TestCase.assertTrue;
  * BiConsumer - It represents a function which takes in two arguments and produces a result.
  * However these kind of functions don’t return any value.
  * link: https://www.geeksforgeeks.org/java-8-biconsumer-interface-in-java-with-examples/
- *
+ * <p>
  * BiConsumer - Represents an operation that accepts two input arguments and returns no  result.
  * This is the two-arity specialization of {@code Consumer}.
  * Unlike most other functional interfaces, {@code BiConsumer} is expected to operate via side-effects.
- *
+ * <p>
  * Base methods:
  * 1. void accept(T t, U u);
  * 2. default BiConsumer<T, U> andThen(BiConsumer<? super T, ? super U> after)
  */
 @Log4j
-public class BiConsumerSample
-{
+public class BiConsumerSample {
 
-    public void iterateCollections(Collection<String> strs, BiConsumer<Integer, String> consumer)
-    {
+    public void iterateCollections(Collection<String> strs, BiConsumer<Integer, String> consumer) {
         int position = 0;
-        for (String s : strs)
-        {
-            if (Strings.isNullOrEmpty(s))
-            {
+        for (String s : strs) {
+            if (Strings.isNullOrEmpty(s)) {
                 continue;
             }
             consumer.accept(position, s);
@@ -43,8 +39,7 @@ public class BiConsumerSample
     }
 
     @Test
-    public void test1()
-    {
+    public void test1() {
         Collection<String> list = Arrays.asList("A", "", "B", "C");
         iterateCollections(list, (position, val) ->
         {
@@ -54,17 +49,14 @@ public class BiConsumerSample
     }
 
     @Test
-    public void test2()
-    {
+    public void test2() {
         Collection<String> list = Lists.newArrayList("A", "", "B", "C");
         iterateCollections(list, (position, val) ->
         {
-            switch (val)
-            {
+            switch (val) {
                 case "A":
                 case "B":
-                case "C":
-                {
+                case "C": {
                     log.debug(val);
                     break;
                 }

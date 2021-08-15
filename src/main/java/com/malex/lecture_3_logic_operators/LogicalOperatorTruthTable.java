@@ -151,19 +151,19 @@ public class LogicalOperatorTruthTable {
 
     private void testSimpleOr(boolean first, boolean second, UnaryOperator<LogicalOperatorTruthTable> function) {
         LogicalOperatorTruthTable spy = spy(LogicalOperatorTruthTable.class);
-        spy.simpleOr(first, second);
+        simpleOr(first, second);
         function.apply(spy);
     }
 
     private void testSimpleAnd(boolean first, boolean second, UnaryOperator<LogicalOperatorTruthTable> function) {
         LogicalOperatorTruthTable spy = spy(LogicalOperatorTruthTable.class);
-        spy.simpleAnd(first, second);
+        simpleAnd(first, second);
         function.apply(spy);
     }
 
     private void testSimpleXor(boolean first, boolean second, UnaryOperator<LogicalOperatorTruthTable> function) {
         LogicalOperatorTruthTable spy = spy(LogicalOperatorTruthTable.class);
-        spy.simpleXor(first, second);
+        simpleXor(first, second);
         function.apply(spy);
     }
 
