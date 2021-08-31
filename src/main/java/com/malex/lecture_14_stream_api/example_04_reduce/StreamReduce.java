@@ -1,12 +1,15 @@
 package com.malex.lecture_14_stream_api.example_04_reduce;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.log4j.Log4j;
+import org.junit.Test;
 
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.Arrays;
 
-import static com.malex.lecture_14_stream_api.util.StreamAPIUtil.print;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Information operations.
@@ -16,21 +19,12 @@ import static com.malex.lecture_14_stream_api.util.StreamAPIUtil.print;
 @Log4j
 public class StreamReduce {
 
-    public static void main(String[] args) {
-        // BinaryOperator
-        exampleOfBinaryOperator();
-
-        // BinaryOperator
-        exampleOfBinaryOperatorSecond();
-
-        // Identity with BinaryOperator
-        exampleOfIdentityWithBinaryOperator("a", "b", "r", "t");
-
-        // Identity with BiFunction and BinaryOperator
-        exapmleIdentityWithBiFunctionAndBinaryOperator(new Phone("iPhone 6 S", 54000),
-                new Phone("Lumia 950", 45000),
-                new Phone("Samsung Galaxy S 6", 40000),
-                new Phone("LG G 4", 32000));
+    @Test
+    public void allTests() {
+        testReduceWithBinaryOperator();
+        testBinaryOperator();
+        testIdentityWithBinaryOperator();
+        testIdentityWithBiFunctionAndBinaryOperator();
     }
 
     /**
@@ -38,33 +32,19 @@ public class StreamReduce {
      * Using: BinaryOperator<T>
      * n1 op n2 op n3 op n4 op n5 op n6, where op - is the operation, а n1, n2, ... - elements from Stream.
      */
-    private static void exampleOfBinaryOperator() {
-        print("EXAMPLE_01");
-
-        // 1. Create the Stream
-        Stream<Integer> integerStream = Stream.of(1, 2, 3, 4, 5);
-
-        // 2. Apply the method 'reduce' to the stream
-        Optional<Integer> reduceOptional = integerStream.reduce(Integer::sum);
-
-        // 3. Get and print result
-        reduceOptional.ifPresent(val -> log.info(String.format("Result: - %s", val)));
-
-        print();
+    private int exampleOfBinaryOperator(int[] array) {
+        return Arrays.stream(array)
+                .reduce(Integer::sum)
+                .orElseThrow(IllegalArgumentException::new);
     }
-
 
     /**
      * Example of using concatenation strings in the stream.
      */
-    private static void exampleOfBinaryOperatorSecond() {
-        print("EXAMPLE_02");
-
-        Stream<String> stringStream = Stream.of("ab", "cd", "efg");
-        Optional<String> stringOptional = stringStream.reduce((x, y) -> x + " " + y);
-        stringOptional.ifPresent(val -> log.info(String.format("Result: - %s", val)));
-
-        print();
+    private String exampleOfBinaryOperatorSecond(String[] array) {
+        return Arrays.stream(array)
+                .reduce((x, y) -> x + " " + y)
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     /**
@@ -72,22 +52,13 @@ public class StreamReduce {
      *
      * @param args incoming values
      */
-    private static void exampleOfIdentityWithBinaryOperator(String... args) {
-        print("Example 03");
-
-        Stream<String> stringStream = Stream.of(args);
-        String reduceSrt = stringStream.reduce("RESULT: ", (x, y) -> x + y);
-        log.info(reduceSrt);
-
-        print();
+    private String exampleOfIdentityWithBinaryOperator(String... args) {
+        return Arrays.stream(args).
+                reduce("RESULT: ", (x, y) -> x + y);
     }
 
-    private static void exapmleIdentityWithBiFunctionAndBinaryOperator(Phone... phones) {
-        print("EXAMPLE 04");
-
-        Stream<Phone> phoneStream = Stream.of(phones);
-
-        int sum = phoneStream.reduce(
+    private int exapmleIdentityWithBiFunctionAndBinaryOperator(Phone... phones) {
+        return Arrays.stream(phones).reduce(
                 // :1 init state
                 0,
                 // :2 additional filters
@@ -99,32 +70,71 @@ public class StreamReduce {
                 },
                 // :3 operation
                 (x, y) -> x + y);
-
-        System.out.println(sum);
-
-        print();
     }
 
     /**
      * The class describes an entity.
      */
     @Getter
-    private static class Phone {
+    @AllArgsConstructor
+    @FieldDefaults(level = AccessLevel.PRIVATE)
+    private class Phone {
+        String name;
+        int price;
+    }
 
-        private String name;
-        private int price;
+    @Test
+    public void testReduceWithBinaryOperator() {
+        // given:
+        int[] array = {1, 2, 3, 4, 5};
+        int expected = 15;
 
-        Phone(String name, int price) {
-            this.name = name;
-            this.price = price;
-        }
+        // when:
+        int actual = exampleOfBinaryOperator(array);
 
-//        String getName() {
-//            return name;
-//        }
-//
-//        int getPrice() {
-//            return price;
-//        }
+        // then:
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testBinaryOperator() {
+        // given:
+        String[] array = {"ab", "cd", "efg"};
+        String expected = "ab cd efg";
+
+        // when:
+        String actual = exampleOfBinaryOperatorSecond(array);
+
+        // then:
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIdentityWithBinaryOperator() {
+        // given:
+        String[] array = {"a", "b", "r", "t"};
+        String expected = "RESULT: abrt";
+
+        // when:
+        String actual = exampleOfIdentityWithBinaryOperator(array);
+
+        // then:
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIdentityWithBiFunctionAndBinaryOperator() {
+        // given:
+        Phone[] array = {new Phone("iPhone 6 S", 54000),
+                new Phone("Lumia 950", 45000),
+                new Phone("Samsung Galaxy S 6", 40000),
+                new Phone("LG G 4", 32000)};
+        int expected = 117000;
+
+        // when:
+        int actual = exapmleIdentityWithBiFunctionAndBinaryOperator(array);
+
+        // then:
+        assertEquals(expected, actual);
     }
 }
