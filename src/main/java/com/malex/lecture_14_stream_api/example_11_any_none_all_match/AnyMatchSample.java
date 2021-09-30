@@ -1,4 +1,4 @@
-package com.malex.lecture_14_stream_api.example_12_any_none_all_match;
+package com.malex.lecture_14_stream_api.example_11_any_none_all_match;
 
 import org.junit.Test;
 

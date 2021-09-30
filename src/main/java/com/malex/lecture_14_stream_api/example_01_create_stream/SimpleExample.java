@@ -1,4 +1,4 @@
-package com.malex.lecture_14_stream_api.example_01;
+package com.malex.lecture_14_stream_api.example_01_create_stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
