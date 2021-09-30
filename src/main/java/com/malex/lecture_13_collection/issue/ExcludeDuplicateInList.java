@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection;
+package com.malex.lecture_13_collection.issue;
 
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import static junit.framework.TestCase.assertEquals;
 
 
-public class ExcludeDuplicateInListTest {
+public class ExcludeDuplicateInList {
 
     @Test
     public void test() {

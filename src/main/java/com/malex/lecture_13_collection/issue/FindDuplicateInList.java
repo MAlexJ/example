@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection;
+package com.malex.lecture_13_collection.issue;
 
 import com.google.common.collect.LinkedHashMultiset;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class FindDuplicateInListTest {
+public class FindDuplicateInList {
 
     @Test
     public void test() {
