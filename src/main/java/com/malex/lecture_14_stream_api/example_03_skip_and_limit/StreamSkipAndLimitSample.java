@@ -14,6 +14,8 @@ import static junit.framework.TestCase.assertEquals;
 
 
 /**
+ * API: documentation: https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html#StreamOps
+ *
  * skip - returns a stream consisting of the remaining elements of this stream
  * after discarding the first n elements of the stream
  * <p>
