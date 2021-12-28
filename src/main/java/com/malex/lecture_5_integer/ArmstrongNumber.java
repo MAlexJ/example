@@ -1,9 +1,6 @@
-package example_02_Armstrong_number;
+package com.malex.lecture_5_integer;
 
-/**
- * Created by Alex on 3/24/2015.
- */
-public class Armstrong {
+public class ArmstrongNumber {
 
     public static void main(String args[]) {
         int num = 5;
@@ -21,5 +18,6 @@ public class Armstrong {
         else
             System.out.println(n + " is not a Armstrong Number");
     }
+
 
 }

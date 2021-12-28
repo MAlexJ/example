@@ -1,4 +1,4 @@
-package example_01_min_element;
+package com.malex.lecture_2_min_element;
 import java.util.Arrays;
 
 public class Solution_1 {

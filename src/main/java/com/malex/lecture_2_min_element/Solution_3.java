@@ -1,4 +1,4 @@
-package example_01_min_element;
+package com.malex.lecture_2_min_element;
 
 public class Solution_3 {
     public static void main(String[] args) {
