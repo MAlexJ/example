@@ -34,7 +34,7 @@ public class PaginationSample {
             pagination[i] = i;
         }
 
-        // 1.
+        // 1. limit
         assertArrayEquals(new int[]{0, 1, 2}, calculatePagination(0));
         assertArrayEquals(new int[]{0, 1, 2}, calculatePagination(1));
         assertArrayEquals(new int[]{5, 6, 7}, calculatePagination(7));
