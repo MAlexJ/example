@@ -3,7 +3,7 @@ package com.malex.lecture_5_random;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * <b>Generate array of random values in java 8 of using Stream API</b>
@@ -33,7 +33,7 @@ import lombok.extern.log4j.Log4j;
  *
  * <p>RESULT: Now you have another concept up your sleeve.
  */
-@Log4j
+@Log
 public class GenerateRandomArraysOrList {
 
   /*
@@ -59,15 +59,15 @@ public class GenerateRandomArraysOrList {
   }
 
   private static void exampleInts() {
-    log.debug("Example #1");
+    log.info("Example #1");
     IntStream ints = new Random().ints(5);
-    log.debug("new Random().ints(10); => " + Arrays.toString(ints.toArray()) + "\n");
+    log.info("new Random().ints(10); => " + Arrays.toString(ints.toArray()) + "\n");
   }
 
   private static void exampleIntsToList() {
-    log.debug("Example #2");
+    log.info("Example #2");
     int[] array = new Random().ints(5, 0, 50).toArray();
-    log.debug(
+    log.info(
         "ints(long streamSize, int randomNumberOrigin, int randomNumberBound) => "
             + Arrays.toString(array)
             + "\n");

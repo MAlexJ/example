@@ -1,6 +1,6 @@
 package com.malex.lecture_25_Java_8.example_02_annotation;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.lang.annotation.ElementType;
@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.function.Supplier;
 
-@Log4j
+@Log
 public class MainAnnotation {
 
     @NewValue("test_queue value")
@@ -39,8 +39,8 @@ public class MainAnnotation {
     @Test
     public void test() {
         MainAnnotation annotation = MainAnnotation.create(MainAnnotation::new);
-		annotation.setValue("NewVal");
-		log.debug(annotation);
+        annotation.setValue("NewVal");
+        log.info("annotation : " + annotation);
     }
 
 }

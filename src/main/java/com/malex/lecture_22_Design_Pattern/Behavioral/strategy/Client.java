@@ -3,9 +3,9 @@ package com.malex.lecture_22_Design_Pattern.Behavioral.strategy;
 import com.malex.lecture_22_Design_Pattern.Behavioral.strategy.impl.Addition;
 import com.malex.lecture_22_Design_Pattern.Behavioral.strategy.impl.Multiplication;
 import com.malex.lecture_22_Design_Pattern.Behavioral.strategy.impl.Subtraction;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class Client {
 
     public static final String TEMPLATE_MESSAGE = "Apply strategy '%s', result = %s";

@@ -2,9 +2,9 @@ package com.malex.lecture_7_Date.example;
 
 import java.time.Duration;
 import java.time.Instant;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class DurationBetweenStartAndEndDate {
 
   public static void main(String[] args) {
@@ -16,6 +16,6 @@ public class DurationBetweenStartAndEndDate {
     Duration dur = Duration.between(start, end);
     long minutes = dur.toMinutes();
 
-    log.debug(" minutes: " + minutes);
+    log.info(" minutes: " + minutes);
   }
 }

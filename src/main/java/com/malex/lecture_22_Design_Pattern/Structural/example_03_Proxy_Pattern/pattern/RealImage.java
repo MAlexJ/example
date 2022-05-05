@@ -1,8 +1,8 @@
 package com.malex.lecture_22_Design_Pattern.Structural.example_03_Proxy_Pattern.pattern;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class RealImage implements Image {
 
     private String fileName;

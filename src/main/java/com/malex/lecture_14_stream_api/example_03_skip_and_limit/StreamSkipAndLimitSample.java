@@ -1,7 +1,7 @@
 package com.malex.lecture_14_stream_api.example_03_skip_and_limit;
 
 import com.google.common.collect.Lists;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -22,7 +22,7 @@ import static junit.framework.TestCase.assertEquals;
  * limit - Returns a stream consisting of the elements of this stream,
  * truncated to be no longer than maxSize in length.
  */
-@Log4j
+@Log
 public class StreamSkipAndLimitSample {
 
     /**

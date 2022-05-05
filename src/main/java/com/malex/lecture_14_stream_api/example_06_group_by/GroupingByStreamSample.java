@@ -3,7 +3,7 @@ package com.malex.lecture_14_stream_api.example_06_group_by;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 /**
  * A simple example of using the method 'group' of Stream API
  */
-@Log4j
+@Log
 public class GroupingByStreamSample {
 
     public static void main(String[] args) {

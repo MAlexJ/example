@@ -5,9 +5,9 @@ import com.malex.lecture_20_DAOfactoryMethod.dao.DisciplineDAO;
 import com.malex.lecture_20_DAOfactoryMethod.dao.FactoryDao;
 import com.malex.lecture_20_DAOfactoryMethod.dao.impl.FactoryDaoMySQLImpl;
 import com.malex.lecture_20_DAOfactoryMethod.dao.impl.FactoryDaoPSQLImpl;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class TestMain {
 
   public static void main(String[] args) {
@@ -24,9 +24,9 @@ public class TestMain {
   private static void findEntity(FactoryDao factoryDao, int id) {
 
     AccountDao accountDao = factoryDao.createAccountDao();
-    log.debug("find Account: " + accountDao.deleteAccount(id));
+    log.info("find Account: " + accountDao.deleteAccount(id));
 
     DisciplineDAO disciplineDAO = factoryDao.createDisciplineDAO();
-    log.debug("find Discipline: " + disciplineDAO.deleteeDiscipline(id));
+    log.info("find Discipline: " + disciplineDAO.deleteeDiscipline(id));
   }
 }

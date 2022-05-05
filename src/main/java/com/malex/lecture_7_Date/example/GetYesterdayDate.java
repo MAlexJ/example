@@ -2,7 +2,7 @@ package com.malex.lecture_7_Date.example;
 
 import java.util.Calendar;
 import java.util.Date;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Get yesterday's date.
@@ -10,7 +10,7 @@ import lombok.extern.log4j.Log4j;
  * @author malex
  * @link http://stackoverflow.com/questions/11425236/get-yesterdays-date-using-date
  */
-@Log4j
+@Log
 public class GetYesterdayDate
 {
     public static void main(String[] args)
@@ -22,7 +22,7 @@ public class GetYesterdayDate
     {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -1);
-        log.debug("Yesterday's date = " + cal.getTime());
+        log.info("Yesterday's date = " + cal.getTime());
     }
 
     private Date getMeYesterday()

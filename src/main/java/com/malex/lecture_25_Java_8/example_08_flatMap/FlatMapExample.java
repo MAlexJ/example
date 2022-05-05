@@ -1,6 +1,6 @@
 package com.malex.lecture_25_Java_8.example_08_flatMap;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
  * this stream with the contents of a mapped stream produced by applying
  * the provided mapping function to each element.
  */
-@Log4j
+@Log
 public class FlatMapExample {
 
     public static void main(String[] args) {
@@ -24,18 +24,19 @@ public class FlatMapExample {
         List<List<Integer>> generalList = new ArrayList<>();
 
         IntStream.range(start, end).forEach(value -> {
-            log.info(value);
+            log.info("value: " + value);
             int startShift = value + 1;
             int endShift = value + end;
-            generalList.add(IntStream.range(startShift, endShift)
-                    .boxed()
+            generalList.add(IntStream.range(startShift, endShift) //
+                    .boxed() //
                     .collect(Collectors.toList()));
         });
 
-        List<Integer> result = generalList.stream().flatMap(Collection::stream)
-                .sorted(Comparator.naturalOrder())
-                .collect(Collectors.toList());
+        List<Integer> result = generalList.stream() //
+                .flatMap(Collection::stream) //
+                .sorted(Comparator.naturalOrder()) //
+                .toList();
 
-        log.info(result);
+        log.info("result: " + result);
     }
 }

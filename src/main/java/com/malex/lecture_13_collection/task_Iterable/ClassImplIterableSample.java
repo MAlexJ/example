@@ -1,14 +1,14 @@
 package com.malex.lecture_13_collection.task_Iterable;
 
 import lombok.*;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.*;
 
 import static junit.framework.TestCase.assertNotNull;
 
-@Log4j
+@Log
 public class ClassImplIterableSample {
 
     @Test

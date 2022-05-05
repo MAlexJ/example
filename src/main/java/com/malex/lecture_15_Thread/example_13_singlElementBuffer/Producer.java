@@ -1,8 +1,8 @@
 package com.malex.lecture_15_Thread.example_13_singlElementBuffer;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class Producer implements Runnable {
 
     private long productionTime;
@@ -24,7 +24,7 @@ public class Producer implements Runnable {
                 Thread.sleep(productionTime);
                 startValue++;
             } catch (InterruptedException e) {
-                log.warn("Producer error", e);
+                log.severe("Producer error" + e);
                 // Restore interrupted state.
                 Thread.currentThread().interrupt();
             }

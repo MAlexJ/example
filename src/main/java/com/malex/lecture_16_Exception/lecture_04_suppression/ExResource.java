@@ -1,8 +1,8 @@
 package com.malex.lecture_16_Exception.lecture_04_suppression;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class ExResource implements AutoCloseable {
 
     private final String str;
@@ -12,7 +12,7 @@ public class ExResource implements AutoCloseable {
     }
 
     public void calc(int a, int b) {
-        log.debug(a / b);
+        log.info("a / b = " + a / b);
     }
 
     @Override

@@ -1,33 +1,32 @@
 package com.malex.lecture_3_object.example_02;
 
-import org.apache.log4j.Logger;
+import lombok.extern.java.Log;
 
-
+@Log
 public class App {
-    private final static Logger LOG = Logger.getLogger(App.class);
 
     public static void main(String[] args) {
         int a = 3;
         int b = 5;
-        LOG.debug("a = " + a);
-        LOG.debug("b = " + b);
+        log.info("a = " + a);
+        log.info("b = " + b);
 
-        LOG.debug("********************");
+        log.info("********************");
         int tmp = a;
         a = b;
         b = tmp;
 
-        LOG.debug("a = " + a);
-        LOG.debug("b = " + b);
+        log.info("a = " + a);
+        log.info("b = " + b);
 
-        LOG.debug("********************");
+        log.info("********************");
 
-        Dog mike = new Dog(2,"mike");
-        Dog hootDog = new Dog(3,"hootDog");
+        Dog mike = new Dog(2, "mike");
+        Dog hootDog = new Dog(3, "hootDog");
 
-        LOG.debug("mike = " + mike);
-        LOG.debug("hootDog = " + hootDog);
-        LOG.debug("********************");
+        log.info("mike = " + mike);
+        log.info("hootDog = " + hootDog);
+        log.info("********************");
 
         //mike = hootDog;
         //hootDog=mike;
@@ -36,8 +35,8 @@ public class App {
         mike = hootDog;
         hootDog = temp;
 
-        LOG.debug("mike = " + mike);
-        LOG.debug("hootDog = " + hootDog);
+        log.info("mike = " + mike);
+        log.info("hootDog = " + hootDog);
 
     }
 }
@@ -48,7 +47,7 @@ class Dog {
 
     public Dog(int age, String name) {
         this.age = age;
-        this.name=name;
+        this.name = name;
     }
 
     @Override

@@ -3,9 +3,9 @@ package com.malex.lecture_20_DAOfactoryMethod.dao.impl;
 import com.malex.lecture_20_DAOfactoryMethod.dao.DisciplineDAO;
 import com.malex.lecture_20_DAOfactoryMethod.entity.Discipline;
 import java.util.List;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class DisciplinePSQLDaoImpl implements DisciplineDAO {
   @Override
   public List<Discipline> getDisciplines() {
@@ -29,7 +29,7 @@ public class DisciplinePSQLDaoImpl implements DisciplineDAO {
 
   @Override
   public boolean deleteeDiscipline(int id) {
-    log.debug("PSQL" + id + "  ");
+    log.info("PSQL" + id + "  ");
     return false;
   }
 }

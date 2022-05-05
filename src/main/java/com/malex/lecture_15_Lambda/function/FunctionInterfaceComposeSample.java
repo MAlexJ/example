@@ -1,13 +1,13 @@
 package com.malex.lecture_15_Lambda.function;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.function.Function;
 
 import static junit.framework.TestCase.assertEquals;
 
-@Log4j
+@Log
 public class FunctionInterfaceComposeSample {
 
     @Test

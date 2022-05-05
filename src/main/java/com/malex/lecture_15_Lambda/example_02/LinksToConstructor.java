@@ -1,23 +1,23 @@
 package com.malex.lecture_15_Lambda.example_02;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Links to the constructor
  *
  * @author malex
  */
-@Log4j
+@Log
 public class LinksToConstructor {
 
     public static void main(String[] args) {
         UserBuilder builder = User::new;
 
         User alex = builder.createUser(21, "Alex");
-        log.debug(alex + "\n");
+        log.info(alex + "\n");
 
         User max = builder.createUser(20, "Max");
-        log.debug(max);
+        log.info(max.toString());
 
     }
 }
@@ -44,9 +44,6 @@ class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "age=" + age +
-                ", name='" + name + '\'' +
-                '}';
+        return "User{" + "age=" + age + ", name='" + name + '\'' + '}';
     }
 }

@@ -2,11 +2,11 @@ package com.malex.lecture_25_Java_8.example_01_default_and_static_method_interfa
 
 import org.junit.Test;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import static junit.framework.TestCase.assertEquals;
 
-@Log4j
+@Log
 public class StaticInterfaceTest {
 
     @Test

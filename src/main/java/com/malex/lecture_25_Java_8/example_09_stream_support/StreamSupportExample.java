@@ -1,6 +1,6 @@
 package com.malex.lecture_25_Java_8.example_09_stream_support;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.Arrays;
 import java.util.Spliterator;
@@ -10,7 +10,7 @@ import java.util.stream.StreamSupport;
 /**
  * StreamSupport - Low-level utility methods for creating and manipulating streams.
  */
-@Log4j
+@Log
 public class StreamSupportExample {
 
     public static void main(String[] args) {

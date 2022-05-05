@@ -2,14 +2,14 @@ package com.malex.lecture_25_Java_8.example_01_predicate_interface;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Log4j
+@Log
 public class PredicateInterfaceMain {
 
     private static final String FILTER_OLD = "Older";
@@ -38,7 +38,7 @@ public class PredicateInterfaceMain {
     private static void displayPeople(List<Person> people, Predicate<Person> predicate, String nameOfPredicate) {
         people.forEach(p -> {
             if (predicate.test(p)) {
-                log.debug(String.format("Predicate %s : Person %s; %n", nameOfPredicate, p));
+                log.info(String.format("Predicate %s : Person %s; %n", nameOfPredicate, p));
             }
         });
     }

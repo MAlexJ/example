@@ -1,20 +1,20 @@
 package com.malex.lecture_16_Exception.example_02_exeption_syntax;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class TestTryCatch {
 
     public static void main(String[] args) {
         try {
-            log.error(" 0");
+            log.info(" 0");
             if (true) {
                 throw new RuntimeException();
             }
-            log.error(" 1");
+            log.info(" 1");
         } catch (Exception e) {
-            log.error(" 2");
+            log.info(" 2");
         }
-        log.error(" 3");
+        log.info(" 3");
     }
 }

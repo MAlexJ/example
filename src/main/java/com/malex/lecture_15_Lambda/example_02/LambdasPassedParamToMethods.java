@@ -1,20 +1,20 @@
 package com.malex.lecture_15_Lambda.example_02;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Lambdas passed as parameters to methods.
  *
  * @author malex
  */
-@Log4j
+@Log
 public class LambdasPassedParamToMethods {
 
     public static void main(String[] args) {
         Expression exp = n -> (n % 2 == 0);
 
         int sum = sum(exp, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-        log.debug("Result of calculation: " + sum);
+        log.info("Result of calculation: " + sum);
     }
 
     /**

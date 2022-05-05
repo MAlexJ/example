@@ -1,35 +1,35 @@
 package com.malex.lecture_16_Exception.example_02_exeption_syntax;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class TestNoLocal {
-   
+
     public static void main(String[] args) {
 
-        log.error("#1.in");
+        log.info("#1.in");
         f(); //
-        log.error("#1.out");
+        log.info("#1.out");
     }
 
     public static void f() {
-        log.error(".   #2.in");
+        log.info(".   #2.in");
         g();
-        log.error(".   #2.out");
+        log.info(".   #2.out");
     }
 
     private static void g() {
-        log.error(".   .   #3.in");
+        log.info(".   .   #3.in");
         h();
-        log.error(".   .   #3.out");
+        log.info(".   .   #3.out");
     }
 
     public static void h() {
-        log.error(".   .   .   #4.in");
+        log.info(".   .   .   #4.in");
         if (true) {
-            log.error(".   .   .   #4.RETURN");
+            log.info(".   .   .   #4.RETURN");
             return;
         }
-        log.error(".   .   .   #4.out");
+        log.info(".   .   .   #4.out");
     }
 }

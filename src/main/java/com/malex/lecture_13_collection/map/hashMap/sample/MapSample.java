@@ -1,6 +1,6 @@
 package com.malex.lecture_13_collection.map.hashMap.sample;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.*;
 import java.util.function.Function;
@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
  * The Map<K,V> - an object that maps keys to values.
  * A map cannot contain duplicate keys, each map's key can contain no more than one value.
  */
-@Log4j
+@Log
 public class MapSample implements MapSampleImpl {
     private static MapSampleImpl sample;
 

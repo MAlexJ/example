@@ -1,14 +1,13 @@
 package com.malex.lecture_15_CompletableFuture.differenceBetween;
 
 import lombok.*;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
 
 import static junit.framework.TestCase.assertNotNull;
-import static junit.framework.TestCase.assertTrue;
 
 /**
  * Difference Between thenApply() and thenCompose()
@@ -28,7 +27,7 @@ import static junit.framework.TestCase.assertTrue;
  *
  * <p>.
  */
-@Log4j
+@Log
 public class DifferenceApplyAndCompose {
 
     private static Supplier<Response> supplyResponse = Response::new;
@@ -62,15 +61,15 @@ public class DifferenceApplyAndCompose {
         future.get();
     }
 
-  private Response printResult(Response r) {
-    log.debug(r);
-    assertNotNull(r);
-    assertNotNull(r.user);
-    assertNotNull(r.credential);
-    return r;
-  }
+    private Response printResult(Response r) {
+        log.info("" + r);
+        assertNotNull(r);
+        assertNotNull(r.user);
+        assertNotNull(r.credential);
+        return r;
+    }
 
-  private Response addCredential(Response response, Credential credential) {
+    private Response addCredential(Response response, Credential credential) {
         response.setCredential(credential);
         return response;
     }

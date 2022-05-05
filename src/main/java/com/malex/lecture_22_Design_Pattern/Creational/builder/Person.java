@@ -1,9 +1,9 @@
 package com.malex.lecture_22_Design_Pattern.Creational.builder;
 
 import lombok.Getter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 @Getter
 public class Person {
     private String firstName;

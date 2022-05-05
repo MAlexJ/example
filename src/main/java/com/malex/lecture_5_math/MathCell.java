@@ -1,8 +1,8 @@
 package com.malex.lecture_5_math;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class MathCell {
 
   public static void main(String[] args) {
@@ -16,6 +16,6 @@ public class MathCell {
 
   private static void methodCell() {
     double ceil = Math.ceil(2.45);
-    log.debug("Ceil: " + ceil);
+    log.info("Ceil: " + ceil);
   }
 }

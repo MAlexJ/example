@@ -1,6 +1,6 @@
 package com.malex.lecture_6_Base64;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.Base64;
@@ -13,7 +13,7 @@ import static junit.framework.TestCase.assertEquals;
  * BASE64 Encoding and Decoding. This class consists sample of Base64 methods for obtaining
  * encoders and decoders for the Base64 encoding scheme.
  */
-@Log4j
+@Log
 public class EncodingDecodingBase64Sample {
 
     private static final String ERROR_MESSAGE = "Incoming string is null!";
@@ -27,13 +27,13 @@ public class EncodingDecodingBase64Sample {
                 .withoutPadding()
                 .encodeToString(srt.getBytes());
 
-        log.debug("encoded: " + encoded);
+        log.info("encoded: " + encoded);
 
         // decode a String
         byte[] barr = Base64.getDecoder()
                 .decode(encoded);
 
-        log.debug("decode: " + new String(barr));
+        log.info("decode: " + new String(barr));
 
         // test
         assertEquals(srt, new String(barr));

@@ -2,21 +2,21 @@ package com.malex.lecture_5_random;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class LineGeneration {
 
   public static void main(String[] args) {
 
-    log.debug(stringGeneration(10) + "\n");
-    log.debug(stringGeneration(7) + "\n");
-    log.debug(stringGeneration(2) + "\n");
+    log.info(stringGeneration(10) + "\n");
+    log.info(stringGeneration(7) + "\n");
+    log.info(stringGeneration(2) + "\n");
 
     try {
-      log.debug(stringGeneration(ThreadLocalRandom.current().nextInt(-10, 0)) + "\n");
+      log.info(stringGeneration(ThreadLocalRandom.current().nextInt(-10, 0)) + "\n");
     } catch (Exception ex) {
-      log.error(ex.getMessage());
+      log.severe(ex.getMessage());
     }
   }
 

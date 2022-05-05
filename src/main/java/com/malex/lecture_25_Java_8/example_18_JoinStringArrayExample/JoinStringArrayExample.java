@@ -1,6 +1,6 @@
 package com.malex.lecture_25_Java_8.example_18_JoinStringArrayExample;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * @author malex
  * @since Oct 14, 2017
  */
-@Log4j
+@Log
 public class JoinStringArrayExample {
 
     /**

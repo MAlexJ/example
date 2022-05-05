@@ -1,36 +1,35 @@
 package com.malex.lecture_15_Lambda.example_02;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * References to the method as the method parameters
  */
-@Log4j
+@Log
 public class ReferencesToMethodAsMethodParameters {
 
     public static void main(String[] args) {
         int[] nums = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
 
         Expression expr = ExpressionHelper::isEven;
-        log.debug(sum(nums, expr));
+        log.info("sum: " + sum(nums, expr));
 
         // Link to the method passed in the form class_name :: name_static_method
         // or object_class :: method_name (if the method is non-static)
         expr = ExpressionHelper::isPositive;
         // Example: References to the method as the method parameters
 
-        log.debug(sum(nums, expr) + "\n");
+        log.info(sum(nums, expr) + "\n");
 
         //object_class :: method_name (if the method is non-static)
         expr = new ExpressionNewHelper()::isEquals;
-        log.debug(sum(nums, expr));
+        log.info("sum: " + sum(nums, expr));
     }
 
     private static int sum(int[] numbers, Expression func) {
         int result = 0;
         for (int i : numbers) {
-            if (func.isEqual(i))
-                result += i;
+            if (func.isEqual(i)) result += i;
         }
         return result;
     }

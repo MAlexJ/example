@@ -1,22 +1,22 @@
 package com.malex.lecture_1_primitive.example_1;
 
-import org.apache.log4j.Logger;
+import lombok.extern.java.Log;
 
+
+@Log
 public class App_2 {
-    private final static Logger LOG = Logger.getLogger(App_2.class);
 
     public static void main(String[] args) {
         int a = 3;
         int b = 5;
 
         a = a ^ b;
-        LOG.debug("a - " + a);
+        log.info("a - " + a);
         b = a ^ b;
-        LOG.debug("b - " + b);
+        log.info("b - " + b);
         a = a ^ b;
-        LOG.debug("a - " + a);
-        LOG.debug("a = " + a);
-
-        LOG.debug("b = " + b);
+        log.info("a - " + a);
+        log.info("a = " + a);
+        log.info("b = " + b);
     }
 }

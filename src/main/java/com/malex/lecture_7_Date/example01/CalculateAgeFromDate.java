@@ -4,20 +4,20 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * @author malex Link:
  *     http://stackoverflow.com/questions/1116123/how-do-i-calculate-someones-age-in-java
  */
-@Log4j
+@Log
 public class CalculateAgeFromDate {
 
   private static final String PATTERN = "dd/MM/yyyy";
 
   public static void main(String[] args) {
-    log.debug("date: 01/03/1983, age:" + calculateAge("01/03/1983"));
-    log.debug("date: 21/06/1985, age:" + calculateAge("21/06/1985"));
+    log.info("date: 01/03/1983, age:" + calculateAge("01/03/1983"));
+    log.info("date: 21/06/1985, age:" + calculateAge("21/06/1985"));
   }
 
   private static int calculateAge(String date) {

@@ -1,22 +1,24 @@
 package com.malex.lecture_13_collection.task_Iterator;
 
-import org.apache.log4j.Logger;
+import lombok.extern.java.Log;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 
 /**
  * Created by Alex on 12.02.2015.
  */
+@Log
 public class App_00 {
-    private final static Logger LOG = Logger.getLogger(App_00.class);
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>(asList("B", "A", "C", "F", "D"));
 
         for (int i = 0; i < list.size(); i++) {
-            LOG.debug(list.get(i));
+            log.info(list.get(i));
         }
 
         // ArrayList<> implements RandomAccess
@@ -32,11 +34,11 @@ public class App_00 {
         */
 
         Iterator<String> iter = list.iterator();
-        while (iter.hasNext()){
+        while (iter.hasNext()) {
             System.out.println(iter.next());
         }
 
-        for(String iter1:list){
+        for (String iter1 : list) {
             System.out.println(iter1);
         }
 

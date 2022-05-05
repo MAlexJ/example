@@ -10,10 +10,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.ToDoubleFunction;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
-@Log4j
+@Log
 public class WildcardSample {
 
   private static final String ERROR_MESSAGE = "Can't parse `%s` value";
@@ -42,7 +42,7 @@ public class WildcardSample {
 
   @Test
   public void test() {
-    log.debug("Start tests >>>> ");
+    log.info("Start tests >>>> ");
     assertEquals(calculateSum(Arrays.asList(1, 2, 3, 4, 5)), 15.0);
     assertEquals(calculateSum(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0)), 15.0);
     assertEquals(calculateSum(Arrays.asList("1", "2.1", "35", "0")), 38.1);

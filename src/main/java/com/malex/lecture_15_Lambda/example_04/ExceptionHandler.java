@@ -1,20 +1,20 @@
 package com.malex.lecture_15_Lambda.example_04;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class ExceptionHandler {
 
     public static void main(String[] args) {
 
         exceptionHandler(() -> {
-            log.debug("consumer 1");
+            log.info("consumer 1");
 
             exceptionHandler(() -> {
-                log.debug("consumer 2");
+                log.info("consumer 2");
 
                 exceptionHandler(() -> {
-                    log.debug("consumer 3");
+                    log.info("consumer 3");
                     throw new RuntimeException();
                 }, "Error msg 3");
 
@@ -29,7 +29,7 @@ public class ExceptionHandler {
             r.run();
         } catch (Exception ex) {
             // close tx or something else
-            log.error(errMsg + " " + ex);
+            log.severe(errMsg + " " + ex);
         }
     }
 }

@@ -1,8 +1,8 @@
 package com.malex.lecture_15_Thread.example_01_join;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class ThreadJoinNotThreadSaveSample {
 
     private static final int N = 1_000_000_000;

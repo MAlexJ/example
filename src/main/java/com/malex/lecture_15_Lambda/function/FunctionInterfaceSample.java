@@ -1,13 +1,13 @@
 package com.malex.lecture_15_Lambda.function;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.UUID;
 import java.util.function.Function;
 
 import static com.malex.lecture_15_Lambda.function.ApiStatus.*;
 
-@Log4j
+@Log
 public class FunctionInterfaceSample {
 
     public static void main(String[] args) {

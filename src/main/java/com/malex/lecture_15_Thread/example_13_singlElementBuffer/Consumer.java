@@ -1,8 +1,8 @@
 package com.malex.lecture_15_Thread.example_13_singlElementBuffer;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class Consumer implements Runnable {
 
     private final SingleElementBuffer buffer;

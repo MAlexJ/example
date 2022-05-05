@@ -1,12 +1,12 @@
 package com.malex.lecture_5_String.example_00_concat;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Example of using String.concat() method. Concatenates the specified string to the end of this
  * string.
  */
-@Log4j
+@Log
 public class StringConcatMethod {
 
   public static void main(String[] args) {
@@ -15,8 +15,8 @@ public class StringConcatMethod {
 
     String strResult = str1.concat(str2);
 
-    log.debug("str1 -> " + str1);
-    log.debug("str2 -> " + str2);
-    log.debug("strResult -> " + strResult);
+    log.info("str1 -> " + str1);
+    log.info("str2 -> " + str2);
+    log.info("strResult -> " + strResult);
   }
 }

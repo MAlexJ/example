@@ -1,41 +1,38 @@
 package com.malex.lecture_13_collection.task_Collection;
 
-import org.apache.log4j.Logger;
+
+import lombok.extern.java.Log;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * Created by Alex on 04.02.2015.
- */
+@Log
 public class App_03_Set {
-    private final static Logger LOG = Logger.getLogger(App_03_Set.class);
+
 
     public static void main(String[] args) {
-        LOG.debug("main");
+        log.info("main");
         Set<String> listSet = new HashSet<>();
-        LOG.debug("listSet.add(\"bb\") -> " + listSet.add("bb"));
-        LOG.debug("listSet.add(\"e\") -> " + listSet.add("e"));
-        LOG.debug("listSet.add(\"d\") -> " + listSet.add("d"));
-        LOG.debug("listSet.add(\"c\") -> " + listSet.add("c"));
-        LOG.debug("listSet.add(\"b\") -> " + listSet.add("b"));
-        LOG.debug("listSet.add(\"c\") -> " + listSet.add("c"));
-        LOG.debug("listSet.add(\"a\") -> " + listSet.add("a"));
+        log.info("listSet.add(\"bb\") -> " + listSet.add("bb"));
+        log.info("listSet.add(\"e\") -> " + listSet.add("e"));
+        log.info("listSet.add(\"d\") -> " + listSet.add("d"));
+        log.info("listSet.add(\"c\") -> " + listSet.add("c"));
+        log.info("listSet.add(\"b\") -> " + listSet.add("b"));
+        log.info("listSet.add(\"c\") -> " + listSet.add("c"));
+        log.info("listSet.add(\"a\") -> " + listSet.add("a"));
 
-        LOG.debug(listSet);
+        log.info(listSet.toString());
 
         Set<String> listSet1 = new TreeSet<>();
-        LOG.debug("listSet.add(\"s\") -> " + listSet1.add("s"));
-        LOG.debug("listSet.add(\"d\") -> " + listSet1.add("d"));
-        LOG.debug("listSet.add(\"a\") -> " + listSet1.add("a"));
-        LOG.debug("listSet.add(\"b\") -> " + listSet1.add("b"));
-        LOG.debug("listSet.add(\"a\") -> " + listSet1.add("a"));
-        LOG.debug("listSet.add(\"c\") -> " + listSet1.add("c"));
-        LOG.debug("listSet.add(\"bb\") -> " + listSet1.add("bb"));
+        log.info("listSet.add(\"s\") -> " + listSet1.add("s"));
+        log.info("listSet.add(\"d\") -> " + listSet1.add("d"));
+        log.info("listSet.add(\"a\") -> " + listSet1.add("a"));
+        log.info("listSet.add(\"b\") -> " + listSet1.add("b"));
+        log.info("listSet.add(\"a\") -> " + listSet1.add("a"));
+        log.info("listSet.add(\"c\") -> " + listSet1.add("c"));
+        log.info("listSet.add(\"bb\") -> " + listSet1.add("bb"));
 
-        LOG.debug(listSet1);
-
-
+        log.info(listSet1.toString());
     }
 }

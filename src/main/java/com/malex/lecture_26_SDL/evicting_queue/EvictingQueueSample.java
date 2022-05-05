@@ -1,7 +1,7 @@
 package com.malex.lecture_26_SDL.evicting_queue;
 
 import com.google.common.collect.EvictingQueue;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 import static org.junit.Assert.assertArrayEquals;
 
-@Log4j
+@Log
 public class EvictingQueueSample {
 
     @Test
@@ -18,7 +18,7 @@ public class EvictingQueueSample {
         queue.add("1");
         queue.add("2");
         queue.add("3");
-        log.info(queue);
+        log.info(queue::toString);
 
         assertArrayEquals(new LinkedList<>(Arrays.asList("1", "2", "3")).toArray(), queue.toArray());
 
@@ -28,7 +28,7 @@ public class EvictingQueueSample {
          * Returns: true always
          */
         queue.add("4");
-        log.info(queue);
+        log.info(queue::toString);
         assertArrayEquals(new LinkedList<>(Arrays.asList("2", "3", "4")).toArray(), queue.toArray());
 
         /**
@@ -37,7 +37,7 @@ public class EvictingQueueSample {
          * Returns: true always
          */
         queue.offer("5");
-        log.info(queue);
+        log.info(queue::toString);
         assertArrayEquals(new LinkedList<>(Arrays.asList("3", "4", "5")).toArray(), queue.toArray());
     }
 }

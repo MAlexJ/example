@@ -1,6 +1,6 @@
 package com.malex.lecture_24_encryption.AES;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import javax.crypto.Cipher;
@@ -27,7 +27,7 @@ import static junit.framework.TestCase.assertEquals;
  * Additionally, we configure a cipher instance using the init() method with a secret key, IV, and encryption mode.
  * Finally, we encrypt the input string by invoking the doFinal() method.
  */
-@Log4j
+@Log
 public class AdvancedEncryptionStandard {
 
     private static final String ALG_TYPE = "AES";

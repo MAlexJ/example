@@ -1,22 +1,22 @@
 package com.malex.lecture_13_generic.example_simple_one_param;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /** The simple example of using generic with one parameter */
-@Log4j
+@Log
 public class SimpleGenericClass {
 
   public static void main(String[] args) {
     // example #1:
     // use of the Integer type
     Gen<Integer> iOb = new Gen<>(192);
-    log.debug("Gen<Integer> iOb: " + iOb.getObj());
+    log.info("Gen<Integer> iOb: " + iOb.getObj());
     iOb.printType();
 
     // example #2
     // use of the String type
     Gen<String> sOb = new Gen<>("This is string.");
-    log.debug("Gen<String> sOb: " + sOb);
+    log.info("Gen<String> sOb: " + sOb);
     sOb.printType();
   }
 
@@ -34,7 +34,7 @@ public class SimpleGenericClass {
     }
 
     void printType() {
-      log.debug("Type: " + this.value.getClass().getName() + "\n");
+      log.info("Type: " + this.value.getClass().getName() + "\n");
     }
   }
 }

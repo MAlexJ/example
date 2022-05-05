@@ -1,12 +1,12 @@
 package com.malex.lecture_13_collection.task_Generic;
 
-import org.apache.log4j.Logger;
+import lombok.extern.java.Log;
 
 /**
  * Created by Alex on 04.02.2015.
  */
+@Log
 public class App_05_Generic {
-    private final static Logger LOG = Logger.getLogger(App_05_Generic.class);
 
     public static void main(String[] args) {
 
@@ -16,12 +16,8 @@ public class App_05_Generic {
 
         String[] strArr = {"Mike"};
         Object[] objApp = strArr;
-        objApp[0] = new int[]{10,20,30};
+        objApp[0] = new int[]{10, 20, 30};
 
-        if (LOG.isDebugEnabled()) {
-            LOG.debug(objApp[0]);
-
-
-        }
+        log.info(objApp[0].toString());
     }
 }

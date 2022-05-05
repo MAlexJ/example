@@ -1,6 +1,6 @@
 package com.malex.lecture_15_Lambda.consumer;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertEquals;
  * Represents an operation that accepts a single input argument and returns no result.
  * Unlike most other functional interfaces, Consumer is expected to operate via side-effects.
  */
-@Log4j
+@Log
 public class ConsumerInterfaceSample {
 
     public static void main(String[] args) {
@@ -47,7 +47,7 @@ public class ConsumerInterfaceSample {
             r.run();
             assertEquals(expected, out.toString());
         } catch (IOException ex) {
-            log.error(ex.getMessage());
+            log.severe(ex.getMessage());
             throw ex;
         }
     }

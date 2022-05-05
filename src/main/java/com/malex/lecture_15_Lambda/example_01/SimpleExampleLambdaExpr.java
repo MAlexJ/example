@@ -1,6 +1,6 @@
 package com.malex.lecture_15_Lambda.example_01;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Simple example of using lambda expression.
@@ -8,19 +8,19 @@ import lombok.extern.log4j.Log4j;
  *
  * @author malex
  */
-@Log4j
+@Log
 public class SimpleExampleLambdaExpr {
 
     public static void main(String[] args) {
 
         Operationable operation = () -> 20 + 40;
-        log.debug(" () -> 20 + 40;  \n result: " + operation.method());
+        log.info(" () -> 20 + 40;  \n result: " + operation.method());
 
         Exampleable lamb1 = (x) -> x + 2;
-        log.debug(" (x) -> x + 2;  \n result: " + lamb1.method(2));
+        log.info(" (x) -> x + 2;  \n result: " + lamb1.method(2));
 
         Exampleable lamb2 = x -> x * 3;
-        log.debug(" x -> x * 3;  \n result: " + lamb2.method(2));
+        log.info(" x -> x * 3;  \n result: " + lamb2.method(2));
     }
 }
 

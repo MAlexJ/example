@@ -6,9 +6,9 @@ import static com.malex.lecture_12_Serialization.example.util.SerializationUtils
 import java.io.File;
 import java.net.URL;
 import java.util.Optional;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class App {
 
   private static final String FILE_NAME = "source.txt";
@@ -31,11 +31,11 @@ public class App {
     String str = "Hello!";
 
     // #1 serialization
-    log.debug("Before: " + str);
+    log.info("Before: " + str);
     serialization(SOURCE_FILE, str);
 
     // #2 deserialization
     String newStr = deserialization(SOURCE_FILE, String.class);
-    log.debug("After: " + newStr);
+    log.info("After: " + newStr);
   }
 }

@@ -1,7 +1,6 @@
 package com.malex.lecture_15_Thread.example_03_volotile;
 
-import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * int a; int b;
@@ -14,13 +13,12 @@ import lombok.extern.log4j.Log4j;
  * System.out.print(b);
  * System.out.print(a);
  */
-@Log4j
+@Log
 public class TwoThreadSample {
 
     int a;
     volatile int b;
 
-    @SneakyThrows
     public static void main(String[] args) {
         TwoThreadSample sample = new TwoThreadSample();
         Thread second = sample.startSecond();

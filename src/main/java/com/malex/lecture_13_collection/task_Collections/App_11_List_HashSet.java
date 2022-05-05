@@ -1,6 +1,6 @@
 package com.malex.lecture_13_collection.task_Collections;
 
-import org.apache.log4j.Logger;
+import lombok.extern.java.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,13 +12,12 @@ import static java.util.Arrays.asList;
 /**
  * Created by Alex on 12.02.2015.
  */
+@Log
 public class App_11_List_HashSet {
-    private final static Logger LOG = Logger.getLogger(App_11_List_HashSet.class);
-
     public static void main(String[] args) {
         // Constructor ->  public ArrayList(Collection<? extends E> c){}
-        List<String> list = new ArrayList<>(asList("D","A", "BB", "A","C"));
-        LOG.debug(list);
+        List<String> list = new ArrayList<>(asList("D", "A", "BB", "A", "C"));
+        log.info(list.toString());
 
         // Constructor ->  public ArrayList(Collection<? extends E> c){}
         List<String> list2 = new ArrayList<>(new HashSet<>(list));
@@ -26,6 +25,6 @@ public class App_11_List_HashSet {
         // void sort(List<T> list){}
         // Sorts the specified list into ascending order, according to the Comparable natural ordering of its elements.
         Collections.sort(list2);
-        LOG.debug(list2);
+        log.info(list2.toString());
     }
 }

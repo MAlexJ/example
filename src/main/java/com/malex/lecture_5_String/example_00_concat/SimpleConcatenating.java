@@ -1,9 +1,9 @@
 package com.malex.lecture_5_String.example_00_concat;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /** Simple example */
-@Log4j
+@Log
 public class SimpleConcatenating {
 
   public static void main(String[] args) {
@@ -11,8 +11,8 @@ public class SimpleConcatenating {
     String str2 = "Second";
     String strResult = str1 + str2;
 
-    log.debug("str1 -> " + str1);
-    log.debug("str2 -> " + str2);
-    log.debug("strResult -> " + strResult);
+    log.info("str1 -> " + str1);
+    log.info("str2 -> " + str2);
+    log.info("strResult -> " + strResult);
   }
 }

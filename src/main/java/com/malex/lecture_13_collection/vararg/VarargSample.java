@@ -1,13 +1,13 @@
 package com.malex.lecture_13_collection.vararg;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.Arrays;
 
 import static junit.framework.TestCase.assertTrue;
 
-@Log4j
+@Log
 public class VarargSample {
 
     @Test
@@ -26,7 +26,7 @@ public class VarargSample {
     }
 
     public int[] useVararg(int... args) {
-        log.debug(Arrays.toString(args));
+        log.info(Arrays.toString(args));
         return args;
     }
 }

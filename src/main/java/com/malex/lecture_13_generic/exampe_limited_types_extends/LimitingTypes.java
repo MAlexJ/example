@@ -1,7 +1,7 @@
 package com.malex.lecture_13_generic.exampe_limited_types_extends;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Bounded Type Parameters
@@ -10,15 +10,15 @@ import lombok.extern.log4j.Log4j;
  * parameterized type. For example, a method that operates on numbers might only want to accept
  * instances of Number or its subclasses. This is what bounded type parameters are for.
  */
-@Log4j
+@Log
 public class LimitingTypes {
 
   public static void main(String[] args) {
     NaturalNumber<Integer> number = new NaturalNumber<>(11);
-    log.debug("Is even: " + number.isEven());
+    log.info("Is even: " + number.isEven());
 
     number = new NaturalNumber<>(12);
-    log.debug("Is even: " + number.isEven());
+    log.info("Is even: " + number.isEven());
   }
 }
 
@@ -26,7 +26,7 @@ public class LimitingTypes {
  * Limiting the types you can use to instantiate a generic type, bounded type parameters allow you
  * to invoke methods defined in the bounds:
  */
-@Log4j
+@Log
 @AllArgsConstructor
 class NaturalNumber<T extends Integer> {
   private T num;
@@ -38,7 +38,7 @@ class NaturalNumber<T extends Integer> {
             .append(", value=")
             .append(num);
 
-    log.debug(sb);
+    log.info(sb.toString());
     return num.intValue() % 2 == 0;
   }
 }

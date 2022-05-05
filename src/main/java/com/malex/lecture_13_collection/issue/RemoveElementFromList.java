@@ -1,13 +1,13 @@
 package com.malex.lecture_13_collection.issue;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 
-@Log4j
+@Log
 public class RemoveElementFromList {
 
     public static void main(String[] args) {

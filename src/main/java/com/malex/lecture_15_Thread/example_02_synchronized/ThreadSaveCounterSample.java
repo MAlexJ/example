@@ -2,20 +2,20 @@ package com.malex.lecture_15_Thread.example_02_synchronized;
 
 import lombok.Getter;
 import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
+@Log
 public class ThreadSaveCounterSample {
-    @SneakyThrows
+
     public static void main(String[] args) {
         ThreadSaveCounterSample sample = new ThreadSaveCounterSample();
         sample.runTest();
     }
 
-    @SneakyThrows
+
     public void runTest() {
         Container container = new Container();
         Runnable foo = () -> {
@@ -32,7 +32,11 @@ public class ThreadSaveCounterSample {
         }
 
         for (Thread thread : threads) {
-            thread.join();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         log.info("result : " + container.size());

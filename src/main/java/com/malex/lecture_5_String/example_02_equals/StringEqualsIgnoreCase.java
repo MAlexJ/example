@@ -1,8 +1,8 @@
 package com.malex.lecture_5_String.example_02_equals;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class StringEqualsIgnoreCase {
 
   public static void main(String args[]) {
@@ -12,12 +12,12 @@ public class StringEqualsIgnoreCase {
     boolean retVal;
 
     retVal = str1.equals(str3);
-    log.debug("str1.equals( str3 ) = " + retVal);
+    log.info("str1.equals( str3 ) = " + retVal);
 
     retVal = str1.equals(str4);
-    log.debug("str1.equals( str4 ) = " + retVal);
+    log.info("str1.equals( str4 ) = " + retVal);
 
     retVal = str1.equalsIgnoreCase(str4);
-    log.debug("str1.equalsIgnoreCase( str4  = " + retVal);
+    log.info("str1.equalsIgnoreCase( str4  = " + retVal);
   }
 }

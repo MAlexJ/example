@@ -1,11 +1,11 @@
 package com.malex.lecture_15_Lambda.supplier;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.UUID;
 import java.util.function.Supplier;
 
-@Log4j
+@Log
 public class SupplierInterfaceSample {
 
     public static void main(String[] args) {

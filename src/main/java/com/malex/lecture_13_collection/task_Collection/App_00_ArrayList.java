@@ -1,23 +1,21 @@
 package com.malex.lecture_13_collection.task_Collection;
 
+import lombok.extern.java.Log;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 /**
  * Created by Alex on 04.02.2015.
- *
+ * <p>
  * STRUCTURE:
- *
+ * <p>
  * interface Collection -----> interface List ----> class ArrayList
- *
  */
+@Log
 public class App_00_ArrayList {
 
-    // logger
-    private final static Logger LOG = Logger.getLogger(App_00_ArrayList.class);
 
     public static void main(String[] args) {
         // addition elements
@@ -36,32 +34,32 @@ public class App_00_ArrayList {
      */
     private static void simpleAdditionOfElements() {
 
-        LOG.debug("************");
+        log.info("************");
         Collection<String> list = new ArrayList<>();
 
-        LOG.debug("list.size() ->" + list.size());
-        LOG.debug("list.isEmpty() ->" + list.isEmpty());
+        log.info("list.size() ->" + list.size());
+        log.info("list.isEmpty() ->" + list.isEmpty());
         list.add("a");
         list.add("b");
         list.add("c");
         list.add("d");
         list.add("a");
-        LOG.debug("list.contains(\"x\") ->" + list.contains("x"));
-        LOG.debug("list.contains(\"a\") ->" + list.contains("a"));
-        LOG.debug(list);
+        log.info("list.contains(\"x\") ->" + list.contains("x"));
+        log.info("list.contains(\"a\") ->" + list.contains("a"));
+        log.info(list.toString());
     }
 
 
     /**
      * Simple CRUD operations over ArrayList
      */
-    private static void crudOperations(){
+    private static void crudOperations() {
 
-        LOG.debug("************");
+        log.info("************");
         List<String> list = new ArrayList<>();
 
-        LOG.debug("list.size() ->" + list.size());
-        LOG.debug("list.isEmpty() ->" + list.isEmpty());
+        log.info("list.size() ->" + list.size());
+        log.info("list.isEmpty() ->" + list.isEmpty());
 
         // list.add("a");
         list.add("a");
@@ -77,19 +75,19 @@ public class App_00_ArrayList {
         list.add(0, "first_1");
         list.add(0, "first_2");
 
-        LOG.debug("list.contains(\"x\") ->" + list.contains("x"));
-        LOG.debug("list.contains(\"a\") ->" + list.contains("a"));
-        LOG.debug("list.get(3) -> " + list.get(3));
+        log.info("list.contains(\"x\") ->" + list.contains("x"));
+        log.info("list.contains(\"a\") ->" + list.contains("a"));
+        log.info("list.get(3) -> " + list.get(3));
 
-        LOG.debug(list);
+        log.info(list.toString());
 
         //remove for index
-        LOG.debug("list.remove(3) -> " + list.remove(3));
+        log.info("list.remove(3) -> " + list.remove(3));
 
         //remove for Object
-        LOG.debug("list.remove(\"a\") ->" + list.remove("a"));
+        log.info("list.remove(\"a\") ->" + list.remove("a"));
 
-        LOG.debug(list);
+        log.info(list.toString());
     }
 
 
@@ -99,14 +97,14 @@ public class App_00_ArrayList {
     private static void addNullToArrayList() {
         ArrayList<String> list = new ArrayList<>();
 
-        LOG.debug("***************");
+        log.info("***************");
 
-        LOG.debug(list.size());
+        log.info("size: " + list.size());
 
         for (int i = 0; i < 20; i++) {
             list.add(null);
         }
 
-        LOG.debug(list.size());
+        log.info("size: " + list.size());
     }
 }

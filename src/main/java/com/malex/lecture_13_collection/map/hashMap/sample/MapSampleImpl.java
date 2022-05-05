@@ -1,6 +1,6 @@
 package com.malex.lecture_13_collection.map.hashMap.sample;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 public interface MapSampleImpl {
 
@@ -16,7 +16,7 @@ public interface MapSampleImpl {
         LogHolder.log(val);
     }
 
-    @Log4j
+    @Log
     final class LogHolder {
 
         private LogHolder() {

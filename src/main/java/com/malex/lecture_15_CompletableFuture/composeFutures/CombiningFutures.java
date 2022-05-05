@@ -1,6 +1,6 @@
 package com.malex.lecture_15_CompletableFuture.composeFutures;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -11,7 +11,7 @@ import java.util.function.Function;
  * The best part of the CompletableFuture API is the ability to combine CompletableFuture instances
  * in a chain of computation steps.
  */
-@Log4j
+@Log
 public class CombiningFutures {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -35,7 +35,7 @@ public class CombiningFutures {
                 .thenCompose(applyString(" tree"))
                 .thenCompose(applyEnd());
 
-        log.debug(cFuture.get());
+        log.info(cFuture.get());
     }
 
     private static Function<String, CompletionStage<String>> applyString(String msg) {

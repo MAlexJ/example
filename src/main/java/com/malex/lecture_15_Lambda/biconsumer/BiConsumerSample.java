@@ -2,7 +2,7 @@ package com.malex.lecture_15_Lambda.biconsumer;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -24,7 +24,7 @@ import static junit.framework.TestCase.assertTrue;
  * 1. void accept(T t, U u);
  * 2. default BiConsumer<T, U> andThen(BiConsumer<? super T, ? super U> after)
  */
-@Log4j
+@Log
 public class BiConsumerSample {
 
     public void iterateCollections(Collection<String> strs, BiConsumer<Integer, String> consumer) {
@@ -43,7 +43,7 @@ public class BiConsumerSample {
         Collection<String> list = Arrays.asList("A", "", "B", "C");
         iterateCollections(list, (position, val) ->
         {
-            log.debug(val);
+            log.info(val);
             assertTrue(val != null && !val.isEmpty());
         });
     }
@@ -57,7 +57,7 @@ public class BiConsumerSample {
                 case "A":
                 case "B":
                 case "C": {
-                    log.debug(val);
+                    log.info(val);
                     break;
                 }
                 default:

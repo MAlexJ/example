@@ -4,16 +4,16 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class GenericMethods {
   public static void main(String[] args) {
     Pair<Integer, String> p1 = new Pair<>(1, "apple");
     Pair<Integer, String> p2 = new Pair<>(2, "pear");
 
     boolean same = Util.<Integer, String>compare(p1, p2);
-    log.debug("Compare: " + same);
+    log.info("Compare: " + same);
   }
 }
 

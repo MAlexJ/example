@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.awt.*;
@@ -20,7 +20,7 @@ import static java.awt.Color.*;
  * Predicate represents a predicate, which is boolean-valued function, of one argument.
  * Source: http://www.java2s.com/Tutorials/Java/java.util.function/Predicate/index.htm
  */
-@Log4j
+@Log
 public class PredicateExample {
 
     private static final String TEMPLATE_FORMAT = "The string `%s` is contains char `j` or 'J' : %s \n";
@@ -73,13 +73,13 @@ public class PredicateExample {
         ).collect(Collectors.toList());
 
         List<BoxInventory> filterBlacks = filter(inventories, isBlack);
-        log.debug("Blacks: " + filterBlacks);
+        log.info("Blacks: " + filterBlacks);
 
         List<BoxInventory> filterWhites = filter(inventories, isWhite);
-        log.debug("Whites: " + filterWhites);
+        log.info("Whites: " + filterWhites);
 
         List<BoxInventory> filterWeight = filter(inventories, isWeight(new Random().nextInt(11)));
-        log.debug("Weight: " + filterWeight);
+        log.info("Weight: " + filterWeight);
     }
 
     private static List<BoxInventory> filter(List<BoxInventory> inventory, Predicate<BoxInventory> predicate) {

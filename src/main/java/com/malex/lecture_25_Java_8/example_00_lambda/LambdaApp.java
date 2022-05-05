@@ -1,16 +1,15 @@
 package com.malex.lecture_25_Java_8.example_00_lambda;
 
-import java.util.Comparator;
-import java.util.stream.Stream;
-
-import org.junit.Test;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
+import org.junit.Test;
 
-@Log4j
+import java.util.Comparator;
+import java.util.stream.Stream;
+
+@Log
 @ToString
 public class LambdaApp {
 
@@ -30,16 +29,12 @@ public class LambdaApp {
     @Test
     public void testStreamPeekMethod() {
         String separator = "\n";
-        Stream.of("a", "b")
-                .peek(e -> log.debug("Intermediate operation: " + separator))
-                .forEach(log::debug);
+        Stream.of("a", "b").peek(e -> log.info("Intermediate operation: " + separator)).forEach(log::info);
     }
 
     @Test
     public void testStreamSortedMethod() {
-        Stream.of("w", "c", "a", "b")
-                .sorted()
-                .forEach(log::debug);
+        Stream.of("w", "c", "a", "b").sorted().forEach(log::info);
     }
 
     @Test
@@ -48,9 +43,7 @@ public class LambdaApp {
         LambdaApp l2 = LambdaApp.create(LambdaApp::new, "old name");
         LambdaApp l3 = LambdaApp.create(LambdaApp::new, null);
 
-        Stream.of(l1, l2, l3)
-                .sorted(Comparator.comparing(LambdaApp::getField))
-                .forEach(log::debug);
+        Stream.of(l1, l2, l3).sorted(Comparator.comparing(LambdaApp::getField)).forEach(item -> log.info("result: " + item));
     }
 
 }

@@ -1,11 +1,11 @@
 package com.malex.lecture_15_Lambda.example_01;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Simple example generalized functional interface.
  */
-@Log4j
+@Log
 public class SimpleExampleGeneralizedFunctionalInterface {
 
     public static void main(String[] args) {
@@ -24,8 +24,8 @@ public class SimpleExampleGeneralizedFunctionalInterface {
             return x + y;
         };
 
-        log.debug("Result: " + lmbInteger.calculate(12, 14));
-        log.debug("Result: " + lmbString.calculate("start_", "finish"));
+        log.info("Result: " + lmbInteger.calculate(12, 14));
+        log.info("Result: " + lmbString.calculate("start_", "finish"));
 
     }
 }

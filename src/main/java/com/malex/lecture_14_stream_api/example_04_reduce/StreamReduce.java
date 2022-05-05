@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -16,7 +16,7 @@ import static junit.framework.TestCase.assertEquals;
  * A simple example of using the method 'reduce' of Stream API.
  * Method 'reduce' perform the terminal operation.
  */
-@Log4j
+@Log
 public class StreamReduce {
 
     @Test

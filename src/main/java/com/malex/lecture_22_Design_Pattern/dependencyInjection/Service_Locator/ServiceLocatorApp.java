@@ -1,11 +1,11 @@
-package com.malex.lecture_22_Design_Pattern.DependencyInjection.example_02_Service_Locator;
+package com.malex.lecture_22_Design_Pattern.DependencyInjection.Service_Locator;
 
-import com.malex.lecture_22_Design_Pattern.DependencyInjection.example_02_Service_Locator.pattern.ServiceLocator;
+import com.malex.lecture_22_Design_Pattern.DependencyInjection.Service_Locator.pattern.ServiceLocator;
 import com.malex.lecture_22_Design_Pattern.DependencyInjection.example_02_Service_Locator.pattern.service.MessagingService;
 import com.malex.lecture_22_Design_Pattern.DependencyInjection.example_02_Service_Locator.pattern.service.ServiceName;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class ServiceLocatorApp {
 
     public static void main(String[] args) {

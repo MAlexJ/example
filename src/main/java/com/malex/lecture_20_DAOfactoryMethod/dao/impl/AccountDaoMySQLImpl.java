@@ -3,9 +3,9 @@ package com.malex.lecture_20_DAOfactoryMethod.dao.impl;
 import com.malex.lecture_20_DAOfactoryMethod.dao.AccountDao;
 import com.malex.lecture_20_DAOfactoryMethod.entity.Account;
 import java.util.List;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class AccountDaoMySQLImpl implements AccountDao {
 
   // JDBC dependency -> pom.xml

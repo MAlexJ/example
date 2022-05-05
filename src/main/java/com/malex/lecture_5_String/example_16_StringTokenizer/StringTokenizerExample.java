@@ -2,9 +2,9 @@ package com.malex.lecture_5_String.example_16_StringTokenizer;
 
 import java.util.Arrays;
 import java.util.StringTokenizer;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class StringTokenizerExample {
 
   private static final String STRING = "1:23:4:546:21:0:3";
@@ -19,6 +19,6 @@ public class StringTokenizerExample {
       ar[i] = stk.nextToken();
     }
 
-    log.debug(Arrays.toString(ar));
+    log.info(Arrays.toString(ar));
   }
 }

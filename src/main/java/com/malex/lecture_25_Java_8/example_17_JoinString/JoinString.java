@@ -1,8 +1,8 @@
 package com.malex.lecture_25_Java_8.example_17_JoinString;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class JoinString {
 
     /*

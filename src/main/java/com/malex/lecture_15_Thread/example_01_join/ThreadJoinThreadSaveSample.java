@@ -1,11 +1,11 @@
 package com.malex.lecture_15_Thread.example_01_join;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Created by Alex on 19.02.2015.
  */
-@Log4j
+@Log
 public class ThreadJoinThreadSaveSample {
 
     private static final int N = 10_000_000;

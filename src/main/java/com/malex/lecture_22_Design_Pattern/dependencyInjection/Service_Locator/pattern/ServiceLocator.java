@@ -1,4 +1,4 @@
-package com.malex.lecture_22_Design_Pattern.DependencyInjection.example_02_Service_Locator.pattern;
+package com.malex.lecture_22_Design_Pattern.DependencyInjection.Service_Locator.pattern;
 
 import com.malex.lecture_22_Design_Pattern.DependencyInjection.example_02_Service_Locator.pattern.cache.Cache;
 import com.malex.lecture_22_Design_Pattern.DependencyInjection.example_02_Service_Locator.pattern.context.InitialContext;

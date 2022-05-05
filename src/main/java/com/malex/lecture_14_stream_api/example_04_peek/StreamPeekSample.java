@@ -1,6 +1,6 @@
 package com.malex.lecture_14_stream_api.example_04_peek;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import static junit.framework.TestCase.assertEquals;
  * <p>
  * Info: https://4comprehension.com/idiomatic-peeking/
  */
-@Log4j
+@Log
 public class StreamPeekSample {
 
     @Test
@@ -27,7 +27,7 @@ public class StreamPeekSample {
                 .filter(this::isNumeric)
                 // This method exists mainly to support debugging,
                 // Stream<T> peek(Consumer<? super T> action)
-                .peek(log::debug)
+                .peek(item -> log.info(item.toString()))
                 .collect(Collectors.toList());
 
         // https://4comprehension.com/idiomatic-peeking/

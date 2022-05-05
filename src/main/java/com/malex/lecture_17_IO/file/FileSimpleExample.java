@@ -5,9 +5,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class FileSimpleExample {
 
   private static final String ERROR_MESSAGE = "File not found: %s";
@@ -22,9 +22,9 @@ public class FileSimpleExample {
 
     URI uri = resource.toURI();
     File file = new File(uri);
-    log.debug("It is the directory: " + file.isDirectory());
-    log.debug("File name: " + file.getName());
-    log.debug("The file is exist: " + file.exists());
+    log.info("It is the directory: " + file.isDirectory());
+    log.info("File name: " + file.getName());
+    log.info("The file is exist: " + file.exists());
     // file.delete();
   }
 }

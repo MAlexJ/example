@@ -1,7 +1,5 @@
 package com.malex.lecture_15_Thread.example_13_singlElementBuffer;
 
-import lombok.SneakyThrows;
-
 public class SingleElementBuffer {
 
     private Integer element;
@@ -13,19 +11,27 @@ public class SingleElementBuffer {
      * put and get different synchronize method but for one object
      * 3.
      */
-    @SneakyThrows
+
     synchronized void put(Integer newElement) {  //
         if (element != null) {
-            this.wait();
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         this.element = newElement;
         this.notifyAll();
     }
 
-    @SneakyThrows
+
     synchronized Integer get() {
         if (element == null) {
-            this.wait();
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         Integer result = this.element;
         this.element = null;

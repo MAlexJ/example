@@ -4,30 +4,30 @@ import java.util.function.Supplier;
 
 import org.junit.Test;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
 /**
  * Main class
  */
-@Log4j
+@Log
 public class DefaultInterfaceTest {
 
     @Test
     public void test() {
         // #1
-        log.debug("Invoke the default method inside interface: " + new IDefaultInterface() {
+        log.info("Invoke the default method inside interface: " + new IDefaultInterface() {
         }.notRequired("Current"));
 
         // #1.1
-        log.debug("Invoke the default method: " + new DefaultImpl().notRequired("Class"));
+        log.info("Invoke the default method: " + new DefaultImpl().notRequired("Class"));
 
         // #2
         IDefaultInterface iFactory = DefaultFactory.create(DefaultImpl::new);
-        log.debug(iFactory.notRequired("Factory"));
+        log.info(iFactory.notRequired("Factory"));
 
         // #3
         iFactory = DefaultFactory.create(OverrideDefaultImpl::new);
-        log.debug(iFactory.notRequired("Override"));
+        log.info(iFactory.notRequired("Override"));
     }
 }
 

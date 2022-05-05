@@ -1,9 +1,9 @@
 package com.malex.lecture_5_String.example_16_chars;
 
 import java.util.stream.IntStream;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class CharsExample {
 
   public static void main(String[] args) {
@@ -17,6 +17,6 @@ public class CharsExample {
     IntStream chars = str.chars();
     long count = chars.count();
 
-    log.debug("Number of chars into the string: " + count + "\n");
+    log.info("Number of chars into the string: " + count + "\n");
   }
 }

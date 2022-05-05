@@ -1,7 +1,6 @@
 package com.malex.lecture_24_encryption.AES;
 
-import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 import org.junit.Test;
 
 import javax.crypto.Cipher;
@@ -30,7 +29,7 @@ import static junit.framework.TestCase.assertNotNull;
  * var decryptedBytes = CryptoJS.AES.decrypt("U2FsdGVkX1+z7vhpdtpIrwvLmYArDEI75LbPpPegZlj1kYvHxxZe6lFX+YlYseP+", "Erf4yhThu3okhUy8");
  * .........................
  */
-@Log4j
+@Log
 public class AesEncodeInJavaAndDecodeInJS {
 
     private static final String ALG_TYPE = "AES";
@@ -40,7 +39,6 @@ public class AesEncodeInJavaAndDecodeInJS {
     private static final String ALG_TEMPLATE = "%s/%s/%s";
 
     @Test
-    @SneakyThrows
     public void test2() {
         // given
         String stringToEncrypt = "Hello world 12345";
