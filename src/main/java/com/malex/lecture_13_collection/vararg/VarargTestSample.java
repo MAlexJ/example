@@ -6,27 +6,32 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
 
 @Log
-public class VarargSample {
+public class VarargTestSample {
 
     @Test
     public void simpleVarargTest() {
         int[] result = useVararg();
-        assertTrue(Arrays.equals(new int[0], result));
+        assertArrayEquals(new int[0], result);
 
         result = useVararg(1);
-        assertTrue(Arrays.equals(new int[]{1}, result));
+        assertArrayEquals(new int[]{1}, result);
 
         result = useVararg(2, 3, 4, 5);
-        assertTrue(Arrays.equals(new int[]{2, 3, 4, 5}, result));
+        assertTrue(compareArrays(new int[]{2, 3, 4, 5}, result));
 
         result = useVararg(5, 3, 2);
-        assertTrue(Arrays.equals(new int[]{5, 3, 2}, result));
+        assertTrue(compareArrays(new int[]{5, 3, 2}, result));
     }
 
-    public int[] useVararg(int... args) {
+    private int[] useVararg(int... args) {
         log.info(Arrays.toString(args));
         return args;
+    }
+
+    private boolean compareArrays(int[] arr1, int[] arr2) {
+        return Arrays.equals(arr1, arr2);
     }
 }

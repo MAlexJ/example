@@ -1,4 +1,4 @@
-package com.malex.lecture_18_stack_collection;
+package com.malex.lecture_13_collection.stack;
 
 import java.util.Stack;
 
