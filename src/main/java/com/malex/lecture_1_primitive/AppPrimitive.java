@@ -1,4 +1,4 @@
-package com.malex.lecture_1_primitive.example_2;
+package com.malex.lecture_1_primitive;
 
 /**
  * In case of abbreviated operations in java, type casting is performed.

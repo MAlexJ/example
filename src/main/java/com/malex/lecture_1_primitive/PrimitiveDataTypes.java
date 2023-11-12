@@ -1,9 +1,9 @@
-package com.malex.lecture_1_primitive.example_2;
+package com.malex.lecture_1_primitive;
 
 /**
  * Created by Alex on 13.02.2015.
  */
-public class App_primitive {
+public class PrimitiveDataTypes {
     public static void main(String[] args) {
 
         // Integer primitive data types

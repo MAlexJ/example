@@ -1,4 +1,4 @@
-package com.malex.lecture_1_primitive.example_1;
+package com.malex.lecture_1_primitive;
 
 
 import lombok.extern.java.Log;
@@ -7,7 +7,7 @@ import lombok.extern.java.Log;
  * Created by MAlex on 1/30/2015.
  */
 @Log
-public class App_4 {
+public class DivisionByZeroSample {
     public static void main(String[] args) {
         log.info("main");
 
