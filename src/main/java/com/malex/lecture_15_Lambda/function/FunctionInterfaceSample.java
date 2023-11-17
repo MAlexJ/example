@@ -1,11 +1,15 @@
 package com.malex.lecture_15_Lambda.function;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
 import lombok.extern.java.Log;
 
 import java.util.UUID;
 import java.util.function.Function;
 
-import static com.malex.lecture_15_Lambda.function.ApiStatus.*;
+import static com.malex.lecture_15_Lambda.function.FunctionInterfaceSample.ApiStatus.*;
+
 
 @Log
 public class FunctionInterfaceSample {
@@ -13,8 +17,7 @@ public class FunctionInterfaceSample {
     public static void main(String[] args) {
         handleError(() ->
                 // 1. init context with access token
-                initContextWithAccessToken()
-                        .andThen(ctx -> storeData(ACCESS_TOKEN_RESPONSE, ctx, NewAccountContext::getToken))
+                initContextWithAccessToken().andThen(ctx -> storeData(ACCESS_TOKEN_RESPONSE, ctx, NewAccountContext::getToken))
                         // 2. call api to obtain rep id
                         .andThen(FunctionInterfaceSample::getRepId)
                         // 3. store Rep id response
@@ -45,9 +48,7 @@ public class FunctionInterfaceSample {
 
     // Add access token to context
     private static Function<String, NewAccountContext> initContextWithAccessToken() {
-        return accessToken -> NewAccountContext.builder()
-                .token(accessToken)
-                .build();
+        return accessToken -> NewAccountContext.builder().token(accessToken).build();
     }
 
 
@@ -67,19 +68,14 @@ public class FunctionInterfaceSample {
         String repIdResponse = "201 Ok";
         // 3.4 parse response and get repId
         String repId = "RepId";
-        return ctx.toBuilder()
-                .data(data)
-                .repId(repId)
-                .build();
+        return ctx.toBuilder().data(data).repId(repId).build();
     }
 
 
     // Prepare open account data
     private static NewAccountContext prepareRequest(NewAccountContext ctx) {
         // prepare logic
-        return ctx.toBuilder()
-                .openAccountRequest("{ create new account: 12345 }")
-                .build();
+        return ctx.toBuilder().openAccountRequest("{ create new account: 12345 }").build();
     }
 
 
@@ -88,13 +84,11 @@ public class FunctionInterfaceSample {
         String repId = ctx.getRepId();
         String token = ctx.getToken();
         String newAccountResponse = "200 Ok";
-        return ctx.toBuilder()
-                .openAccountResponse(newAccountResponse)
-                .build();
+        return ctx.toBuilder().openAccountResponse(newAccountResponse).build();
     }
 
     // Store data to DB
-    private static NewAccountContext storeData(ApiStatus status, NewAccountContext ctx,
+    private static NewAccountContext storeData(ApiStatus status, NewAccountContext ctx, //
                                                Function<NewAccountContext, String> applyLoggedData) {
         log.info(status.getName() + ":" + applyLoggedData.apply(ctx));
         return ctx;
@@ -103,5 +97,34 @@ public class FunctionInterfaceSample {
     // Store data to DB
     private static void storeData(ApiStatus status, String message) {
         log.info("Store ctx - " + message + ", type - " + status.getName());
+    }
+
+
+    @Getter
+    @ToString
+    @Builder(toBuilder = true)
+    private static class NewAccountContext {
+        private String token;
+        private String repId;
+        private String data;
+
+        private String openAccountRequest;
+        private String openAccountResponse;
+    }
+
+
+    @Getter
+    enum ApiStatus {
+        ACCESS_TOKEN_RESPONSE("FOUNKEEPER ACCESS TOKEN RESPONSE"), //
+        REP_ID_RESPONSE("FOUNKEEPER INTERNAL REP ID RESPONSE"), //
+        OPEN_ACCOUNT_REQUEST("FOUNKEEPER OPEN ACCOUNT REQUEST"), //
+        OPEN_ACCOUNT_RESPONSE("FOUNKEEPER OPEN ACCOUNT RESPONSE"), //
+        ERROR("FOUNKEEPER API ERROR");
+
+        private final String name;
+
+        ApiStatus(String name) {
+            this.name = name;
+        }
     }
 }

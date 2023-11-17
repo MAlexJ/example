@@ -8,21 +8,38 @@ import java.util.function.Function;
 import static junit.framework.TestCase.assertEquals;
 
 @Log
-public class FunctionInterfaceComposeSample {
+public class FunctionInterfaceComposeAndThenSample {
 
     @Test
-    public void testCompose() {
+    public void simpleTest() {
+        // given
+        int number = 4;
+        Function<String, Integer> fn1 = Integer::parseInt;
+        Function<Integer, Integer> fn2 = num -> num * num;
+        Function<Integer, String> fn3 = num -> num + "_java";
+
+        // when
+        String result = fn1.andThen(fn2) //
+                .andThen(fn3) //
+                .apply(Integer.toString(number));
+
+        // then
+        assertEquals("16_java", result);
+    }
+
+    @Test
+    public void testComposeSequence() {
         String compose = oneFunction()      // "1"
-                .andThen(twoFunction())     // "2"
+                .compose(twoFunction())     // "2"
                 .compose(threeFunction())   // "3"
                 .compose(fourFunction())    // "4"
                 .apply("0");             // "0"
 
-        assertEquals("04312", compose);
+        assertEquals("04321", compose);
     }
 
     @Test
-    public void testAndThen() {
+    public void testAndThenSequence() {
         String compose = oneFunction()      // "1"
                 .andThen(twoFunction())     // "2"
                 .andThen(threeFunction())   // "3"
