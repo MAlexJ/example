@@ -1,10 +1,14 @@
-package com.malex.lecture_15_concurrency;
+package com.malex.lecture_15_concurrency.example_02_proccess_thread;
 
 import java.io.*;
 import java.net.URL;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Tutorial
+ * https://www.youtube.com/watch?v=ucdYenprPkw&list=PLqnlz-HutZiRA06Y-LdunLtHN7XwBZgNG&index=2
+ */
 public class ProcessBuilderPingApp {
 
     private static final String localIp = "127.0.0.1";

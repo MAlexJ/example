@@ -4,7 +4,7 @@ import com.malex.lecture_15_concurrency.AbstractThreadSample;
 
 import java.util.concurrent.TimeUnit;
 
-public class InterruptThreadWithSleepSample extends AbstractThreadSample {
+public class InterruptThreadIsThreadInterrupted extends AbstractThreadSample {
     public static void main(String[] args) {
         // #1.
         print("Start", getCurrentThreadName(), "thread ");

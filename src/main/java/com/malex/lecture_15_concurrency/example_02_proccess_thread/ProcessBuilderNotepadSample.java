@@ -1,4 +1,4 @@
-package com.malex.lecture_15_concurrency;
+package com.malex.lecture_15_concurrency.example_02_proccess_thread;
 
 import java.io.IOException;
 
