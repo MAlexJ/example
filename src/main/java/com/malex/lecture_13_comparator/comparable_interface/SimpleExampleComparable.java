@@ -1,4 +1,4 @@
-package com.malex.lecture_13_comparator;
+package com.malex.lecture_13_comparator.comparable_interface;
 
 import lombok.Getter;
 import lombok.Setter;
