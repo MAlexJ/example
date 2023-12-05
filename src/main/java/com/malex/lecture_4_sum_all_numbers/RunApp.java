@@ -32,7 +32,7 @@ public class RunApp {
     }
 
     @Test
-    public void test() {
+    public void runAllTest() {
         testNullValue();
         testEmptyValue();
         simpleWithTwoNumbers();
