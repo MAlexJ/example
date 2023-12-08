@@ -1,6 +1,6 @@
-package com.malex.lecture_3_wrapper_class;
+package com.malex.lecture_3_object;
 
-public class AppWrapper {
+public class PrimitiveWrapperClasses {
 
     public static void main(String[] args) {
 

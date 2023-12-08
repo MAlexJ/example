@@ -1,4 +1,4 @@
-package com.malex.lecture_4_switch;
+package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
 import org.junit.Test;
 
@@ -6,13 +6,13 @@ import java.io.FileNotFoundException;
 import java.io.UncheckedIOException;
 import java.util.Arrays;
 
-import static com.malex.lecture_4_switch.Java13SwitchYieldSample.NewBoolean.getByName;
+import static com.malex.lecture_2_statements.ControlStatements.conditional_statements.SwitchJava13YieldSample.NewBoolean.getByName;
 import static junit.framework.TestCase.*;
 
 /**
  * Link to info: <a href="https://habr.com/ru/articles/443464/">complete manual switch in Java</a>
  */
-public class Java13SwitchYieldSample {
+public class SwitchJava13YieldSample {
     @Test
     public void test() {
         // given

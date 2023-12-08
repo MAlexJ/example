@@ -3,8 +3,8 @@ Link: https://www.javatpoint.com/types-of-statements-in-java <br>
 
 ### Control Statement
 
-Control statements decide the flow 
-(order or sequence of execution of statements) of a Java program. 
+Control statements decide the flow
+(order or sequence of execution of statements) of a Java program.
 In Java, statements are parsed from top to bottom.
 Therefore, using the control flow statements can interrupt a particular section of a
 program based on a certain condition.

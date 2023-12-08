@@ -1,4 +1,4 @@
-package com.malex.lecture_4_switch;
+package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertEquals;
 /**
  * Link to info: <a href="https://habr.com/ru/articles/443464/">Complete manual switch in Java</a>
  */
-public class Java21SwitchEnumSample {
+public class SwitchJava21EnumSample {
 
     @Test
     public void test() {

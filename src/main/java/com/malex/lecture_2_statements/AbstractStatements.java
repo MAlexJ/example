@@ -5,6 +5,10 @@ import java.util.stream.Collectors;
 
 public class AbstractStatements {
 
+    public AbstractStatements() {
+        println("Constructor: abstract class AbstractStatements");
+    }
+
     protected void wrapper(String description, Runnable r) {
         println(description);
         r.run();

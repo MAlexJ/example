@@ -1,11 +1,11 @@
-package com.malex.lecture_4_switch;
+package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class TypePatternMatchingInSwitch {
+public class SwitchTypePatternMatching {
 
     /**
      * Java 21

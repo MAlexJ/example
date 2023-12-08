@@ -1,4 +1,4 @@
-package com.malex.lecture_4_switch;
+package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
 import org.junit.Test;
 
@@ -7,12 +7,12 @@ import java.util.stream.LongStream;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class JavaSwitchBaseSample {
+public class SwitchExpressionBaseSample {
 
     @Test
-    public void runVoidSample(){
-        LongStream.of(1, 3L, 10).forEach(num ->{
-            switch (Long.toString(num)){
+    public void runVoidSample() {
+        LongStream.of(1, 3L, 10).forEach(num -> {
+            switch (Long.toString(num)) {
                 case "1" -> System.out.println("1. first");
                 case "3" -> System.out.println("3. third");
                 case "10" -> System.out.println("10. tenth");
@@ -24,16 +24,13 @@ public class JavaSwitchBaseSample {
     @Test
     public void testIntegerInAndStringOut() {
         // test 1
-        IntStream.range(1, 4)
-                .forEach(num -> assertEquals("first", switchExpression(num)));
+        IntStream.range(1, 4).forEach(num -> assertEquals("first", switchExpression(num)));
 
         // test 2
-        IntStream.range(5, 8)
-                .forEach(num -> assertEquals("second", switchExpression(num)));
+        IntStream.range(5, 8).forEach(num -> assertEquals("second", switchExpression(num)));
 
         // test 3
-        IntStream.of(9, 11, 12, 14, 16)
-                .forEach(num -> assertEquals("default", switchExpression(num)));
+        IntStream.of(9, 11, 12, 14, 16).forEach(num -> assertEquals("default", switchExpression(num)));
     }
 
     private String switchExpression(int number) {
