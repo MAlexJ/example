@@ -1,4 +1,4 @@
-package com.malex.lecture_4_fibbonachi;
+package com.malex.lecture_4_algorithms.fibbonachi;
 
 /**
  * Created by malex on 08.07.16.

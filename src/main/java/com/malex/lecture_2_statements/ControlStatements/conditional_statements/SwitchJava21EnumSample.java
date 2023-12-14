@@ -1,16 +1,14 @@
 package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import static junit.framework.TestCase.assertEquals;
 
 /**
  * Link to info: <a href="https://habr.com/ru/articles/443464/">Complete manual switch in Java</a>
  */
-public class SwitchJava21EnumSample {
+public class SwitchJava21EnumSample extends AbstractUtils {
 
     @Test
     public void test() {
@@ -39,8 +37,4 @@ public class SwitchJava21EnumSample {
         return result;
     }
 
-    private void print(Object... args) {
-        String logs = Arrays.stream(args).map(Object::toString).collect(Collectors.joining(" "));
-        System.out.println(logs);
-    }
 }

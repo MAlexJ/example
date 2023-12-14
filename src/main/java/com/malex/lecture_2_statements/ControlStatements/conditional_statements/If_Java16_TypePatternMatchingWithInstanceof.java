@@ -1,11 +1,11 @@
 package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
-import com.malex.lecture_2_statements.AbstractStatements;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class If_Java16_TypePatternMatchingWithInstanceof extends AbstractStatements {
+public class If_Java16_TypePatternMatchingWithInstanceof extends AbstractUtils {
 
     @Test
     public void runSimpleExample() {

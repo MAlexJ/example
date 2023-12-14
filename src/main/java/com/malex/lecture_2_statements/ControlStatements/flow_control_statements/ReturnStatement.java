@@ -1,13 +1,13 @@
 package com.malex.lecture_2_statements.ControlStatements.flow_control_statements;
 
-import com.malex.lecture_2_statements.AbstractStatements;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class ReturnStatement extends AbstractStatements {
+public class ReturnStatement extends AbstractUtils {
 
     @Test
     public void runTest() {

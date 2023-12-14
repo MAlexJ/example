@@ -1,5 +1,6 @@
 package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import java.util.stream.IntStream;
@@ -7,16 +8,16 @@ import java.util.stream.LongStream;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class SwitchExpressionBaseSample {
+public class SwitchExpressionBaseSample extends AbstractUtils {
 
     @Test
     public void runVoidSample() {
         LongStream.of(1, 3L, 10).forEach(num -> {
             switch (Long.toString(num)) {
-                case "1" -> System.out.println("1. first");
-                case "3" -> System.out.println("3. third");
-                case "10" -> System.out.println("10. tenth");
-                default -> System.out.println("default");
+                case "1" -> println("1. first");
+                case "3" -> println("3. third");
+                case "10" -> println("10. tenth");
+                default -> println("default");
             }
         });
     }

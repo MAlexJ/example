@@ -1,4 +1,4 @@
-package com.malex.lecture_9_combination_anp_permutation;
+package com.malex.lecture_4_algorithms.combination_anp_permutation;
 
 import java.util.Objects;
 

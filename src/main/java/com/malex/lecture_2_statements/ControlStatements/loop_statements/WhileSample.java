@@ -1,11 +1,11 @@
 package com.malex.lecture_2_statements.ControlStatements.loop_statements;
 
-import com.malex.lecture_2_statements.AbstractStatements;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class WhileSample extends AbstractStatements {
+public class WhileSample extends AbstractUtils {
 
     public WhileSample() {
         println("Constructor: base class WhileSample");

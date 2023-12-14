@@ -1,6 +1,6 @@
 package com.malex.lecture_3_object.mutable_vs_immutable.immutable;
 
-import com.malex.lecture_3_object.AbstractUtil;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotEquals;
 /**
  * Link do info <a href="https://www.youtube.com/watch?v=8Hk1t_OF3Nk&list=PLtNPgSbW9TX5IQAKzgrJnaayjaDoCjkio&index=8">tutorial</a>
  */
-public class ImmutableClassSample extends AbstractUtil {
+public class ImmutableClassSample extends AbstractUtils {
 
     private final List<Integer> initList = List.of(1, 2, 3, 4);
 
@@ -47,7 +47,7 @@ public class ImmutableClassSample extends AbstractUtil {
         assertEquals(initList, myClass.getList());
     }
 
-    private static class MyImmutableClass extends AbstractUtil {
+    private static class MyImmutableClass extends AbstractUtils {
 
         private final List<Integer> list;
 

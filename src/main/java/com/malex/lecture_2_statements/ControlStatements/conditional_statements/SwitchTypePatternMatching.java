@@ -1,11 +1,9 @@
 package com.malex.lecture_2_statements.ControlStatements.conditional_statements;
 
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
-public class SwitchTypePatternMatching {
+public class SwitchTypePatternMatching extends AbstractUtils {
 
     /**
      * Java 21
@@ -53,10 +51,5 @@ public class SwitchTypePatternMatching {
         } else if (obj instanceof Number number) {
             print("Number - ", number, ", num to double =", number.doubleValue());
         }
-    }
-
-    private void print(Object... args) {
-        String logs = Arrays.stream(args).map(Object::toString).collect(Collectors.joining(" "));
-        System.out.println(logs);
     }
 }

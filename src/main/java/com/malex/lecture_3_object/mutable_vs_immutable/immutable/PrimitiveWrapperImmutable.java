@@ -1,6 +1,6 @@
 package com.malex.lecture_3_object.mutable_vs_immutable.immutable;
 
-import com.malex.lecture_3_object.AbstractUtil;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotEquals;
@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotEquals;
  * are immutable in Java, so operations like addition
  * and subtraction create a new object and not modify the old.
  */
-public class PrimitiveWrapperImmutable extends AbstractUtil {
+public class PrimitiveWrapperImmutable extends AbstractUtils {
 
     @Test
     public void testInteger() {

@@ -1,4 +1,4 @@
-package com.malex.lecture_4_sum_all_numbers;
+package com.malex.lecture_4_algorithms.sum_all_numbers;
 
 import org.junit.Test;
 

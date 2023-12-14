@@ -1,4 +1,4 @@
-package com.malex.lecture_5_integer;
+package com.malex.lecture_4_algorithms;
 
 public class ArmstrongNumber {
 

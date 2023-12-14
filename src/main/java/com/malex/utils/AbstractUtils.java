@@ -1,13 +1,9 @@
-package com.malex.lecture_2_statements;
+package com.malex.utils;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class AbstractStatements {
-
-    public AbstractStatements() {
-        println("Constructor: abstract class AbstractStatements");
-    }
+public abstract class AbstractUtils {
 
     protected void wrapper(String description, Runnable r) {
         println(description);
@@ -27,5 +23,9 @@ public class AbstractStatements {
     protected void print(Object... args) {
         String logs = Arrays.stream(args).map(Object::toString).collect(Collectors.joining(" "));
         System.out.print(logs);
+    }
+
+    protected String getHashcode(Number i) {
+        return Integer.toHexString(System.identityHashCode(i));
     }
 }

@@ -1,13 +1,13 @@
 package com.malex.lecture_2_statements.ControlStatements.flow_control_statements;
 
-import com.malex.lecture_2_statements.AbstractStatements;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 // transition operators.
-public class ContinueInsideLoop extends AbstractStatements {
+public class ContinueInsideLoop extends AbstractUtils {
 
     @Test
-    public void runTest(){
+    public void runTest() {
         for (int i = 0; i < 10; i++) {
             System.out.print(i + " ");
             if (i % 2 == 0) {

@@ -1,32 +1,49 @@
 package com.malex.lecture_2_statements.ControlStatements.flow_control_statements;
 
-public class ContinueWithLabel {
+import com.malex.utils.AbstractUtils;
+import org.junit.Test;
 
-    public static void main(String[] args) {
+import static junit.framework.TestCase.assertEquals;
 
-        System.out.println("````````````````````````````````````````");
+public class ContinueWithLabel extends AbstractUtils {
+
+    @Test
+    public void runLess() {
         th:
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 if (j > i) {
-                    System.out.println("+");
+                    println("+");
                     continue th;
                 }
-                System.out.print(j);
+                print(j);
             }
         }
+    }
 
-        System.out.println();
-        System.out.println("````````````````````````````````````````");
-        th:
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (j < i) {
-                    System.out.println("+");
-                    continue th;
+    @Test
+    public void run() {
+        wrapper("Inner loop label", () -> {
+            // init parameters
+            int num = 0;
+            int max = 10;
+            int inner_max = 5;
+            println("init params", "num =", num, "max =", max, "inner max =", inner_max);
+
+            // impl
+            back_label:
+            for (int i = 0; i < max; i++) {
+                for (int j = 0; j < inner_max; j++) {
+                    if (j < i) {
+                        println("+");
+                        continue back_label;
+                    }
+                    num++;
+                    print(j);
                 }
-                System.out.print(j);
             }
-        }
+            println("result =", num);
+            assertEquals(inner_max, num);
+        });
     }
 }

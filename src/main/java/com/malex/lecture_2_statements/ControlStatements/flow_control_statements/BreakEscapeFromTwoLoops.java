@@ -1,11 +1,11 @@
 package com.malex.lecture_2_statements.ControlStatements.flow_control_statements;
 
-import com.malex.lecture_2_statements.AbstractStatements;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class BreakEscapeFromTwoLoops extends AbstractStatements {
+public class BreakEscapeFromTwoLoops extends AbstractUtils {
 
     @Test
     public void runTest() {

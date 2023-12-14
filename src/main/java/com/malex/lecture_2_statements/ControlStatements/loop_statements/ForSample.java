@@ -1,13 +1,13 @@
 package com.malex.lecture_2_statements.ControlStatements.loop_statements;
 
-import com.malex.lecture_2_statements.AbstractStatements;
+import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class ForSample extends AbstractStatements {
+public class ForSample extends AbstractUtils {
 
-    public ForSample(){
+    public ForSample() {
         println("Constructor: base class LoopForSample");
     }
 
