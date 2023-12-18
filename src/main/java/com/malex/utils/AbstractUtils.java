@@ -7,6 +7,14 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractUtils {
 
+    protected void errorHandling(Runnable r) {
+        try {
+            r.run();
+        } catch (Exception e) {
+            throw new SampleException(e);
+        }
+    }
+
     protected void wrapper(String description, Runnable r) {
         println(description);
         r.run();

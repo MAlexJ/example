@@ -1,10 +1,17 @@
-package com.malex.lecture_15_Thread.example_02_synchronized;
+package com.malex.lecture_15_Thread.synchronize.not_thread_save;
 
+import com.malex.utils.AbstractUtils;
+import com.malex.utils.SampleException;
 import lombok.Getter;
 import lombok.extern.java.Log;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
+
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * Issue in synchronized void addEntry(String s) method
@@ -22,20 +29,20 @@ import java.util.List;
  * ........................................
  */
 @Log
-public class NotThreadSaveCounterSample {
+public class NotThreadSaveCounterSample extends AbstractUtils {
 
+    private static final int TEN_NUMBERS = 10;
+    private static final int TEN_MILLION_NUMBERS = 10000000;
 
-    public static void main(String[] args) {
-        Runnable foo = () -> {
-            Container container = new Container();
-            for (int i = 0; i < 100000; i++) {
-                container.addEntry("foo");
-            }
-        };
+    @Test
+    public void test() {
+        // init counter
+        var container = new Container();
+        Runnable runnable = () -> IntStream.range(0, TEN_MILLION_NUMBERS).forEach(container::addEntry);
 
         List<Thread> threads = new ArrayList<>();
-        for (long count = 10; count > 0; count--) {
-            Thread thread = new Thread(foo);
+        for (int count = 0; count < TEN_NUMBERS; count++) {
+            Thread thread = new Thread(runnable);
             thread.start();
             threads.add(thread);
         }
@@ -44,18 +51,28 @@ public class NotThreadSaveCounterSample {
             try {
                 thread.join();
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                throw new SampleException(e);
             }
         }
-        log.info("size: " + Container.list.size());
+
+        print(container.getListSize());
+        assertNotEquals(TEN_MILLION_NUMBERS * TEN_NUMBERS, container.getListSize());
     }
 
     @Getter
-    static class Container {
-        static final List<String> list = new ArrayList<>();
+    public static class Container {
 
-        synchronized void addEntry(String s) {
-            list.add(s);
+        private final List<Integer> list = new ArrayList<>();
+
+        /**
+         * synchronized method
+         */
+        public void addEntry(Integer num) {
+            list.add(num);
+        }
+
+        public int getListSize() {
+            return list.size();
         }
     }
 }
