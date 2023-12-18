@@ -14,8 +14,8 @@ public class ExcludeDuplicateInList {
     @Test
     public void test() {
 
-        List<Integer> list = Stream.of(1, 1, 2, 3, 4, 5, 5, 6, 7, 8, 8).collect(Collectors.toList());
-        List<Integer> expectedList = Stream.of(1, 2, 3, 4, 5, 6, 7, 8).collect(Collectors.toList());
+        List<Integer> list = Stream.of(1, 1, 2, 3, 4, 5, 5, 6, 7, 8, 8).toList();
+        List<Integer> expectedList = Stream.of(1, 2, 3, 4, 5, 6, 7, 8).toList();
 
         // #1 case:  java 8 : lambda
         assertEquals(expectedList, useLambdaDistinct(list));

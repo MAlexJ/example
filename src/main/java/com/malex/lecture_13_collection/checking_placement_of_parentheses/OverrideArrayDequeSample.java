@@ -1,6 +1,7 @@
 package com.malex.lecture_13_collection.checking_placement_of_parentheses;
 
 import com.google.common.collect.Lists;
+import com.malex.utils.AbstractUtils;
 import lombok.NonNull;
 import org.junit.Test;
 
@@ -8,61 +9,18 @@ import java.util.*;
 
 import static junit.framework.TestCase.*;
 
-public class SimpleOverrideArrayDequeSample {
+public class OverrideArrayDequeSample extends AbstractUtils {
 
-    @Test
-    public void allTests() {
-        exceptionTest();
-        incorrectParenthesesTest();
-        simpleTest();
-    }
-
-    @Test
-    public void exceptionTest() {
-        System.out.println((int) '[');
-        System.out.println((int) ']');
-        for (String parentheses : Lists.newArrayList("", null)) {
-            try {
-                isValid(parentheses);
-                fail();
-            } catch (IllegalArgumentException ex) {
-                //
-            }
-        }
-    }
-
-    @Test
-    public void incorrectParenthesesTest() {
-        List<String> incorrectParentheses = Lists.newArrayList("[",
-                "(",
-                "{",
-                "{()",
-                "{()))",
-                "))",
-                "}{"
-        );
-        for (String parentheses : incorrectParentheses) {
-            assertFalse(isValid(parentheses));
-        }
-    }
-
-    @Test
-    public void simpleTest() {
-        List<String> parenthesesList = Lists.newArrayList("[]", "()", "{}",
-                "(())", "([{}])",
-                "()()", "{}()[]",
-                "({}([]){}[]){[()]()}"
-        );
-        for (String parentheses : parenthesesList) {
-            assertTrue(isValid(parentheses));
-        }
-    }
-
-    public boolean isValid(String parentheses) {
-        if (Objects.isNull(parentheses) || parentheses.length() == 0) {
+    /**
+     * Implementation of opening and closing parentheses
+     *
+     * @param parentheses - parentheses: { } , ( ) or []
+     * @return true if all sprung parentheses have closed
+     */
+    public boolean isValidParentheses(String parentheses) {
+        if (Objects.isNull(parentheses) || parentheses.isEmpty()) {
             throw new IllegalArgumentException();
         }
-
         Deque<Integer> deque = new ArrayDeque<>() {
             private final Set<Integer> openBrackets = Set.of(0x28, 0x5b, 0x7b);
             private final Set<Integer> closeBrackets = Set.of(0x29, 0x5d, 0x7d);
@@ -91,11 +49,46 @@ public class SimpleOverrideArrayDequeSample {
             }
 
             private Integer pollLastOpenBracket() {
-                return Optional.ofNullable(pollLast())
-                        .orElse(0);
+                return Optional.ofNullable(pollLast()).orElse(0);
             }
         };
-        return parentheses.chars()
-                .allMatch(deque::add) && deque.isEmpty();
+        return parentheses.chars().allMatch(deque::add) && deque.isEmpty();
+    }
+
+    @Test
+    public void allTests() {
+        exceptionTest();
+        incorrectParenthesesTest();
+        simpleTest();
+    }
+
+    @Test
+    public void exceptionTest() {
+        println((int) '[');
+        println((int) ']');
+        for (String parentheses : Lists.newArrayList("", null)) {
+            try {
+                isValidParentheses(parentheses);
+                fail();
+            } catch (IllegalArgumentException ex) {
+                //
+            }
+        }
+    }
+
+    @Test
+    public void incorrectParenthesesTest() {
+        List<String> incorrectParentheses = Lists.newArrayList("[", "(", "{", "{()", "{()))", "))", "}{");
+        for (String parentheses : incorrectParentheses) {
+            assertFalse(isValidParentheses(parentheses));
+        }
+    }
+
+    @Test
+    public void simpleTest() {
+        List<String> parenthesesList = Lists.newArrayList("[]", "()", "{}", "(())", "([{}])", "()()", "{}()[]", "({}([]){}[]){[()]()}");
+        for (String parentheses : parenthesesList) {
+            assertTrue(isValidParentheses(parentheses));
+        }
     }
 }
