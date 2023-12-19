@@ -4,6 +4,10 @@ import com.malex.utils.AbstractUtils;
 import lombok.SneakyThrows;
 import org.junit.Test;
 
+/**
+ * If thead is not in a state of sleep or waiting then the flow is continuous if  thread.interrupt() was called
+ * will only change the state of Thread.currentThread().isInterrupted() method to TRUE
+ */
 public class InterruptWorkingThread extends AbstractUtils {
 
     @Test

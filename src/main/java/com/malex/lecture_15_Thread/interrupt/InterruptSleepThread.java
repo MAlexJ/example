@@ -5,6 +5,10 @@ import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
 
+
+/**
+ * If Thread is in a state of sleep or waiting, then InterruptedException exception is thrown
+ */
 public class InterruptSleepThread extends AbstractUtils {
 
     @Test

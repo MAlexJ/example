@@ -4,6 +4,9 @@ import com.malex.utils.AbstractUtils;
 import lombok.Getter;
 import org.junit.Test;
 
+/**
+ * If Thread is in a state of sleep or waiting, then InterruptedException exception is thrown
+ */
 public class InterruptWaitingThread extends AbstractUtils {
 
     @Test
