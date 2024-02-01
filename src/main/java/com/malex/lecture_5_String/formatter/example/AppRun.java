@@ -1,4 +1,4 @@
-package com.malex.lecture_5_String_Format.example;
+package com.malex.lecture_5_String.formatter.example;
 
 import lombok.extern.java.Log;
 

@@ -1,4 +1,4 @@
-package com.malex.lecture_3_object;
+package com.malex.lecture_3_wrapper_classes;
 
 public class PrimitiveWrapperClasses {
 

@@ -1,4 +1,4 @@
-package com.malex.lecture_2_statements.ExpressionStatements.lecture_2_equals.example_01_String;
+package com.malex.lecture_5_String.base.example_01_String;
 
 /**
  * Created by Alex on 13.02.2015.
