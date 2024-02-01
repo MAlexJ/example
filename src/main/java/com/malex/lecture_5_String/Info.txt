@@ -1,2 +1,0 @@
-Java - String Class
-http://www.tutorialspoint.com/java/java_strings.htm
