@@ -35,6 +35,21 @@ public abstract class AbstractUtils {
     printString(logs);
   }
 
+  protected void printlnError(Exception ex, int depth) {
+    printError("error:", ex.toString());
+    printError("error message:", ex.getMessage(), "\n");
+
+    printError("StackTrace:");
+    StackTraceElement[] stackTrace = ex.getStackTrace();
+    for (int i = 0; i < depth; i++) {
+      System.err.println(stackTrace[i]);
+    }
+  }
+
+  private void printError(String... args) {
+    System.err.println(String.join(" ", args));
+  }
+
   protected static void printlnString(String msg) {
     System.out.println(msg);
   }

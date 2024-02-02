@@ -1,4 +1,4 @@
-package com.malex.lecture_9_oop.polymorphism.task_polimorph_overload_method;
+package com.malex.lecture_9_oop_base.polymorphism.task_polimorph_overload_method;
 
 class A {
     void m1(A a) {

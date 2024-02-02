@@ -1,4 +1,4 @@
-package com.malex.lecture_9_oop.polymorphism.lecture_01_stream;
+package com.malex.lecture_9_oop_base.polymorphism.lecture_01_stream;
 
 /**
  * Итак, в java все нестатические неприватные (то есть, protected, package и public) методы являются виртуальными.

@@ -1,4 +1,4 @@
-package com.malex.lecture_9_oop.inheritance.lecture_01_stream;
+package com.malex.lecture_9_oop_base.inheritance.lecture_01_stream;
 
 public class Circle extends Figure {
 	int r;

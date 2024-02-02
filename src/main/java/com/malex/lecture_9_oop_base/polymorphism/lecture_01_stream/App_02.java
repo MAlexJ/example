@@ -1,4 +1,4 @@
-package com.malex.lecture_9_oop.polymorphism.lecture_01_stream;
+package com.malex.lecture_9_oop_base.polymorphism.lecture_01_stream;
 
 /**
  * Статические поля и методы виртуальными не являются, поэтому оба вызова выведут нам 3.

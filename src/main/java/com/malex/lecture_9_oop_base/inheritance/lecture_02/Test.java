@@ -1,4 +1,4 @@
-package com.malex.lecture_9_oop.inheritance.lecture_02;
+package com.malex.lecture_9_oop_base.inheritance.lecture_02;
 
 /**
  * Created by malex on 14.06.16.
