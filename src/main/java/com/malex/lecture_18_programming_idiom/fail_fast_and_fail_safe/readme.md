@@ -32,6 +32,15 @@ Which approach is the best one?
 
 4. Errors should preferably be automatically detected at compile-time, or else as early as possible at run-time.
 
+### ADifference between Fail-safe and Fail-fast
+
+<table>
+<tbody>
+<td>case</td>
+<td>Fail-Fast</td>
+<td>Fail-Safe</td>
+</tbody>
+</table>
 
 
 
