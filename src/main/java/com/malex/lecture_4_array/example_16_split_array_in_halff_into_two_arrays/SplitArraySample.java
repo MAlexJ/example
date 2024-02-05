@@ -1,4 +1,4 @@
-package com.malex.lecture_4_array.example_split_array_in_half;
+package com.malex.lecture_4_array.example_16_split_array_in_halff_into_two_arrays;
 
 import org.junit.Test;
 
