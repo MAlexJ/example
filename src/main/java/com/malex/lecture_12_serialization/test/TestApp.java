@@ -1,7 +1,7 @@
-package com.malex.lecture_12_Serialization.test;
+package com.malex.lecture_12_serialization.test;
 
-import static com.malex.lecture_12_Serialization.example.util.SerializationUtils.deserialization;
-import static com.malex.lecture_12_Serialization.example.util.SerializationUtils.serialization;
+import static com.malex.lecture_12_serialization.example.util.SerializationUtils.deserialization;
+import static com.malex.lecture_12_serialization.example.util.SerializationUtils.serialization;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNull;
 import static junit.framework.TestCase.fail;

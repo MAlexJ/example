@@ -1,7 +1,7 @@
-package com.malex.lecture_12_Serialization.example;
+package com.malex.lecture_12_serialization.example;
 
-import static com.malex.lecture_12_Serialization.example.util.SerializationUtils.deserialization;
-import static com.malex.lecture_12_Serialization.example.util.SerializationUtils.serialization;
+import static com.malex.lecture_12_serialization.example.util.SerializationUtils.deserialization;
+import static com.malex.lecture_12_serialization.example.util.SerializationUtils.serialization;
 
 import java.io.File;
 import java.net.URL;

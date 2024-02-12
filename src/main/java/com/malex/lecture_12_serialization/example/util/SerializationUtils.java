@@ -1,8 +1,6 @@
-package com.malex.lecture_12_Serialization.example.util;
+package com.malex.lecture_12_serialization.example.util;
 
 import java.io.*;
-
-import lombok.SneakyThrows;
 
 public class SerializationUtils {
 

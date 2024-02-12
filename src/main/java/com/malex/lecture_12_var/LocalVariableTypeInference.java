@@ -1,4 +1,4 @@
-package com.malex.lecture_12_lvti_var;
+package com.malex.lecture_12_var;
 
 import com.malex.utils.AbstractUtils;
 import org.junit.Test;
