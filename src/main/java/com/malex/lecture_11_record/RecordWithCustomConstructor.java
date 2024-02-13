@@ -17,7 +17,7 @@ import org.junit.Test;
  * <p>Java Records give us greater control during object initialization by allowing for data
  * validation and error handling
  */
-public class RecordCustomConstructor extends AbstractUtils {
+public class RecordWithCustomConstructor extends AbstractUtils {
 
   @Test
   public void testNullArgument() {
@@ -43,8 +43,11 @@ public class RecordCustomConstructor extends AbstractUtils {
     arrayList.sort(Comparator.comparing(Student::name));
     assertEquals(
         "Alex", arrayList.stream().findFirst().orElseThrow(IllegalArgumentException::new).name());
-    // how to get last element in stream -  https://www.baeldung.com/java-stream-last-element
-    // use: reduce or skip function
+
+    /*
+     * how to get last element in stream - https://www.baeldung.com/java-stream-last-element <br>
+     * use: reduce or skip function
+     */
     assertEquals(
         "Nikolay", arrayList.stream().reduce((first, second) -> second).orElseThrow().name());
   }
