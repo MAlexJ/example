@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Test;
 
 /** Tutorial: <a href="https://www.youtube.com/watch?v=Da57gcGWcCM">Easy Java - Lesson 17</a> */
-public class AtomicSimpleSample extends AbstractUtils {
+public class AtomicIntegerSample extends AbstractUtils {
 
   @Test
   public void run() {

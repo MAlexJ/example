@@ -20,7 +20,7 @@ public class AtomicReferenceSample extends AbstractUtils {
 
   private static final String FORMAT_MSG = "value : %s, hashcode : %s";
 
-  private Random random = new Random();
+  private final Random random = new Random();
 
   @Test
   public void atomicReferenceImplementation() {
