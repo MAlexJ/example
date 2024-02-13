@@ -34,7 +34,7 @@ public class Chest extends AbstractUtils {
   }
 
   public int info() {
-    println("Chest gold :", this.money);
+    println("Chest gold :", this.money, "\n");
     return this.money;
   }
 }

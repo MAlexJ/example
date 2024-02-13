@@ -30,16 +30,16 @@ public class GameApp extends AbstractUtils {
     chest.info();
   }
 
-  //  @Test
-  //  public void launchAtomic() {
-  //    var chest = new Chest(100);
-  //    var thread1 = new Thread(() -> chest.withdrawAtomic(50, player1));
-  //    var thread2 = new Thread(() -> chest.withdrawAtomic(50, player2));
-  //    var thread3 = new Thread(() -> chest.withdrawAtomic(50, player3));
-  //    runThreads(thread1, thread2, thread3);
-  //    // Note: results are not known
-  //    chest.infoAtomic();
-  //  }
+  @Test
+  public void launchAtomic() {
+    var chestAtomic = new ChestAtomic(100);
+    var thread1 = new Thread(() -> chestAtomic.withdraw(50, player1));
+    var thread2 = new Thread(() -> chestAtomic.withdraw(50, player2));
+    var thread3 = new Thread(() -> chestAtomic.withdraw(50, player3));
+    runThreads(thread1, thread2, thread3);
+    // Note: results are not known
+    chest.info();
+  }
 
   @Test
   public void launchWIthSync() {
