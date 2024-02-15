@@ -50,8 +50,8 @@ public abstract class AbstractUtils {
     System.err.println(String.join(" ", args));
   }
 
-  protected static void printlnString(String msg) {
-    System.out.println(msg);
+  public static void printlnString(String... args) {
+    System.out.println(String.join(" ", args));
   }
 
   protected static void printString(String msg) {
