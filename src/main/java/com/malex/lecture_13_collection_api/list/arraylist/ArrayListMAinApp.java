@@ -1,4 +1,4 @@
-package arraylist;
+package com.malex.lecture_13_collection_api.list.arraylist;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

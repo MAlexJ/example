@@ -12,7 +12,7 @@ import org.junit.Test;
  *
  * <p>link: <a href="https://www.baeldung.com/java-record-keyword">java 14 Record</a>
  */
-public class RecordInJava14 extends AbstractUtils {
+public final class RecordInJava14 extends AbstractUtils {
 
   @Test
   public void simple() {
@@ -26,7 +26,7 @@ public class RecordInJava14 extends AbstractUtils {
     var r1 = new RecordDefaultConstructors(1, "text", new Object());
     assertNotNull(r1);
 
-    var r2 = new RecordAllArgsConstructors(2, "empty", new String());
+    var r2 = new RecordAllArgsConstructors(2, "empty", "new String()");
     assertNotNull(r2);
 
     var r3 = new RecordDefaultFiledValue(1);
@@ -109,6 +109,10 @@ public class RecordInJava14 extends AbstractUtils {
 
   private record RecordAllArgsConstructors(int num, String str, Object obj) {
 
+    /**
+     * Redundant canonical constructor <br>
+     * Remove this redundant constructor which is the same as a default one.
+     */
     public RecordAllArgsConstructors(int num, String str, Object obj) {
       this.num = num;
       this.str = str;

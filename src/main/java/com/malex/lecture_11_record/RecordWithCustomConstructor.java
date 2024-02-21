@@ -32,14 +32,14 @@ public class RecordWithCustomConstructor extends AbstractUtils {
 
   @Test
   public void testListOfRecords() {
-    List<Student> students =
+    var students =
         List.of( //
             new Student("Diana", 1, 5), //
             new Student("Alex", 3, 4), //
             new Student("Inna", 4, 2), //
             new Student("Nikolay", 11, 1));
 
-    List<Student> arrayList = new ArrayList<>(students);
+    var arrayList = new ArrayList<>(students);
     arrayList.sort(Comparator.comparing(Student::name));
     assertEquals(
         "Alex", arrayList.stream().findFirst().orElseThrow(IllegalArgumentException::new).name());
