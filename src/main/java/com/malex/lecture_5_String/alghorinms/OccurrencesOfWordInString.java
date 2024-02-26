@@ -22,11 +22,10 @@ public class OccurrencesOfWordInString extends AbstractUtils {
   private final List<String> texts =
       List.of(
           "In this tutorial, we presented a \n \n case-insensitive search algorithm",
-          "In this case, we can safely avoid doing the backup to re-check every location in the text string",
-          "If we know in advance that the search word does not contain a repetitive pattern of characters");
+          "In this case, we can safely avoid doing the backup to re-check every location in the text string");
 
   @Test
-  public void run() {
+  public void testFindOccurrence() {
     assertTrue(findOccurrence(texts.getFirst(), "tutorial"));
     assertFalse(findOccurrence(texts.getFirst(), "tutorials"));
     assertFalse(findOccurrence(texts.getFirst(), "tutor"));
@@ -36,6 +35,9 @@ public class OccurrencesOfWordInString extends AbstractUtils {
 
     assertFalse(findOccurrence(texts.getFirst(), "case-insensitive"));
     assertFalse(findOccurrence(texts.getFirst(), "sensitive"));
+
+    assertTrue(findOccurrence(texts.getLast(), "check"));
+    assertFalse(findOccurrence(texts.getLast(), "re-check"));
   }
 
   private boolean findOccurrence(String text, String word) {
@@ -48,5 +50,22 @@ public class OccurrencesOfWordInString extends AbstractUtils {
     return Arrays.stream(wordList) //
         .filter(s -> !s.isBlank())
         .anyMatch(w -> w.equalsIgnoreCase(word));
+  }
+
+  @Test
+  public void testFindOccurrenceSpecificStringWithinText() {
+    assertTrue(findOccurrenceSpecificStringWithinText(texts.getFirst(), "tutor"));
+    assertTrue(findOccurrenceSpecificStringWithinText(texts.getFirst(), "presented"));
+    assertTrue(findOccurrenceSpecificStringWithinText(texts.getFirst(), "case-insensitive"));
+    assertTrue(findOccurrenceSpecificStringWithinText(texts.getFirst(), "case"));
+    assertTrue(findOccurrenceSpecificStringWithinText(texts.getLast(), "re"));
+
+    assertFalse(findOccurrenceSpecificStringWithinText(texts.getFirst(), "tutor2"));
+  }
+
+  /** find the occurrence of a specific string within a text */
+  private boolean findOccurrenceSpecificStringWithinText(String text, String word) {
+    println(text);
+    return text.indexOf(word) >= 1;
   }
 }
