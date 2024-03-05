@@ -1,4 +1,4 @@
-package com.malex.lecture_15_Lambda.biconsumer;
+package com.malex.lecture_15_Lambda.consumer;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
@@ -25,7 +25,7 @@ import static junit.framework.TestCase.assertTrue;
  * 2. default BiConsumer<T, U> andThen(BiConsumer<? super T, ? super U> after)
  */
 @Log
-public class BiConsumerSample {
+public class BiConsumerInterface {
 
     public void iterateCollections(Collection<String> strs, BiConsumer<Integer, String> consumer) {
         int position = 0;

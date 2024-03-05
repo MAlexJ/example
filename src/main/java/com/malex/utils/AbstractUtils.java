@@ -1,5 +1,6 @@
 package com.malex.utils;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -15,7 +16,7 @@ public abstract class AbstractUtils {
     }
   }
 
-  protected void wrapper(String description, Runnable r) {
+  protected void wrapper(String description, Runnable r)  {
     println(description);
     r.run();
     println();
@@ -46,7 +47,7 @@ public abstract class AbstractUtils {
     }
   }
 
-  private void printError(String... args) {
+  public void printError(String... args) {
     System.err.println(String.join(" ", args));
   }
 
