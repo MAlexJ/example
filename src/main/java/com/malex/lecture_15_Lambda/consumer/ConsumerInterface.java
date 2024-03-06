@@ -32,16 +32,16 @@ public class ConsumerInterface extends AbstractUtils {
 
   @Test
   public void test() throws IOException {
-    String expected = "xyy";
-    String hello = "x";
-    String world = "y";
+    var expectedResult = "xyy";
+    var hello = "x";
+    var world = "y";
     wrapperMethod(
-        expected,
+        expectedResult,
         () -> {
-          Consumer<String> consumer = s1 -> print(s1);
-          Consumer<String> consumer1 = consumer.andThen(s2 -> print(s2));
-          consumer.accept(hello);
-          consumer1.accept(world);
+          Consumer<String> first = s1 -> print(s1);
+          Consumer<String> second = first.andThen(s2 -> print(s2));
+          first.accept(hello);
+          second.accept(world);
         });
   }
 
