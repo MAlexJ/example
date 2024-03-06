@@ -20,7 +20,31 @@ import org.junit.Test;
 public class ConsumerInterface extends AbstractUtils {
 
   @Test
-  public void runSample() {
+  public void runConsumerClass() {
+    Consumer<String> consumer = new HashCodePrinter<>();
+    consumer.accept("Hello!");
+    consumer.accept("Java");
+  }
+
+  @Test
+  public void methodReference() {
+    Consumer<String> first = str -> println(str, "!");
+    Consumer<String> second = this::println;
+
+    first.accept("java");
+    second.accept("java");
+  }
+
+  private static class HashCodePrinter<T> implements Consumer<T> {
+
+    @Override
+    public void accept(T t) {
+      printlnString(String.valueOf(t.hashCode()));
+    }
+  }
+
+  @Test
+  public void runSampleAndThen() {
     Consumer<String> first = s1 -> println(s1 + 1);
     Consumer<String> second = first.andThen(s2 -> println(s2 + 2));
     Consumer<String> third = second.andThen(s2 -> println(s2 + 3));
@@ -31,15 +55,15 @@ public class ConsumerInterface extends AbstractUtils {
   }
 
   @Test
-  public void test() throws IOException {
+  public void testSystemOut() throws IOException {
     var expectedResult = "xyy";
     var hello = "x";
     var world = "y";
     wrapperMethod(
         expectedResult,
         () -> {
-          Consumer<String> first = s1 -> print(s1);
-          Consumer<String> second = first.andThen(s2 -> print(s2));
+          Consumer<String> first = this::print;
+          Consumer<String> second = first.andThen(this::print);
           first.accept(hello);
           second.accept(world);
         });
