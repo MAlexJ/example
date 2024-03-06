@@ -41,11 +41,4 @@ public class ConsumerSideEffect extends AbstractUtils {
     // then
     assertEquals(List.of("Java", "JavaScript"), result);
   }
-
-  @Test
-  public void runIterator() {
-    var list = List.of("Java", "JavaScript", "Python");
-    Consumer<String> printConsumer = this::println;
-    list.forEach(printConsumer);
-  }
 }
