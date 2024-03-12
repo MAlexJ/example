@@ -1,6 +1,7 @@
 package com.malex.utils;
 
-import java.io.IOException;
+import static junit.framework.TestCase.fail;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +17,7 @@ public abstract class AbstractUtils {
     }
   }
 
-  protected void wrapper(String description, Runnable r)  {
+  protected void wrapper(String description, Runnable r) {
     println(description);
     r.run();
     println();
@@ -79,5 +80,22 @@ public abstract class AbstractUtils {
     } catch (InterruptedException e) {
       e.fillInStackTrace();
     }
+  }
+
+
+  protected void startAllThread(Thread... threads) {
+    Arrays.stream(threads)
+        .forEach(Thread::start);
+  }
+  protected void joinAllThreadToMain(Thread... threads) {
+    Arrays.stream(threads)
+        .forEach(
+            thread -> {;
+              try {
+                thread.join();
+              } catch (InterruptedException e) {
+                fail();
+              }
+            });
   }
 }

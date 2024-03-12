@@ -1,10 +1,8 @@
 package com.malex.lecture_15_concurrency.example_07_atomic;
 
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.fail;
 
 import com.malex.utils.AbstractUtils;
-import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Test;
 
@@ -42,25 +40,13 @@ public class AtomicIntegerSample extends AbstractUtils {
             });
 
     // then
-    startAllThreadAndJoinMain(first, second, third);
+    startAllThread(first, second, third);
+    joinAllThreadToMain(first, second, third);
 
     // and
     int count = counter.getCount();
     printlnString("count = " + count);
     assertEquals(0, counter.getCount());
-  }
-
-  private void startAllThreadAndJoinMain(Thread... threads) {
-    Arrays.stream(threads)
-        .forEach(
-            thread -> {
-              thread.start();
-              try {
-                thread.join();
-              } catch (InterruptedException e) {
-                fail();
-              }
-            });
   }
 
   private static class Counter {
