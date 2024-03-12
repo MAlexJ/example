@@ -3,25 +3,14 @@ package com.malex.lecture_13_collection_api.array_list;
 import static junit.framework.TestCase.assertEquals;
 
 import java.util.ArrayList;
-import java.util.List;
 import org.junit.Test;
 
-public class AddElementToListUsingFor {
-
-  private final List<Dog> preparedList =
-      List.of(
-          new Dog(1, "Stephan"),
-          new Dog(4, "May"),
-          new Dog(6, "Cat"),
-          new Dog(9, "Jerry"),
-          new Dog(3, "Tom"));
-
-  private record Dog(int age, String name) {}
+public class AddElementToListUsingFor extends AbstractBase {
 
   @Test
   public void addElementFor() {
     // given
-    var dogs = new ArrayList<>(preparedList);
+    var dogs = new ArrayList<>(PREPARED_DOGS);
     assertEquals(5, dogs.size());
     // and
     var dog = new Dog(99999, "BigCat");

@@ -20,23 +20,13 @@ import org.junit.Test;
  * href="https://javarush.com/groups/posts/1935-udalenie-ehlementa-iz-spiska-arraylist">Remove
  * element form ArrayList</a>
  */
-public class RemoveElementFromList {
-
-  private final List<Cat> preparedList =
-      List.of(
-          new Cat(1, "Stephan"),
-          new Cat(4, "May"),
-          new Cat(6, "Cat"),
-          new Cat(9, "Jerry"),
-          new Cat(3, "Tom"));
-
-  private record Cat(int age, String name) {}
+public class RemoveElementFromList extends AbstractBase {
 
   /** Removes the first occurrence of the specified element from this list, if it is present. */
   @Test
   public void removeByObject() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
 
     // when
@@ -51,7 +41,7 @@ public class RemoveElementFromList {
   @Test
   public void removeByObjectRemovesFirstOccurrence() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
     // and
     // add exist cat to list
@@ -75,7 +65,7 @@ public class RemoveElementFromList {
   @Test
   public void removeByIndex() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
 
     // when
@@ -97,7 +87,7 @@ public class RemoveElementFromList {
   @Test
   public void removeFirstOrLast() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
     // and
     Cat first = cats.get(0);
@@ -117,7 +107,7 @@ public class RemoveElementFromList {
   @Test
   public void removeAll() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
 
     Cat firstCat = new Cat(1, "Stephan");
@@ -131,7 +121,7 @@ public class RemoveElementFromList {
   @Test
   public void removeIf() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
     // and
     Cat mayCat = new Cat(4, "May");

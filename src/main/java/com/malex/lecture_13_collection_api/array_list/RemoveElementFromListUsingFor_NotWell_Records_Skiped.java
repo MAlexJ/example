@@ -2,29 +2,17 @@ package com.malex.lecture_13_collection_api.array_list;
 
 import static junit.framework.TestCase.*;
 
-import com.malex.utils.AbstractUtils;
 import java.util.ArrayList;
-import java.util.List;
 import junit.framework.AssertionFailedError;
 import org.junit.Test;
 
-public class RemoveElementFromListUsingFor extends AbstractUtils {
-
-  private final List<Cat> preparedList =
-      List.of(
-          new Cat(1, "Stephan"),
-          new Cat(4, "May"),
-          new Cat(6, "Cat"),
-          new Cat(9, "Jerry"),
-          new Cat(3, "Tom"));
-
-  private record Cat(int age, String name) {}
+public class RemoveElementFromListUsingFor_NotWell_Records_Skiped extends AbstractBase {
 
   /** WTF!! */
   @Test
   public void removeElementUsingFor() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
 
     for (int i = 0; i < cats.size(); i++) {

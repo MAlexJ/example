@@ -8,23 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 
-public class AddElementToList {
+public class AddElementToList extends AbstractBase {
 
-  private final List<Dog> preparedList =
-      List.of(
-          new Dog(1, "Stephan"),
-          new Dog(4, "May"),
-          new Dog(6, "Cat"),
-          new Dog(9, "Jerry"),
-          new Dog(3, "Tom"));
-
-  private record Dog(int age, String name) {}
-
-  /** Appends the specified element to the end of this list. */
+  /**
+   * Appends the specified element to the end of this list.
+   *
+   * <ul>
+   *   <li>public boolean add(E e) { ... }
+   * </ul>
+   */
   @Test
   public void addElement() {
     // given
-    var dogs = new ArrayList<>(preparedList);
+    var dogs = new ArrayList<>(PREPARED_DOGS);
     assertEquals(5, dogs.size());
     // and
     var dog = new Dog(99999, "BigCat");
@@ -40,10 +36,18 @@ public class AddElementToList {
     assertEquals(dog, dogs.getLast());
   }
 
+  /**
+   * Adds an element as first/last element of this collection
+   *
+   * <ul>
+   *   <li>public void addFirst(E element) {....}
+   *   <li>public void addLast(E element) {....}
+   * </ul>
+   */
   @Test
   public void addElementFirstOrLast() {
     // given
-    var dogs = new ArrayList<>(preparedList);
+    var dogs = new ArrayList<>(PREPARED_DOGS);
     assertEquals(5, dogs.size());
     // and
     var first = new Dog(99999, "First");
@@ -67,7 +71,7 @@ public class AddElementToList {
   @Test
   public void addElementUsingIndexPosition() {
     // given
-    var dogs = new ArrayList<>(preparedList);
+    var dogs = new ArrayList<>(PREPARED_DOGS);
     assertEquals(5, dogs.size());
     // and
     var dog = new Dog(99999, "BigCat");
@@ -85,7 +89,7 @@ public class AddElementToList {
   @Test
   public void addAll() {
     // given
-    var dogs = new ArrayList<>(preparedList);
+    var dogs = new ArrayList<>(PREPARED_DOGS);
     assertEquals(5, dogs.size());
     // and
     var first = new Dog(99999, "First");
@@ -110,7 +114,7 @@ public class AddElementToList {
   @Test
   public void addAllUsingIndexPosition() {
     // given
-    var dogs = new ArrayList<>(preparedList);
+    var dogs = new ArrayList<>(PREPARED_DOGS);
     assertEquals(5, dogs.size());
     // and
     var first = new Dog(99999, "First");

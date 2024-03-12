@@ -4,31 +4,22 @@ import static junit.framework.TestCase.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import org.junit.Test;
 
-public class RemoveElementFromListUsingWhile {
+public class RemoveElementFromListUsingIterator extends AbstractBase {
 
-  private final List<Cat> preparedList =
-      List.of(
-          new Cat(1, "Stephan"),
-          new Cat(4, "May"),
-          new Cat(6, "Cat"),
-          new Cat(9, "Jerry"),
-          new Cat(3, "Tom"));
-
-  private record Cat(int age, String name) {}
-
+  /** Removes from the underlying collection the last element returned by this iterator. */
   @Test
-  public void removeElementUsingIterator() {
+  public void iteratorRemoveCurrentElement() {
     // given
-    var cats = new ArrayList<>(preparedList);
+    var cats = new ArrayList<>(PREPARED_CATS);
     assertEquals(5, cats.size());
 
     // when
     Iterator<Cat> iterator = cats.iterator();
     while (iterator.hasNext()) {
       if (iterator.next().age() < 5) {
+        // Removes from the underlying collection the last element returned by this iterator
         iterator.remove();
       }
     }
