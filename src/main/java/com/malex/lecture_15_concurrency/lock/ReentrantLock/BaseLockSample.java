@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * <p>tutorial: <a href="https://www.youtube.com/watch?v=2OnAxdxtNmw">ReentrantLock</a>
  */
-public class ReentrantLockBaseSample extends AbstractUtils {
+public class BaseLockSample extends AbstractUtils {
 
   @Test
   public void runSimpleExample() {
