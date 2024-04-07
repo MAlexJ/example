@@ -17,7 +17,7 @@ import static junit.framework.TestCase.assertNull;
  * 3.  We can develop clean and neat APIs.
  * 4.  No more Boiler plate code
  */
-public class StreamOptionalInDepth {
+public class StreamOptionalOfNullableVsOf {
 
     @Test
     public void testOfNullable(){
@@ -39,7 +39,7 @@ public class StreamOptionalInDepth {
 
     @Test
     public void testOfNullableIfPresent(){
-        Optional<String> opt = Optional.ofNullable(null);
+    Optional<String> opt = Optional.ofNullable(null);
         opt.ifPresent(e -> System.out.println(e + "sdgg"));
     }
 
