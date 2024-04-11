@@ -1,45 +1,46 @@
 package com.malex.lecture_14_optional;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import org.junit.Test;
-
-import java.util.Optional;
-
 import static junit.framework.TestCase.assertEquals;
 
+import java.util.Objects;
+import java.util.Optional;
+import org.junit.Test;
+
+/**
+ * Documentation 1. <a href="https://habr.com/ru/articles/658457/">Java Class guide Optional</a>
+ * <br>
+ */
 public class OptionalSample {
 
-    @Test
-    public void test() {
-        // ID:1
-        assertEquals(new User("ID:1"), getUser(true, "ID:1"));
+  @Test
+  public void testCases() {
+    // given
+    var first_user_id = "ID:1";
+    var second_user_id = "ID:2";
 
-        // ID:2
-        assertEquals(new User("ID:2"), getUser(false, "ID:1"));
-        assertEquals(new User("ID:2"), getUser(true, "XXXX"));
+    // then
+    assertEquals(first_user_id, findUserByIdOrProvideDefaultValue(true, "ID:1"));
+
+    // and
+    assertEquals(second_user_id, findUserByIdOrProvideDefaultValue(false, "ID:1"));
+    assertEquals(second_user_id, findUserByIdOrProvideDefaultValue(true, "XXXX"));
+  }
+
+  private String findUserByIdOrProvideDefaultValue(boolean returnObject, String userId) {
+    var user = createUserOrNull(returnObject);
+    return Optional.ofNullable(user)
+        .map(User::id)
+        .filter(id -> id.equals(userId))
+        .orElse(new User("ID:2").id());
+  }
+
+  private User createUserOrNull(boolean returnObject) {
+    return returnObject ? new User("ID:1") : null;
+  }
+
+  record User(String id) {
+    User {
+      Objects.requireNonNull(id, "USer id should br not null!");
     }
-
-    private User getUser(boolean lazy, String id) {
-        return Optional.ofNullable(createUser(lazy))
-                .filter(u -> u.getId().contains(id))
-                .orElse(new User("ID:2"));
-    }
-
-    private User createUser(boolean lazy) {
-        return lazy
-                ? new User("ID:1")
-                : null;
-    }
-
-
-    @Getter
-    @EqualsAndHashCode
-    @RequiredArgsConstructor
-    static class User {
-        @NonNull
-        private String id;
-    }
+  }
 }

@@ -1,20 +1,25 @@
 package com.malex.lecture_14_optional;
 
-import org.junit.Test;
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
 
 import java.util.Optional;
+import org.junit.Test;
 
 public class OptionalMap {
 
-    @Test
-    public void test() {
-        var r = new Result(0);
-        String srt = "123345";
-        Optional<Integer> number = Optional.ofNullable(srt).map(Integer::parseInt);
-//         number.ifPresentOrElse(num -> r, ()-> new Result(-1));
+  @Test
+  public void mapOptionalTest() {
+    // given
+    var stringNumber = "123345";
 
-    }
+    // when
+    var result = Optional.of(stringNumber).map(Integer::parseInt).map(Result::new).orElseThrow();
 
-    record Result(int number) {
-    }
+    // then
+    assertNotNull(result);
+    assertEquals(Integer.valueOf(stringNumber), result.number());
+  }
+
+  record Result(Integer number) {}
 }

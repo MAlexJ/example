@@ -7,20 +7,20 @@ import com.malex.utils.AbstractUtils;
 import java.util.Optional;
 import org.junit.Test;
 
-public class OptionalIsPresentVsIsEmpty extends AbstractUtils {
+/**
+ * Documentation 1. <a href="https://habr.com/ru/articles/658457/">Java Class guide Optional</a>
+ * <br>
+ */
+public class OptionalIsPresent extends AbstractUtils {
 
   @Test
   public void optionalNotEmptyTest() {
     // given
     Optional<String> textOpt = getText("123_adc");
 
-    // when
-    boolean present = textOpt.isPresent();
-    boolean empty = textOpt.isEmpty();
-
     // then
-    assertTrue(present);
-    assertFalse(empty);
+    assertTrue(textOpt.isPresent());
+
     // and
     println("result:", textOpt);
   }
@@ -30,13 +30,9 @@ public class OptionalIsPresentVsIsEmpty extends AbstractUtils {
     // given
     Optional<String> textOpt = getText(null);
 
-    // when
-    boolean empty = textOpt.isEmpty();
-    boolean present = textOpt.isPresent();
-
     // then
-    assertTrue(empty);
-    assertFalse(present);
+    assertFalse(textOpt.isPresent());
+
     // and
     println("result:", textOpt);
   }

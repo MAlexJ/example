@@ -3,11 +3,14 @@ package com.malex.utils;
 import static junit.framework.TestCase.fail;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public abstract class AbstractUtils {
+
+  public static final String EMPTY_STRING = " ";
 
   protected void errorHandling(Runnable r) {
     try {
@@ -24,16 +27,24 @@ public abstract class AbstractUtils {
   }
 
   protected void println(String... str) {
-    printlnString(String.join(" ", str));
+    printlnString(String.join(EMPTY_STRING, str));
   }
 
   protected void println(Object... args) {
-    String logs = Arrays.stream(args).map(Object::toString).collect(Collectors.joining(" "));
+    String logs =
+        Arrays.stream(args)
+            .filter(Objects::nonNull)
+            .map(Object::toString)
+            .collect(Collectors.joining(EMPTY_STRING));
     printlnString(logs);
   }
 
   protected void print(Object... args) {
-    String logs = Arrays.stream(args).map(Object::toString).collect(Collectors.joining(" "));
+    String logs =
+        Arrays.stream(args)
+            .filter(Objects::nonNull)
+            .map(Object::toString)
+            .collect(Collectors.joining(EMPTY_STRING));
     printString(logs);
   }
 
@@ -49,11 +60,11 @@ public abstract class AbstractUtils {
   }
 
   public void printError(String... args) {
-    System.err.println(String.join(" ", args));
+    System.err.println(String.join(EMPTY_STRING, args));
   }
 
   public static void printlnString(String... args) {
-    System.out.println(String.join(" ", args));
+    System.out.println(String.join(EMPTY_STRING, args));
   }
 
   protected static void printString(String msg) {
@@ -82,15 +93,15 @@ public abstract class AbstractUtils {
     }
   }
 
-
   protected void startAllThread(Thread... threads) {
-    Arrays.stream(threads)
-        .forEach(Thread::start);
+    Arrays.stream(threads).forEach(Thread::start);
   }
+
   protected void joinAllThreadToMain(Thread... threads) {
     Arrays.stream(threads)
         .forEach(
-            thread -> {;
+            thread -> {
+              ;
               try {
                 thread.join();
               } catch (InterruptedException e) {
