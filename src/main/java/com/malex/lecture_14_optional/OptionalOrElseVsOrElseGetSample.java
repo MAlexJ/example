@@ -12,7 +12,7 @@ import org.junit.Test;
  * Documentation 1. <a href="https://habr.com/ru/articles/658457/">Java Class guide Optional</a>
  * <br>
  */
-public class OptionalOrElseVsOrElseGet extends AbstractUtils {
+public class OptionalOrElseVsOrElseGetSample extends AbstractUtils {
 
   private AtomicInteger counter = null;
 
