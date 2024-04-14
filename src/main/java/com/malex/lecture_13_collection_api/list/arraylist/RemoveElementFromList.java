@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.array_list;
+package com.malex.lecture_13_collection_api.list.arraylist;
 
 import static junit.framework.TestCase.*;
 
