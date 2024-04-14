@@ -3,6 +3,8 @@ package com.malex.lecture_13_collection_api.list.arraylist;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+
+import com.malex.lecture_13_collection_api.list.AbstractBase;
 import org.junit.Test;
 
 /**

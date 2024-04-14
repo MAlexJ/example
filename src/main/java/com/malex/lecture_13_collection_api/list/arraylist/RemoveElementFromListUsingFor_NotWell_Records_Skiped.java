@@ -3,6 +3,8 @@ package com.malex.lecture_13_collection_api.list.arraylist;
 import static junit.framework.TestCase.*;
 
 import java.util.ArrayList;
+
+import com.malex.lecture_13_collection_api.list.AbstractBase;
 import junit.framework.AssertionFailedError;
 import org.junit.Test;
 

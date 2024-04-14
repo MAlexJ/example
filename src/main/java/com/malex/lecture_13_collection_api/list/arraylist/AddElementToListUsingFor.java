@@ -3,6 +3,8 @@ package com.malex.lecture_13_collection_api.list.arraylist;
 import static junit.framework.TestCase.assertEquals;
 
 import java.util.ArrayList;
+
+import com.malex.lecture_13_collection_api.list.AbstractBase;
 import org.junit.Test;
 
 public class AddElementToListUsingFor extends AbstractBase {

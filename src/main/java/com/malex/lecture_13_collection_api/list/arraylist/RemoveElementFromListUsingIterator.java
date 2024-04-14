@@ -4,6 +4,8 @@ import static junit.framework.TestCase.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import com.malex.lecture_13_collection_api.list.AbstractBase;
 import org.junit.Test;
 
 public class RemoveElementFromListUsingIterator extends AbstractBase {

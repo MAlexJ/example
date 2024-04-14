@@ -4,6 +4,8 @@ import static junit.framework.TestCase.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.malex.lecture_13_collection_api.list.AbstractBase;
 import org.junit.Test;
 
 /**

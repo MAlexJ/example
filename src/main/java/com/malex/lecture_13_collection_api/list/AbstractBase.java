@@ -1,9 +1,10 @@
-package com.malex.lecture_13_collection_api.list.arraylist;
+package com.malex.lecture_13_collection_api.list;
 
 import com.malex.utils.AbstractUtils;
 import java.util.List;
 
 public abstract class AbstractBase extends AbstractUtils {
+
   protected static final List<String> PREPARED_NAMES =
       List.of("Anna", "Alex", "Stefan", "Alexandra", "Cat");
 
@@ -23,7 +24,7 @@ public abstract class AbstractBase extends AbstractUtils {
           new Dog(9, "Jerry"),
           new Dog(3, "Tom"));
 
-  protected record Dog(int age, String name) {}
+  public record Dog(int age, String name) {}
 
-  protected record Cat(int age, String name) {}
+  public record Cat(int age, String name) {}
 }
