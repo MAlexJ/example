@@ -3,8 +3,7 @@ package com.malex.lecture_13_collection_api.list.arraylist;
 import static junit.framework.TestCase.*;
 
 import com.malex.utils.AbstractUtils;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.Test;
@@ -71,5 +70,21 @@ public class ArrayListInitialization extends AbstractUtils {
     assertNotNull(list);
     assertEquals(1, list.size());
     assertEquals("Second task", list.getFirst());
+  }
+
+  @Test
+  public void listFromEnumerations() {
+    // Create a Vector and add some elements
+    Vector<String> vector = new Vector<>();
+    vector.add("Element 1");
+    vector.add("Element 2");
+    vector.add("Element 3");
+
+    // Get an Enumeration of the Vector
+    Enumeration<String> enumeration = vector.elements();
+    ArrayList<String> list = Collections.list(enumeration);
+
+    // then
+    assertEquals(3, list.size());
   }
 }
