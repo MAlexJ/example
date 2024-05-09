@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.stack;
+package com.malex.lecture_13_collection_api.list.stack;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

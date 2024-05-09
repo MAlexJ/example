@@ -1,4 +1,4 @@
-package coordinate_ring;
+package com.malex.lecture_13_collection_api.coordinate_ring;
 
 import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
