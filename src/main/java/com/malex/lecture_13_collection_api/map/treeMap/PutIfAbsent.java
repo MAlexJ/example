@@ -28,4 +28,20 @@ public class PutIfAbsent extends AbstractUtils {
 
     println(treeMap);
   }
+
+  @Test
+  public void putIfAbsentValueNull() {
+    // given
+    TreeMap<String, Integer> treeMap = new TreeMap<>();
+
+    Integer firstPutIfAbsent = treeMap.putIfAbsent("A", null);
+    println("the first use of putIfAbsent:" + firstPutIfAbsent);
+    assertNull(firstPutIfAbsent);
+    println(treeMap);
+
+    Integer secondPutIfAbsent = treeMap.putIfAbsent("A", 2);
+    println("the second use of putIfAbsent:", secondPutIfAbsent);
+    assertNull( secondPutIfAbsent);
+    println(treeMap);
+  }
 }
