@@ -1,10 +1,10 @@
 package com.malex.lecture_13_collection_api.map.map;
 
 import com.malex.utils.AbstractUtils;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
 import org.junit.Test;
 
 public class BaseSample extends AbstractUtils {
@@ -19,10 +19,7 @@ public class BaseSample extends AbstractUtils {
     Integer AddedValue = map.put("a", 1);
     Integer removedValue = map.remove("a");
     Set<Map.Entry<String, Integer>> entries = map.entrySet();
-    for (String s : map.keySet()) {
-      //
-    }
-
-
+    Set<String> keys = map.keySet();
+    Collection<Integer> values = map.values();
   }
 }
