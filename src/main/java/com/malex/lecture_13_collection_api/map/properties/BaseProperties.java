@@ -4,34 +4,64 @@ import com.malex.utils.AbstractUtils;
 import java.util.*;
 import org.junit.Test;
 
+/**
+ * The Properties class represents a persistent set of properties. The Properties can be saved to a
+ * stream or loaded from a stream. Each key and its corresponding value in the property list is a
+ * string.
+ */
 public class BaseProperties extends AbstractUtils {
 
+  /**
+   * A property list can contain another property list as its "defaults"; this second property *
+   * list is searched if the property key is not found in the original property list.
+   */
   @Test
-  public void test() {
+  public void initialization() {
+    // 1. constructor
     Properties properties = new Properties();
-    properties.clear();
 
-    Object put = properties.put("1", 1);
+    // 2. init with capacity
+    Properties oneProps = new Properties(1);
+    Object setProperty = oneProps.setProperty("env", "dev");
+    println("saved value by 'env' key:", setProperty);
+    println("props:", oneProps);
 
-    Object setProperty = properties.setProperty("2", "2");
-
-    String property = properties.getProperty("2");
-
-    String propertiesProperty = properties.getProperty("3", "Default");
-
-    Enumeration<Object> enumeration = properties.elements();
-
-    Set<Map.Entry<Object, Object>> entries = properties.entrySet();
-
-    Enumeration<Object> keys = properties.keys();
-
-    Collection<Object> values = properties.values();
-
-    Enumeration<?> propertyNames = properties.propertyNames();
-
-    Set<String> stringSet = properties.stringPropertyNames();
-
-    boolean empty = properties.isEmpty();
-
+    // 3. init by props
+    Properties propsToProps = new Properties(oneProps);
+    propsToProps.setProperty("test", "impl");
+    propsToProps.setProperty("animal", "cat");
+    println("props:", propsToProps);
+    println("get by 'env' key:", propsToProps.getProperty("env"));
+    println("get by 'test' key:", propsToProps.getProperty("test"));
   }
+
+  @Test
+  public void methods() {
+    Properties properties = new Properties();
+
+    // 1. set value
+    Object setProperty = properties.setProperty("env", "dev");
+
+    // 2. get value by key
+    String property = properties.getProperty("env");
+    String defaultIfNotFoundProps = properties.getProperty("animal", "DEFAULT");
+
+    // 3. Returns an enumeration of all the keys in this property list, including distinct keys in
+    // the default property
+    Enumeration<?> propertyNames = properties.propertyNames();
+    println("names:", propertyNames, "val:", propertyNames.nextElement());
+
+    // 4. unmodifiable set of keys from this property list
+    Set<String> stringSet = properties.stringPropertyNames();
+    println(stringSet);
+  }
+
+  @Test
+  public void load() {}
+
+  @Test
+  public void store() {}
+
+  @Test
+  public void list() {}
 }
