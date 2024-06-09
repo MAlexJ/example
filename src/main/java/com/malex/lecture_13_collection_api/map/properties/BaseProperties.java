@@ -1,6 +1,7 @@
 package com.malex.lecture_13_collection_api.map.properties;
 
 import com.malex.utils.AbstractUtils;
+import java.io.*;
 import java.util.*;
 import org.junit.Test;
 
@@ -40,6 +41,7 @@ public class BaseProperties extends AbstractUtils {
     Properties properties = new Properties();
 
     // 1. set value
+    //    synchronized method
     Object setProperty = properties.setProperty("env", "dev");
 
     // 2. get value by key
@@ -56,12 +58,41 @@ public class BaseProperties extends AbstractUtils {
     println(stringSet);
   }
 
+  /**
+   * Reads a property list (key and element pairs) from the input character stream in a simple
+   * line-oriented format.
+   */
   @Test
-  public void load() {}
+  public void load() throws Exception {
+    Reader reader = new FileReader("src/main/resources/log4j.properties");
+    Properties properties = new Properties();
+    // synchronized method
+    properties.load(reader);
+    println(properties);
+  }
 
+  /**
+   * Writes this property list (key and element pairs) in this Properties table to the output
+   * character stream in a format suitable for using the load(Reader) method.
+   */
   @Test
-  public void store() {}
+  public void store() throws IOException {
+    var properties = new Properties();
+    properties.setProperty("name", "Stefan");
+    properties.setProperty("email", "stef@java.com");
+    properties.store(new FileWriter("temp.properties"), "Java Properties Example");
+  }
 
+  /**
+   * Prints this property list out to the specified output stream. This method is useful for
+   * debugging.
+   */
   @Test
-  public void list() {}
+  public void list() {
+    PrintWriter writer = new PrintWriter(System.out);
+    Properties properties = new Properties();
+    properties.setProperty("name", "Stefan");
+    properties.setProperty("email", "stef@java.com");
+    properties.list(writer);
+  }
 }
