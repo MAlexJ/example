@@ -7,6 +7,11 @@ import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import org.junit.Test;
 
+/**
+ * Strong, Soft, Weak, Phantom Reference
+ *
+ * <p>Link: https://www.youtube.com/watch?v=5HC8qVHQPi8
+ */
 public class BaseReferences extends AbstractUtils {
 
   @Test
