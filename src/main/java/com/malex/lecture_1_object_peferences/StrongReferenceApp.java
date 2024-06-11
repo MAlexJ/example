@@ -80,7 +80,7 @@ public class StrongReferenceApp extends AbstractUtils {
   }
 
   @Test
-  public void objReferencesMany() {
+  public void objReferencesAddToCollections() {
     // 1. init object
     var user = new Usr("Alex");
 
@@ -88,11 +88,38 @@ public class StrongReferenceApp extends AbstractUtils {
     var list = List.of(user);
     var set = Set.of(user);
     var map = Map.of("first", user);
+    Usr mapUser = map.get("first");
+    mapUser = null;
+    println("map:", map);
 
     // 3. change reference
     set.iterator().next().setName("Anna");
 
+    // 4. verify user
     assertEquals("Anna", list.getFirst().getName());
+  }
+
+  @Test
+  public void objReferencesMethod() {
+    // 1. init object
+    var user = new Usr("Alex");
+
+    // 2. put object to collections
+    Usr changedUser = changeUserToNull(user, "New");
+
+    // 3. verify user
+    assertNotNull(user);
+    assertEquals("New", user.getName());
+
+    // 4. verify user reference
+    assertNull(changedUser);
+  }
+
+  private Usr changeUserToNull(Usr user, String name) {
+    user.setName(name);
+    println("hashCode", user.hashCode());
+    user = null;
+    return user;
   }
 
   @ToString
@@ -104,6 +131,7 @@ public class StrongReferenceApp extends AbstractUtils {
 
     private Usr(String name) {
       this.name = name;
+      printlnString("hashCode:", Integer.toString(this.hashCode()));
     }
   }
 }
