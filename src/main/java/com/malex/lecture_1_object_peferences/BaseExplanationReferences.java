@@ -12,7 +12,7 @@ import org.junit.Test;
  *
  * <p>Link: https://www.youtube.com/watch?v=5HC8qVHQPi8
  */
-public class BaseReferences extends AbstractUtils {
+public class BaseExplanationReferences extends AbstractUtils {
 
   @Test
   public void explanation() {

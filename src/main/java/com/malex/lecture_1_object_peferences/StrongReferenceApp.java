@@ -12,6 +12,9 @@ import lombok.Setter;
 import lombok.ToString;
 import org.junit.Test;
 
+/**
+ * info: https://www.youtube.com/watch?v=5HC8qVHQPi8
+ */
 public class StrongReferenceApp extends AbstractUtils {
 
   @Test
