@@ -10,7 +10,12 @@ import org.junit.Test;
 /**
  * Strong, Soft, Weak, Phantom Reference
  *
- * <p>Link: https://www.youtube.com/watch?v=5HC8qVHQPi8
+ * <p>Link to video: https://www.youtube.com/watch?v=5HC8qVHQPi8
+ *
+ * <p>Link to habr: https://habr.com/ru/articles/169883/
+ *
+ * <p>Link to javarush:
+ * https://javarush.com/en/groups/posts/en.1267.differences-between-weak-soft-phantom-and-regular-references-in-java
  */
 public class BaseExplanationReferences extends AbstractUtils {
 
