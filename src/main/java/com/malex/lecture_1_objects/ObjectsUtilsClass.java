@@ -90,8 +90,22 @@ public class ObjectsUtilsClass extends AbstractUtils {
 
   @Test
   public void hashAndHashcodeMethod() {
-    Objects.isNull(null);
-    Objects.nonNull(new String());
+    /*
+    Returns the hash code of a non-null argument and 0 for a null argument.
+     */
+    Dgf gav = new Dgf("Gav");
+    int hashCode = Objects.hashCode(gav);
+    assertEquals(gav.hashCode(), hashCode);
+
+    /*
+    Generates a hash code for a sequence of input values. The hash code is generated as
+    if all the input values were placed into an array, and that array were hashed by calling
+    Arrays.hashCode(Object[]).
+    */
+    Dgf cat = Dgf.from("Cat");
+    Dgf dog = Dgf.from("Dog");
+    int hash = Objects.hash(cat, dog);
+    println(hash);
   }
 
   @Test
