@@ -1,5 +1,6 @@
 package com.malex.lecture_13_generic.type_erasure;
 
+import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
 
 import lombok.AllArgsConstructor;
@@ -26,9 +27,24 @@ public class BoundedTypeParameter {
     assertTrue(val instanceof String);
   }
 
+  @Test
+  public void boundObj() {
+    var obj = new BoundObj();
+    var boundedClass = new BoundedClass<BoundObj>(obj);
+    assertNotNull(boundedClass.getVal());
+  }
+
   @Data
   @AllArgsConstructor
-  private static class BoundedClass<T extends Comparable> {
+  private static class BoundedClass<T extends java.lang.Comparable> {
     private T val;
+  }
+
+  private class BoundObj implements Comparable {
+
+    @Override
+    public int compareTo(Object o) {
+      return this.compareTo(o);
+    }
   }
 }

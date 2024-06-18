@@ -24,10 +24,12 @@ public class ComparableBase extends AbstractUtils {
     assertEquals("B", set.last().getName());
   }
 
-  // java.lang.Comparable
+  /*
+  java.lang.Comparable
+   */
   @Data
   @AllArgsConstructor
-  class Crs implements Comparable<Crs> {
+  class Crs implements java.lang.Comparable<Crs> {
 
     private Integer id;
 
