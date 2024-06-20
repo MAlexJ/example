@@ -97,6 +97,15 @@ public abstract class AbstractUtils {
     Arrays.stream(threads).forEach(Thread::start);
   }
 
+  protected void shutdownThread(int millis) {
+    new Thread(
+            () -> {
+              sleepInMillis(millis);
+              System.exit(-1);
+            })
+        .start();
+  }
+
   protected void joinAllThreadToMain(Thread... threads) {
     Arrays.stream(threads)
         .forEach(
