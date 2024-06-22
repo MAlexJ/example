@@ -1,7 +1,7 @@
-package com.malex.lecture_4_algorithms.decrimenting_carousel.test;
+package com.malex.lecture_4_algorithms.numbers.decrimenting_carousel.test;
 
-import com.malex.lecture_4_algorithms.decrimenting_carousel.impl.CarouselRun;
-import com.malex.lecture_4_algorithms.decrimenting_carousel.impl.DecrementingCarousel;
+import com.malex.lecture_4_algorithms.numbers.decrimenting_carousel.impl.CarouselRun;
+import com.malex.lecture_4_algorithms.numbers.decrimenting_carousel.impl.DecrementingCarousel;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

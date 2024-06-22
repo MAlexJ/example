@@ -3,7 +3,10 @@ package com.malex.lecture_4_algorithms.round_robin;
 import java.util.Iterator;
 import java.util.List;
 
-/** Not thead save approach */
+/**
+ * Not thead save approach Link:
+ * https://stackoverflow.com/questions/2041718/round-robin-scheduling-java-iterators/12931655#12931655
+ */
 public class RoundRobin<T> implements Iterable<T> {
 
   private final List<T> list;

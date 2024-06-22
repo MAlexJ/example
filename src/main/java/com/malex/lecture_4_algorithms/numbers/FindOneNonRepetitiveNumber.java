@@ -1,4 +1,4 @@
-package com.malex.lecture_4_algorithms;
+package com.malex.lecture_4_algorithms.numbers;
 
 import static junit.framework.TestCase.assertEquals;
 

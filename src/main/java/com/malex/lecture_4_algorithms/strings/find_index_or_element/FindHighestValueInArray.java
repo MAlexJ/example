@@ -1,4 +1,4 @@
-package com.malex.lecture_4_algorithms.find_index_or_element;
+package com.malex.lecture_4_algorithms.strings.find_index_or_element;
 
 import static junit.framework.TestCase.assertEquals;
 

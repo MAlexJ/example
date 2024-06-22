@@ -1,4 +1,4 @@
-package com.malex.lecture_4_algorithms.split_string;
+package com.malex.lecture_4_algorithms.strings.split_string;
 
 import static junit.framework.TestCase.assertEquals;
 

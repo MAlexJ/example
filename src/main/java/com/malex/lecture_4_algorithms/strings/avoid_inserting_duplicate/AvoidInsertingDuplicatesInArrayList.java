@@ -1,4 +1,4 @@
-package com.malex.lecture_4_algorithms.avoid_inserting_duplicate;
+package com.malex.lecture_4_algorithms.strings.avoid_inserting_duplicate;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;

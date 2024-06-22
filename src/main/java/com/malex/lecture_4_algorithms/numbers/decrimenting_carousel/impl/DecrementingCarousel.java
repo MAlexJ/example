@@ -1,4 +1,4 @@
-package com.malex.lecture_4_algorithms.decrimenting_carousel.impl;
+package com.malex.lecture_4_algorithms.numbers.decrimenting_carousel.impl;
 
 import java.util.ArrayDeque;
 
