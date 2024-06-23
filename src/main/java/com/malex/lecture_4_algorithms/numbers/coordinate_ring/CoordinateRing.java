@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.coordinate_ring;
+package com.malex.lecture_4_algorithms.numbers.coordinate_ring;
 
 import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
@@ -20,20 +20,18 @@ public class CoordinateRing {
     private List<List<Integer>> findMultiRing(List<CoordinatePoint> coordinates) {
         List<List<Integer>> result = new ArrayList<>();
         coordinates.sort(Comparator.comparing(CoordinatePoint::getStart));
-
         for (int i = 0; i <= NUM; i++) {
             List<Integer> area = findArea(coordinates);
             if (!area.isEmpty()) {
                 result.add(area);
             }
         }
-
         return result;
     }
 
     private List<Integer> findArea(List<CoordinatePoint> coordinates) {
 
-        coordinates.sort(Comparator.comparing(CoordinatePoint::getStart)); // TODO <<< REMOVE IT <<< FOR TEST ONLY !!!
+//        coordinates.sort(Comparator.comparing(CoordinatePoint::getStart)); // TODO <<< REMOVE IT <<< FOR TEST ONLY !!!
 
         List<CoordinatePoint> coordinatePoints = findCoordinates(coordinates);
         List<Integer> result = fillingList(coordinatePoints);

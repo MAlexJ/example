@@ -8,7 +8,9 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public abstract class AbstractTestUtil {
+import com.malex.utils.AbstractUtils;
+
+public abstract class AbstractTestUtil extends AbstractUtils {
 
     private final static String DEFAULT_DESCRIPTION = "Default description";
 

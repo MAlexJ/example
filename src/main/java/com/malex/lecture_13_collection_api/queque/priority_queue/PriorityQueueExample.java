@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.queque;
+package com.malex.lecture_13_collection_api.queque.priority_queue;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
