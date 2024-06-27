@@ -4,10 +4,7 @@ import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ConcurrentLinkedDeque;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.*;
 import org.junit.Test;
 
 public class QueueInitialization {
@@ -26,6 +23,6 @@ public class QueueInitialization {
     queue = new ConcurrentLinkedDeque<>();
     queue = new ConcurrentLinkedQueue<>();
 
-//    queue = new DelayQueue<>();
+    DelayQueue<Delayed> delayedQueue = new DelayQueue<>();
   }
 }
