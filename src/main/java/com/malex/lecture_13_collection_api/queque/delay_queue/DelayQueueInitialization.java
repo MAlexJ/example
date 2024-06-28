@@ -2,7 +2,7 @@ package com.malex.lecture_13_collection_api.queque.delay_queue;
 
 import static junit.framework.TestCase.assertTrue;
 
-import com.malex.lecture_13_collection_api.AbstractTestUtil;
+import com.malex.lecture_13_collection_api.AbstractTestsUtils;
 import com.malex.lecture_13_collection_api.TestNameAnnotation;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -18,7 +18,7 @@ import lombok.SneakyThrows;
  *
  * <p>link: https://habr.com/ru/articles/599603/
  */
-public class DelayQueueInitialization extends AbstractTestUtil {
+public class DelayQueueInitialization extends AbstractTestsUtils {
 
   @TestNameAnnotation("All possible implementation of DelayQueue")
   @Override

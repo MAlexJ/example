@@ -63,6 +63,10 @@ public abstract class AbstractUtils {
     System.err.println(String.join(EMPTY_STRING, args));
   }
 
+  public static void printErrorStatic(String... args) {
+    System.err.println(String.join(EMPTY_STRING, args));
+  }
+
   public static void printlnString(String... args) {
     System.out.println(String.join(EMPTY_STRING, args));
   }
@@ -76,6 +80,14 @@ public abstract class AbstractUtils {
   }
 
   protected void sleepInMillis(int millis) {
+    try {
+      TimeUnit.MILLISECONDS.sleep(millis);
+    } catch (InterruptedException e) {
+      e.fillInStackTrace();
+    }
+  }
+
+  protected static void sleepInMillisStatic(int millis) {
     try {
       TimeUnit.MILLISECONDS.sleep(millis);
     } catch (InterruptedException e) {

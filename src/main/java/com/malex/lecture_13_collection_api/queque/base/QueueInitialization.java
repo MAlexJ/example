@@ -1,16 +1,16 @@
-package com.malex.lecture_13_collection_api.queque.queue;
+package com.malex.lecture_13_collection_api.queque.base;
 
+import com.malex.lecture_13_collection_api.AbstractTestUtils;
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.*;
-import org.junit.Test;
 
-public class QueueInitialization {
+public class QueueInitialization extends AbstractTestUtils {
 
-  @Test
-  public void initialization() {
+  @Override
+  public void test(String description) {
     Queue<Integer> queue = new LinkedList<>();
     queue = new PriorityQueue<>();
     queue = new ArrayDeque<>();
@@ -23,6 +23,7 @@ public class QueueInitialization {
     queue = new ConcurrentLinkedDeque<>();
     queue = new ConcurrentLinkedQueue<>();
 
+    // DelayQueue
     DelayQueue<Delayed> delayedQueue = new DelayQueue<>();
   }
 }

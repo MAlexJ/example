@@ -1,17 +1,19 @@
-package com.malex.lecture_13_collection_api.queque.queue;
+package com.malex.lecture_13_collection_api.queque.base;
 
 import static junit.framework.TestCase.*;
 
-import com.malex.lecture_13_collection_api.AbstractTestUtil;
+import com.malex.lecture_13_collection_api.AbstractTestsUtils;
 import com.malex.lecture_13_collection_api.TestNameAnnotation;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**
- * Queues typically, but do not necessarily, order elements in a FIFO (first-in-first-out) manner
+ * FIFO
+ *
+ * <p>Queues typically, but do not necessarily, order elements in a FIFO (first-in-first-out) manner
  */
-public class BaseQueueImplementation extends AbstractTestUtil {
+public class BaseQueueImplementation extends AbstractTestsUtils {
 
   @TestNameAnnotation("All possible implementation of Queue")
   public void simpleTest(String description) {
@@ -60,6 +62,10 @@ public class BaseQueueImplementation extends AbstractTestUtil {
     print(queue, ", poll");
   }
 
+  /**
+   * peek() -Retrieves, but does not remove, the head of this queue, or returns null if this queue
+   * is empty.
+   */
   @TestNameAnnotation("peek() method of Queue")
   public void additionalFunctionalityTest(String description) {
     Queue<String> queue = new LinkedList<>();

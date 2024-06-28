@@ -1,12 +1,12 @@
 package com.malex.lecture_13_collection_api.queque.priority_queue;
 
-import com.malex.lecture_13_collection_api.AbstractTestUtil;
+import com.malex.lecture_13_collection_api.AbstractTestsUtils;
 import com.malex.lecture_13_collection_api.TestNameAnnotation;
 import java.util.*;
 
-public class PriorityQueueImplementation extends AbstractTestUtil {
+public class PriorityQueueInitialization extends AbstractTestsUtils {
 
-  @TestNameAnnotation("All possible implementation of PriorityQueue")
+  @TestNameAnnotation("All possible initialization of PriorityQueue")
   @Override
   public void simpleTest(String description) {
     // 1. Default constructor
