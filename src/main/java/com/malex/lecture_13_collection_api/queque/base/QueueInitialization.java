@@ -20,8 +20,8 @@ public class QueueInitialization extends AbstractTestUtils {
     queue = new LinkedBlockingQueue<>();
 
     // Concurrent
-    queue = new ConcurrentLinkedDeque<>();
-    queue = new ConcurrentLinkedQueue<>();
+    queue = new ConcurrentLinkedDeque<>(); // deque
+    queue = new ConcurrentLinkedQueue<>(); // queue
 
     // DelayQueue
     DelayQueue<Delayed> delayedQueue = new DelayQueue<>();

@@ -1,5 +1,7 @@
 package com.malex.lecture_13_collection_api.queque.deque;
 
+import static junit.framework.TestCase.assertNotNull;
+
 import com.malex.lecture_13_collection_api.AbstractTestUtils;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -24,5 +26,21 @@ public class DequeInitialization extends AbstractTestUtils {
     deque = new ConcurrentLinkedDeque<>();
 
     deque = new LinkedBlockingDeque<>();
+
+    deque.add("A");
+    deque.addFirst("B");
+    deque.addLast("C");
+
+    deque.offer("D");
+    deque.offerFirst("E");
+    deque.offerLast("F");
+
+    deque.poll();
+    deque.pollFirst();
+    deque.pollLast();
+
+    assertNotNull(deque.peek());
+    assertNotNull(deque.peekFirst());
+    assertNotNull(deque.peekLast());
   }
 }
