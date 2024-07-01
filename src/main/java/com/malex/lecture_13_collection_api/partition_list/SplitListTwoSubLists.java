@@ -1,4 +1,4 @@
-package partition_list;
+package com.malex.lecture_13_collection_api.partition_list;
 
 import com.google.common.collect.Lists;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package partition_list;
+package com.malex.lecture_13_collection_api.partition_list;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -11,24 +11,28 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 /**
- * In this tutorial I will illustrate how to split a List into several sublists of a given size.
+ * In this tutorial I will illustrate how to split a List into several sub-lists of a given size.
  * For a relatively simple operation, there is surprisingly no support in the standard Java collection APIs.
  */
 public class PartitionList {
 
     /**
      * Use Guava to partition the List
-     * Guava facilitates partitioning the List into sublists of a specified size – via the Lists.partition operation:
+     * Guava facilitates partitioning the List into sub-lists of a specified size – via the Lists.partition operation:
      */
     @Test
     public void test() {
-        List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
+        // given
+        List<Integer> intList = List.of(1, 2, 3, 4, 5, 6, 7, 8);
+
+        // when
         List<List<Integer>> subSets = Lists.partition(intList, 3);
 
-        List<Integer> lastPartition = subSets.get(2);
-        List<Integer> expectedLastPartition = Lists.newArrayList(7, 8);
+        // then
         assertThat(subSets.size(), equalTo(3));
-        assertThat(lastPartition, equalTo(expectedLastPartition));
+// and
+        List<Integer> lastPartition = subSets.getLast();
+        assertThat(lastPartition, equalTo(List.of(7, 8)));
     }
 
     /**

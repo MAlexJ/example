@@ -1,6 +1,4 @@
-package com.malex.lecture_13_collection_api.queque.array_blocking_queue;
-
-import static junit.framework.TestCase.*;
+package com.malex.lecture_13_collection_api.queque.blocking_queue.array_blocking_queue;
 
 import com.malex.lecture_13_collection_api.AbstractTestUtils;
 import com.malex.lecture_13_collection_api.TestNameAnnotation;
