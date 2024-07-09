@@ -7,16 +7,28 @@ import java.util.Date;
 
 public class ConcurrentDateFormatAccess {
 
-  private static final String DATE_TEMPLATE = "yyyy MM dd";
+  private final ThreadLocal<DateFormat> threadLocal;
 
-  private ThreadLocal<DateFormat> df =
-      ThreadLocal.withInitial(() -> new SimpleDateFormat(DATE_TEMPLATE));
+  public ConcurrentDateFormatAccess(String dateFormat) {
+    // Creates a thread local variable.
+    // The initial value of the variable is determined by invoking the get method on the Supplier.
+    threadLocal = ThreadLocal.withInitial(() -> new SimpleDateFormat(dateFormat));
+  }
 
   public Date convertStringToDate(String dateString) {
     try {
-      return df.get().parse(dateString);
+      return getDateFormat().parse(dateString);
     } catch (ParseException e) {
       throw new IllegalArgumentException("Incorrect the value " + dateString + " of date");
     }
+  }
+
+  /**
+   * Returns the value in the current thread's copy of this thread-local variable. If the variable
+   * has no value for the current thread, it is first initialized to the value returned by an
+   * invocation of the initialValue method.
+   */
+  private DateFormat getDateFormat() {
+    return threadLocal.get();
   }
 }
