@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.issue;
+package com.malex.lecture_13_collection_api.algoritms.issue;
 
 import org.junit.Test;
 

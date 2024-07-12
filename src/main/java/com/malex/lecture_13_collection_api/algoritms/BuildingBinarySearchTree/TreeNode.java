@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.BuildingBinarySearchTree;
+package com.malex.lecture_13_collection_api.algoritms.BuildingBinarySearchTree;
 
 public class TreeNode {
     int positions;

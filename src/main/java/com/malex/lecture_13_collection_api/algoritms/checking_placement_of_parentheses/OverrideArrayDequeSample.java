@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.checking_placement_of_parentheses;
+package com.malex.lecture_13_collection_api.algoritms.checking_placement_of_parentheses;
 
 import com.google.common.collect.Lists;
 import com.malex.utils.AbstractUtils;

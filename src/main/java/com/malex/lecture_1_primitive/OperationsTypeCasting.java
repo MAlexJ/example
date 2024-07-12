@@ -11,9 +11,19 @@ import org.junit.Test;
 public class OperationsTypeCasting extends AbstractUtils {
 
   @Test
-  public void runSample() {
-    println("8 / 2 =", 8 / 2);
-    println("9 / 2 =", 9 / 2);
-    println("9 % 2 =", 9 % 2);
+  public void integerSample() {
+    println("1 / 2 = ", 1 / 2);
+    println("1 % 2 = ", 1 % 2);
+    println("1 % 5 = ", 1 % 5);
+
+    println("8 / 2 = ", 8 / 2);
+    println("9 / 2 = ", 9 / 2);
+    println("9 % 2 = ", 9 % 2);
+  }
+
+  @Test
+  public void doubleSample() {
+    println("1 / 2.0123 = ", 1 / 2.0123);
+    println("1 % 2.0 = ", 1 % 2.0);
   }
 }
