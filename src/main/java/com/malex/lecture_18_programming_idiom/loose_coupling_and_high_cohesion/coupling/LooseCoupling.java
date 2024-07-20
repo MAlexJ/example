@@ -1,10 +1,14 @@
-package com.malex.lecture_18_programming_idiom.coupling_in_java;
+package com.malex.lecture_18_programming_idiom.loose_coupling_and_high_cohesion.coupling;
 
 import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 /**
  * Loose coupling
+ *
+ * <p>Note: Coupling is the degree of interdependence between software modules. A module could be a
+ * class or a package or even a microservice. Effectively, the coupling is about how changing one
+ * thing required change in another.
  *
  * <p>In simple words, loose coupling means they are mostly independent. If the only knowledge that
  * class A has about class B, is what class B has exposed through its interface, then class A and

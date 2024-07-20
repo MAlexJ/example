@@ -1,4 +1,4 @@
-package com.malex.lecture_18_programming_idiom.coupling_in_java;
+package com.malex.lecture_18_programming_idiom.loose_coupling_and_high_cohesion.coupling;
 
 import com.malex.utils.AbstractUtils;
 import org.junit.Test;
