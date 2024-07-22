@@ -1,7 +1,6 @@
 package com.malex.lecture_11_record;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import com.malex.utils.AbstractUtils;
 import java.util.ArrayList;
@@ -19,15 +18,29 @@ import org.junit.Test;
  */
 public class RecordWithCustomConstructor extends AbstractUtils {
 
-  @Test
-  public void testNullArgument() {
-    try {
-      var student = new Student(null, 1, 2);
-      fail();
-      print(student);
-    } catch (IllegalArgumentException ex) {
-      //  not use
+  record Student(String name, int roll, int marks) {
+
+    /**
+     * One parameter and
+     */
+    public Student() {
+      this("", 0, 0);
     }
+
+    public Student(String name) {
+      this(name, 0, 0);
+    }
+
+    public Student {
+      if (name == null) {
+        throw new IllegalArgumentException("Name cannot be null");
+      }
+    }
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testNullArgument() {
+    new Student(null, 1, 2);
   }
 
   @Test
@@ -50,13 +63,5 @@ public class RecordWithCustomConstructor extends AbstractUtils {
      */
     assertEquals(
         "Nikolay", arrayList.stream().reduce((first, second) -> second).orElseThrow().name());
-  }
-
-  record Student(String name, int rollNo, int marks) {
-    public Student {
-      if (name == null) {
-        throw new IllegalArgumentException("Name cannot be null");
-      }
-    }
   }
 }
