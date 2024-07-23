@@ -1,4 +1,4 @@
-package com.malex.lecture_14_stream_api.example_12_get_last_element_in_stream;
+package com.malex.lecture_14_stream_api.samples;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -15,7 +15,7 @@ import org.junit.Test;
  * <p>Link: <a href="https://www.baeldung.com/java-stream-last-element">Last Element of a Stream in
  * Java</a>
  */
-public class GetLastElementInStream extends AbstractUtils {
+public class GetLastListElementUsingStream extends AbstractUtils {
 
   private List<String> list;
 
@@ -37,7 +37,7 @@ public class GetLastElementInStream extends AbstractUtils {
 
   /** Using the Reduce API */
   @Test
-  public void findLastElementUsingReduce() {
+  public void reduce_stream_function() {
     // find last element
     String lastElement = list.stream().reduce((first, second) -> second).orElseThrow();
     assertEquals(list.getLast(), lastElement);
@@ -52,7 +52,7 @@ public class GetLastElementInStream extends AbstractUtils {
   }
 
   @Test
-  public void findLastElementUsingSkipFunction() {
+  public void skip_stream_function() {
     int size = list.size();
     String lastElement = list.stream().skip(size - 1).findFirst().orElseThrow();
 
@@ -64,7 +64,7 @@ public class GetLastElementInStream extends AbstractUtils {
    * Generate Random Alphabetic String With Java 8 <br>
    * Now let’s use Random.ints, added in JDK 8, to generate an alphabetic String
    */
-  public String randomAlphabeticString(int length) {
+  private String randomAlphabeticString(int length) {
     int leftLimit = 97; // letter 'a'
     int rightLimit = 122; // letter 'z'
     return random

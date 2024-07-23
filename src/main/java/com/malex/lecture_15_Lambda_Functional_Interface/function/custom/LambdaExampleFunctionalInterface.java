@@ -1,4 +1,4 @@
-package com.malex.lecture_15_Lambda_Functional_Interface.function.binary_functions.custom;
+package com.malex.lecture_15_Lambda_Functional_Interface.function.custom;
 
 import com.malex.utils.AbstractUtils;
 import org.junit.Test;

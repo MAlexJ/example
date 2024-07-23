@@ -1,130 +1,161 @@
 package com.malex.lecture_14_stream_api.reduce;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.experimental.FieldDefaults;
-
+import com.malex.utils.AbstractUtils;
+import java.util.Optional;
+import java.util.function.BinaryOperator;
+import java.util.stream.Stream;
 import org.junit.Test;
 
-/**
- * A simple example of using the method 'reduce' of Stream API. Method 'reduce' perform the terminal
- * operation.
- */
-public class Reduce {
+/** Reduction stream operations allow us to produce one single result from a sequence of elements */
+public class Reduce extends AbstractUtils {
 
-  @Test
-  public void allTests() {
-    testReduceWithBinaryOperator();
-    testBinaryOperator();
-    testIdentityWithBinaryOperator();
-    testIdentityWithBiFunctionAndBinaryOperator();
-  }
-
-  /**
-   * A Simple example of using the method 'reduce' of Stream API. Using: BinaryOperator<T> n1 op n2
-   * op n3 op n4 op n5 op n6, where op - is the operation, а n1, n2, ... - elements from Stream.
-   */
-  private int exampleOfBinaryOperator(int[] array) {
-    return Arrays.stream(array).reduce(Integer::sum).orElseThrow(IllegalArgumentException::new);
-  }
-
-  /** Example of using concatenation strings in the stream. */
-  private String exampleOfBinaryOperatorSecond(String[] array) {
-    return Arrays.stream(array)
-        .reduce((x, y) -> x + " " + y)
-        .orElseThrow(IllegalArgumentException::new);
-  }
-
-  /**
-   * identity op n1 op n2 op n3 op n4...
+  /*
+   * The Key Concepts: Identity, Accumulator and Combiner
    *
-   * @param args incoming values
+   * 1. Identity – an element that is the initial value of the reduction operation and the default
+   * result if the stream is empty
+   *
+   * 2. Accumulator – a function that takes two parameters: a partial result of the reduction
+   * operation and the next element of the stream
+   *
+   * 3. Combiner – a function used to combine the partial result of the reduction operation when the
+   * reduction is parallelized or when there’s a mismatch between the types of the accumulator
+   * arguments and the types of the accumulator implementation
    */
-  private String exampleOfIdentityWithBinaryOperator(String... args) {
-    return Arrays.stream(args).reduce("RESULT: ", (x, y) -> x + y);
+  @Test
+  public void accumulator() {
+    /*
+     * Optional<T> reduce(BinaryOperator<T> accumulator);
+     *
+     * Accumulator – a function that takes two parameters: a partial result of the reduction
+     * operation and the next element of the stream
+     */
+    BinaryOperator<Integer> accumulator =
+        (a, b) -> {
+          // 'a' is first value and then is partial result
+          println("a = ", a, ",b = ", b, ", a + b =", a + b);
+          return a + b;
+        };
+
+    /* stream:
+     * 1,  2,     3,     4,       5
+     * reduction:
+     * 1 + 2 = 3
+     *        3 + 3 = 6
+     *                6 + 4 = 10
+     *                        10 + 5 = 15
+     */
+    Optional<Integer> reduce = Stream.of(1, 2, 3, 4, 5).reduce(accumulator);
+    println("reduce: " + reduce);
   }
 
-  private int exapmleIdentityWithBiFunctionAndBinaryOperator(Phone... phones) {
-    return Arrays.stream(phones)
-        .reduce(
-            // :1 init state
-            0,
-            // :2 additional filters
-            (x, y) -> {
-              if (y.getPrice() < 50000) return x + y.getPrice();
-              else return x;
-            },
-            // :3 operation
-            (x, y) -> x + y);
-  }
-
-  /** The class describes an entity. */
-  @Getter
-  @AllArgsConstructor
-  @FieldDefaults(level = AccessLevel.PRIVATE)
-  private class Phone {
-    String name;
-    int price;
+  /**
+   * 1. Without identity return type -> Optional<T> <br>
+   * 2. with identity - T
+   */
+  @Test
+  public void reduceWithIdentityAndWithoutIdentity() {
+    Optional<Integer> withoutIdentity = Stream.of(1, 2, 3, 4, 5).reduce(Integer::sum);
+    Integer withIdentity = Stream.of(1, 2, 3, 4, 5).reduce(0, Integer::sum);
   }
 
   @Test
-  public void testReduceWithBinaryOperator() {
-    // given:
-    int[] array = {1, 2, 3, 4, 5};
-    int expected = 15;
+  public void identityWithAccumulator() {
+    Integer identity = -15;
+    BinaryOperator<Integer> accumulator =
+        (a, b) -> {
+          println("a = ", a, ",b = ", b, ", a + b =", a + b);
+          return a + b;
+        };
 
-    // when:
-    int actual = exampleOfBinaryOperator(array);
+    Integer reduce = Stream.of(1, 2, 3, 4, 5).reduce(identity, accumulator);
+    println("reduce: " + reduce);
 
-    // then:
-    assertEquals(expected, actual);
+    // assertJ test
+    assertThat(reduce).isEqualTo(0);
   }
 
+  /**
+   * Reduce sequential stream
+   *
+   * <p>link:
+   * https://stackoverflow.com/questions/24308146/why-is-a-combiner-needed-for-reduce-method-that-converts-type-in-java-8
+   *
+   * <p>What if you don't want to parallelize your stream? Well, a combiner needs to be provided
+   * anyway, but it will never be invoked, given that no partial results will be produced.
+   */
   @Test
-  public void testBinaryOperator() {
-    // given:
-    String[] array = {"ab", "cd", "efg"};
-    String expected = "ab cd efg";
-
-    // when:
-    String actual = exampleOfBinaryOperatorSecond(array);
-
-    // then:
-    assertEquals(expected, actual);
+  public void identityWithAccumulatorAndCombiner() {
+    Integer reduce =
+        Stream.of(new User("Alex", 1), new User("Bob", 2), new User("Bob", 3))
+            .reduce(
+                0,
+                (partialAgeResult, secondUser) -> {
+                  println(
+                      "1. partialAgeResult = ",
+                      partialAgeResult,
+                      ", secondUser.age() = ",
+                      secondUser.age());
+                  return partialAgeResult + secondUser.age();
+                },
+                (a, b) -> {
+                  /*
+                  if we use sequential streams and the types of the accumulator arguments
+                  and the types of its implementation match, we don’t need to use a combiner.
+                  */
+                  println("2.");
+                  /** WTF! never use */
+                  throw new RuntimeException();
+                });
+    println("reduce: ", reduce);
+    assertThat(reduce).isEqualTo(6);
   }
 
+  /**
+   * link:
+   * https://stackoverflow.com/questions/24308146/why-is-a-combiner-needed-for-reduce-method-that-converts-type-in-java-8
+   */
   @Test
-  public void testIdentityWithBinaryOperator() {
-    // given:
-    String[] array = {"a", "b", "r", "t"};
-    String expected = "RESULT: abrt";
+  public void parallelStreamWithCombiner() {
+    Integer reduce =
+        Stream.of(new User("Alex", 1), new User("Bob", 2), new User("Bob", 3))
+            /** parallel stream */
+            .parallel()
+            .reduce(
+                0,
+                (partialAgeResult, secondUser) -> {
+                  println(
+                      "1. ",
+                      Thread.currentThread().getName(),
+                      ", partialAgeResult = ",
+                      partialAgeResult,
+                      ", secondUser.age() = ",
+                      secondUser.age());
+                  return partialAgeResult + secondUser.age();
+                },
+                (a, b) -> {
+                  /*
+                  if we use sequential streams and the types of the accumulator arguments
+                  and the types of its implementation match, we don’t need to use a combiner.
+                  */
 
-    // when:
-    String actual = exampleOfIdentityWithBinaryOperator(array);
+                  println(
+                      "2.",
+                      Thread.currentThread().getName(),
+                      ", a =",
+                      a,
+                      ", b=",
+                      b,
+                      ", a + b = ",
+                      a + b); // WTF! never use
+                  return a + b;
+                });
 
-    // then:
-    assertEquals(expected, actual);
+    println("reduce: ", reduce);
+    assertThat(reduce).isEqualTo(6);
   }
 
-  @Test
-  public void testIdentityWithBiFunctionAndBinaryOperator() {
-    // given:
-    Phone[] array = {
-      new Phone("iPhone 6 S", 54000),
-      new Phone("Lumia 950", 45000),
-      new Phone("Samsung Galaxy S 6", 40000),
-      new Phone("LG G 4", 32000)
-    };
-    int expected = 117000;
-
-    // when:
-    int actual = exapmleIdentityWithBiFunctionAndBinaryOperator(array);
-
-    // then:
-    assertEquals(expected, actual);
-  }
+  record User(String name, Integer age) {}
 }

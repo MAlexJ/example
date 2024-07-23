@@ -5,12 +5,15 @@ import static junit.framework.TestCase.assertEquals;
 import com.malex.utils.AbstractUtils;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import org.junit.Test;
 
 /**
- * In Java 8 <br>
- * >> interface Collection<E> <br>
- * >> default boolean removeIf(Predicate<? super E> filter)
+ * Represents a predicate (boolean-valued function) of one argument.
+ *
+ * <p>This is a functional interface whose functional method is test(Object).
+ *
+ * <p>>> default boolean removeIf(Predicate<? super E> filter)
  */
 public class PredicateInterface extends AbstractUtils {
 
@@ -26,7 +29,8 @@ public class PredicateInterface extends AbstractUtils {
     var cats = new ArrayList<>(List.of(uma, stephan, cat, may));
 
     // default boolean removeIf(Predicate<? super E> filter)
-    cats.removeIf(c -> c.age() < 6);
+    Predicate<Cat> predicate = c -> c.age() < 6;
+    cats.removeIf(predicate);
 
     // method reference
     cats.removeIf(this::removeCatByAge);

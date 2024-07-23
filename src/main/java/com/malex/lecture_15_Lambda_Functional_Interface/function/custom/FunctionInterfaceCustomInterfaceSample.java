@@ -1,4 +1,4 @@
-package com.malex.lecture_15_Lambda_Functional_Interface.function;
+package com.malex.lecture_15_Lambda_Functional_Interface.function.custom;
 
 import lombok.extern.java.Log;
 import org.junit.Test;
