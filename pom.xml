@@ -7,11 +7,15 @@
     <groupId>example.java</groupId>
     <artifactId>example</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <lombok.version>1.18.30</lombok.version>
+        <!--   Java version     -->
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
+        <!-- libraries-->
+        <lombok.version>1.18.34</lombok.version>
         <junit.version>4.13.2</junit.version>
         <mockito-core.version>5.8.0</mockito-core.version>
         <JUnitParams.version>1.1.1</JUnitParams.version>
