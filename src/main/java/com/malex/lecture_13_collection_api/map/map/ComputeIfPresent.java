@@ -2,25 +2,20 @@ package com.malex.lecture_13_collection_api.map.map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.malex.utils.AbstractUtils;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.TreeMap;
 import org.junit.Test;
+
+import com.malex.lecture_13_collection_api.map.AbstractMapBaseUtils;
 
 /*
  * If the value for the specified key is present and non-null,
  * attempts to compute a new mapping given the key and its current mapped value (optional operation).
  */
-public class ComputeIfPresent extends AbstractUtils {
+public class ComputeIfPresent extends AbstractMapBaseUtils {
 
   @Test
   public void computeIfPresent() {
     // given
-    var map = map();
+    var map = getRandomMap();
     // and
     var key = "A";
     var value = 14;
@@ -49,7 +44,7 @@ public class ComputeIfPresent extends AbstractUtils {
   @Test
   public void nullValueForSpecifiedKey() {
     // given
-    var map = map();
+    var map = getRandomMap();
     // and
     var key = "A";
     Integer value = null;
@@ -81,7 +76,7 @@ public class ComputeIfPresent extends AbstractUtils {
   @Test
   public void nullKey() {
     // given
-    var map = map();
+    var map = getRandomMap();
     // and
     var key = "A";
 
@@ -109,7 +104,7 @@ public class ComputeIfPresent extends AbstractUtils {
   @Test
   public void returnNullValue() {
     // given
-    var map = map();
+    var map = getRandomMap();
     var key = "A";
     var value = 14;
     map.put(key, value);
@@ -128,20 +123,5 @@ public class ComputeIfPresent extends AbstractUtils {
 
     // then
     assertThat(map).isEmpty();
-  }
-
-  private final Random random = new Random();
-
-  private Map<String, Integer> map() {
-    int nextInt = random.nextInt(3);
-    Map<String, Integer> map =
-        switch (nextInt) {
-          case 0 -> new HashMap<>();
-          case 1 -> new TreeMap<>();
-          case 2 -> new LinkedHashMap<>();
-          default -> new Hashtable<>();
-        };
-    println("\n map:", map.getClass().getName());
-    return map;
   }
 }

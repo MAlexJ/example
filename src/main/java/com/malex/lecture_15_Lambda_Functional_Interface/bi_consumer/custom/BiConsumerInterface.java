@@ -4,10 +4,10 @@ import static junit.framework.TestCase.assertTrue;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.malex.utils.AbstractUtils;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.function.BiConsumer;
-import lombok.extern.java.Log;
 import org.junit.Test;
 
 /**
@@ -27,8 +27,7 @@ import org.junit.Test;
  *   <li>default BiConsumer<T, U> andThen(BiConsumer<? super T, ? super U> after)
  * </ul>
  */
-@Log
-public class BiConsumerInterface {
+public class BiConsumerInterface extends AbstractUtils {
 
   public void iterateCollections(Collection<String> strs, BiConsumer<Integer, String> consumer) {
     int position = 0;
@@ -47,7 +46,7 @@ public class BiConsumerInterface {
     iterateCollections(
         list,
         (position, val) -> {
-          log.info(val);
+          print(val);
           assertTrue(val != null && !val.isEmpty());
         });
   }
@@ -63,7 +62,7 @@ public class BiConsumerInterface {
             case "B":
             case "C":
               {
-                log.info(val);
+                print(val);
                 break;
               }
             default:

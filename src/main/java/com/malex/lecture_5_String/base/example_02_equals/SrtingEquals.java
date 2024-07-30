@@ -1,19 +1,21 @@
 package com.malex.lecture_5_String.base.example_02_equals;
 
-import lombok.extern.java.Log;
+import com.malex.utils.AbstractUtils;
+import org.junit.Test;
 
-@Log
-public class SrtingEquals {
-    public static void main(String[] args) {
+public class SrtingEquals extends AbstractUtils {
 
-        String str1 = new String("Dog");
+  @Test
+  public void stringPoolVsReference() {
 
-        String str2 = "Dog";
+    String str1 = new String("Dog");
 
-        String str3 = "Dog";
+    String str2 = "Dog";
 
-        log.info("str1.equals(str2) -> " + str1.equals(str2));
-        log.info("str1==str2 -> " + (str1 == str2));
-        log.info("str2==str3 -> " + (str2 == str3));
-    }
+    String str3 = "Dog";
+
+    print("str1.equals(str2) -> " + str1.equals(str2));
+    print("str1==str2 -> " + (str1 == str2));
+    print("str2==str3 -> " + (str2 == str3));
+  }
 }

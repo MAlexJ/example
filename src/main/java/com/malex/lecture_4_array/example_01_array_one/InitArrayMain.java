@@ -1,61 +1,60 @@
 package com.malex.lecture_4_array.example_01_array_one;
 
-import lombok.extern.java.Log;
-
+import com.malex.utils.AbstractUtils;
 import java.util.Arrays;
+import org.junit.Test;
 
-@Log
-public class InitArrayMain {
+public class InitArrayMain extends AbstractUtils {
 
-    public static void main(String[] args) {
-        simpleInit();
-        fastInit();
-        whileLoop();
-        recursive();
+  @Test
+  public void test() {
+    simpleInit();
+    fastInit();
+    whileLoop();
+    recursive();
+  }
+
+  private void simpleInit() {
+    int[] numArray = new int[5];
+    numArray[0] = 1;
+    numArray[1] = 2;
+    numArray[2] = 3;
+    numArray[3] = 4;
+    numArray[4] = 5;
+
+    // Array
+    int numLength = numArray.length;
+
+    print("numArray.length -> " + numLength);
+    print(Arrays.toString(numArray));
+  }
+
+  private void fastInit() {
+    int[] number = {2, 5, 7, 6};
+    for (int i = 0; i < number.length; i++) {
+      print("arr[i]=" + number[i]);
     }
+  }
 
-    private static void simpleInit() {
-        int[] numArray = new int[5];
-        numArray[0] = 1;
-        numArray[1] = 2;
-        numArray[2] = 3;
-        numArray[3] = 4;
-        numArray[4] = 5;
-
-        // Array
-        int numLength = numArray.length;
-
-        log.info("numArray.length -> " + numLength);
-        log.info(Arrays.toString(numArray));
+  private void whileLoop() {
+    int[] number = {2, 5, 7, 6};
+    int position = 0;
+    while (position < number.length) {
+      print("position=" + number[position]);
+      position++;
     }
+  }
 
-    private static void fastInit() {
-        int[] number = {2, 5, 7, 6};
-        for (int i = 0; i < number.length; i++) {
-            log.info("arr[i]=" + number[i]);
-        }
+  private void recursive() {
+    int[] number = {2, 5, 7, 6};
+    recursiveIteration(number, 0);
+  }
+
+  private void recursiveIteration(int[] array, int i) {
+    print("elem = " + array[i]);
+    i++;
+    if (i < array.length) {
+      recursiveIteration(array, i);
     }
-
-    private static void whileLoop() {
-        int[] number = {2, 5, 7, 6};
-        int position = 0;
-        while (position < number.length) {
-            log.info("position=" + number[position]);
-            position++;
-        }
-    }
-
-    private static void recursive() {
-        int[] number = {2, 5, 7, 6};
-        recursiveIteration(number, 0);
-    }
-
-    private static void recursiveIteration(int[] array, int i) {
-        log.info("elem = " + array[i]);
-        i++;
-        if (i < array.length) {
-            recursiveIteration(array, i);
-        }
-    }
-
+  }
 }

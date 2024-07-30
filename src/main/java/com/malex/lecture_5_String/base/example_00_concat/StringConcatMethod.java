@@ -1,22 +1,28 @@
 package com.malex.lecture_5_String.base.example_00_concat;
 
-import lombok.extern.java.Log;
+import com.malex.utils.AbstractUtils;
+import org.junit.Test;
 
-/**
- * Example of using String.concat() method. Concatenates the specified string to the end of this
- * string.
+/*
+ * Example of using String.concat() method.
+ *
+ * Concatenates the specified string to the end of this string.
  */
-@Log
-public class StringConcatMethod {
+public class StringConcatMethod extends AbstractUtils {
 
-  public static void main(String[] args) {
+  /*
+   * Concatenates the specified string to the end of this string.
+   * If the length of the argument string is 0, then this String object is returned.
+   */
+  @Test
+  public void test() {
     String str1 = "First";
     String str2 = "Second";
 
     String strResult = str1.concat(str2);
 
-    log.info("str1 -> " + str1);
-    log.info("str2 -> " + str2);
-    log.info("strResult -> " + strResult);
+    print("str1 -> " + str1);
+    print("str2 -> " + str2);
+    print("strResult -> " + strResult);
   }
 }

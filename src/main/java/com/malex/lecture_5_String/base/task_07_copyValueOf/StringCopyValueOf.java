@@ -3,11 +3,12 @@ package com.malex.lecture_5_String.base.task_07_copyValueOf;
 import lombok.extern.java.Log;
 import org.junit.Test;
 
+import com.malex.utils.AbstractUtils;
+
 /**
  * Created by Alex on 06.03.2015.
  */
-@Log
-public class StringCopyValueOf {
+public class StringCopyValueOf  extends AbstractUtils {
 
     @Test
     public void test() {
@@ -16,10 +17,10 @@ public class StringCopyValueOf {
 
         //This method returns a String that contains the characters of the character array.
         str2 = str2.copyValueOf(str1);
-        log.info("Returned String: " + str2);
+        print("Returned String: " + str2);
 
         //This method returns a String that contains the characters of the character array.
         str2 = str2.copyValueOf(str1, 2, 6);
-        log.info("Returned String: " + str2);
+        print("Returned String: " + str2);
     }
 }
