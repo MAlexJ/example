@@ -10,10 +10,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 
-/**
- * Link do info <a href="https://www.youtube.com/watch?v=8Hk1t_OF3Nk&list=PLtNPgSbW9TX5IQAKzgrJnaayjaDoCjkio&index=8">tutorial</a>
+/*
+ * Create wrapper for getter method
+ *
+ * tutorial: https://www.youtube.com/watch?v=8Hk1t_OF3Nk&list=PLtNPgSbW9TX5IQAKzgrJnaayjaDoCjkio&index=8
  */
-public class ImmutableClassSample extends AbstractUtils {
+public class ImmutableCustomClass extends AbstractUtils {
 
     private final List<Integer> initList = List.of(1, 2, 3, 4);
 

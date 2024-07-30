@@ -5,10 +5,12 @@ import java.io.*;
 import java.util.*;
 import org.junit.Test;
 
-/**
- * The Properties class represents a persistent set of properties. The Properties can be saved to a
- * stream or loaded from a stream. Each key and its corresponding value in the property list is a
- * string.
+/*
+ * The Properties class represents a persistent set of properties.
+ *
+ * The Properties can be saved to a stream or loaded from a stream.
+ *
+ * Each key and its corresponding value in the property list is a string.
  */
 public class BaseProperties extends AbstractUtils {
 
@@ -94,5 +96,6 @@ public class BaseProperties extends AbstractUtils {
     properties.setProperty("name", "Stefan");
     properties.setProperty("email", "stef@java.com");
     properties.list(writer);
+    println(properties );
   }
 }

@@ -6,7 +6,7 @@ import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 /** Conclusion: you can not compare reference variables ==, only equals() */
-public class IssueWithInteger128 extends AbstractUtils {
+public class Issue_With_Integer_128 extends AbstractUtils {
 
   @Test
   public void runApp() {
