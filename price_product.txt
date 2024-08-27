@@ -1,4 +1,0 @@
-1| 3.29| mkyong
-2| 4.21| Samsung
-3| 67.20| Nokia
-4| 0.09| LG

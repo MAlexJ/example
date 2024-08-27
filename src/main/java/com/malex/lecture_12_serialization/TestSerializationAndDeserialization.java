@@ -1,7 +1,7 @@
-package com.malex.lecture_12_serialization.test;
+package com.malex.lecture_12_serialization;
 
-import static com.malex.lecture_12_serialization.example.util.SerializationUtils.deserialization;
-import static com.malex.lecture_12_serialization.example.util.SerializationUtils.serialization;
+import static com.malex.lecture_12_serialization.utils.SerializationDeserializationUtils.deserialization;
+import static com.malex.lecture_12_serialization.utils.SerializationDeserializationUtils.serialization;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNull;
 import static junit.framework.TestCase.fail;
@@ -22,31 +22,34 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestApp {
+public class TestSerializationAndDeserialization {
 
   private static final String PATH_SOURCE = "serialization/source.txt";
   private static File sourceFile;
 
   @BeforeClass
   public static void before() {
-    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-    URL resource = classLoader.getResource(PATH_SOURCE);
+    var classLoader = Thread.currentThread().getContextClassLoader();
+    var resourceUrl = classLoader.getResource(PATH_SOURCE);
     sourceFile =
-        new File(Optional.ofNullable(resource).orElseThrow(RuntimeException::new).getFile());
+        Optional.ofNullable(resourceUrl)
+            .map(URL::getFile)
+            .map(File::new)
+            .orElseThrow(RuntimeException::new);
   }
 
   @Test
   @Parameters({"Bye!", " Hello! ", ""})
-  public void canSerializationString(String expected) {
+  public void stringSerializationAndDeserialization(String expected) {
     serialization(sourceFile, expected);
 
-    String actual = deserialization(sourceFile, String.class);
+    var actual = deserialization(sourceFile, String.class);
     assertEquals(expected, actual);
   }
 
   @Test
   @Parameters({"1", "3444", "-1235"})
-  public void canSerializationInteger(Integer expected) {
+  public void integerSerialization(Integer expected) {
     serialization(sourceFile, expected);
 
     Integer actual = deserialization(sourceFile, Integer.class);

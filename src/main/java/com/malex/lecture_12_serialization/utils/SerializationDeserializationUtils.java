@@ -1,13 +1,12 @@
-package com.malex.lecture_12_serialization.example.util;
+package com.malex.lecture_12_serialization.utils;
 
 import java.io.*;
 
-public class SerializationUtils {
+public class SerializationDeserializationUtils {
 
-  private SerializationUtils() {
-    throw new UnsupportedOperationException();
+  private SerializationDeserializationUtils() {
+    // none
   }
-
 
   public static <T> void serialization(File file, T obj) {
     try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
