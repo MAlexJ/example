@@ -1,10 +1,11 @@
 package com.malex.lecture_4_algorithms.round_robin;
 
+import com.malex.lecture_15_concurrency.AbstractThreadUtils;
 import com.malex.utils.AbstractUtils;
 import java.util.List;
 import org.junit.Test;
 
-public class TesApp extends AbstractUtils {
+public class TesApp extends AbstractThreadUtils {
 
   @Test
   public void run() {
@@ -14,7 +15,7 @@ public class TesApp extends AbstractUtils {
 
     var iterator = roundRobin.iterator();
     while (iterator.hasNext()) {
-      println(iterator.next());
+      print(iterator.next());
       sleepInMillis(200);
     }
   }

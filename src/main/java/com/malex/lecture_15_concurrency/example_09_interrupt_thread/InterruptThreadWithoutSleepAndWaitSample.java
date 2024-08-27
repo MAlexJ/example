@@ -1,8 +1,8 @@
 package com.malex.lecture_15_concurrency.example_09_interrupt_thread;
 
-import com.malex.lecture_15_concurrency.AbstractThreadSample;
+import com.malex.lecture_15_concurrency.AbstractThreadUtils;
 
-public class InterruptThreadWithoutSleepAndWaitSample extends AbstractThreadSample {
+public class InterruptThreadWithoutSleepAndWaitSample extends AbstractThreadUtils {
 
     public static void main(String[] args) {
         // #0 start main thread

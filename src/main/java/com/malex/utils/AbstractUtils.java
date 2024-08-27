@@ -1,7 +1,5 @@
 package com.malex.utils;
 
-import static junit.framework.TestCase.fail;
-
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
@@ -11,14 +9,6 @@ import java.util.stream.Collectors;
 public abstract class AbstractUtils {
 
   public static final String EMPTY_STRING = " ";
-
-  protected void errorHandling(Runnable r) {
-    try {
-      r.run();
-    } catch (Exception e) {
-      throw new SampleException(e);
-    }
-  }
 
   protected void wrapper(String description, Runnable r) {
     println(description);
@@ -103,31 +93,5 @@ public abstract class AbstractUtils {
     } catch (InterruptedException e) {
       e.fillInStackTrace();
     }
-  }
-
-  protected void startAllThread(Thread... threads) {
-    Arrays.stream(threads).forEach(Thread::start);
-  }
-
-  protected void shutdownThread(int millis) {
-    new Thread(
-            () -> {
-              sleepInMillis(millis);
-              System.exit(-1);
-            })
-        .start();
-  }
-
-  protected void joinAllThreadToMain(Thread... threads) {
-    Arrays.stream(threads)
-        .forEach(
-            thread -> {
-              ;
-              try {
-                thread.join();
-              } catch (InterruptedException e) {
-                fail();
-              }
-            });
   }
 }

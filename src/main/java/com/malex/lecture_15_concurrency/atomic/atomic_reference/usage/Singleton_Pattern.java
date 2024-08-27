@@ -1,4 +1,4 @@
-package com.malex.lecture_15_concurrency.example_07_atomic;
+package com.malex.lecture_15_concurrency.atomic.atomic_reference.usage;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -16,14 +16,14 @@ import org.junit.Test;
  *
  * <p>Link: https://www.youtube.com/watch?v=L1Pq9-bx7KY
  */
-public class AtomicReferenceSample extends AbstractUtils {
+public class Singleton_Pattern extends AbstractUtils {
 
   private static final String FORMAT_MSG = "value : %s, hashcode : %s";
 
   private final Random random = new Random();
 
   @Test
-  public void atomicReferenceImplementation() {
+  public void singleton_atomicReferenceImplementation() {
     SingletonAtomicReference<Double> singleton = SingletonAtomicReference.getInstance();
     singleton.setField(23.34);
 
@@ -42,7 +42,7 @@ public class AtomicReferenceSample extends AbstractUtils {
   }
 
   @Test
-  public void doubleCheckedLockingImplementation() {
+  public void singleton_doubleCheckedLockingImplementation() {
     // 1. init singleton
     SingletonDoubleCheckedLocking<Integer> singleton = SingletonDoubleCheckedLocking.instance();
     // 2. set singleton filed

@@ -1,10 +1,10 @@
 package com.malex.lecture_15_concurrency.example_09_interrupt_thread;
 
-import com.malex.lecture_15_concurrency.AbstractThreadSample;
+import com.malex.lecture_15_concurrency.AbstractThreadUtils;
 
 import java.util.concurrent.TimeUnit;
 
-public class InterruptThreadIsThreadInterrupted extends AbstractThreadSample {
+public class InterruptThreadIsThreadInterrupted extends AbstractThreadUtils {
     public static void main(String[] args) {
         // #1.
         print("Start", getCurrentThreadName(), "thread ");

@@ -2,7 +2,7 @@ package com.malex.lecture_15_concurrency.lock.ReentrantLock;
 
 import static junit.framework.TestCase.assertEquals;
 
-import com.malex.utils.AbstractUtils;
+import com.malex.lecture_15_concurrency.AbstractThreadUtils;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * <p>tutorial: <a href="https://www.youtube.com/watch?v=2OnAxdxtNmw">ReentrantLock</a>
  */
-public class BaseLockSample extends AbstractUtils {
+public class BaseLockSample extends AbstractThreadUtils {
 
   @Test
   public void runSimpleExample() {
@@ -36,7 +36,7 @@ public class BaseLockSample extends AbstractUtils {
     joinAllThreadToMain(first, second);
 
     // then
-    println("num:", resource.getNum());
+    print("num:", resource.getNum());
     assertEquals(200005, resource.getNum());
   }
 
@@ -61,7 +61,7 @@ public class BaseLockSample extends AbstractUtils {
     joinAllThreadToMain(first, second);
 
     // then
-    println("one:", resource.getOne(), ", two:", resource.getTwo());
+    print("one:", resource.getOne(), ", two:", resource.getTwo());
     assertEquals(200005, resource.getOne());
     assertEquals(200007, resource.getTwo());
   }

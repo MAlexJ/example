@@ -1,8 +1,8 @@
 package com.malex.lecture_15_concurrency.example_10_thread_prioriy;
 
-import com.malex.lecture_15_concurrency.AbstractThreadSample;
+import com.malex.lecture_15_concurrency.AbstractThreadUtils;
 
-public class ThreadPriority extends AbstractThreadSample {
+public class ThreadPriority extends AbstractThreadUtils {
 
     public static void main(String[] args) {
         print(getCurrentThreadName(), " priority - " + Thread.currentThread().getPriority());

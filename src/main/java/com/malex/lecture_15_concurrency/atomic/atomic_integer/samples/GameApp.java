@@ -1,4 +1,4 @@
-package com.malex.lecture_15_concurrency.example_07_atomic.samples;
+package com.malex.lecture_15_concurrency.atomic.atomic_integer.samples;
 
 import static junit.framework.TestCase.assertEquals;
 

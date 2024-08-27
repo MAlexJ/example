@@ -1,6 +1,6 @@
 package com.malex.lecture_15_concurrency.example_19_3_3_forkjoinpool;
 
-import com.malex.lecture_15_concurrency.AbstractThreadSample;
+import com.malex.lecture_15_concurrency.AbstractThreadUtils;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 /**
  * Tutorial - https://www.youtube.com/watch?v=c2n-mjlLqrs&list=PLQ9NkV1-BDZ_WNhVqR_2uqfvt1dXy7Cgx&index=163
  */
-public class ForkJoinPoolSample extends AbstractThreadSample {
+public class ForkJoinPoolSample extends AbstractThreadUtils {
 
     public static void main(String[] args) {
         javaStatistic();

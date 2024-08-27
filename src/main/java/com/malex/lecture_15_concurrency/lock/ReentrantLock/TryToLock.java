@@ -1,12 +1,13 @@
 package com.malex.lecture_15_concurrency.lock.ReentrantLock;
 
+import com.malex.lecture_15_concurrency.AbstractThreadUtils;
 import com.malex.utils.AbstractUtils;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import lombok.SneakyThrows;
 import org.junit.Test;
 
-public class TryToLock extends AbstractUtils {
+public class TryToLock extends AbstractThreadUtils {
 
   private static final Lock lock = new ReentrantLock();
 
@@ -25,7 +26,7 @@ public class TryToLock extends AbstractUtils {
                   print(threadName, "HARD WORK!");
                   break;
                 } else {
-                  println(threadName, ">", "perform alternative actions");
+                  print(threadName, ">", "perform alternative actions");
                 }
                 sleepInMillis(100);
               }
@@ -41,11 +42,11 @@ public class TryToLock extends AbstractUtils {
     @Override
     public void run() {
       lock.lock();
-      printlnString(getName(), "start working");
+      print(getName(), "start working");
       sleep(500);
-      printlnString(getName(), "stop working");
+      print(getName(), "stop working");
       lock.unlock();
-      printlnString(getName(), "lock is released");
+      print(getName(), "lock is released");
     }
   }
 }
