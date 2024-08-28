@@ -1,4 +1,4 @@
-package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.allMatch;
+package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.all_any_none_match.allMatch;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
