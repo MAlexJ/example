@@ -1,5 +1,6 @@
 package com.malex.lecture_12_serialization.utils;
 
+import com.malex.utils.SampleException;
 import java.io.*;
 
 public class SerializationDeserializationUtils {
@@ -12,7 +13,7 @@ public class SerializationDeserializationUtils {
     try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
       out.writeObject(obj);
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new SampleException(e);
     }
   }
 
@@ -20,7 +21,7 @@ public class SerializationDeserializationUtils {
     try (ObjectInput in = new ObjectInputStream(new FileInputStream(file))) {
       return clazz.cast(in.readObject());
     } catch (IOException | ClassNotFoundException e) {
-      throw new RuntimeException(e);
+      throw new SampleException(e);
     }
   }
 }

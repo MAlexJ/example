@@ -3,6 +3,7 @@ package com.malex.lecture_2_operator_precedence.arithmetic_operators;
 import static junit.framework.TestCase.assertEquals;
 
 import com.malex.utils.AbstractUtils;
+import java.util.stream.Stream;
 import org.junit.Test;
 
 public class RemainderOperator extends AbstractUtils {
@@ -30,5 +31,16 @@ public class RemainderOperator extends AbstractUtils {
     int result = first % second;
     println(first, "%", second, "=", result);
     return result;
+  }
+
+  /*
+   * Even numbers
+   */
+  @Test
+  public void evenNumbers() {
+    Stream.iterate(0, i -> i + 1) //
+        .filter(i -> i % 2 == 0)
+        .limit(10)
+        .forEach(this::println);
   }
 }
