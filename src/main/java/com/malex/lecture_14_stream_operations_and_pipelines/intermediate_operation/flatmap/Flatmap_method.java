@@ -7,6 +7,9 @@ import java.util.List;
 import org.junit.Test;
 
 /*
+ * The flatMap() operation has the effect of applying a one-to-many transformation to the elements of the stream,
+ * and then flattening the resulting elements into a new stream.
+ *
  * This is an intermediate operation.
  */
 public class Flatmap_method extends AbstractUtils {
