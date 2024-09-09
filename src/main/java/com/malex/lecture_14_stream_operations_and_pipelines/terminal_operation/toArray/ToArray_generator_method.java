@@ -1,6 +1,8 @@
 package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.toArray;
 
 import com.malex.utils.AbstractUtils;
+
+import java.util.Arrays;
 import java.util.stream.Stream;
 import org.junit.Test;
 
@@ -20,6 +22,6 @@ public class ToArray_generator_method extends AbstractUtils {
             .limit(5)
             .toArray(Integer[]::new);
 
-    println(array);
+    println(Arrays.toString(array));
   }
 }
