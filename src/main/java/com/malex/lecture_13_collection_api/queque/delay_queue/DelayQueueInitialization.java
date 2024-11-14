@@ -4,6 +4,7 @@ import static junit.framework.TestCase.assertTrue;
 
 import com.malex.lecture_13_collection_api.AbstractTestsUtils;
 import com.malex.lecture_13_collection_api.TestNameAnnotation;
+import com.malex.utils.SampleException;
 import java.time.LocalTime;
 import java.util.Objects;
 import java.util.Random;
@@ -11,7 +12,6 @@ import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-import lombok.SneakyThrows;
 
 /**
  * DelayQueue examples:
@@ -22,7 +22,6 @@ public class DelayQueueInitialization extends AbstractTestsUtils {
 
   @TestNameAnnotation("All possible implementation of DelayQueue")
   @Override
-  @SneakyThrows
   public void simpleTest(String description) {
     DelayQueue<DelayEvent> delayQueue = new DelayQueue<>();
     println("DelayQueue created, local time:", LocalTime.now());
@@ -38,18 +37,21 @@ public class DelayQueueInitialization extends AbstractTestsUtils {
             expired element is available on this queue.
      */
     while (!delayQueue.isEmpty()) {
-      DelayEvent delayEvent = delayQueue.take();
-      println(
-          "DelayEvent: " + delayEvent.msg(),
-          ", local time:",
-          LocalTime.now(),
-          ", thread:",
-          Thread.currentThread().getName());
+      try {
+        DelayEvent delayEvent = delayQueue.take();
+        println(
+            "DelayEvent: " + delayEvent.msg(),
+            ", local time:",
+            LocalTime.now(),
+            ", thread:",
+            Thread.currentThread().getName());
+      } catch (InterruptedException e) {
+        throw new SampleException(e);
+      }
     }
   }
 
   @TestNameAnnotation("Base take or offer methods DelayQueue")
-  @SneakyThrows
   @Override
   public void baseFunctionalityTest(String description) {
     DelayQueue<DelayEvent> delayQueue = new DelayQueue<>();
@@ -74,17 +76,21 @@ public class DelayQueueInitialization extends AbstractTestsUtils {
     assertTrue(delayQueue.offer(DelayEvent.createEvent("Random")));
 
     while (!delayQueue.isEmpty()) {
-      DelayEvent delayEvent = delayQueue.take();
-      println(
-          "DelayEvent: " + delayEvent.msg(),
-          ", local time:",
-          LocalTime.now(),
-          ", thread:",
-          Thread.currentThread().getName());
+      try {
+        DelayEvent delayEvent = delayQueue.take();
+        println(
+            "DelayEvent: " + delayEvent.msg(),
+            ", local time:",
+            LocalTime.now(),
+            ", thread:",
+            Thread.currentThread().getName());
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw new SampleException(e);
+      }
     }
   }
 
-  @SneakyThrows
   @Override
   public void additionalFunctionalityTest(String description) {
     println("additionalFunctionalityTest, local time:", LocalTime.now());
@@ -111,6 +117,7 @@ public class DelayQueueInitialization extends AbstractTestsUtils {
                       ", thread:",
                       Thread.currentThread().getName());
                 } catch (InterruptedException e) {
+                  Thread.currentThread().interrupt();
                   throw new RuntimeException(e);
                 }
               }
@@ -119,8 +126,13 @@ public class DelayQueueInitialization extends AbstractTestsUtils {
     write.start();
     read.start();
 
-    write.join();
-    read.join();
+    try {
+      write.join();
+      read.join();
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new SampleException(e);
+    }
   }
 
   record DelayEvent(long startTime, String msg) implements Delayed {

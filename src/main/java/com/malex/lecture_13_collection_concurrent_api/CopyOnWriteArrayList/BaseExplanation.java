@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
-import lombok.SneakyThrows;
 import org.junit.Test;
 
 public class BaseExplanation extends AbstractBase {
@@ -22,7 +21,6 @@ public class BaseExplanation extends AbstractBase {
   }
 
   @Test
-  @SneakyThrows
   public void baseExplanationConcurrent() {
     // given
     var list = new CopyOnWriteArrayList<>(PREPARED_NAMES);

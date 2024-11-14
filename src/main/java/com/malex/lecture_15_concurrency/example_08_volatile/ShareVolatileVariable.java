@@ -1,9 +1,9 @@
 package com.malex.lecture_15_concurrency.example_08_volatile;
 
 import static com.malex.utils.AbstractUtils.printlnString;
+import static com.malex.utils.AbstractUtils.sleepInMillisStatic;
 
-import java.util.concurrent.TimeUnit;
-import lombok.SneakyThrows;
+import com.malex.utils.SampleException;
 import org.junit.Test;
 
 public class ShareVolatileVariable extends VolatileBaseClass {
@@ -20,15 +20,19 @@ public class ShareVolatileVariable extends VolatileBaseClass {
   }
 
   @Test
-  @SneakyThrows
   public void volatileSharedVariable() {
     var thread = new ShareVolatileVariable();
     thread.start();
 
-    TimeUnit.MILLISECONDS.sleep(1000);
+    sleepInMillisStatic(1000);
     thread.volatileKeepRunning = false;
 
-    thread.join();
+    try {
+      thread.join();
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new SampleException(e);
+    }
     printlnString("Keep running: " + thread.volatileKeepRunning);
   }
 }

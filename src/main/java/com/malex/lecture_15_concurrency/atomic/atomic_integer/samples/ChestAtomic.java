@@ -1,9 +1,7 @@
 package com.malex.lecture_15_concurrency.atomic.atomic_integer.samples;
 
 import com.malex.utils.AbstractUtils;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import lombok.SneakyThrows;
 
 public class ChestAtomic extends AbstractUtils {
 
@@ -13,14 +11,13 @@ public class ChestAtomic extends AbstractUtils {
     this.atomicInteger.set(money);
   }
 
-  @SneakyThrows
   public void withdraw(int amount, Player player) {
     int currentValue = atomicInteger.get();
     if (amount < 0 || currentValue <= amount) {
       println("Player", player.name(), "can't withdraw!", "Not enough gold!");
       return;
     }
-    TimeUnit.MILLISECONDS.sleep(2);
+    sleepInMillisStatic(2);
     println("Withdraw :", amount, "by player", player.name());
     atomicInteger.set(currentValue - amount);
   }

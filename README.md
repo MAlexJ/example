@@ -1,3 +1,3 @@
 ### Java Core examples
 
-the project updated to Java 22
+the project updated to Java 23

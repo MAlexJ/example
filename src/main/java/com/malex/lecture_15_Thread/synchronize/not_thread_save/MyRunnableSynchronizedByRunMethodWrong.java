@@ -1,49 +1,51 @@
 package com.malex.lecture_15_Thread.synchronize.not_thread_save;
 
-import lombok.SneakyThrows;
-import org.junit.Test;
+import static org.junit.Assert.assertNotEquals;
 
+import com.malex.utils.SampleException;
 import java.util.List;
 import java.util.stream.IntStream;
-
-import static org.junit.Assert.assertNotEquals;
+import org.junit.Test;
 
 public class MyRunnableSynchronizedByRunMethodWrong extends AbstractObjectValue {
 
-    @Test
-    @SneakyThrows
-    public void runTest() {
-        var objectValue = new ObjectValue();
-        List<Thread> threads = IntStream.range(0, NUMBER_OF_THREADS).mapToObj(i -> new Thread(new MyRunnable(objectValue))).toList();
+  @Test
+  public void runTest() {
+    var objectValue = new ObjectValue();
+    List<Thread> threads =
+        IntStream.range(0, NUMBER_OF_THREADS)
+            .mapToObj(i -> new Thread(new MyRunnable(objectValue)))
+            .toList();
 
-        threads.forEach(Thread::start);
+    threads.forEach(Thread::start);
 
-        for (Thread t : threads) {
-            t.join();
-        }
-
-        // 4. test count
-        int count = objectValue.getCount();
-        println("count:", count);
-        assertNotEquals(TOTAL_INCREMENT_COUNT * NUMBER_OF_THREADS, count);
+    for (Thread t : threads) {
+      try {
+        t.join();
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw new SampleException(e);
+      }
     }
 
-    private static class MyRunnable implements Runnable {
+    // 4. test count
+    int count = objectValue.getCount();
+    println("count:", count);
+    assertNotEquals(TOTAL_INCREMENT_COUNT * NUMBER_OF_THREADS, count);
+  }
 
-        private final ObjectValue objectValue;
+  private static class MyRunnable implements Runnable {
 
-        private MyRunnable(ObjectValue objectValue) {
-            this.objectValue = objectValue;
-        }
+    private final ObjectValue objectValue;
 
-        /**
-         * It's the same that synchronized(this)
-         */
-        @Override
-        public synchronized void run() {
-            objectValue.incrementCount();
-        }
+    private MyRunnable(ObjectValue objectValue) {
+      this.objectValue = objectValue;
     }
 
-
+    /** It's the same that synchronized(this) */
+    @Override
+    public synchronized void run() {
+      objectValue.incrementCount();
+    }
+  }
 }

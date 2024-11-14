@@ -3,7 +3,7 @@ package com.malex.lecture_15_concurrency.atomic.atomic_integer.samples;
 import static junit.framework.TestCase.assertEquals;
 
 import com.malex.utils.AbstractUtils;
-import lombok.SneakyThrows;
+import com.malex.utils.SampleException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,13 +50,17 @@ public class GameApp extends AbstractUtils {
     assertEquals(0, chest.info());
   }
 
-  @SneakyThrows
   private void runThreads(Thread... threads) {
     for (var thread : threads) {
       thread.start();
     }
     for (var thread : threads) {
-      thread.join();
+      try {
+        thread.join();
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw new SampleException(e);
+      }
     }
   }
 

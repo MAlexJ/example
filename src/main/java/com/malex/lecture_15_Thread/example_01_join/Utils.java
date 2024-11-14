@@ -1,27 +1,23 @@
 package com.malex.lecture_15_Thread.example_01_join;
 
-import lombok.SneakyThrows;
-
+import com.malex.utils.AbstractUtils;
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
-public class Utils {
+public class Utils extends AbstractUtils {
 
-    private Utils() {
-        // none use
+  private Utils() {
+    // none use
+  }
+
+  public static void doSomething(String message, int count, int waitInSeconds) {
+    for (int i = 0; i < count; i++) {
+      sleepInSecondStatic(waitInSeconds);
+      printToConsole(message, Thread.currentThread().getName());
     }
+  }
 
-
-    @SneakyThrows
-    public static void doSomething(String message, int count, int waitInSeconds) {
-        for (int i = 0; i < count; i++) {
-            TimeUnit.SECONDS.sleep(waitInSeconds);
-            printToConsole(message, Thread.currentThread().getName());
-        }
-    }
-
-    public static void printToConsole(String... args) {
-        Arrays.asList(args).forEach(System.out::print);
-        System.out.println();
-    }
+  public static void printToConsole(String... args) {
+    Arrays.asList(args).forEach(AbstractUtils::printString);
+    printlnString();
+  }
 }

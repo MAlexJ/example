@@ -1,7 +1,8 @@
 package com.malex.lecture_15_concurrency.example_08_volatile;
 
-import java.util.concurrent.TimeUnit;
-import lombok.SneakyThrows;
+import static com.malex.utils.AbstractUtils.sleepInMillisStatic;
+
+import com.malex.utils.SampleException;
 import org.junit.Test;
 
 /** Share variable without volatile */
@@ -18,7 +19,6 @@ public class ShareVariableWithoutVolatile extends VolatileBaseClass {
   }
 
   @Test
-  @SneakyThrows
   public void testThread() {
     // This app will shut down in 5 seconds
     shutdownThread("shut down app!", 5000);
@@ -26,10 +26,15 @@ public class ShareVariableWithoutVolatile extends VolatileBaseClass {
     var thread = new ShareVariableWithoutVolatile();
     thread.start();
 
-    TimeUnit.MILLISECONDS.sleep(100);
+    sleepInMillisStatic(100);
     thread.keepRunning = false;
 
-    thread.join();
+    try {
+      thread.join();
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new SampleException(e);
+    }
     println("Keep running: " + thread.keepRunning);
   }
 }

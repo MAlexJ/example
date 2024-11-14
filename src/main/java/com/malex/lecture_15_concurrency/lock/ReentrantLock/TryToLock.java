@@ -1,10 +1,10 @@
 package com.malex.lecture_15_concurrency.lock.ReentrantLock;
 
+import static com.malex.utils.AbstractUtils.sleepInMillisStatic;
+
 import com.malex.lecture_15_concurrency.AbstractThreadUtils;
-import com.malex.utils.AbstractUtils;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import lombok.SneakyThrows;
 import org.junit.Test;
 
 public class TryToLock extends AbstractThreadUtils {
@@ -38,12 +38,11 @@ public class TryToLock extends AbstractThreadUtils {
 
   private static class WorkThread extends Thread {
 
-    @SneakyThrows
     @Override
     public void run() {
       lock.lock();
       print(getName(), "start working");
-      sleep(500);
+      sleepInMillisStatic(500);
       print(getName(), "stop working");
       lock.unlock();
       print(getName(), "lock is released");

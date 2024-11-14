@@ -2,6 +2,7 @@ package com.malex.lecture_13_collection_api.queque.delay_queue;
 
 import com.malex.lecture_13_collection_api.AbstractTestUtils;
 import com.malex.lecture_13_collection_api.TestNameAnnotation;
+import com.malex.utils.SampleException;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.DelayQueue;
@@ -13,7 +14,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 
 /**
  * DelayQueue Consumer and Producer
@@ -28,7 +28,6 @@ import lombok.SneakyThrows;
  */
 public class DelayQueueConsumerAndProducer extends AbstractTestUtils {
 
-  @SneakyThrows
   @TestNameAnnotation("All possible implementation of DelayQueue")
   @Override
   public void test(String description) {
@@ -45,7 +44,13 @@ public class DelayQueueConsumerAndProducer extends AbstractTestUtils {
     ExecutorService executor = Executors.newFixedThreadPool(5);
     executor.submit(producer);
     executor.submit(consumer);
-    executor.awaitTermination(5, TimeUnit.SECONDS);
+    try {
+      executor.awaitTermination(5, TimeUnit.SECONDS);
+    } catch (InterruptedException e) {
+      /* Clean up whatever needs to be handled before interrupting  */
+      Thread.currentThread().interrupt();
+      throw new SampleException(e);
+    }
     executor.shutdown();
   }
 

@@ -77,9 +77,17 @@ public abstract class AbstractUtils {
     }
   }
 
-  protected static void sleepInMillisStatic(int millis) {
+  public static void sleepInMillisStatic(int millis) {
     try {
       TimeUnit.MILLISECONDS.sleep(millis);
+    } catch (InterruptedException e) {
+      e.fillInStackTrace();
+    }
+  }
+
+  protected static void sleepInSecondStatic(int millis) {
+    try {
+      TimeUnit.SECONDS.sleep(millis);
     } catch (InterruptedException e) {
       e.fillInStackTrace();
     }
