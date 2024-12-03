@@ -11,10 +11,10 @@ import org.junit.Test;
  * Documentation 1. <a href="https://habr.com/ru/articles/658457/">Java Class guide Optional</a>
  * <br>
  */
-public class OptionalEmptyOrSample extends AbstractUtils {
+public class Optional_or_empty extends AbstractUtils {
 
   @Test
-  public void testEmptyOr() {
+  public void test_empty_or() {
     // given
     var number = Integer.valueOf(983);
 

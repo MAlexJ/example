@@ -16,10 +16,10 @@ import org.junit.Test;
  * <p>@Contract(pure = true) <br>
  * public static <T> Optional<T> empty()
  */
-public class OptionalEmpty extends AbstractUtils {
+public class Optional_empty extends AbstractUtils {
 
   @Test
-  public void emptyOptional() {
+  public void empty_optional() {
     Optional<Object> empty = Optional.empty();
 
     assertTrue(empty.isEmpty());
@@ -27,11 +27,24 @@ public class OptionalEmpty extends AbstractUtils {
     assertFalse(empty.isPresent());
 
     try {
-      empty.get(); // NoSuchElementException
+      // NoSuchElementException
+      empty.get();
       fail();
     } catch (NoSuchElementException ex) {
       // none
       printlnError(ex, 2);
     }
+  }
+
+  @Test(expected = NoSuchElementException.class)
+  public void emptyOptionalOf() {
+    Optional<Object> empty = Optional.ofNullable(null);
+
+    assertTrue(empty.isEmpty());
+
+    assertFalse(empty.isPresent());
+
+    // NoSuchElementException
+    empty.get();
   }
 }

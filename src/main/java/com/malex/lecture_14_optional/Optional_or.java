@@ -15,7 +15,7 @@ import org.junit.Test;
  * @Contract("null->!null") <br>
  * public Optional<T> or( Supplier<? extends Optional<T>> supplier )
  */
-public class OptionalOr extends AbstractUtils {
+public class Optional_or extends AbstractUtils {
 
   @Test
   public void orTest() {

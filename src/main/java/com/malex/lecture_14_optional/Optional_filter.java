@@ -11,52 +11,68 @@ import org.junit.Test;
  * Documentation <br>
  * 1. <a href="https://habr.com/ru/articles/658457/">Java Class guide Optional</a>
  *
+ * <p>Optional<T> filter(Predicate<T> predicate )
+ *
  * <p>If a value is present, and the value matches the given predicate, returns an Optional
  * describing the value, otherwise returns an empty Optional.
  *
  * <p>@Contract("null->!null") <br>
  * public Optional<T> filter( @NotNull Predicate<? super T> predicate )
  */
-public class OptionalFilter extends AbstractUtils {
+public class Optional_filter extends AbstractUtils {
+
+  public static final String EMPTY_VALUE = "empty!";
 
   @Test
-  public void optionalFilterTest() {
+  public void optional_filter_test() {
     // given
     Predicate<String> condition = str -> str.contains("t");
 
     // when
-    var test = getText("test").filter(condition).orElse("empty!");
+    var test =
+        getText("test")
+            /*  Optional<T> filter( Predicate<T> predicate ) */
+            .filter(condition)
+            .orElse(EMPTY_VALUE);
 
     // then
     assertEquals("test", test);
   }
 
   @Test
-  public void optionalManyFilterTest() {
+  public void optional_many_filters_test() {
     // given
     var test =
         getText("test")
             .filter(str -> str.contains("t"))
             .filter(str -> str.contains("e"))
             .filter(str -> str.contains("s"))
-            .orElse("empty!");
+            .orElse(EMPTY_VALUE);
 
     // then
     assertEquals("test", test);
   }
 
   @Test
-  public void optionalNotPassFilterTest() {
+  public void optional_not_pass_by_filter_criteria_test() {
     // given
-    var defaultValue = "empty!";
+    var defaultValue = EMPTY_VALUE;
 
     // when
-    var test = getText("").filter(str -> str.contains("t")).orElse(defaultValue);
-    var test2 = getText(null).filter(str -> str.contains("t")).orElse(defaultValue);
+    var firstVal =
+        getText("") //
+            .filter(str -> str.contains("t"))
+            .orElse(defaultValue);
+
+    // and
+    var secondVal =
+        getText(null) //
+            .filter(str -> str.contains("t"))
+            .orElse(defaultValue);
 
     // then
-    assertEquals(defaultValue, test);
-    assertEquals(defaultValue, test2);
+    assertEquals(defaultValue, firstVal);
+    assertEquals(defaultValue, secondVal);
   }
 
   private Optional<String> getText(String text) {

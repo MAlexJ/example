@@ -6,7 +6,7 @@ import static junit.framework.TestCase.assertNotNull;
 import java.util.Optional;
 import org.junit.Test;
 
-public class OptionalMap {
+public class Optional_map {
 
   @Test
   public void mapOptionalTest() {

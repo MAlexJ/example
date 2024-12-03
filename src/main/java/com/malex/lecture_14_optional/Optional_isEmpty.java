@@ -11,7 +11,7 @@ import org.junit.Test;
  *
  * <p>If a value is not present, returns true, otherwise false.
  */
-public class OptionalIsEmpty {
+public class Optional_isEmpty {
 
   @Test
   public void test() {

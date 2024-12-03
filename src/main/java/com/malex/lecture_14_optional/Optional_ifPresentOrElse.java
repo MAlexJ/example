@@ -16,10 +16,10 @@ import org.junit.Test;
  *
  * <p>public void ifPresentOrElse( Consumer<? super T> action, Runnable emptyAction )
  */
-public class OptionalIfPresentOrElse extends AbstractUtils {
+public class Optional_ifPresentOrElse extends AbstractUtils {
 
   @Test
-  public void ifPresentOrElseNotEmptyTest() {
+  public void ifPresentOrElse_not_empty_value_test() {
     // given
     var count = new AtomicInteger();
 
@@ -41,22 +41,24 @@ public class OptionalIfPresentOrElse extends AbstractUtils {
   }
 
   @Test
-  public void ifPresentOrElseEmptyTest() {
+  public void ifPresentOrElse_null_value_test() {
     // given
     var count = new AtomicInteger();
 
     // when
     getText(null)
         .ifPresentOrElse(
-            t -> println("Value present:", t, ", increment:", count.incrementAndGet()),
+            t -> {
+              int increment = count.incrementAndGet();
+              println("Value present:", t, "increment:", increment);
+            },
             () -> {
-              count.incrementAndGet();
               int increment = count.incrementAndGet();
               println("Default", ", increment:", increment);
             });
 
     // then
-    assertEquals(2, count.get());
+    assertEquals(1, count.get());
   }
 
   private Optional<String> getText(String text) {

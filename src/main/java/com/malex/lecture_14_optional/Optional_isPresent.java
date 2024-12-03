@@ -11,7 +11,7 @@ import org.junit.Test;
  * Documentation 1. <a href="https://habr.com/ru/articles/658457/">Java Class guide Optional</a>
  * <br>
  */
-public class OptionalIsPresent extends AbstractUtils {
+public class Optional_isPresent extends AbstractUtils {
 
   @Test
   public void optionalNotEmptyTest() {

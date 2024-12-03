@@ -15,7 +15,7 @@ import org.junit.Test;
  *
  * <p>void ifPresent (Consumer<? super T> action)
  */
-public class OptionalIfPresent extends AbstractUtils {
+public class Optional_ifPresent extends AbstractUtils {
 
   @Test
   public void ifPresentTest() {

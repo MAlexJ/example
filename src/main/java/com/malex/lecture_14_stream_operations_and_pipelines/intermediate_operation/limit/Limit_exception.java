@@ -7,7 +7,7 @@ import org.junit.Test;
 public class Limit_exception {
 
   @Test(expected = IllegalArgumentException.class)
-  public void exception() {
+  public void negativeNumberException() {
     // given
     var negativeNumber = -1;
 

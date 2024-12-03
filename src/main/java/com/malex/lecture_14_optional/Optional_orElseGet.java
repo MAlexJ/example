@@ -17,10 +17,10 @@ import org.junit.Test;
  *
  * <p>public T orElseGet( Supplier <? extends T> supplier )
  */
-public class OptionalOrElseGet extends AbstractUtils {
+public class Optional_orElseGet extends AbstractUtils {
 
   @Test
-  public void orElseGetTest() {
+  public void orElseGet_test() {
     // given
     var str =
         Optional.ofNullable(null)
@@ -29,6 +29,7 @@ public class OptionalOrElseGet extends AbstractUtils {
                 new Supplier<String>() {
                   @Override
                   public String get() {
+                    println("1. Supplier");
                     return "Supplier";
                   }
                 });
@@ -38,13 +39,18 @@ public class OptionalOrElseGet extends AbstractUtils {
   }
 
   @Test(expected = NullPointerException.class)
-  public void orElseGetNullValueTest() {
+  public void orElseGet_with_null_supplier_test() {
     // given
-    Optional.ofNullable(null).map(Object::toString).orElseGet(null);
+    String val = null;
+
+    // then
+    Optional.ofNullable(val) //
+        .map(Object::toString)
+        .orElseGet(null);
   }
 
   @Test
-  public void orElseGetNullInsideSupplierTest() {
+  public void orElseGet_null_value_test() {
     // given
     var str =
         Optional.ofNullable(null)
@@ -53,9 +59,11 @@ public class OptionalOrElseGet extends AbstractUtils {
                 new Supplier<String>() {
                   @Override
                   public String get() {
+                    println("1. Supplier");
                     return null;
                   }
                 });
+
     println("Supplier value is", str);
     assertNull(str);
   }
