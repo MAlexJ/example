@@ -1,4 +1,4 @@
-package com.malex.lecture_16_Exception.lecture_06_exception_example;
+package com.malex.lecture_16_Exception.exception_examples;
 
 /**
  * Created by Alex on 4/18/2015.
