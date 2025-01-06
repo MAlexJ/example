@@ -2,11 +2,10 @@ package com.malex.lecture_15_Lambda_Functional_Interface.bi_consumer.custom;
 
 import static junit.framework.TestCase.assertTrue;
 
-import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
 import com.malex.utils.AbstractUtils;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.function.BiConsumer;
 import org.junit.Test;
 
@@ -32,7 +31,7 @@ public class BiConsumerInterface extends AbstractUtils {
   public void iterateCollections(Collection<String> strs, BiConsumer<Integer, String> consumer) {
     int position = 0;
     for (String s : strs) {
-      if (Strings.isNullOrEmpty(s)) {
+      if (s == null || s.isBlank()) {
         continue;
       }
       consumer.accept(position, s);
@@ -53,7 +52,7 @@ public class BiConsumerInterface extends AbstractUtils {
 
   @Test
   public void test2() {
-    Collection<String> list = Lists.newArrayList("A", "", "B", "C");
+    Collection<String> list = List.of("A", "", "B", "C");
     iterateCollections(
         list,
         (position, val) -> {

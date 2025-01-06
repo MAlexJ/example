@@ -1,6 +1,5 @@
 package com.malex.lecture_13_generic.wildcard;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static junit.framework.TestCase.fail;
@@ -21,8 +20,8 @@ public class WildcardSample {
 
   /** The main method */
   private double calculateSum(List<?> numbers) {
-    return checkNotNull(numbers, ERROR_MESSAGE_NRE)
-        .stream()
+    Objects.requireNonNull(numbers, ERROR_MESSAGE_NRE);
+    return numbers.stream()
         .filter(num -> !Objects.isNull(num))
         .mapToDouble(getToDoubleFunction())
         .sum();

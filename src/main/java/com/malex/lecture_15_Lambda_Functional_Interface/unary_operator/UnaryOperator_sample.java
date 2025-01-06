@@ -1,11 +1,9 @@
 package com.malex.lecture_15_Lambda_Functional_Interface.unary_operator;
 
-import com.google.common.collect.Lists;
 import com.malex.utils.AbstractUtils;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
 import org.junit.Test;
 
 /*
@@ -44,22 +42,23 @@ public class UnaryOperator_sample extends AbstractUtils {
 
   @Test
   public void applyTest() {
-    List<Integer> list = Lists.newArrayList(1, 2, 3);
+    List<Integer> list = List.of(1, 2, 3);
     print("Init: " + list);
 
     List<Integer> result = math(list, x -> x + 1);
     print("Result: " + result);
   }
 
+  // re-name
   private <T> List<T> math(List<T> list, UnaryOperator<T> func) {
     return list.stream() //
         .map(func) //
-        .collect(Collectors.toList());
+        .toList();
   }
 
   @Test
   public void chainApplyTest() {
-    List<Integer> list = Lists.newArrayList(1, 2, 3);
+    List<Integer> list = List.of(1, 2, 3);
     print("Init: " + list);
   }
 
@@ -75,6 +74,6 @@ public class UnaryOperator_sample extends AbstractUtils {
                     .andThen(second) //
                     .andThen(third) //
                     .apply(t)) //
-        .collect(Collectors.toList());
+        .toList();
   }
 }

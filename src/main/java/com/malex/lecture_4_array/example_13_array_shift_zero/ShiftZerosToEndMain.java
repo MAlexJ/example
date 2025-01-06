@@ -1,6 +1,5 @@
 package com.malex.lecture_4_array.example_13_array_shift_zero;
 
-import static com.google.common.base.Preconditions.checkArgument;
 import static org.junit.Assert.assertArrayEquals;
 
 import com.malex.utils.AbstractUtils;
@@ -10,16 +9,20 @@ import org.junit.Test;
 
 public class ShiftZerosToEndMain extends AbstractUtils {
 
+  private final int[] firstArray = new int[] {1, 2, 8, 0, 3, 5, 0, 0, -1, 5, 0, 0, 0, 2};
+  private final int[] secondArray = new int[] {0, 1, 0, 8, 0, 1};
+
   @Test
   public void test() {
-    int[] arr = {1, 2, 8, 0, 3, 5, 0, 0, -1, 5, 0, 0, 0, 2};
-    print("result - " + Arrays.toString(moveZerosToEnd(arr)));
-    print("result - " + Arrays.toString(moveZerosToEnd(new int[] {0, 1, 0, 1, 0, 1})));
+    println("result:", Arrays.toString(moveZerosToEnd(firstArray)));
+    println("result:", Arrays.toString(moveZerosToEnd(secondArray)));
   }
 
   private int[] moveZerosToEnd(int[] arr) {
-    checkArgument(Objects.nonNull(arr), "Array is null!");
-    checkArgument(arr.length != 0, "Array is empty!");
+    Objects.requireNonNull(arr, "Array is null!");
+    if (arr.length == 0) {
+      throw new IllegalArgumentException("Array is empty!");
+    }
     int[] tmp = new int[arr.length];
     int position = 0;
     for (int elem : arr) {
@@ -32,7 +35,7 @@ public class ShiftZerosToEndMain extends AbstractUtils {
     return tmp;
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test(expected = NullPointerException.class)
   public void testNull() {
     int[] arr = null;
     moveZerosToEnd(arr);

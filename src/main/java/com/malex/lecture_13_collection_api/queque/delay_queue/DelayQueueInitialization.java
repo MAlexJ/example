@@ -11,7 +11,6 @@ import java.util.Random;
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.Nullable;
 
 /**
  * DelayQueue examples:
@@ -155,7 +154,7 @@ public class DelayQueueInitialization extends AbstractTestsUtils {
     }
 
     @Override
-    public int compareTo(@Nullable Delayed obj) {
+    public int compareTo(Delayed obj) {
       Objects.requireNonNull(obj);
       return Long.compare(this.startTime, ((DelayEvent) obj).startTime);
     }

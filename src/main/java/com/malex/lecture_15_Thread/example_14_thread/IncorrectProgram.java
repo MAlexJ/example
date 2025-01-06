@@ -1,50 +1,44 @@
 package com.malex.lecture_15_Thread.example_14_thread;
 
-import com.google.common.collect.Lists;
+import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+public class IncorrectProgram extends AbstractProgram {
 
-public class IncorrectProgram
-{
-    public static void main(String[] args) throws InterruptedException
-    {
-        List<Integer> firstList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7);
-        List<Integer> secondList = Lists.newArrayList(12, 32, 53, 75, 34, 67);
+  @Test
+  public void test() throws InterruptedException {
 
-        List<Integer> result = new ArrayList<>();
+    Thread t1 =
+        new Thread(
+            () -> {
+              int count = (int) firstList.stream().filter(n -> n % 2 == 0).count();
+              int doSomething = doSomething();
+              println("count: " + count + ", doSomething=" + doSomething);
+              result.add(count);
+            });
 
-        Thread t1 = new Thread(() ->
-        {
-            int count = (int) firstList.stream().filter(n -> n % 2 == 0).count();
-            int doSomething = doSomething();
-            System.out.println("count: " + count + ", doSomething=" + doSomething);
-            result.add(count);
-        });
-        Thread t2 = new Thread(() ->
-        {
-            int max = secondList.stream().max(Integer::compare).orElse(0);
-            int doSomething = doSomething();
-            System.out.println("max: " + max + ", doSomething=" + doSomething);
-            result.add(max);
-        });
+    Thread t2 =
+        new Thread(
+            () -> {
+              int max = secondList.stream().max(Integer::compare).orElse(0);
+              int doSomething = doSomething();
+              println("max: " + max + ", doSomething=" + doSomething);
+              result.add(max);
+            });
 
-        t1.start();
-        t2.start();
+    t1.start();
+    t2.start();
 
-        t1.join();
-        t2.join();
+    t1.join();
+    t2.join();
 
-        System.out.println(result);
+    println(result);
+  }
+
+  private static int doSomething() {
+    int num = 0;
+    for (int i = 0; i < 999999999; i++) {
+      num += i;
     }
-
-    private static int doSomething()
-    {
-        int num = 0;
-        for (int i = 0; i < 10000000; i++)
-        {
-            num += i;
-        }
-        return num;
-    }
+    return num;
+  }
 }

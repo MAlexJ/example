@@ -1,6 +1,6 @@
 package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.collect.group_by;
 
-import com.google.common.collect.Lists;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import static junit.framework.TestCase.assertEquals;
 public class GroupByRateSample {
 
     private static final List<Integer> RATE_LIST =
-            Lists.newArrayList(1, 2, 1, 5, 3, 2, 2, 2, 1, 2, 5, 4, 1, 2, 2, 2, 2, 4, 4);
+            List.of(1, 2, 1, 5, 3, 2, 2, 2, 1, 2, 5, 4, 1, 2, 2, 2, 2, 4, 4);
 
     /**
      * group the list by the number of occurrences

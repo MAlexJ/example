@@ -1,86 +1,124 @@
 package com.malex.lecture_2_statements.ExpressionStatements.lecture_3_logic_operators;
 
-import com.google.common.collect.Lists;
-import lombok.Getter;
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static junit.framework.TestCase.assertEquals;
 
-/**
- * The Java programming language guarantees that the operands of operators appear to be evaluated
- * in a specific evaluation order, namely, from left to right.
+import com.malex.utils.AbstractUtils;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.Test;
+
+/*
+ * The Java programming language guarantees that the operands of operators appear to be evaluated in
+ * a specific evaluation order, namely, from left to right.
  *
  * boolean bool = isTrue1() | isFalse1() & isFalse2() ;
  *
- *  Becomes equivalent to
+ * Becomes equivalent to
  *
  * boolean bool = isTrue1() | ( isFalse1() & isFalse2() ) ;
  *
  * Link https://stackoverflow.com/questions/21557124/logical-operator-precedence-in-java
- *
  */
-public class LogicalOperatorPrecedence {
+public class LogicalOperatorPrecedence extends AbstractUtils {
 
-    @Getter
-    private final List<String> result = new ArrayList<>();
+  public static final String ONE = "one";
+  public static final String TWO = "two";
+  public static final String THREE = "three";
 
-    public boolean simpleMethodAndOr(String one, String two, String three) {
-        return isTrue(one) && isTrue(two) || isTrue(three);
-    }
+  @Test
+  public void runAllTests() {
+    test_and_with_or_operators();
+    test_full_and_with_or_operators();
+    test_or_with_and_operators();
+    test_full_or_with_and_operators();
+  }
 
-    public boolean simpleMethodOrAnd(String one, String two, String three) {
-        return isTrue(one) || isTrue(two) && isTrue(three);
-    }
+  @Test
+  public void test_and_with_or_operators() {
+    // given
+    var state = and_with_or(ONE, TWO, THREE);
 
-    public boolean fullMethodAndOr(String one, String two, String three) {
-        return isTrue(one) & isTrue(two) | isTrue(three);
-    }
+    // and
+    println("result:", state, "\n");
 
-    public boolean fullMethodOrAnd(String one, String two, String three) {
-        return isTrue(one) | isTrue(two) & isTrue(three);
-    }
+    // then
+    assertEquals(List.of(ONE, TWO), state);
+  }
 
-    boolean isTrue(String val) {
-        result.add(val);
-        return true;
-    }
+  @Test
+  public void test_full_and_with_or_operators() {
+    // given
+    var state = full_and_with_or(ONE, TWO, THREE);
 
-    @Test
-    public void runAllTests() {
-        testMethodAndOr();
-        testFullMethodAndOr();
-        testMethodOrAnd();
-        testFullMethodOrAnd();
-    }
+    // and
+    println("result:", state, "\n");
 
-    @Test
-    public void testMethodAndOr() {
-        LogicalOperatorPrecedence logic = new LogicalOperatorPrecedence();
-        logic.fullMethodAndOr("one", "two", "three");
-        assertEquals(Lists.newArrayList("one", "two", "three"), logic.getResult());
-    }
+    // then
+    assertEquals(List.of(ONE, TWO, THREE), state);
+  }
 
-    @Test
-    public void testFullMethodAndOr() {
-        LogicalOperatorPrecedence logic = new LogicalOperatorPrecedence();
-        logic.simpleMethodAndOr("one", "two", "three");
-        assertEquals(Lists.newArrayList("one", "two"), logic.getResult());
-    }
+  @Test
+  public void test_or_with_and_operators() {
+    // given
+    var state = or_with_and(ONE, TWO, THREE);
+    println("result:", state, "\n");
 
-    @Test
-    public void testMethodOrAnd() {
-        LogicalOperatorPrecedence logic = new LogicalOperatorPrecedence();
-        logic.simpleMethodOrAnd("one", "two", "three");
-        assertEquals(Lists.newArrayList("one"), logic.getResult());
-    }
+    // then
+    assertEquals(List.of(ONE), state);
+  }
 
-    @Test
-    public void testFullMethodOrAnd() {
-        LogicalOperatorPrecedence logic = new LogicalOperatorPrecedence();
-        logic.fullMethodOrAnd("one", "two", "three");
-        assertEquals(Lists.newArrayList("one", "two", "three"), logic.getResult());
-    }
+  @Test
+  public void test_full_or_with_and_operators() {
+    // given
+    var state = full_or_with_and(ONE, TWO, THREE);
+    println("result:", state, "\n");
+
+    // then
+    assertEquals(List.of(ONE, TWO, THREE), state);
+  }
+
+  private List<String> and_with_or(String one, String two, String three) {
+    var collector = new ArrayList<String>();
+
+    // expression
+    boolean result = isTrue(one, collector) && isTrue(two, collector) || isTrue(three, collector);
+
+    println("Expression:", "true && true || " + result);
+    return collector;
+  }
+
+  private List<String> or_with_and(String one, String two, String three) {
+    var collector = new ArrayList<String>();
+
+    // expression
+    boolean result = isTrue(one, collector) || isTrue(two, collector) && isTrue(three, collector);
+
+    println("Expression:", "true || true && " + result);
+    return collector;
+  }
+
+  private List<String> full_and_with_or(String one, String two, String three) {
+    var collector = new ArrayList<String>();
+
+    // expression
+    boolean result = isTrue(one, collector) & isTrue(two, collector) | isTrue(three, collector);
+
+    println("Expression:", "true & true | " + result);
+    return collector;
+  }
+
+  private List<String> full_or_with_and(String one, String two, String three) {
+    var collector = new ArrayList<String>();
+
+    // expression
+    boolean result = isTrue(one, collector) | isTrue(two, collector) & isTrue(three, collector);
+
+    println("Expression:", "true | true & " + result);
+    return collector;
+  }
+
+  private boolean isTrue(String val, List<String> collector) {
+    collector.add(val);
+    return true;
+  }
 }
