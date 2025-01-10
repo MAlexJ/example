@@ -21,7 +21,7 @@ public class ListIntersection {
     Objects.requireNonNull(initial, "Initial list cannot be null");
     Objects.requireNonNull(verification, "Verification list cannot be null");
     return initial.stream() //
-        .filter(el -> ListContains.containsOnlyOne(verification, el))
+        .filter(el -> ListContains.contains(verification, el))
         .toList();
   }
 

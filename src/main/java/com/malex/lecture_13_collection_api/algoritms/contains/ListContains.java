@@ -1,21 +1,42 @@
 package com.malex.lecture_13_collection_api.algoritms.contains;
 
 import java.util.List;
-import java.util.Objects;
 
 public class ListContains {
 
-  // contains only one element
-  public static <E> boolean containsOnlyOne(List<E> list, E element) {
-    Objects.requireNonNull(list, "List cannot be null");
-    Objects.requireNonNull(element, "The element cannot be null");
+  /*
+   * Contains only one element
+   */
+  public static <E> boolean contains(List<E> list, E element) {
     //  WTF: boolean contains = list.contains(element);
     return list.stream().anyMatch(e -> e.equals(element));
   }
 
-  // contains at least one
+  /*
+   * Contains only one
+   */
+  public static <E> boolean containsOnlyOne(List<E> list, List<E> subList) {
+    return true;
+  }
 
-  // contains all
+  /*
+   * Contains at least one
+   */
+  public static <E> boolean containsAtLeastOne(List<E> list, List<E> subList) {
+    return true;
+  }
 
-  // no match
+  /*
+   * Contains all
+   */
+  public static <E> boolean containsAll(List<E> list, List<E> subList) {
+    return true;
+  }
+
+  /*
+   * No match
+   */
+  public static <E> boolean noMatch(List<E> list, List<E> subList) {
+    return true;
+  }
 }

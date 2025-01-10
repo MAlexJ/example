@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.algoritms.issue;
+package com.malex.lecture_13_collection_api.algoritms.remove_element;
 
 import lombok.extern.java.Log;
 

@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.algoritms.BuildingBinarySearchTree;
+package com.malex.lecture_13_collection_api.algoritms.traversal_binary_search_tree;
 
 public class BinaryTree_Traversal {
 

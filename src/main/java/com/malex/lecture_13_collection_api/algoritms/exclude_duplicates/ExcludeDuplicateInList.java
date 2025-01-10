@@ -1,4 +1,4 @@
-package com.malex.lecture_13_collection_api.algoritms.finding_duplicates;
+package com.malex.lecture_13_collection_api.algoritms.exclude_duplicates;
 
 import static junit.framework.TestCase.assertEquals;
 
