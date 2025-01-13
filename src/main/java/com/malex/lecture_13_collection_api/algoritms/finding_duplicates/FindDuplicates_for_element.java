@@ -13,7 +13,7 @@ public class FindDuplicates_for_element {
   /*
    * Verify the presence of the specified element as a duplicate in the list
    */
-  private <E> boolean isDuplicateElementOnList(List<E> list, E element) {
+  public static <E> boolean isDuplicateElementOnList(List<E> list, E element) {
     E temp = null;
     for (E e : list) {
       if (e.equals(element) && temp != null) {
@@ -30,7 +30,7 @@ public class FindDuplicates_for_element {
   /*
    * Find the number of occurrences of an element in a list
    */
-  private <E> int occurrencesOfElementInList(List<E> list, E element) {
+  public static <E> int occurrencesOfElementInList(List<E> list, E element) {
     int occurrences = 0;
     for (E e : list) {
       if (e.equals(element)) {

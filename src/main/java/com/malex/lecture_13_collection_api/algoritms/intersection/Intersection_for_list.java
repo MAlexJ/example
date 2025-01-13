@@ -12,10 +12,14 @@ import org.junit.Test;
 
 public class Intersection_for_list {
 
-  public static <E> boolean hasIntersection(List<E> first, List<E> second) {
-    return first.stream() //
+  public static <E> boolean hasIntersection(List<E> list1, List<E> list2) {
+    // 1. Validate input parameters
+    if (list1.isEmpty() || list2.isEmpty()) return false;
+
+    // 2. Applies a conditional check to find any match between elements of two sets
+    return list1.stream() //
         // predicate: .anyMatch(el -> second.contains(el));
-        .anyMatch(second::contains);
+        .anyMatch(list2::contains);
   }
 
   public static <E> List<E> intersection(List<E> initial, List<E> verification) {

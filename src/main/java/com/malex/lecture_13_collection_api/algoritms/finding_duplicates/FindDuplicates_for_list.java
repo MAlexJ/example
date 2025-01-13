@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.Test;
 
@@ -21,53 +20,15 @@ import org.junit.Test;
  */
 public class FindDuplicates_for_list {
 
-  private final List<Integer> numbers = List.of(1, 1, 2, 1, 3, 4, 5, 5, 6, 7, 8, 8);
-
-  /*
-   * Expected numbers
-   */
-  private final List<Integer> expectedList = List.of(1, 5, 8);
-  private final Set<Integer> expectedSet = Set.of(1, 5, 8);
-
-  @Test
-  public void findDuplicateTest() {
-    // case #0 : simple
-    assertEquals(expectedSet, findDuplicate_simple(numbers));
-
-    // case #1 : Hashset and stream
-    assertEquals(expectedList, findDuplicates_stream_and_set(numbers));
-
-    // case #2 : Collections.frequency
-    assertEquals(expectedList, findDuplicatesLambda(numbers));
-
-    // case #3
-    assertEquals(expectedList, findDuplicatesLambda(numbers));
-
-    // case #4
-    assertEquals(expectedList, findDuplicatesMapCountOccurrences(numbers));
-  }
-
-  private <E> Set<E> findDuplicate_simple(List<E> input) {
-    // 1. set of unique elements
-    var tempSet = new HashSet<E>();
-    // 2. result set og duplicates
-    var duplicateSet = new HashSet<E>();
-    // 3. for each of the elements
-    for (E i : input) {
-      // note: the element that is not added to the set is a duplicate
-      boolean isDuplicate = !tempSet.add(i);
-      if (isDuplicate) {
-        duplicateSet.add(i);
-      }
-    }
-    return duplicateSet;
-  }
-
   /* Using HashSet and streams (Java 8+) */
-  private List<Integer> findDuplicates_stream_and_set(List<Integer> input) {
-    // Find duplicates using streams
-    Set<Integer> uniqueItems = new HashSet<>();
+  public <E> List<E> findDuplicates_stream_and_set(List<E> input) {
+    // 1. Validate input parameters
+    if (input.isEmpty()) return Collections.emptyList();
 
+    // 2. Create the temporary set to retain the unique elementsl
+    var uniqueElements = new HashSet<>();
+
+    // 3. Apply a filter that excludes unique elements and add all others to the list.
     return input.stream()
         .filter(
             item -> {
@@ -77,14 +38,18 @@ public class FindDuplicates_for_list {
                * Returns: true if this set did not already contain the specified element
                */
               // note: the element that is not added to the set is a duplicate
-              return !uniqueItems.add(item);
+              return !uniqueElements.add(item);
             })
         .distinct()
         .toList();
   }
 
   /* Using Collections.frequency(Collection c, Object e) method */
-  private List<Integer> findDuplicatesLambda(List<Integer> list) {
+  public static <E> List<E> findDuplicates_stream_and_collections_frequency(List<E> list) {
+    // 1. Validate input parameters
+    if (list.isEmpty()) return Collections.emptyList();
+
+    // 2. To apply the condition that uses the 'frequency' method of the 'Collections' class.
     return list.stream()
         .distinct()
         .filter(entry -> Collections.frequency(list, entry) > 1)
@@ -92,12 +57,49 @@ public class FindDuplicates_for_list {
   }
 
   /* Using Map to Count Occurrences */
-  private List<Integer> findDuplicatesMapCountOccurrences(List<Integer> input) {
-    Map<Integer, Long> counts =
-        input.stream().collect(Collectors.groupingBy(item -> item, Collectors.counting()));
-    return counts.entrySet().stream()
+  public static <E> List<E> findDuplicates_map_group_by_counting(List<E> list) {
+    // 1. Validate input parameters
+    if (list.isEmpty()) return Collections.emptyList();
+
+    // 2. Apply the map group by elements and their number of occurrences
+    Map<E, Long> mapOfElementsAndNumberOfOccurrences =
+        list.stream().collect(Collectors.groupingBy(item -> item, Collectors.counting()));
+
+    // 2.
+    return mapOfElementsAndNumberOfOccurrences.entrySet().stream()
         .filter(entry -> entry.getValue() > 1)
         .map(Map.Entry::getKey)
         .toList();
+  }
+
+  @Test
+  public void findDuplicates_stream_and_set_test() {
+    assertEquals(List.of(), findDuplicates_stream_and_set(List.of()));
+    assertEquals(List.of(), findDuplicates_stream_and_set(List.of(1, 2, 3)));
+    assertEquals(List.of(1), findDuplicates_stream_and_set(List.of(1, 2, 1)));
+    assertEquals(List.of(1, 2), findDuplicates_stream_and_set(List.of(1, 2, 1, 3, 2)));
+    assertEquals(List.of(1, 2, 3), findDuplicates_stream_and_set(List.of(1, 2, 1, 3, 2, 2, 3)));
+  }
+
+  @Test
+  public void findDuplicates_map_group_by_counting_test() {
+    assertEquals(List.of(), findDuplicates_map_group_by_counting(List.of()));
+    assertEquals(List.of(), findDuplicates_map_group_by_counting(List.of(1, 2, 3)));
+    assertEquals(List.of(1), findDuplicates_map_group_by_counting(List.of(1, 2, 1)));
+    assertEquals(List.of(1, 2), findDuplicates_map_group_by_counting(List.of(1, 2, 1, 3, 2)));
+    assertEquals(
+        List.of(1, 2, 3), findDuplicates_map_group_by_counting(List.of(1, 2, 1, 3, 2, 2, 3)));
+  }
+
+  @Test
+  public void findDuplicates_stream_and_collections_frequency_test() {
+    assertEquals(List.of(), findDuplicates_stream_and_collections_frequency(List.of()));
+    assertEquals(List.of(), findDuplicates_stream_and_collections_frequency(List.of(1, 2, 3)));
+    assertEquals(List.of(1), findDuplicates_stream_and_collections_frequency(List.of(1, 2, 1)));
+    assertEquals(
+        List.of(1, 2), findDuplicates_stream_and_collections_frequency(List.of(1, 2, 1, 3, 2)));
+    assertEquals(
+        List.of(1, 2, 3),
+        findDuplicates_stream_and_collections_frequency(List.of(1, 2, 1, 3, 2, 2, 3)));
   }
 }

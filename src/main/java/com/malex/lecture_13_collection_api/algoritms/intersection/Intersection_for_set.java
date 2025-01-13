@@ -3,10 +3,8 @@ package com.malex.lecture_13_collection_api.algoritms.intersection;
 import static junit.framework.TestCase.assertEquals;
 
 import com.malex.utils.AbstractUtils;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.Test;
@@ -14,11 +12,15 @@ import org.junit.Test;
 public class Intersection_for_set extends AbstractUtils {
 
   /*
+   * Applies a conditional check to retain only the common elements present in both sets
+   *
    * Predicate: .filter(el -> verificationSet.contains(el))
    */
   public static <E> Set<E> intersection(Set<E> initialSet, Set<E> verificationSet) {
+    // 1. Validate input parameters
     if (initialSet.isEmpty() || verificationSet.isEmpty()) return Collections.emptySet();
 
+    // 2. Applies a predicate to retain only the common elements present in both sets
     return initialSet.stream()
         // predicate: .filter(el -> verificationSet.contains(el))
         .filter(verificationSet::contains)
@@ -26,7 +28,7 @@ public class Intersection_for_set extends AbstractUtils {
   }
 
   /*
-   * boolean retainAll( Collection<?> c )
+   * Using of 'boolean retainAll( Collection<?> c )' method
    *
    * Retains only the elements in this set that are contained in the specified collection (optional operation).
    * In other words, removes from this set all of its elements that are not contained in the specified collection.
@@ -35,20 +37,17 @@ public class Intersection_for_set extends AbstractUtils {
    * is the intersection of the two sets.
    */
   public static <E> Set<E> intersection_retainAll(Set<E> initialSet, Set<E> verificationSet) {
+    // 1. Validates the input parameters for the method to ensure correctness
     if (initialSet.isEmpty() || verificationSet.isEmpty()) return Collections.emptySet();
 
+    // 2. Create a new temporary set that doesn't modify the existing collection
     Set<E> intersection = new HashSet<>(initialSet);
-    // that its value is the intersection of the two sets.
-    intersection.retainAll(verificationSet);
-    return intersection;
-  }
 
-  /*
-   * Overload: Additional functionality
-   */
-  public static <E> List<E> intersection(List<E> initial, List<E> verification) {
-    Set<E> intersection = intersection(new HashSet<E>(initial), new HashSet<E>(verification));
-    return new ArrayList<>(intersection);
+    // 3. calculate the intersection of two sets
+    intersection.retainAll(verificationSet);
+
+    // 4. return the set of elements that have intersections
+    return intersection;
   }
 
   @Test
