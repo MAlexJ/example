@@ -5,8 +5,9 @@ import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 import com.malex.utils.AbstractUtils;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.junit.Test;
 
@@ -55,29 +56,44 @@ public class RetainAll_method extends AbstractUtils {
     assertEquals(Set.of(2, 3), numbers);
   }
 
+  /*
+  * Result set always empty
+   */
   @Test
   public void retainAll_empty_set() {
-    // given
-    var numbers = new HashSet<>(initSet);
-    println("The initial set:", numbers);
+    var map = new HashMap<String, List<Set<Integer>>>();
 
-    // and
-    var emptySet = Collections.emptySet();
-    println("The intersection set:", emptySet);
+    // case 1
+    map.put("The initial set with empty set", List.of(initSet, Set.of()));
 
-    // when
-    boolean hasCollectionChanged = numbers.retainAll(emptySet);
-    println("Has the original collection been changed:", hasCollectionChanged);
-    println("After applying 'retainAll' method:", numbers);
+    // case 2
+    map.put("The empty set with empty set", List.of(Set.of(), Set.of()));
 
-    // then
-    assertTrue(hasCollectionChanged);
+    // case 3
+    map.put("The empty set with initial set", List.of(Set.of(), initSet));
 
-    // and
-    assertTrue(initCollectionSize > numbers.size());
+    map.forEach(
+        (k, v) -> {
+          println("Check the return type of 'retainAll' method for: ", k);
+          Set<Integer> numbers = new HashSet<>(v.getFirst());
+          println("The initial set:", numbers);
 
-    // and: empty
-    assertEquals(numbers.size(), 0);
+          Set<Integer> set = v.getLast();
+          println("The intersection set:", set);
+
+          boolean hasCollectionChanged = numbers.retainAll(set);
+          println("Has the original collection been changed:", hasCollectionChanged);
+          println("After applying 'retainAll' method:", numbers, "\n");
+
+          // then
+          if (!numbers.isEmpty()) assertTrue(hasCollectionChanged);
+
+          // and
+          assertTrue(initCollectionSize > numbers.size());
+
+          // and: empty
+          assertEquals(numbers.size(), 0);
+        });
   }
 
   @Test
@@ -156,10 +172,9 @@ public class RetainAll_method extends AbstractUtils {
     assertTrue(hasCollectionChanged);
 
     // and
-    assertTrue(initCollectionSize > numbers.size());
+    assertTrue(initCollectionSize > numbers.size() && numbers.size() == 0);
 
     // and: not empty
     assertTrue(numbers.isEmpty());
-    // the same: assertEquals(0, numbers.size());
   }
 }

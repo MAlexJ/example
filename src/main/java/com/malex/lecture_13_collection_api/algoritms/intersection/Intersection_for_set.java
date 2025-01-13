@@ -4,18 +4,21 @@ import static junit.framework.TestCase.assertEquals;
 
 import com.malex.utils.AbstractUtils;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.Test;
 
-public class SetIntersection extends AbstractUtils {
+public class Intersection_for_set extends AbstractUtils {
 
   /*
    * Predicate: .filter(el -> verificationSet.contains(el))
    */
   public static <E> Set<E> intersection(Set<E> initialSet, Set<E> verificationSet) {
+    if (initialSet.isEmpty() || verificationSet.isEmpty()) return Collections.emptySet();
+
     return initialSet.stream()
         // predicate: .filter(el -> verificationSet.contains(el))
         .filter(verificationSet::contains)
@@ -32,6 +35,8 @@ public class SetIntersection extends AbstractUtils {
    * is the intersection of the two sets.
    */
   public static <E> Set<E> intersection_retainAll(Set<E> initialSet, Set<E> verificationSet) {
+    if (initialSet.isEmpty() || verificationSet.isEmpty()) return Collections.emptySet();
+
     Set<E> intersection = new HashSet<>(initialSet);
     // that its value is the intersection of the two sets.
     intersection.retainAll(verificationSet);
@@ -51,6 +56,11 @@ public class SetIntersection extends AbstractUtils {
     assertEquals(Set.of(), intersection(Set.of(4, 2), Set.of(1, 3)));
     assertEquals(Set.of(1), intersection(Set.of(1, 2), Set.of(1, 3)));
     assertEquals(Set.of(2, 4), intersection(Set.of(2, 4), Set.of(1, 2, 4)));
+
+    // empty
+    assertEquals(Set.of(), intersection_retainAll(Set.of(), Set.of(1, 3)));
+    assertEquals(Set.of(), intersection_retainAll(Set.of(), Set.of()));
+    assertEquals(Set.of(), intersection_retainAll(Set.of(1, 3), Set.of()));
   }
 
   @Test
@@ -58,5 +68,10 @@ public class SetIntersection extends AbstractUtils {
     assertEquals(Set.of(), intersection_retainAll(Set.of(4, 2), Set.of(1, 3)));
     assertEquals(Set.of(1), intersection_retainAll(Set.of(1, 2), Set.of(1, 3)));
     assertEquals(Set.of(2, 4), intersection_retainAll(Set.of(2, 4), Set.of(1, 2, 4)));
+
+    // empty
+    assertEquals(Set.of(), intersection_retainAll(Set.of(), Set.of(1, 3)));
+    assertEquals(Set.of(), intersection_retainAll(Set.of(), Set.of()));
+    assertEquals(Set.of(), intersection_retainAll(Set.of(1, 3), Set.of()));
   }
 }

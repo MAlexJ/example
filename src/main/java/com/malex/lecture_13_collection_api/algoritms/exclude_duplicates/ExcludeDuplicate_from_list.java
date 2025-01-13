@@ -5,7 +5,7 @@ import static junit.framework.TestCase.assertEquals;
 import java.util.*;
 import org.junit.Test;
 
-public class ExcludeDuplicateInList {
+public class ExcludeDuplicate_from_list {
 
   /*
    * Actual list with duplicates

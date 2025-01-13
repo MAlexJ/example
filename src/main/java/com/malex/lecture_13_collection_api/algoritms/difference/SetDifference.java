@@ -2,7 +2,7 @@ package com.malex.lecture_13_collection_api.algoritms.difference;
 
 import static junit.framework.TestCase.assertEquals;
 
-import com.malex.lecture_13_collection_api.algoritms.intersection.SetIntersection;
+import com.malex.lecture_13_collection_api.algoritms.intersection.Intersection_for_set;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.Test;
@@ -30,7 +30,7 @@ public class SetDifference {
     union.addAll(set2);
 
     // 2. find intersection of sets
-    Set<E> intersection = SetIntersection.intersection(set1, set2);
+    Set<E> intersection = Intersection_for_set.intersection(set1, set2);
 
     // 3. remove intersection sets
     union.removeAll(intersection);
