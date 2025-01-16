@@ -1,4 +1,4 @@
-package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.collect.collectors_to_method;
+package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.collect.collectors.toList;
 
 import com.malex.utils.AbstractUtils;
 import java.util.List;
@@ -16,17 +16,21 @@ import org.junit.Test;
 public class Collectors_toList_method extends AbstractUtils {
 
   /*
-   * Note: there are no guarantees on the type, mutability, serializability, or thread-safety
+   * Returns a Collector that accumulates the input elements into a new List
+   * Note: there are no guarantees on the type, mutability or thread-safety
    */
   @Test
   public void toList() {
     List<String> stringList = Stream.of("1", "2", "3").collect(Collectors.toList());
+
+    stringList.add("A");
+
     println("class:", stringList.getClass().getName());
     println("list:", stringList);
   }
 
   /*
-   * The returned List is unmodifiable;
+   * The returned List is unmodifiable
    * calls to any mutator method will always cause UnsupportedOperationException to be thrown.
    */
   @Test

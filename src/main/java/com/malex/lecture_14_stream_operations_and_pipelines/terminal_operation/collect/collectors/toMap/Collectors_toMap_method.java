@@ -1,4 +1,4 @@
-package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.collect.collectors_to_method;
+package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.collect.collectors.toMap;
 
 import com.malex.utils.AbstractUtils;
 import java.util.Map;

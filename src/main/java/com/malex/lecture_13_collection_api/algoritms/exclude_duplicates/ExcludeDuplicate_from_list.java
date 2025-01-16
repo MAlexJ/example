@@ -21,28 +21,28 @@ public class ExcludeDuplicate_from_list {
   public void test() {
 
     // case #1: simple with hashset
-    assertEquals(expectedList, simpleWithHashSet(list));
+    assertEquals(expectedList, excludeDuplicate_simple_hashSet(list));
 
     // case #2:  stream distinct
-    assertEquals(expectedList, streamDistinct(list));
+    assertEquals(expectedList, excludeDuplicate_stream_distinct(list));
 
     // case #3: use two setts and add method
-    assertEquals(expectedList, twoSets(list));
+    assertEquals(expectedList, excludeDuplicate_two_sets(list));
 
     // case #4: Using stream filter and intermediate the hashse
-    assertEquals(expectedList, streamFilterWithIntermediateSet(list));
+    assertEquals(expectedList, excludeDuplicate_stream_filter_temp_set(list));
   }
 
-  private List<Integer> simpleWithHashSet(List<Integer> list) {
+  public static <E> List<E> excludeDuplicate_simple_hashSet(List<E> list) {
     // Set is a collection that contains no duplicate elements.
-    var uniqueSet = new HashSet<>(list);
+    var uniqueSet = new HashSet<E>(list);
     return new ArrayList<>(uniqueSet);
   }
 
   /*
    * Use stream: `distinct()` method
    */
-  private List<Integer> streamDistinct(List<Integer> list) {
+  public static <E> List<E> excludeDuplicate_stream_distinct(List<E> list) {
     return list.stream() //
         .distinct()
         .toList();
@@ -52,11 +52,11 @@ public class ExcludeDuplicate_from_list {
    * Set returns a boolean whether a value already exists (true if it does not exist, false if it
    * already exists, see Set documentation)
    */
-  private List<Integer> twoSets(List<Integer> list) {
-    final var uniqueSet = new HashSet<Integer>();
-    final var tempSet = new HashSet<Integer>();
+  public <E> List<E> excludeDuplicate_two_sets(List<E> list) {
+    final var uniqueSet = new HashSet<E>();
+    final var tempSet = new HashSet<E>();
 
-    for (Integer item : list) {
+    for (E item : list) {
       /*
        * When new element is added to the set, the method returns true if it doesn't exist, false if it already exists
        */
@@ -73,7 +73,7 @@ public class ExcludeDuplicate_from_list {
    * Set returns a boolean whether a value already exists (true if it does not
    * exist, false if it already exists, see Set documentation)
    */
-  private <T> List<T> streamFilterWithIntermediateSet(Collection<T> collection) {
+  public static <T> List<T> excludeDuplicate_stream_filter_temp_set(Collection<T> collection) {
     Set<T> uniques = new HashSet<>();
     return collection.stream() //
         .filter(uniques::add)

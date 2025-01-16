@@ -1,4 +1,4 @@
-package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.collect.collectors_to_method;
+package com.malex.lecture_14_stream_operations_and_pipelines.terminal_operation.collect.collectors.toCollection;
 
 import com.malex.utils.AbstractUtils;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.Test;
 
-public class Collectors_toCollection_method extends AbstractUtils {
+public class ToCollection_method extends AbstractUtils {
 
   @Test
   public void toCollection_LinkedList() {
