@@ -7,12 +7,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ConcurrentSkipListMap;
 
 public abstract class AbstractMapBaseUtils extends AbstractUtils {
 
   private final Random random = new Random();
 
   protected Map<String, Integer> getRandomMap() {
+
+      new ConcurrentHashMap<>();
+      new ConcurrentSkipListMap<>();
+
     int nextInt = random.nextInt(3);
     Map<String, Integer> map =
         switch (nextInt) {
