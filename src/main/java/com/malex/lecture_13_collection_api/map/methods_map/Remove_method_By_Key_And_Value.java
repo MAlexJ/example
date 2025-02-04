@@ -6,7 +6,7 @@ import static junit.framework.TestCase.assertTrue;
 import java.util.HashMap;
 import org.junit.Test;
 
-public class RemoveByKeyAndValue {
+public class Remove_method_By_Key_And_Value {
 
   @Test
   public void removeByKey() {

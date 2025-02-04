@@ -11,7 +11,7 @@ import org.junit.Test;
  * Returns the value to which this map previously associated the key, or null if the map contained
  * no mapping for the key.
  */
-public class RemoveByKey {
+public class Remove_method_by_key {
 
   @Test
   public void removeByKey() {
