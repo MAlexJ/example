@@ -1,16 +1,16 @@
 package com.malex.lecture_13_collection_api.map.methods_map;
 
+import static junit.framework.TestCase.assertNull;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
-
 import com.malex.lecture_13_collection_api.map.AbstractMapBaseUtils;
+import org.junit.Test;
 
 /*
  * If the value for the specified key is present and non-null,
  * attempts to compute a new mapping given the key and its current mapped value (optional operation).
  */
-public class ComputeIfPresent extends AbstractMapBaseUtils {
+public class ComputeIfPresent_method extends AbstractMapBaseUtils {
 
   @Test
   public void computeIfPresent() {
@@ -33,6 +33,33 @@ public class ComputeIfPresent extends AbstractMapBaseUtils {
 
     // then
     assertThat(map).hasFieldOrPropertyWithValue(key, newValue);
+  }
+
+  @Test
+  public void computeIfNotPresent() {
+    // given
+    var map = getRandomMap();
+    // and
+    var key = "A";
+    var value = 14;
+    // and
+    var newValue = 26;
+    map.put(key, value);
+
+    // when
+    Integer notExistKey =
+        map.computeIfPresent(
+            "NOT_EXIST_KEY",
+            (keyMap, valMap) -> {
+              println("key:", keyMap, ", value:", valMap);
+              return newValue;
+            });
+    assertNull(notExistKey);
+
+    assertThat(map).doesNotContainKey("NOT_EXIST_KEY");
+
+    // then
+    assertThat(map).hasFieldOrPropertyWithValue(key, value);
   }
 
   /*

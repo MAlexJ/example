@@ -6,7 +6,7 @@ import static junit.framework.TestCase.assertTrue;
 import java.util.HashMap;
 import org.junit.Test;
 
-public class ContainsValue {
+public class ContainsValue_value {
 
   @Test
   public void containsValue() {

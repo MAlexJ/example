@@ -11,7 +11,16 @@ import java.util.Map;
 import java.util.TreeMap;
 import org.junit.Test;
 
-public class Compute extends AbstractUtils {
+/*
+ * Purpose:
+ * - Computes a new value for the given key using the remappingFunction and updates it in the map.
+ *
+ * Key Features:
+ * - If the key is absent, null is passed as the current value to remappingFunction.
+ * - If remappingFunction returns null, the key is removed.
+ * - Allows flexible logic for updating or removing an entry.
+ */
+public class Compute_method extends AbstractUtils {
 
   /*
    * public V compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction )

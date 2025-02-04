@@ -7,7 +7,7 @@ import com.malex.utils.AbstractUtils;
 import java.util.HashMap;
 import org.junit.Test;
 
-public class ContainsKey extends AbstractUtils {
+public class ContainsKey_method extends AbstractUtils {
 
   @Test
   public void containsKey() {

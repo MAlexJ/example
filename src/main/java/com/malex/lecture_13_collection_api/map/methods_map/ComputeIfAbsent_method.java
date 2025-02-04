@@ -11,7 +11,7 @@ import org.junit.Test;
  * attempts to compute its value using the given mapping function and enters it into this map unless null
  * (optional operation).
  */
-public class ComputeIfAbsent extends AbstractUtils {
+public class ComputeIfAbsent_method extends AbstractUtils {
 
   @Test
   public void computeIfAbsent() {
@@ -21,7 +21,8 @@ public class ComputeIfAbsent extends AbstractUtils {
     var key = "A";
     var value = 14;
 
-    Integer computeIfAbsent =
+    // current (existing or computed) value associated with the specified key
+    Integer existingOrComputedValue =
         map.computeIfAbsent(
             key,
             keyMap -> {
@@ -29,7 +30,7 @@ public class ComputeIfAbsent extends AbstractUtils {
               return value;
             });
 
-    println("computeIfAbsent: " + computeIfAbsent);
+    println("computeIfAbsent: " + existingOrComputedValue);
 
     assertThat(map).hasFieldOrPropertyWithValue(key, value);
   }

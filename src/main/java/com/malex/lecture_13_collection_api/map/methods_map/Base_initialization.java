@@ -10,7 +10,7 @@ public class Base_initialization extends AbstractUtils {
   @Test
   public void simple() {
     // new HashMap
-    Map<String, Integer> hashMap = new HashMap<>();
+    Map<String, Integer> constructor = new HashMap<>();
 
     // Map.of(): this method was introduced in Java 9
     Map<Integer, String> unmodifiableMap = Map.of(1, "A", 2, "B");
