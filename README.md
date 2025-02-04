@@ -2,6 +2,14 @@
 
 the project updated to Java 23
 
+### Java code style
+
+Java code style refers to the conventions and guidelines that developers follow when writing Java code to ensure
+consistency and readability.
+
+project: google-java-format,
+link: https://github.com/google/google-java-format/blob/master/README.md#intellij-jre-config
+
 #### Maven
 
 Apache Maven is a software project management and comprehension tool. Based on the concept
