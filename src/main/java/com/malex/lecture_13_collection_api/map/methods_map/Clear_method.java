@@ -1,6 +1,7 @@
 package com.malex.lecture_13_collection_api.map.methods_map;
 
 import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.fail;
 
 import com.malex.utils.AbstractUtils;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ public class Clear_method extends AbstractUtils {
    */
   @Test
   public void clear() {
+    // given
     Map<Integer, String> map =
         new HashMap<>() {
           {
@@ -25,19 +27,24 @@ public class Clear_method extends AbstractUtils {
             put(2, "B");
           }
         };
-
     println("map", map);
 
+    // when
     map.clear();
 
+    // then
     assertTrue(map.isEmpty());
   }
 
   @Test(expected = UnsupportedOperationException.class)
   public void clean_unmodifiedMap() {
+    // given
     Map<Integer, String> map = Map.of(1, "A");
     println("map", map);
 
+    // then
     map.clear();
+
+    fail();
   }
 }

@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * Returns: the previous value associated with the specified key, or null if there was no mapping for the key.
  */
-public class ReplaceValueByKey extends AbstractUtils {
+public class Replace_method_value_by_key extends AbstractUtils {
 
   private static final Integer VALUE_11 = 11;
   private static final String KEY_AS_TEXT = "key_as_text";

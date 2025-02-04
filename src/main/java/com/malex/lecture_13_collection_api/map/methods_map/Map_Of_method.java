@@ -7,7 +7,7 @@ import org.junit.Test;
 /*
  * This method was introduced in Java 9
  */
-public class Of_method extends AbstractUtils {
+public class Map_Of_method extends AbstractUtils {
 
   /*
    * Returns an unmodifiable map containing zero mappings.

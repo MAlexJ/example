@@ -12,6 +12,7 @@ import org.junit.Test;
  * Params: key – the key whose associated value is to be returned defaultValue – the default mapping of the key
  *
  * Returns: the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key
+ *
  * Throws:
  * or NullPointerException – if the specified key is null and this map does not permit null keys (optional)
  */

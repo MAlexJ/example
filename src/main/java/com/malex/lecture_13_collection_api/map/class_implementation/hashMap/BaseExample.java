@@ -58,7 +58,7 @@ public class BaseExample extends AbstractMapBaseUtils {
     print("Check size: " + map.size());
 
     // map.put("null",12)
-    print("Put: map.put(null,12) -> " + map.put("null", null));
+    print("Put_method: map.put(null,12) -> " + map.put("null", null));
 
     // size()
     print("Print size: " + map.size());

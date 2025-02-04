@@ -4,7 +4,7 @@ import com.malex.utils.AbstractUtils;
 import java.util.Map;
 import org.junit.Test;
 
-public class OfEntries_method extends AbstractUtils {
+public class Map_OfEntries_method extends AbstractUtils {
 
   /*
    * Returns an unmodifiable map containing keys and values extracted from the given entries.
