@@ -1,7 +1,5 @@
 package com.malex.lecture_15_concurrency;
 
-import static junit.framework.TestCase.fail;
-
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -78,14 +76,16 @@ public class AbstractThreadUtils {
   protected static String getCurrentThreadName() {
     return Thread.currentThread().getName();
   }
+  protected String getThreadName() {
+    return Thread.currentThread().getName();
+  }
 
   protected static void sleepIgnoreException(long millis) {
     try {
       TimeUnit.MILLISECONDS.sleep(millis);
     } catch (InterruptedException e) {
-      String threadName = getCurrentThreadName();
-      print(threadName, " was interrupted!");
-      throw new RuntimeException(e);
+      printError(e.getMessage());
+      Thread.currentThread().interrupt();
     }
   }
 
@@ -106,11 +106,11 @@ public class AbstractThreadUtils {
     Arrays.stream(threads)
         .forEach(
             thread -> {
-              ;
               try {
                 thread.join();
               } catch (InterruptedException e) {
-                fail();
+                printError(e.getMessage());
+                Thread.currentThread().interrupt();
               }
             });
   }
@@ -119,7 +119,8 @@ public class AbstractThreadUtils {
     try {
       TimeUnit.MILLISECONDS.sleep(millis);
     } catch (InterruptedException e) {
-      e.fillInStackTrace();
+      printError(e.getMessage());
+      Thread.currentThread().interrupt();
     }
   }
 }

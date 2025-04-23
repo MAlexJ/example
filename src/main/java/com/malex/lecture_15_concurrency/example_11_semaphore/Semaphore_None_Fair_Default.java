@@ -1,14 +1,9 @@
 package com.malex.lecture_15_concurrency.example_11_semaphore;
 
 import com.malex.utils.AbstractUtils;
-import java.time.Duration;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 
 /*
@@ -18,6 +13,9 @@ import org.junit.Test;
  * Some threads may "jump ahead" if they get CPU time first.
  */
 public class Semaphore_None_Fair_Default extends AbstractUtils {
+
+  private static final int THREAD_COUNT = 10;
+  private final CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
 
   private final Semaphore semaphore;
   private final ConcurrentLinkedQueue<String> queue;
@@ -29,24 +27,23 @@ public class Semaphore_None_Fair_Default extends AbstractUtils {
 
   @Test
   public void noneFair() throws InterruptedException {
-    int threadCount = 10;
-    ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
-//    CountDownLatch_class latch = new CountDownLatch_class(threadCount);
 
-    for (int i = 0; i < threadCount; i++) {
+    for (int i = 0; i < THREAD_COUNT; i++) {
       int temp = i;
-      executorService.submit(() -> {
-        runJob(temp);
-//        latch.countDown(); // Signal completion
-      });
+      new Thread(
+              () -> {
+                runJob(temp);
+                // Decrements the count of the latch
+                latch.countDown();
+              })
+          .start();
     }
 
-    println("Queue:");
-    queue.forEach(el -> println("el:", el));
+    // Wait for all tasks to finish
+    latch.await();
 
-//    latch.await(); // Wait for all tasks to finish
-    executorService.shutdown();
-    executorService.awaitTermination(5, TimeUnit.SECONDS);
+    println("Queue:");
+    queue.forEach(el -> println("  el:", el));
   }
 
   public void runJob(int id) {
@@ -55,8 +52,13 @@ public class Semaphore_None_Fair_Default extends AbstractUtils {
           "Try to acquire semaphore: " + semaphore.availablePermits(),
           "Thread: ",
           Thread.currentThread().getName());
+
+      // Acquires a permit from this semaphore, blocking until one is available, or the thread is
+      // interrupted.
       semaphore.acquire();
-      println("id:", id);
+
+      sleepInMillis(200);
+      println("complete by id:", id);
       queue.add("[%s - %s]".formatted(id, Thread.currentThread().getName()));
     } catch (InterruptedException e) {
       printErrorStatic(e.toString());
