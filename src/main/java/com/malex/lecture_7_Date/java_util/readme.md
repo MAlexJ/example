@@ -84,10 +84,11 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 public class TimeZoneExample {
-public static void main(String[] args) {
-// Get default time zone
-TimeZone defaultZone = TimeZone.getDefault();
-System.out.println("Default TimeZone: " + defaultZone.getID());
+
+    public static void main(String[] args) {
+        // Get default time zone
+         TimeZone defaultZone = TimeZone.getDefault();
+         System.out.println("Default TimeZone: " + defaultZone.getID());
 
         // Set a specific time zone (e.g., UTC)
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
