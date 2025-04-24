@@ -5,6 +5,15 @@ import java.util.Calendar;
 import java.util.Date;
 import org.junit.Test;
 
+/*
+ * The Calendar API in Java (from the java.util package) is part of the legacy date and time system (prior to Java 8).
+ * It was introduced to handle date and time manipulation more flexibly than the older Date class.
+ *
+ * Pitfalls:
+ * MONTH is 0-based (January = 0), which often causes bugs.
+ * Calendar is mutable — changes affect the same instance.
+ * Thread-unsafe: don't share Calendar between threads unless synchronized.
+ */
 public class Calendar_class extends AbstractUtils {
 
   @Test
@@ -54,5 +63,38 @@ public class Calendar_class extends AbstractUtils {
     calendar.set(Calendar.SECOND, 59);
     calendar.set(Calendar.MILLISECOND, 999);
     return calendar.getTime();
+  }
+
+  /*
+   * Get specific fields
+   */
+  @Test
+  public void getSpecificFields() {
+    Calendar calendar = Calendar.getInstance();
+
+    int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH); // 0-based
+    int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+    println("Date: " + year + "-" + (month + 1) + "-" + day);
+
+    println(calendar.get(Calendar.AM_PM));
+  }
+
+  /*
+   * Calendar.AM_PM is a field constant in the Calendar class that represents whether the time is in the morning (AM)
+   * or afternoon/evening (PM) when using a 12-hour clock format.
+   */
+  @Test
+  public void amPmTest() {
+    Calendar calendar = Calendar.getInstance();
+    /*
+     * It can have one of two possible values:
+     * Calendar.AM = 0
+     * Calendar.PM = 1
+     * You typically use it when working with Calendar.HOUR (12-hour format), not with Calendar.HOUR_OF_DAY (24-hour format).
+     */
+    int amPm = calendar.get(Calendar.AM_PM);
+    println("am-pm: ", amPm);
   }
 }
