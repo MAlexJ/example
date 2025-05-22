@@ -7,22 +7,23 @@ import org.junit.Test;
 
 /*
  * SQL DATE
- * link: https://www.w3schools.com/sql/sql_dates.asp
+ *
+ * The supported range is '1000-01-01' to '9999-12-31'.
+ *
+ * MySQL displays DATE values in 'YYYY-MM-DD' format, but permits assignment of values to DATE columns
+ * using either strings or numbers.
+ *
+ * link: https://dev.mysql.com/doc/refman/8.4/en/date-and-time-type-syntax.html
  *
  * MySQL comes with the following data types for storing a date or a date/time value in the database:
+ *
+ * link: https://www.w3schools.com/sql/sql_dates.asp
  *
  * - DATE - format YYYY-MM-DD
  * - DATETIME - format: YYYY-MM-DD HH:MI:SS
  * - TIMESTAMP - format: YYYY-MM-DD HH:MI:SS
  * - YEAR - format YYYY or YY
- *
- * SQL Server comes with the following data types for storing a date or a date/time value in the database:
- *
- * - DATE - format YYYY-MM-DD
- * - DATETIME - format: YYYY-MM-DD HH:MI:SS
- * - SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS
- * - TIMESTAMP - format: a unique number
- */
+ *  */
 public class Date_class extends AbstractUtils {
 
   @Test

@@ -4,8 +4,12 @@ import com.malex.utils.AbstractUtils;
 import org.junit.Test;
 
 /*
- * SQL DATE
- * link: https://www.w3schools.com/sql/sql_dates.asp
+ * A time.
+ *
+ * The range is '-838:59:59.000000' to '838:59:59.000000'.
+ *
+ * MySQL displays TIME values in 'hh:mm:ss[.fraction]' format, but permits assignment of values to TIME columns
+ * using either strings or numbers.
  *
  * MySQL comes with the following data types for storing a date or a date/time value in the database:
  *
@@ -14,12 +18,6 @@ import org.junit.Test;
  * - TIMESTAMP - format: YYYY-MM-DD HH:MI:SS
  * - YEAR - format YYYY or YY
  *
- * SQL Server comes with the following data types for storing a date or a date/time value in the database:
- *
- * - DATE - format YYYY-MM-DD
- * - DATETIME - format: YYYY-MM-DD HH:MI:SS
- * - SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS
- * - TIMESTAMP - format: a unique number
  */
 public class Time_class extends AbstractUtils {
 

@@ -1,4 +1,4 @@
-package com.malex.lecture_15_concurrency.example_15_executor_service;
+package com.malex.lecture_15_concurrency.executor_service;
 
 import com.malex.utils.AbstractUtils;
 import java.util.concurrent.ExecutorService;
